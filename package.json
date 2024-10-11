@@ -1,18 +1,30 @@
 {
   "name": "idc",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
+    "preview": "npm-run-all --parallel sync wpstart tailwindwatch",
+    "sync": "browser-sync start -p 'boilerplate-2024.local' --files '**/*.php' 'build/*.js' 'build/*.css'",
+    "buildwp": "wp-scripts build",
+    "build": "npm-run-all --sequential buildwp tailwindbuild",
+    "wpstart": "wp-scripts start",
+    "start": "npm-run-all --parallel wpstart tailwindwatch",
+    "tailwindbuild": "tailwindcss -i ./src/index.css -o ./build/index.css --minify",
+    "tailwindwatch": "tailwindcss -i ./src/index.css -o ./build/index.css --watch --minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
-    "autoprefixer": "^10.4.20",
-    "daisyui": "^4.12.12",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.13"
+    "@tailwindcss/typography": "^0.5.13",
+    "@wordpress/scripts": "^27.9.0",
+    "browser-sync": "^3.0.2",
+    "npm-run-all": "^4.1.5",
+    "tailwindcss": "^3.4.3"
+  },
+  "dependencies": {
+    "daisyui": "^4.12.13"
   }
 }
