@@ -41,7 +41,7 @@ p {
 }
 
 .btn-primary {
-  @apply bg-secondary border-primary text-white;
+  @apply bg-secondary border-none text-white;
 }
 
 .btn-primary:hover {
@@ -71,4 +71,20 @@ p {
 .btn-secondary:disabled {
   background-color: #e0e0e0;
   color: white;
+}
+
+.idc-menu:hover {
+  background: none !important;
+}
+
+.idc-menu:active {
+  @apply !text-inherit !bg-inherit;
+}
+
+.idc-menu .active {
+  @apply !text-primary !underline;
+}
+
+.idc-menu-country:active {
+  @apply !text-white !bg-[#1FAECD];
 }
