@@ -2,8 +2,8 @@
 
 get_header(); ?>
 
-<header>
-  <div id="header"></div>
+<header id="header">
+
 </header>
 
 <div class="max-w-4xl mx-auto px-4">
@@ -15,8 +15,7 @@ get_header(); ?>
   
 </div>
 
-<div>
-  <div id="footer"></div>
-</div>
+<div id="footer"></div>
+
 
 <?php get_footer();
