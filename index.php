@@ -15,4 +15,8 @@ get_header(); ?>
   
 </div>
 
+<div>
+  <div id="footer"></div>
+</div>
+
 <?php get_footer();

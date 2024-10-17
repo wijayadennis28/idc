@@ -12,6 +12,15 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Nunito", "sans-serif"],
+        sora: ["Sora", "sans-serif"],
+      },
+      colors: {
+        neutral: {
+          100: "#FFFFFF",
+          400: "#989B9E",
+          500: "#4D4757",
+          700: "#3D3F40",
+        },
       },
     },
   },
