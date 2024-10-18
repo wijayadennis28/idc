@@ -1,14 +1,18 @@
-import Person from "./scripts/Person";
 import Header from "./scripts/header";
 import Footer from "./scripts/footer";
-import ExampleReactComponent from "./scripts/ExampleReactComponent";
+import Home from "./scripts/Home";
+import AboutUs from "./scripts/About-us";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const person1 = new Person("Brad");
 if (document.querySelector("#render-react")) {
   const root = ReactDOM.createRoot(document.querySelector("#render-react"));
-  root.render(<ExampleReactComponent />);
+  root.render(<Home />);
+}
+
+if (document.querySelector("#about-us")) {
+  const root = ReactDOM.createRoot(document.querySelector("#about-us"));
+  root.render(<AboutUs />);
 }
 
 if (document.querySelector("#header")) {
