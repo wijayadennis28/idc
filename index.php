@@ -1,12 +1,16 @@
 <?php
+/*
+Template Name: Home Template
+*/
+?>
+
+<?php
 
 get_header(); ?>
 
-<header id="header">
+<header id="header"></header>
 
-</header>
-
-<div class="max-w-4xl mx-auto px-4">
+<div>
 
   <!-- example react component -->
   <div id="render-react"></div>
