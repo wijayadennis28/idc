@@ -8,28 +8,27 @@ body {
 }
 
 h1 {
-  @apply font-bold;
-  font-size: 56px;
-}
-
-h2 {
   @apply text-5xl font-bold;
 }
 
-h3 {
+h2 {
   @apply text-4xl font-bold;
 }
 
-h4 {
+h3 {
   @apply text-3xl font-bold;
 }
 
-h5 {
+h4 {
   @apply text-2xl font-bold;
 }
 
-h6 {
+h5 {
   @apply text-xl font-bold;
+}
+
+h6 {
+  @apply text-lg font-bold;
 }
 
 p {
@@ -41,7 +40,7 @@ p {
 }
 
 .btn-primary {
-  @apply bg-secondary border-none text-white;
+  @apply border-none bg-secondary text-white;
 }
 
 .btn-primary:hover {
@@ -78,7 +77,7 @@ p {
 }
 
 .idc-menu:active {
-  @apply !text-inherit !bg-inherit;
+  @apply !bg-inherit !text-inherit;
 }
 
 .idc-menu .active {
@@ -86,5 +85,5 @@ p {
 }
 
 .idc-menu-country:active {
-  @apply !text-white !bg-[#1FAECD];
+  @apply !bg-[#1FAECD] !text-white;
 }
