@@ -3,6 +3,7 @@ import Footer from "./scripts/footer";
 import Home from "./scripts/Home";
 import AboutUs from "./scripts/About-us";
 import OurServices from "./scripts/OurServices";
+import ServiceDetails from "./scripts/ServiceDetails";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
@@ -18,7 +19,7 @@ if (document.querySelector("#about-us")) {
 
 if (document.querySelector("#our-services")) {
   const root = ReactDOM.createRoot(document.querySelector("#our-services"));
-  root.render(<OurServices />);
+  root.render(<ServiceDetails />);
 }
 
 if (document.querySelector("#header")) {
