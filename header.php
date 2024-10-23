@@ -9,7 +9,6 @@
     />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
     <?php wp_head(); ?>
-    
   </head>
   <body>
-    
+  <header id="header" class="relative" style="z-index: 100;"></header>
