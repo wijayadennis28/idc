@@ -50,14 +50,14 @@ const Header = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 py-6 px-8">
+    <div className="navbar bg-base-100 px-8 py-6">
       <div className="flex-1">
         <a>
           <img src={Logo} alt="Indo Dental Center Logo" className="w-36" />
         </a>
       </div>
       <div className="flex-none">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-1 text-base 2xl:text-lg">
           <li>
             <a className="idc-menu">Home</a>
           </li>
@@ -76,12 +76,12 @@ const Header = () => {
           <li className="pl-3">
             <details ref={detailsRef}>
               <summary
-                className="bg-secondary hover:bg-[#1FAECD] text-white idc-menu-country"
-                style={{ borderRadius: "360px", width: "127px" }}
+                className="idc-menu-country w-[139px] bg-secondary text-white hover:bg-[#1FAECD] 2xl:w-[150px]"
+                style={{ borderRadius: "360px" }}
               >
                 {showTextLanguage}
               </summary>
-              <ul className="bg-base-100 rounded-t-none p-2">
+              <ul className="rounded-t-none bg-base-100 p-2">
                 {languageList.map((item) => (
                   <li key={item.id}>
                     <a
