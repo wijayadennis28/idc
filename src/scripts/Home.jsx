@@ -4,28 +4,31 @@ import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 
 import MakeAppointment from "./components/MakeAppointment";
+import Departments from "./components/Departments";
 
 // image
-import hero1 from "../../assets/image/home/hero/hero-1.jpg";
-import hero2 from "../../assets/image/home/hero/hero-2.jpg";
-import hero3 from "../../assets/image/home/hero/hero-3.jpg";
+import Hero1Img from "../../assets/image/home/hero/hero-1.jpg";
+import Hero2Img from "../../assets/image/home/hero/hero-2.jpg";
+import Hero3Img from "../../assets/image/home/hero/hero-3.jpg";
 
-import whyChooseUs1 from "../../assets/image/home/why-choose-us/affordable-care.png";
-import whyChooseUs2 from "../../assets/image/home/why-choose-us/specialized-treatments.png";
-import whyChooseUs3 from "../../assets/image/home/why-choose-us/patient-centric-service.png";
-import whyChooseUsBg from "../../assets/image/home/why-choose-us/background.svg";
+import WhyChooseUs1Img from "../../assets/image/home/why-choose-us/affordable-care.png";
+import WhyChooseUs2Img from "../../assets/image/home/why-choose-us/specialized-treatments.png";
+import WhyChooseUs3Img from "../../assets/image/home/why-choose-us/patient-centric-service.png";
+import WhyChooseUsBgImg from "../../assets/image/home/why-choose-us/background.svg";
 
-import drgRicky from "../../assets/image/doctors/drg-ricky.png";
+import DrgRickyImg from "../../assets/image/doctors/drg-ricky.png";
 
-import connect1 from "../../assets/image/home/connect/connect-1.jpg";
-import connect2 from "../../assets/image/home/connect/connect-2.png";
-import connect3 from "../../assets/image/home/connect/connect-3.png";
-import connect4 from "../../assets/image/home/connect/connect-4.png";
-import connect5 from "../../assets/image/home/connect/connect-5.png";
-import connect6 from "../../assets/image/home/connect/connect-6.png";
-import connect7 from "../../assets/image/home/connect/connect-7.png";
-import connectLogo from "../../assets/image/home/connect/connect-logo.png";
-import connectArrow from "../../assets/image/home/connect/arrow.svg";
+import Connect1Img from "../../assets/image/home/connect/connect-1.jpg";
+import Connect2Img from "../../assets/image/home/connect/connect-2.png";
+import Connect3Img from "../../assets/image/home/connect/connect-3.png";
+import Connect4Img from "../../assets/image/home/connect/connect-4.png";
+import Connect5Img from "../../assets/image/home/connect/connect-5.png";
+import Connect6Img from "../../assets/image/home/connect/connect-6.png";
+import Connect7Img from "../../assets/image/home/connect/connect-7.png";
+import ConnectLogoImg from "../../assets/image/home/connect/connect-logo.png";
+import ConnectArrowImg from "../../assets/image/home/connect/arrow.svg";
+
+import OurClinicImg from "../../assets/image/home/services/background.jpg";
 
 // dummy
 import dummyWide from "../../assets/image/dummy/dummy-wide.png";
@@ -67,69 +70,69 @@ const Home = () => {
     {
       title: "Affordable Care",
       desc: "We offer competitive pricing to ensure that top-notch dental care is within everyone's reach. Quality service shouldn't break the bank.",
-      image: whyChooseUs1,
+      image: WhyChooseUs1Img,
     },
     {
       title: "Specialized Treatments",
       desc: "Our team of specialists is trained in various dental fields to provide you with comprehensive care. Whatever your dental needs, we have the expertise to handle them",
-      image: whyChooseUs2,
+      image: WhyChooseUs2Img,
     },
     {
       title: "Patient-Centric Service",
       desc: "Your comfort and satisfaction are our top priorities. We tailor our services to meet your unique needs, ensuring a personalized and stress-free experience.",
-      image: whyChooseUs3,
+      image: WhyChooseUs3Img,
     },
   ];
 
   const doctorList = [
     {
       name: "Dr. John Doe",
-      image: drgRicky,
+      image: DrgRickyImg,
     },
     {
       name: "Dr. John Doe",
-      image: drgRicky,
+      image: DrgRickyImg,
     },
     {
       name: "Dr. John Doe",
-      image: drgRicky,
+      image: DrgRickyImg,
     },
     {
       name: "Dr. John Doe",
-      image: drgRicky,
+      image: DrgRickyImg,
     },
     {
       name: "Dr. John Doe",
-      image: drgRicky,
+      image: DrgRickyImg,
     },
     {
       name: "Dr. John Doe",
-      image: drgRicky,
+      image: DrgRickyImg,
     },
   ];
 
   const client = [
     {
       name: "Sarah M.",
-      image: drgRicky,
+      image: DrgRickyImg,
       review:
         "A Life-Changing Experience. I was always self-conscious about my smile. The team at One Stop Family Dental Center not only provided top-notch care but also made me feel comfortable and valued. Now, I can't stop smiling!",
     },
     {
       name: "Sarah M.",
-      image: drgRicky,
+      image: DrgRickyImg,
       review:
         "A Life-Changing Experience. I was always self-conscious about my smile. The team at One Stop Family Dental Center not only provided top-notch care but also made me feel comfortable and valued. Now, I can't stop smiling!",
     },
     {
       name: "Sarah M.",
-      image: drgRicky,
+      image: DrgRickyImg,
       review:
         "A Life-Changing Experience. I was always self-conscious about my smile. The team at One Stop Family Dental Center not only provided top-notch care but also made me feel comfortable and valued. Now, I can't stop smiling!",
     },
     {
       name: "Sarah M.",
-      image: drgRicky,
+      image: DrgRickyImg,
       review:
         "A Life-Changing Experience. I was always self-conscious about my smile. The team at One Stop Family Dental Center not only provided top-notch care but also made me feel comfortable and valued. Now, I can't stop smiling!",
     },
@@ -175,7 +178,7 @@ const Home = () => {
     <>
       <div>
         <div
-          className="relative h-screen w-full overflow-hidden 2xl:h-[95vh]"
+          className="relative h-[85vh] w-full overflow-hidden 2xl:h-[90vh]"
           id="hero"
         >
           <div className="absolute inset-x-0 bottom-0 z-20 mx-16 mb-8 flex flex-col gap-6 text-white">
@@ -234,7 +237,7 @@ const Home = () => {
               }}
             >
               <div className="splide__arrows" style={{ display: "none" }} />
-              {[hero1, hero2, hero3].map((value, index) => (
+              {[Hero1Img, Hero2Img, Hero3Img].map((value, index) => (
                 <SplideSlide key={index}>
                   <img
                     src={value}
@@ -255,7 +258,7 @@ const Home = () => {
               </form>
               <div className="flex flex-col items-center">
                 <h1 className="font-normal text-primary">
-                  Our <span className="font-bold">location</span>
+                  Our <span className="font-bold italic">location</span>
                 </h1>
               </div>
             </div>
@@ -266,7 +269,7 @@ const Home = () => {
         </div>
         <div
           className="bg-auto bg-left bg-no-repeat"
-          style={{ backgroundImage: `url(${whyChooseUsBg})` }}
+          style={{ backgroundImage: `url(${WhyChooseUsBgImg})` }}
         >
           <div id="our-partner" className="flex flex-col gap-8 py-16">
             <h1 className="text-center font-normal text-primary">
@@ -319,6 +322,22 @@ const Home = () => {
             </div>
           </div>
         </div>
+        <div id="service" className="mb-12 flex flex-col items-center">
+          <div
+            className="flex h-72 w-full items-center justify-center bg-center"
+            style={{
+              backgroundImage: `url(${OurClinicImg})`,
+            }}
+          >
+            <h1 className="font-normal text-white">
+              We provide the{" "}
+              <span className="font-bold italic">best service</span>
+            </h1>
+          </div>
+          <div className="relative -top-24">
+            <Departments />
+          </div>
+        </div>
         <div
           className="flex max-h-[610px] gap-32 overflow-hidden bg-[color:#E0EFF3]"
           id="meet-our-dentist"
@@ -326,7 +345,8 @@ const Home = () => {
           <div className="w-4/6 ps-16">
             <div className="flex h-full flex-col justify-center gap-6">
               <h1 className="font-medium text-primary">
-                Meet with our <span className="font-bold">expert dentist,</span>
+                Meet with our{" "}
+                <span className="font-bold italic">expert dentist,</span>
                 <br />
                 Just for you
               </h1>
@@ -360,7 +380,7 @@ const Home = () => {
             </div>
           </div>
           <div>
-            <img src={drgRicky} alt="doctor" className="w-full" />
+            <img src={DrgRickyImg} alt="doctor" className="w-full" />
           </div>
         </div>
         <div
@@ -370,7 +390,7 @@ const Home = () => {
           <div className="max-w-[2400px]">
             <div className="mb-16 flex flex-col items-center gap-4 text-center">
               <h1 className="font-normal text-primary">
-                A lot of <span className="font-bold">happy clients</span>
+                A lot of <span className="font-bold italic">happy clients</span>
               </h1>
               <p className="max-w-[850px]">
                 At Indo Dental Center, our greatest pride comes from the smiles
@@ -420,7 +440,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <MakeAppointment></MakeAppointment>
+        <MakeAppointment />
         <div className="flex w-full justify-center py-16" id="connect-with-us">
           <div className="flex max-w-[2400px] flex-col items-center gap-10">
             <h1 className="text-center font-normal text-primary">
@@ -429,31 +449,31 @@ const Home = () => {
             <div className="flex w-full justify-center gap-4 pb-8">
               <div className="flex flex-1 gap-4">
                 <div className="relative flex flex-1 flex-col justify-center pb-20">
-                  <img src={connect2} alt="connect-2" className="w-fit" />
+                  <img src={Connect2Img} alt="connect-2" className="w-fit" />
                   <div className="absolute -top-4 right-8">
                     <p className="absolute -top-6 left-28 w-64 text-primary">
                       A collaborative team of professional dental specialists
                     </p>
                     <img
-                      src={connectArrow}
+                      src={ConnectArrowImg}
                       alt="arrow"
                       className="size-28 rotate-[160deg]"
                     />
                   </div>
                 </div>
                 <div className="mt-8 flex flex-1 flex-col items-center gap-8">
-                  <img src={connect3} alt="connect-3" className="w-8/12" />
-                  <img src={connect4} alt="connect-4" className="w-11/12" />
+                  <img src={Connect3Img} alt="connect-3" className="w-8/12" />
+                  <img src={Connect4Img} alt="connect-4" className="w-11/12" />
                 </div>
               </div>
               <div className="relative flex justify-center">
                 <img
-                  src={connect1}
+                  src={Connect1Img}
                   alt="connect-1"
                   className="h-[85vh] max-h-[950px] w-full rounded-3xl object-cover"
                 />
                 <img
-                  src={connectLogo}
+                  src={ConnectLogoImg}
                   alt="logo"
                   className="absolute bottom-[-3.5rem] size-32"
                 />
@@ -462,7 +482,7 @@ const Home = () => {
                     Family dental center, all in one roof
                   </p>
                   <img
-                    src={connectArrow}
+                    src={ConnectArrowImg}
                     alt="arrow"
                     className="size-24 2xl:size-28"
                   />
@@ -471,30 +491,34 @@ const Home = () => {
               <div className="flex flex-1 gap-4">
                 <div className="mt-8 flex flex-1 flex-col items-center gap-8">
                   <div className="relative">
-                    <img src={connect5} alt="connect-5" className="w-11/12" />
+                    <img
+                      src={Connect5Img}
+                      alt="connect-5"
+                      className="w-11/12"
+                    />
                     <div className="absolute -right-14 -top-4">
                       <p className="absolute -left-28 -top-10 w-72 text-primary">
                         ⁠Best natural results, catered to you
                       </p>
                       <img
-                        src={connectArrow}
+                        src={ConnectArrowImg}
                         alt="arrow"
                         className="size-24 rotate-[260deg] scale-x-[-1] 2xl:size-32"
                       />
                     </div>
                   </div>
-                  <img src={connect6} alt="connect-6" className="w-10/12" />
+                  <img src={Connect6Img} alt="connect-6" className="w-10/12" />
                 </div>
                 <div className="flex h-full flex-1 flex-col items-center justify-center pt-24">
                   <div>
-                    <img src={connect7} alt="connect-7" className="w-fit" />
+                    <img src={Connect7Img} alt="connect-7" className="w-fit" />
                     <div className="relative">
                       <div className="absolute -bottom-4 -left-8 2xl:-bottom-8 2xl:-left-14">
                         <p className="absolute -bottom-2 right-20 w-48 text-primary 2xl:right-36">
                           modern technology to achieve the best results
                         </p>
                         <img
-                          src={connectArrow}
+                          src={ConnectArrowImg}
                           alt="arrow"
                           className="size-24 2xl:size-32"
                         />
