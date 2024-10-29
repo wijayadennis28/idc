@@ -4,12 +4,18 @@ import Home from "./scripts/pages/Home";
 import AboutUs from "./scripts/About-us";
 import OurServices from "./scripts/OurServices";
 import ServiceDetails from "./scripts/ServiceDetails";
+import Article from "./scripts/pages/Article";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
 if (document.querySelector("#render-react")) {
   const root = ReactDOM.createRoot(document.querySelector("#render-react"));
   root.render(<Home />);
+}
+
+if (document.querySelector("#article")) {
+  const root = ReactDOM.createRoot(document.querySelector("#article"));
+  root.render(<Article />);
 }
 
 if (document.querySelector("#about-us")) {
