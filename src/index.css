@@ -7,6 +7,12 @@ body {
   @apply font-sans;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 @layer base {
   h1 {
     @apply text-4xl font-bold 2xl:text-5xl;
@@ -112,4 +118,30 @@ body {
 
 .clients-splide .splide__pagination .is-active {
   @apply bg-secondary;
+}
+
+.splide-hide-pagination .splide__pagination {
+  @apply hidden;
+}
+
+.splide-hide-arrow .splide__arrows {
+  @apply hidden;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.custom-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%; /* Set your preferred width */
+  display: block; /* Ensure it's block or inline-block */
 }
