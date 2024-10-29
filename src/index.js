@@ -1,6 +1,6 @@
 import Header from "./scripts/header";
 import Footer from "./scripts/footer";
-import Home from "./scripts/Home";
+import Home from "./scripts/pages/Home";
 import AboutUs from "./scripts/About-us";
 import OurServices from "./scripts/OurServices";
 import ServiceDetails from "./scripts/ServiceDetails";

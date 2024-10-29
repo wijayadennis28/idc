@@ -3,37 +3,37 @@ import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 
-import MakeAppointment from "./components/MakeAppointment";
-import Departments from "./components/Departments";
+import MakeAppointment from "../components/MakeAppointment";
+import Departments from "../components/Departments";
 
 // image
-import Hero1Img from "../../assets/image/home/hero/hero-1.jpg";
-import Hero2Img from "../../assets/image/home/hero/hero-2.jpg";
-import Hero3Img from "../../assets/image/home/hero/hero-3.jpg";
+import Hero1Img from "../../../assets/image/home/hero/hero-1.jpg";
+import Hero2Img from "../../../assets/image/home/hero/hero-2.jpg";
+import Hero3Img from "../../../assets/image/home/hero/hero-3.jpg";
 
-import WhyChooseUs1Img from "../../assets/image/home/why-choose-us/affordable-care.png";
-import WhyChooseUs2Img from "../../assets/image/home/why-choose-us/specialized-treatments.png";
-import WhyChooseUs3Img from "../../assets/image/home/why-choose-us/patient-centric-service.png";
-import WhyChooseUsBgImg from "../../assets/image/home/why-choose-us/background.svg";
+import WhyChooseUs1Img from "../../../assets/image/home/why-choose-us/affordable-care.png";
+import WhyChooseUs2Img from "../../../assets/image/home/why-choose-us/specialized-treatments.png";
+import WhyChooseUs3Img from "../../../assets/image/home/why-choose-us/patient-centric-service.png";
+import WhyChooseUsBgImg from "../../../assets/image/home/why-choose-us/background.svg";
 
-import DrgRickyImg from "../../assets/image/doctors/drg-ricky.png";
+import DrgRickyImg from "../../../assets/image/doctors/drg-ricky.png";
 
-import Connect1Img from "../../assets/image/home/connect/connect-1.jpg";
-import Connect2Img from "../../assets/image/home/connect/connect-2.png";
-import Connect3Img from "../../assets/image/home/connect/connect-3.png";
-import Connect4Img from "../../assets/image/home/connect/connect-4.png";
-import Connect5Img from "../../assets/image/home/connect/connect-5.png";
-import Connect6Img from "../../assets/image/home/connect/connect-6.png";
-import Connect7Img from "../../assets/image/home/connect/connect-7.png";
-import ConnectLogoImg from "../../assets/image/home/connect/connect-logo.png";
-import ConnectArrowImg from "../../assets/image/home/connect/arrow.svg";
+import Connect1Img from "../../../assets/image/home/connect/connect-1.jpg";
+import Connect2Img from "../../../assets/image/home/connect/connect-2.png";
+import Connect3Img from "../../../assets/image/home/connect/connect-3.png";
+import Connect4Img from "../../../assets/image/home/connect/connect-4.png";
+import Connect5Img from "../../../assets/image/home/connect/connect-5.png";
+import Connect6Img from "../../../assets/image/home/connect/connect-6.png";
+import Connect7Img from "../../../assets/image/home/connect/connect-7.png";
+import ConnectLogoImg from "../../../assets/image/home/connect/connect-logo.png";
+import ConnectArrowImg from "../../../assets/image/home/connect/arrow.svg";
 
-import OurClinicImg from "../../assets/image/home/services/background.jpg";
+import OurClinicImg from "../../../assets/image/home/services/background.jpg";
 
 // dummy
-import dummyWide from "../../assets/image/dummy/dummy-wide.png";
-import dummyTall from "../../assets/image/dummy/dummy-tall.png";
-import dummy1x1 from "../../assets/image/dummy/dummy-1x1.png";
+import dummyWide from "../../../assets/image/dummy/dummy-wide.png";
+import dummyTall from "../../../assets/image/dummy/dummy-tall.png";
+import dummy1x1 from "../../../assets/image/dummy/dummy-1x1.png";
 
 const Home = () => {
   const paginationRef = useRef(null);
