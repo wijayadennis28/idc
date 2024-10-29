@@ -5,6 +5,7 @@ import AboutUs from "./scripts/About-us";
 import OurServices from "./scripts/OurServices";
 import ServiceDetails from "./scripts/ServiceDetails";
 import Article from "./scripts/pages/Article";
+import ArticleDetails from "./scripts/pages/ArticleDetail";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
@@ -16,6 +17,11 @@ if (document.querySelector("#render-react")) {
 if (document.querySelector("#article")) {
   const root = ReactDOM.createRoot(document.querySelector("#article"));
   root.render(<Article />);
+}
+
+if (document.querySelector("#article-details")) {
+  const root = ReactDOM.createRoot(document.querySelector("#article-details"));
+  root.render(<ArticleDetails />);
 }
 
 if (document.querySelector("#about-us")) {
