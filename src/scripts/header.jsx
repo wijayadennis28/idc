@@ -214,7 +214,7 @@ const Header = () => {
       </div>
       <div
         className={`fixed inset-x-0 bottom-0 top-[100px] z-40 bg-black transition-all duration-700 ease-in-out ${
-          showMenu ? "bg-opacity-50" : "bg-opacity-0"
+          showMenu ? "flex bg-opacity-50" : "hidden bg-opacity-0"
         }`}
         onClick={() => setShowMenu(false)} // Close menu on overlay click
       />
