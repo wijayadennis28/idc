@@ -5,6 +5,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 
 import MakeAppointment from "../components/MakeAppointment";
 import Departments from "../components/Departments";
+import PartnersList from "../components/PartnersList";
 
 // image
 import Hero1Img from "../../../assets/image/home/hero/hero-1.jpg";
@@ -37,7 +38,6 @@ import dummy1x1 from "../../../assets/image/dummy/dummy-1x1.png";
 
 const Home = () => {
   const paginationRef = useRef(null);
-  const [ourPartner, setOurPartner] = useState([]);
 
   const ourPartnerList = [
     {
@@ -139,14 +139,6 @@ const Home = () => {
   ];
 
   useEffect(() => {
-    const partnerTemp = [];
-    for (let i = 0; i < ourPartnerList.length; i += 5) {
-      partnerTemp.push(ourPartnerList.slice(i, i + 5));
-    }
-    setOurPartner(partnerTemp);
-  }, []);
-
-  useEffect(() => {
     const movePagination = () => {
       const pagination = document.querySelector(
         "#splide01 .splide__pagination",
@@ -164,15 +156,6 @@ const Home = () => {
     const dialog = document.getElementById("map-modal");
     dialog.showModal();
   };
-
-  useEffect(() => {
-    const partnerTemp = [];
-    // split the list into 5
-    for (let i = 0; i < ourPartnerList.length; i += 5) {
-      partnerTemp.push(ourPartnerList.slice(i, i + 5));
-    }
-    setOurPartner(partnerTemp);
-  }, []);
 
   return (
     <>
@@ -271,29 +254,14 @@ const Home = () => {
           className="bg-auto bg-left bg-no-repeat"
           style={{ backgroundImage: `url(${WhyChooseUsBgImg})` }}
         >
-          <div id="our-partner" className="flex flex-col gap-8 py-16">
+          <div
+            id="our-partner"
+            className="flex flex-col items-center gap-8 py-16"
+          >
             <h1 className="text-center font-normal text-primary">
               <span className="font-bold italic">Our</span> partners
             </h1>
-            {ourPartner.map((partnerList, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-center gap-8"
-              >
-                {partnerList.map((partner, index) => (
-                  <div
-                    key={index}
-                    className="flex h-24 w-48 items-center justify-center rounded-lg border border-solid border-neutral-400 bg-white"
-                  >
-                    <img
-                      src={partner.logo}
-                      alt={partner.name}
-                      className="max-h-20 max-w-28"
-                    />
-                  </div>
-                ))}
-              </div>
-            ))}
+            <PartnersList list={ourPartnerList} />
           </div>
           <div
             id="why-choose-us"
