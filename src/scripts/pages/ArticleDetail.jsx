@@ -6,7 +6,6 @@ import ArticleList from "../components/ArticleList";
 import Appointment from "../components/MakeAppointment";
 
 import Facebook from "../../../assets/image/footer/facebook.svg";
-import Instagram from "../../../assets/image/footer/instagram.svg";
 import Twitter from "../../../assets/image/footer/twitter.svg";
 
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
