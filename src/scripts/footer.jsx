@@ -50,15 +50,26 @@ const Footer = () => {
   return (
     <aside className="flex w-full flex-col">
       <div className="divider divider-primary mb-12"></div>
-      <div className="w-full px-8">
-        <img src={Logo} alt="logo" className="mb-20 h-16 w-36" />
-        <div className="flex">
-          <div className="flex flex-1 flex-col">
-            <div className="flex flex-1 gap-16">
+      <div className="w-full px-4 lg:px-8">
+        <a onClick={() => navigate("/")} className="cursor-pointer">
+          <img src={Logo} alt="logo" className="mb-12 w-28 lg:mb-20 lg:w-36" />
+        </a>
+
+        <div className="flex flex-col gap-4 lg:flex-row lg:gap-0">
+          <div className="flex flex-1 flex-col gap-4 pb-4 lg:gap-0 lg:pb-0">
+            <div className="flex flex-1 flex-col gap-8 lg:flex-row lg:gap-16">
               {addressList.map((address, index) => (
-                <div key={index} className="flex flex-col gap-4 text-lg">
-                  <h6>{address.branch}</h6>
-                  <p dangerouslySetInnerHTML={{ __html: address.address }} />
+                <div
+                  key={index}
+                  className="flex flex-col gap-0 text-lg lg:gap-4"
+                >
+                  <h6 className="text-xl font-bold lg:text-base 2xl:text-lg">
+                    {address.branch}
+                  </h6>
+                  <p
+                    dangerouslySetInnerHTML={{ __html: address.address }}
+                    className="pb-4 lg:pb-0"
+                  />
                   <p>{address.phone}</p>
                 </div>
               ))}
@@ -66,15 +77,17 @@ const Footer = () => {
             <p>hello@indodentalcenter.com</p>
           </div>
           <div className="flex w-80 flex-col gap-3 text-lg">
-            <h6 className="text-neutral-400">Company</h6>
+            <h6 className="text-xl font-bold text-neutral-400 lg:text-base 2xl:text-lg">
+              Indo Dental Care
+            </h6>
             {link.map((link, index) => (
-              <a href={link.url} key={index}>
+              <a href={link.url} key={index} className="cursor-pointer">
                 {link.name}
               </a>
             ))}
           </div>
         </div>
-        <div className="flex gap-4 py-4">
+        <div className="flex justify-center gap-4 py-4 lg:justify-start">
           {socialMedia.map((social, index) => (
             <a href={social.url} target="_blank">
               <button
