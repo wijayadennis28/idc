@@ -7,6 +7,8 @@ import Twitter from "../../assets/image/footer/twitter.svg";
 import Tiktok from "../../assets/image/footer/tiktok.svg";
 
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   const addressList = [
     {
       branch: "Senayan Branch",
@@ -106,7 +108,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="w-full p-4 text-center text-neutral-400">
-        Copyright (C) 2024 DigitalNest - Indo Dental Center. All rights
+        Copyright (C) {year} DigitalNest - Indo Dental Center. All rights
         reserved.
       </p>
     </aside>
