@@ -1,6 +1,7 @@
 import React from "react";
 import OurClinicImg from "../../assets/image/our-services/our-clinic.jpg";
 import Departments from "./components/Departments";
+import MakeAppointment from './components/MakeAppointment';
 
 const OurServices = () => {
   return (
@@ -16,6 +17,7 @@ const OurServices = () => {
         </div>
       </div>
       <Departments/>
+      <MakeAppointment/>
     </div>
   )
 };

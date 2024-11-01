@@ -39,12 +39,12 @@ const DoctorsGrid = () => {
   return (
     <div className="flex flex-wrap gap-3 justify-evenly">
       {doctorsDummyData.map((doctor) => (
-        <div className="card card-compact w-80">
-          <figure>
+        <div className="card card-compact w-80 group">
+          <figure className="rounded-2xl group-hover:bg-secondary group-hover:bg-opacity-15">
             <img
               src={doctor.photo}
               alt="Doctor"
-              className="rounded-2xl h-[450px] object-cover" />
+              className="h-[450px] object-cover -z-10" />
           </figure>
           <div className="card-body items-center text-center">
             <h4 className="card-title text-[#4D4757]">{doctor.name}</h4>

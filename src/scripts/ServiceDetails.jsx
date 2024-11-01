@@ -1,6 +1,7 @@
 import React from "react";
 import BannerBg from "../../assets/image/our-services/department-banner/general-dentist.png";
 import DoctorsGrid from "./components/DoctorsGrid";
+import MakeAppointment from "./components/MakeAppointment";
 
 const ServiceDetails = () => {
 
@@ -58,6 +59,7 @@ const ServiceDetails = () => {
         </div>
       </div>
       <DoctorsGrid />
+      <MakeAppointment />
     </div>
   )
 };
