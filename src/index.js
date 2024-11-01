@@ -31,6 +31,11 @@ if (document.querySelector("#about-us")) {
 
 if (document.querySelector("#our-services")) {
   const root = ReactDOM.createRoot(document.querySelector("#our-services"));
+  root.render(<OurServices />);
+}
+
+if (document.querySelector("#service-details")) {
+  const root = ReactDOM.createRoot(document.querySelector("#service-details"));
   root.render(<ServiceDetails />);
 }
 
