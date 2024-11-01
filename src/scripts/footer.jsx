@@ -64,6 +64,15 @@ const Footer = () => {
     },
   ];
 
+  const handleClick = (path, event) => {
+    console.log(window.location.pathname, path);
+    if (
+      window.location.pathname.replace(/\/+$/, "") === path.replace(/\/+$/, "")
+    ) {
+      event.preventDefault();
+    }
+  };
+
   return (
     <aside className="flex w-full flex-col">
       <div className="divider divider-primary mb-12"></div>
