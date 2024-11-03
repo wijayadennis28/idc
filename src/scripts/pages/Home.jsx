@@ -307,48 +307,54 @@ const Home = () => {
           </div>
         </div>
         <div
-          className="flex max-h-[610px] gap-32 overflow-hidden bg-[color:#E0EFF3]"
+          className="flex justify-center bg-[color:#E0EFF3]"
           id="meet-our-dentist"
         >
-          <div className="w-4/6 ps-16">
-            <div className="flex h-full flex-col justify-center gap-6">
+          <div className="flex max-w-[1885px] gap-32 overflow-hidden">
+            <div className="max-lg:px-8 max-lg:py-20 lg:w-4/6 lg:ps-16">
+              <div className="flex h-full flex-col justify-center gap-2 lg:gap-6">
               <h1 className="font-medium text-primary">
                 Meet with our{" "}
-                <span className="font-bold italic">expert dentist,</span>
+                  <span className="font-bold">expert dentist,</span>
                 <br />
                 Just for you
               </h1>
-              <p>
+                <p className="max-md:pb-10">
                 We pride ourselves on delivering the best service in dental
                 care. From routine checkups to advanced treatments, our
-                dedicated team is committed to providing you with personalized,
-                top-quality care that ensures your smile shines its brightest.
+                  dedicated team is committed to providing you with
+                  personalized, top-quality care that ensures your smile shines
+                  its brightest.
               </p>
-              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1 lg:gap-2">
                 <div className="avatar-group -space-x-4 rtl:space-x-reverse">
                   {doctorList.slice(0, 4).map((doctor, index) => (
                     <div className="avatar border-none" key={index}>
-                      <div className="w-12">
+                        <div className="w-10 lg:w-12">
                         <img src={doctor.image} />
                       </div>
                     </div>
                   ))}
 
                   <div className="avatar placeholder border">
-                    <div className="w-12 bg-secondary text-neutral-content">
+                      <div className="w-10 bg-secondary text-neutral-content lg:w-12">
                       <span>{doctorList.length - 4}+</span>
                     </div>
                   </div>
                 </div>
-                <button className="btn btn-primary w-fit">
+                  <button
+                    onClick={openModal}
+                    className="btn btn-primary w-fit max-md:btn-sm max-md:h-10 max-md:text-[11px]"
+                  >
                   Make an Appointment today!{" "}
-                  <ArrowLongRightIcon className="size-5" />
+                    <ArrowLongRightIcon className="size-3 lg:size-5" />
                 </button>
               </div>
             </div>
           </div>
-          <div>
-            <img src={DrgRickyImg} alt="doctor" className="w-full" />
+            <div className="hidden lg:flex">
+              <img src={DrgRickyImg} alt="doctor" className="w-full" />
+            </div>
           </div>
         </div>
         <div
