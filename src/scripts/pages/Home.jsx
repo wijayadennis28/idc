@@ -270,12 +270,12 @@ const Home = () => {
             <h1 className="text-center font-normal text-primary">
               Why<span className="font-bold italic"> choose us</span>
             </h1>
-            <div className="flex items-center gap-6">
+            <div className="flex flex-col items-center gap-6 md:flex-row">
               {whyChooseUs.map((why, index) => (
                 <div
                   id="choose-us-item"
                   key={index}
-                  className="bg-p relative flex h-80 w-1/3 max-w-md flex-col gap-4 rounded-lg border border-solid border-transparent bg-[length:50%] bg-right-bottom bg-no-repeat p-8"
+                  className="bg-p relative flex h-fit max-w-md flex-col gap-4 rounded-lg border border-solid border-transparent !bg-[#fcfbfd] bg-[length:50%] bg-right-bottom bg-no-repeat p-8 max-lg:!bg-none md:h-96 md:w-1/3 lg:h-80"
                   style={{
                     backgroundImage: `url(${why.image})`,
                     backgroundColor: "#fcfbfd",
