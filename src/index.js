@@ -8,6 +8,7 @@ import Article from "./scripts/pages/Article";
 import ArticleDetails from "./scripts/pages/ArticleDetail";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import OurDoctors from "./scripts/OurDoctors";
 
 if (document.querySelector("#render-react")) {
   const root = ReactDOM.createRoot(document.querySelector("#render-react"));
@@ -32,6 +33,11 @@ if (document.querySelector("#about-us")) {
 if (document.querySelector("#our-services")) {
   const root = ReactDOM.createRoot(document.querySelector("#our-services"));
   root.render(<ServiceDetails />);
+}
+
+if (document.querySelector("#our-doctors")) {
+  const root = ReactDOM.createRoot(document.querySelector("#our-doctors"));
+  root.render(<OurDoctors />);
 }
 
 if (document.querySelector("#header")) {

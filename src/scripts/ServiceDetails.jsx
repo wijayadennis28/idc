@@ -2,6 +2,7 @@ import React from "react";
 import BannerBg from "../../assets/image/our-services/department-banner/general-dentist.png";
 import DoctorsGrid from "./components/DoctorsGrid";
 import MakeAppointment from "./components/MakeAppointment";
+import Pill from "./components/Pill";
 
 const ServiceDetails = () => {
 
@@ -54,9 +55,7 @@ const ServiceDetails = () => {
         </div>
       </div>
       <div className="px-8">
-        <div className="px-4 py-2 border rounded-full bg-secondary w-fit">
-          <h4 className="text-white">General Dentistry</h4>
-        </div>
+        <Pill active={true} text="General Dentist"/>
       </div>
       <DoctorsGrid />
       <MakeAppointment />
