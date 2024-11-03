@@ -68,14 +68,14 @@ const Departments = () => {
   if (departments.length === 0) return <Loading />;
 
   return (
-    <div className="mt-8 flex max-w-[2292px] flex-wrap justify-center gap-10 2xl:gap-12">
+    <div className="mt-8 flex max-w-[2292px] flex-wrap justify-stretch gap-12 max-lg:gap-4 max-lg:px-4 max-md:flex-col max-md:gap-8 max-md:px-4 md:justify-center">
       {departments.map((department, index) => (
         <a href={department.link} key={index}>
           <div
             style={{
               backgroundImage: `url(${getCardBackground(department.slug)})`,
             }}
-            className="group card h-full w-[360px] cursor-pointer bg-[color:#fcfbfd] bg-[length:40%] bg-right-top bg-no-repeat hover:bg-primary hover:!bg-none 2xl:w-[420px]"
+            className="group card h-full w-[100%] cursor-pointer bg-[color:#fcfbfd] bg-[length:40%] bg-right-top bg-no-repeat hover:bg-primary hover:!bg-none md:w-[360px] 2xl:w-[420px]"
           >
             <div className="card-body">
               <div className="mb-8 flex justify-between">
