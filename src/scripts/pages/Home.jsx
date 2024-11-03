@@ -261,7 +261,7 @@ const Home = () => {
             <h1 className="text-center font-normal text-primary">
               <span className="font-bold italic">Our</span> partners
             </h1>
-            <PartnersList list={ourPartnerList} />
+            <PartnersList list={ourPartnerList} slider={true} />
           </div>
           <div
             id="why-choose-us"
