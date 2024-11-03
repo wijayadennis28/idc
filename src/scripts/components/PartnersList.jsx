@@ -15,21 +15,23 @@ const Partners = ({ list = [], slider = false }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  if (slider && screenSize < 768) {
+  if (slider && screenSize < 540) {
     return (
       <div className="splide-hide-pagination splide-hide-arrow h-full w-full object-cover md:hidden">
         <Splide
           options={{
             type: "loop",
-            perPage: 2,
-            gap: "0rem",
-            padding: "1rem",
+            perPage: 1,
+            padding: screenSize * 0.275,
             focus: "center",
             autoplay: true,
           }}
         >
           {list.map((partner, index) => (
-            <SplideSlide key={index}>
+            <SplideSlide
+              key={index}
+              className="flex w-screen items-center justify-center"
+            >
               <div className="flex h-24 w-40 items-center justify-center rounded-lg border border-solid border-neutral-400 bg-white md:w-48">
                 <img
                   // src={images[partner.logo]}
