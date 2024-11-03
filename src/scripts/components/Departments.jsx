@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import removeHTMLTags from "../../utils/removeHTMLTags";
 
+import Loading from "./Loading";
+
 //Departments Icon
 import { ReactComponent as GeneralDentistIcon } from "../../../assets/image/our-services/department-icon/general-dentist.svg";
 import { ReactComponent as OralSurgeryIcon } from "../../../assets/image/our-services/department-icon/oral-surgery.svg";
@@ -62,6 +64,8 @@ const Departments = () => {
     else if (slug === "tooth-conservation-and-endodotic")
       return ToothConservationBg;
   };
+
+  if (departments.length === 0) return <Loading />;
 
   return (
     <div className="mt-8 flex max-w-[2292px] flex-wrap justify-center gap-10 2xl:gap-12">
