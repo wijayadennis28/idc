@@ -345,10 +345,10 @@ const Home = () => {
         >
           <div className="max-w-[2400px]">
             <div className="mb-16 flex flex-col items-center gap-4 text-center">
-              <h1 className="font-normal text-primary">
+              <h1 className="font-normal text-primary max-lg:w-screen max-lg:px-8">
                 A lot of <span className="font-bold italic">happy clients</span>
               </h1>
-              <p className="max-w-[850px]">
+              <p className="max-w-[850px] max-lg:w-screen max-lg:px-4">
                 At Indo Dental Center, our greatest pride comes from the smiles
                 we help create. But don't just take our word for it—hear
                 directly from our satisfied patients! Their experiences and
@@ -356,32 +356,32 @@ const Home = () => {
                 patient-centric dental care.
               </p>
             </div>
-            <div className="w-full">
+            <div className="splide-hide-arrow w-full max-sm:w-screen">
               <Splide
                 className="clients-splide"
-                aria-label="My Favorite Images"
                 options={{
                   type: "loop",
                   perPage: 2,
+                  focus: "center",
                   gap: "2rem",
                   padding: "47rem",
-                  focus: "center",
                   autoplay: true,
                   breakpoints: {
-                    1536: {
-                      padding: "40rem",
-                    },
-                    1280: {
-                      padding: "47rem",
+                    640: {
+                      perPage: 1,
+                      gap: "0",
+                      padding: "0",
                     },
                   },
                 }}
               >
-                <div className="splide__arrows" style={{ display: "none" }} />
                 {client.map((client, index) => (
-                  <SplideSlide key={index}>
-                    <div className="card h-[480px] bg-primary text-white">
-                      <figure className="h-3/5 w-full overflow-hidden">
+                  <SplideSlide
+                    key={index}
+                    className="max-sm:flex max-sm:w-screen max-sm:items-center max-sm:justify-center"
+                  >
+                    <div className="card h-[520px] bg-primary text-white max-2xl:h-[480px] max-sm:w-[90vw]">
+                      <figure className="h-5/5 w-full overflow-hidden">
                         <img src={client.image} alt="Shoes" />
                       </figure>
                       <div className="card-body h-3/5">
