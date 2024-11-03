@@ -292,12 +292,12 @@ const Home = () => {
         </div>
         <div id="service" className="mb-12 flex flex-col items-center">
           <div
-            className="flex h-72 w-full items-center justify-center bg-center"
+            className="flex h-72 w-full items-center justify-center bg-cover bg-center bg-no-repeat 2xl:h-96"
             style={{
               backgroundImage: `url(${OurClinicImg})`,
             }}
           >
-            <h1 className="font-normal text-white">
+            <h1 className="text-center font-normal text-white">
               We provide the{" "}
               <span className="font-bold italic">best service</span>
             </h1>
