@@ -231,24 +231,6 @@ const Home = () => {
               ))}
             </Splide>
           </div>
-          <dialog id="map-modal" className="modal">
-            <div className="modal-box">
-              <form method="dialog">
-                {/* if there is a button in form, it will close the modal */}
-                <button className="btn btn-circle btn-primary btn-sm absolute right-2 top-2">
-                  ✕
-                </button>
-              </form>
-              <div className="flex flex-col items-center">
-                <h1 className="font-normal text-primary">
-                  Our <span className="font-bold italic">location</span>
-                </h1>
-              </div>
-            </div>
-            <form method="dialog" className="modal-backdrop">
-              <button>close</button>
-            </form>
-          </dialog>
         </div>
         <div
           className="bg-auto bg-left bg-no-repeat"
@@ -313,45 +295,45 @@ const Home = () => {
           <div className="flex max-w-[1885px] gap-32 overflow-hidden">
             <div className="max-lg:px-8 max-lg:py-20 lg:w-4/6 lg:ps-16">
               <div className="flex h-full flex-col justify-center gap-2 lg:gap-6">
-              <h1 className="font-medium text-primary">
-                Meet with our{" "}
+                <h1 className="font-medium text-primary">
+                  Meet with our{" "}
                   <span className="font-bold">expert dentist,</span>
-                <br />
-                Just for you
-              </h1>
+                  <br />
+                  Just for you
+                </h1>
                 <p className="max-md:pb-10">
-                We pride ourselves on delivering the best service in dental
-                care. From routine checkups to advanced treatments, our
+                  We pride ourselves on delivering the best service in dental
+                  care. From routine checkups to advanced treatments, our
                   dedicated team is committed to providing you with
                   personalized, top-quality care that ensures your smile shines
                   its brightest.
-              </p>
+                </p>
                 <div className="flex items-center gap-1 lg:gap-2">
-                <div className="avatar-group -space-x-4 rtl:space-x-reverse">
-                  {doctorList.slice(0, 4).map((doctor, index) => (
-                    <div className="avatar border-none" key={index}>
+                  <div className="avatar-group -space-x-4 rtl:space-x-reverse">
+                    {doctorList.slice(0, 4).map((doctor, index) => (
+                      <div className="avatar border-none" key={index}>
                         <div className="w-10 lg:w-12">
-                        <img src={doctor.image} />
+                          <img src={doctor.image} />
+                        </div>
+                      </div>
+                    ))}
+
+                    <div className="avatar placeholder border">
+                      <div className="w-10 bg-secondary text-neutral-content lg:w-12">
+                        <span>{doctorList.length - 4}+</span>
                       </div>
                     </div>
-                  ))}
-
-                  <div className="avatar placeholder border">
-                      <div className="w-10 bg-secondary text-neutral-content lg:w-12">
-                      <span>{doctorList.length - 4}+</span>
-                    </div>
                   </div>
-                </div>
                   <button
                     onClick={openModal}
                     className="btn btn-primary w-fit max-md:btn-sm max-md:h-10 max-md:text-[11px]"
                   >
-                  Make an Appointment today!{" "}
+                    Make an Appointment today!{" "}
                     <ArrowLongRightIcon className="size-3 lg:size-5" />
-                </button>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
             <div className="hidden lg:flex">
               <img src={DrgRickyImg} alt="doctor" className="w-full" />
             </div>
