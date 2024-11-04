@@ -26,7 +26,7 @@ const Departments = () => {
 
   useEffect(() => {
     async function loadDepartments() {
-      const response = await fetch("/wp-json/wp/v2/our-services");
+      const response = await fetch("/wp-json/wp/v2/services");
       if (!response.ok) {
         // oups! something went wrong
         return;

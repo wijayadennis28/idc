@@ -2,12 +2,14 @@ import Header from "./scripts/header";
 import Footer from "./scripts/footer";
 import Home from "./scripts/pages/Home";
 import AboutUs from "./scripts/AboutUs";
-import OurServices from "./scripts/OurServices";
-import ServiceDetails from "./scripts/ServiceDetails";
+import OurServices from "./scripts/pages/OurServices";
+import ServiceDetails from "./scripts/pages/ServiceDetails";
 import Article from "./scripts/pages/Article";
 import ArticleDetails from "./scripts/pages/ArticleDetail";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import OurDoctors from "./scripts/pages/OurDoctors";
+import DoctorDetails from "./scripts/pages/DoctorDetails";
 
 if (document.querySelector("#render-react")) {
   const root = ReactDOM.createRoot(document.querySelector("#render-react"));
@@ -34,9 +36,19 @@ if (document.querySelector("#our-services")) {
   root.render(<OurServices />);
 }
 
+if (document.querySelector("#our-doctors")) {
+  const root = ReactDOM.createRoot(document.querySelector("#our-doctors"));
+  root.render(<OurDoctors />);
+}
+
 if (document.querySelector("#service-details")) {
   const root = ReactDOM.createRoot(document.querySelector("#service-details"));
   root.render(<ServiceDetails />);
+}
+
+if (document.querySelector("#doctor-details")) {
+  const root = ReactDOM.createRoot(document.querySelector("#service-details"));
+  root.render(<DoctorDetails />);
 }
 
 if (document.querySelector("#header")) {
