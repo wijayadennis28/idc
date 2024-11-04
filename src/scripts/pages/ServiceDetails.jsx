@@ -11,7 +11,7 @@ const ServiceDetails = () => {
         style={{
           "--image-url": `url(${BannerBg})`,
         }}
-        className="flex h-48 w-full flex-col justify-center bg-[image:var(--image-url)] bg-contain bg-right bg-no-repeat px-8"
+        className="flex px-8 h-48 w-full flex-col justify-center bg-white md:bg-[image:var(--image-url)] bg-contain bg-right bg-no-repeat"
       >
         <div className="breadcrumbs text-sm">
           <ul>
@@ -23,8 +23,8 @@ const ServiceDetails = () => {
         </div>
         <h1 className="text-primary">General Dentistry</h1>
       </div>
-      <div className="flex justify-around gap-8 px-8">
-        <div className="w-1/2 py-8">
+      <div className="flex flex-col md:flex-row lg justify-around gap-8 px-8">
+        <div className="py-8 basis-0 grow">
           <p className="text-[#4D4757]">
             At Indo Dental Center, our general dentists are experts on
             preventing, diagnosing, and treating common dental issues. We cater
@@ -35,7 +35,7 @@ const ServiceDetails = () => {
             confident smile.
           </p>
         </div>
-        <div className="flex w-1/2 flex-col gap-2">
+        <div className="flex flex-col gap-2 basis-0 grow">
           <h4 className="font-normal text-primary">Type of service</h4>
           <div className="collapse collapse-arrow border">
             <input type="radio" name="my-accordion-2" defaultChecked />
