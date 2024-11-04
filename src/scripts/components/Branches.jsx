@@ -30,7 +30,7 @@ const Branches = () => {
   ];
 
   return (
-    <div id="branches" class="m-8">
+    <div id="branches" className="m-8">
       <h2 className="mb-8 text-3xl font-bold text-purple-700">Address</h2>
       <div className="flex flex-col gap-8">
         {branches.map((branch, index) => (
@@ -39,7 +39,7 @@ const Branches = () => {
             className="flex flex-col overflow-hidden bg-white lg:flex-row"
           >
             <div
-              className="bg-gray-100 p-6 rounded-2xl"
+              className="rounded-2xl bg-gray-100 p-6"
               style={{ width: "382px", height: "347px" }}
             >
               <h3 className="mb-2 text-xl font-bold">{branch.name}</h3>
@@ -74,7 +74,7 @@ const Branches = () => {
               </a>
             </div>
             <div className="h-64 flex-1 px-4 lg:h-auto lg:w-1/2">
-              <div className="rounded-2xl overflow-hidden">
+              <div className="overflow-hidden rounded-2xl">
                 <iframe
                   src={branch.mapSrc}
                   width="100%"

@@ -49,7 +49,7 @@ const Header = () => {
 
     detailsMobileRef.current.removeAttribute("open");
 
-    // Cleanup to remove the class when component unmounts
+    // Cleanup to remove the className when component unmounts
     return () => document.body.classList.remove("overflow-hidden");
   }, [showMenu]);
 
@@ -265,12 +265,12 @@ const Header = () => {
               {item.name}
             </a>
           ))}
-          <div class="relative">
-            <details class="group" ref={detailsMobileRef}>
-              <summary class="flex cursor-pointer items-center rounded-full bg-secondary px-4 py-3 text-base text-white focus-visible:outline-none">
-                <span class="mr-2">{showTextLanguage}</span>
+          <div className="relative">
+            <details className="group" ref={detailsMobileRef}>
+              <summary className="flex cursor-pointer items-center rounded-full bg-secondary px-4 py-3 text-base text-white focus-visible:outline-none">
+                <span className="mr-2">{showTextLanguage}</span>
                 <svg
-                  class="h-4 w-4 transform transition-transform duration-300 group-open:rotate-180"
+                  className="h-4 w-4 transform transition-transform duration-300 group-open:rotate-180"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -284,9 +284,9 @@ const Header = () => {
                   />
                 </svg>
               </summary>
-              <ul class="fixed z-[99999] mt-2 w-fit rounded-2xl border bg-white shadow-lg">
+              <ul className="fixed z-[99999] mt-2 w-fit rounded-2xl border bg-white shadow-lg">
                 {languageList.map((item) => (
-                  <li key={item.id} class="cursor-pointer px-6 py-3">
+                  <li key={item.id} className="cursor-pointer px-6 py-3">
                     <a
                       onClick={() => {
                         setLanguage(item.id);
