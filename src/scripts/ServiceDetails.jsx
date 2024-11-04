@@ -17,7 +17,7 @@ const ServiceDetails = () => {
         <div class="breadcrumbs text-sm">
           <ul>
             <li className="text-secondary"><a>Our Services</a></li>
-           <li className="text-[#4D4757]">General Dentistry</li>
+            <li className="text-[#4D4757]">General Dentistry</li>
           </ul>
         </div>
         <h1 className="text-primary">General Dentistry</h1>

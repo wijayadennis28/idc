@@ -16,7 +16,9 @@ const OurServices = () => {
           <h1 className="font-sans text-white font-normal">We provide the <span className="font-bold italic">best service</span></h1>
         </div>
       </div>
-      <Departments/>
+      <div className="pb-24">
+        <Departments/>
+      </div>
       <MakeAppointment/>
     </div>
   )

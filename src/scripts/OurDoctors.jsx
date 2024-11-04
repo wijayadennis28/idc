@@ -29,7 +29,9 @@ const OurDoctors = () => {
           <Pill active={currCategory === category} text={currCategory} onClick={() => setCategory(currCategory)}/>
         ))}
       </div>
-      <DoctorsGrid/>
+      <div className="pb-24">
+        <DoctorsGrid/>
+      </div>
       <MakeAppointment/>
     </div>
   )
