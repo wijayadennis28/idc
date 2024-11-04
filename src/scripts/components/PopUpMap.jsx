@@ -14,6 +14,7 @@ const PopUpMap = () => {
           <h1 className="font-normal text-primary">
             Our <span className="font-bold">location</span>
           </h1>
+          <Branches btnColor="secondary" />
         </div>
       </div>
       <form method="dialog" className="modal-backdrop">

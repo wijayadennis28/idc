@@ -45,7 +45,7 @@ const AboutUs = () => {
         </p>
       </section>
       <ClinicEquipment />
-      <Branches />
+      <Branches showTitle={true} />
       <MakeAppointment />
     </div>
   );
