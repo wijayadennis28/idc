@@ -46,6 +46,11 @@ if (document.querySelector("#service-details")) {
   root.render(<ServiceDetails />);
 }
 
+if (document.querySelector("#doctor-details")) {
+  const root = ReactDOM.createRoot(document.querySelector("#service-details"));
+  root.render(<DoctorDetails />);
+}
+
 if (document.querySelector("#header")) {
   const root = ReactDOM.createRoot(document.querySelector("#header"));
   root.render(<Header />);
