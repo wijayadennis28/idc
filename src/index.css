@@ -100,7 +100,7 @@ body {
   @apply !bg-inherit !text-inherit;
 }
 
-.idc-menu .active {
+.path {
   @apply !text-primary !underline;
 }
 

@@ -1,7 +1,7 @@
 import Header from "./scripts/header";
 import Footer from "./scripts/footer";
 import Home from "./scripts/pages/Home";
-import AboutUs from "./scripts/About-us";
+import AboutUs from "./scripts/AboutUs";
 import OurServices from "./scripts/OurServices";
 import ServiceDetails from "./scripts/ServiceDetails";
 import Article from "./scripts/pages/Article";
@@ -39,6 +39,11 @@ if (document.querySelector("#our-services")) {
 if (document.querySelector("#our-doctors")) {
   const root = ReactDOM.createRoot(document.querySelector("#our-doctors"));
   root.render(<OurDoctors />);
+}
+
+if (document.querySelector("#service-details")) {
+  const root = ReactDOM.createRoot(document.querySelector("#service-details"));
+  root.render(<ServiceDetails />);
 }
 
 if (document.querySelector("#header")) {

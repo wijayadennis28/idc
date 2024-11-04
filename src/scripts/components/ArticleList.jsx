@@ -28,11 +28,11 @@ const ArticleList = ({ articles = 0, title }) => {
       {articles.map((article) => (
         <a className="cursor-pointer">
           <div className="flex flex-col items-center gap-4 md:flex-row md:gap-6">
-            <div class="rounded md:size-48 md:overflow-hidden lg:size-56">
+            <div className="rounded md:size-48 md:overflow-hidden lg:size-56">
               <img
                 src={article.image}
                 alt={`${article.title} - image`}
-                class="h-full w-full object-cover"
+                className="h-full w-full object-cover"
               />
             </div>
             <div className="flex flex-1 flex-col gap-2">

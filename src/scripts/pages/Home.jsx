@@ -161,54 +161,58 @@ const Home = () => {
     <>
       <div>
         <div
-          className="relative h-[85vh] w-full overflow-hidden 2xl:h-[90vh]"
+          className="relative h-fit w-full overflow-hidden max-lg:flex max-lg:flex-col-reverse lg:h-[85vh] lg:max-h-[600px] xl:max-h-[1684px] 2xl:h-[87vh]"
           id="hero"
         >
-          <div className="absolute inset-x-0 bottom-0 z-20 mx-16 mb-8 flex flex-col gap-6 text-white">
-            <span className="badge bg-[color:#FCFBFD] bg-opacity-70 uppercase">
-              Simplify Your Smile Journey
-            </span>
-            <h1 className="italic">Dental Care, All in One Place</h1>
-            <div className="flex">
-              <p className="flex-1">
-                From routine dental checkups to implants to cosmetic dentistry.
-                Our team expertly guides and helps you to achieve your dream
-                smile.
-              </p>
-              <div className="flex flex-1 items-center justify-end gap-2">
-                <div className="avatar-group -space-x-4 rtl:space-x-reverse">
-                  {doctorList.slice(0, 3).map((doctor, index) => (
-                    <div className="avatar border-none" key={index}>
-                      <div className="w-12">
-                        <img src={doctor.image} />
+          <div className="bg-primary text-white lg:bg-transparent">
+            <div className="relative z-20 flex flex-col gap-6 px-4 max-lg:-top-4 lg:absolute lg:inset-x-0 lg:bottom-0 lg:px-16 lg:pb-8">
+              <span className="badge bg-[color:#FCFBFD] bg-opacity-70 p-4 uppercase">
+                Simplify Your Smile Journey
+              </span>
+              <h1 className="italic">Dental Care, All in One Place</h1>
+              <div className="flex flex-col max-lg:gap-6 lg:flex-row">
+                <div className="flex flex-1 flex-col gap-6">
+                  <p>
+                    From routine dental checkups to implants to cosmetic
+                    dentistry. Our team expertly guides and helps you to achieve
+                    your dream smile.
+                  </p>
+                  <p>#OneStopFamilyDentalCenter</p>
+                </div>
+                <div className="flex flex-1 items-center gap-2 lg:justify-end">
+                  <div className="avatar-group -space-x-4 rtl:space-x-reverse">
+                    {doctorList.slice(0, 4).map((doctor, index) => (
+                      <div className="avatar border-none" key={index}>
+                        <div className="w-11 max-lg:w-10">
+                          <img src={doctor.image} />
+                        </div>
+                      </div>
+                    ))}
+                    <div className="avatar placeholder border">
+                      <div className="w-11 bg-secondary text-neutral-content max-lg:w-10">
+                        <span>{doctorList.length - 3}+</span>
                       </div>
                     </div>
-                  ))}
-                  <div className="avatar placeholder border">
-                    <div className="w-12 bg-secondary text-neutral-content">
-                      <span>{doctorList.length - 3}+</span>
-                    </div>
                   </div>
+                  <p className="text-white max-lg:text-[14px]">
+                    Meet with our professional dentists
+                  </p>
                 </div>
-                <p className="text-white">
-                  Meet with our professional dentists
-                </p>
               </div>
-            </div>
-            <p>#OneStopFamilyDentalCenter</p>
 
-            <div className="flex h-full items-center">
-              <button
-                className="btn btn-primary flex w-fit"
-                onClick={openModal}
-              >
-                Make an Appointment today!{" "}
-                <ArrowLongRightIcon className="size-5" />
-              </button>
-              <div
-                className="home-splide flex flex-1 justify-end"
-                ref={paginationRef}
-              ></div>
+              <div className="flex h-full items-center max-lg:w-full max-lg:flex-col max-lg:gap-6">
+                <button
+                  className="btn btn-primary flex w-fit max-lg:w-full"
+                  onClick={openModal}
+                >
+                  Make an Appointment today!{" "}
+                  <ArrowLongRightIcon className="size-5" />
+                </button>
+                <div
+                  className="home-splide flex flex-1 justify-end"
+                  ref={paginationRef}
+                ></div>
+              </div>
             </div>
           </div>
           <div className="h-full w-full object-cover">
@@ -218,12 +222,13 @@ const Home = () => {
                 autoplay: true,
                 drag: false,
               }}
+              id="hero-splide"
             >
               <div className="splide__arrows" style={{ display: "none" }} />
-              {[Hero1Img, Hero2Img, Hero3Img].map((value, index) => (
+              {[1, 2, 3].map((value, index) => (
                 <SplideSlide key={index}>
                   <img
-                    src={value}
+                    src={`/images/home/hero/hero-${value}.jpg`}
                     alt="Hero Background"
                     className="h-full w-full object-cover"
                   />
@@ -231,24 +236,6 @@ const Home = () => {
               ))}
             </Splide>
           </div>
-          <dialog id="map-modal" className="modal">
-            <div className="modal-box">
-              <form method="dialog">
-                {/* if there is a button in form, it will close the modal */}
-                <button className="btn btn-circle btn-primary btn-sm absolute right-2 top-2">
-                  ✕
-                </button>
-              </form>
-              <div className="flex flex-col items-center">
-                <h1 className="font-normal text-primary">
-                  Our <span className="font-bold italic">location</span>
-                </h1>
-              </div>
-            </div>
-            <form method="dialog" className="modal-backdrop">
-              <button>close</button>
-            </form>
-          </dialog>
         </div>
         <div
           className="bg-auto bg-left bg-no-repeat"
@@ -261,7 +248,7 @@ const Home = () => {
             <h1 className="text-center font-normal text-primary">
               <span className="font-bold italic">Our</span> partners
             </h1>
-            <PartnersList list={ourPartnerList} />
+            <PartnersList list={ourPartnerList} slider={true} />
           </div>
           <div
             id="why-choose-us"
@@ -270,12 +257,12 @@ const Home = () => {
             <h1 className="text-center font-normal text-primary">
               Why<span className="font-bold italic"> choose us</span>
             </h1>
-            <div className="flex items-center gap-6">
+            <div className="flex flex-col items-center gap-6 md:flex-row">
               {whyChooseUs.map((why, index) => (
                 <div
                   id="choose-us-item"
                   key={index}
-                  className="bg-p relative flex h-80 w-1/3 max-w-md flex-col gap-4 rounded-lg border border-solid border-transparent bg-[length:50%] bg-right-bottom bg-no-repeat p-8"
+                  className="bg-p relative flex h-fit max-w-md flex-col gap-4 rounded-lg border border-solid border-transparent !bg-[#fcfbfd] bg-[length:50%] bg-right-bottom bg-no-repeat p-8 max-lg:!bg-none md:h-96 md:w-1/3 lg:h-80"
                   style={{
                     backgroundImage: `url(${why.image})`,
                     backgroundColor: "#fcfbfd",
@@ -292,12 +279,12 @@ const Home = () => {
         </div>
         <div id="service" className="mb-12 flex flex-col items-center">
           <div
-            className="flex h-72 w-full items-center justify-center bg-center"
+            className="flex h-72 w-full items-center justify-center bg-cover bg-center bg-no-repeat 2xl:h-96"
             style={{
               backgroundImage: `url(${OurClinicImg})`,
             }}
           >
-            <h1 className="font-normal text-white">
+            <h1 className="text-center font-normal text-white">
               We provide the{" "}
               <span className="font-bold italic">best service</span>
             </h1>
@@ -307,48 +294,54 @@ const Home = () => {
           </div>
         </div>
         <div
-          className="flex max-h-[610px] gap-32 overflow-hidden bg-[color:#E0EFF3]"
+          className="flex justify-center bg-[color:#E0EFF3]"
           id="meet-our-dentist"
         >
-          <div className="w-4/6 ps-16">
-            <div className="flex h-full flex-col justify-center gap-6">
-              <h1 className="font-medium text-primary">
-                Meet with our{" "}
-                <span className="font-bold italic">expert dentist,</span>
-                <br />
-                Just for you
-              </h1>
-              <p>
-                We pride ourselves on delivering the best service in dental
-                care. From routine checkups to advanced treatments, our
-                dedicated team is committed to providing you with personalized,
-                top-quality care that ensures your smile shines its brightest.
-              </p>
-              <div className="flex items-center gap-2">
-                <div className="avatar-group -space-x-4 rtl:space-x-reverse">
-                  {doctorList.slice(0, 4).map((doctor, index) => (
-                    <div className="avatar border-none" key={index}>
-                      <div className="w-12">
-                        <img src={doctor.image} />
+          <div className="flex max-w-[1885px] gap-32 overflow-hidden">
+            <div className="max-lg:px-8 max-lg:py-20 lg:w-4/6 lg:ps-16">
+              <div className="flex h-full flex-col justify-center gap-2 lg:gap-6">
+                <h1 className="font-medium text-primary">
+                  Meet with our{" "}
+                  <span className="font-bold">expert dentist,</span>
+                  <br />
+                  Just for you
+                </h1>
+                <p className="max-md:pb-10">
+                  We pride ourselves on delivering the best service in dental
+                  care. From routine checkups to advanced treatments, our
+                  dedicated team is committed to providing you with
+                  personalized, top-quality care that ensures your smile shines
+                  its brightest.
+                </p>
+                <div className="flex items-center gap-1 lg:gap-2">
+                  <div className="avatar-group -space-x-4 rtl:space-x-reverse">
+                    {doctorList.slice(0, 4).map((doctor, index) => (
+                      <div className="avatar border-none" key={index}>
+                        <div className="w-10 lg:w-12">
+                          <img src={doctor.image} />
+                        </div>
+                      </div>
+                    ))}
+
+                    <div className="avatar placeholder border">
+                      <div className="w-10 bg-secondary text-neutral-content lg:w-12">
+                        <span>{doctorList.length - 4}+</span>
                       </div>
                     </div>
-                  ))}
-
-                  <div className="avatar placeholder border">
-                    <div className="w-12 bg-secondary text-neutral-content">
-                      <span>{doctorList.length - 4}+</span>
-                    </div>
                   </div>
+                  <button
+                    onClick={openModal}
+                    className="btn btn-primary w-fit max-md:btn-sm max-md:h-10 max-md:text-[11px]"
+                  >
+                    Make an Appointment today!{" "}
+                    <ArrowLongRightIcon className="size-3 lg:size-5" />
+                  </button>
                 </div>
-                <button className="btn btn-primary w-fit">
-                  Make an Appointment today!{" "}
-                  <ArrowLongRightIcon className="size-5" />
-                </button>
               </div>
             </div>
-          </div>
-          <div>
-            <img src={DrgRickyImg} alt="doctor" className="w-full" />
+            <div className="hidden lg:flex">
+              <img src={DrgRickyImg} alt="doctor" className="w-full" />
+            </div>
           </div>
         </div>
         <div
@@ -357,10 +350,10 @@ const Home = () => {
         >
           <div className="max-w-[2400px]">
             <div className="mb-16 flex flex-col items-center gap-4 text-center">
-              <h1 className="font-normal text-primary">
+              <h1 className="font-normal text-primary max-lg:w-screen max-lg:px-8">
                 A lot of <span className="font-bold italic">happy clients</span>
               </h1>
-              <p className="max-w-[850px]">
+              <p className="max-w-[850px] max-lg:w-screen max-lg:px-4">
                 At Indo Dental Center, our greatest pride comes from the smiles
                 we help create. But don't just take our word for it—hear
                 directly from our satisfied patients! Their experiences and
@@ -368,32 +361,32 @@ const Home = () => {
                 patient-centric dental care.
               </p>
             </div>
-            <div className="w-full">
+            <div className="splide-hide-arrow w-full max-sm:w-screen">
               <Splide
                 className="clients-splide"
-                aria-label="My Favorite Images"
                 options={{
                   type: "loop",
                   perPage: 2,
+                  focus: "center",
                   gap: "2rem",
                   padding: "47rem",
-                  focus: "center",
                   autoplay: true,
                   breakpoints: {
-                    1536: {
-                      padding: "40rem",
-                    },
-                    1280: {
-                      padding: "47rem",
+                    640: {
+                      perPage: 1,
+                      gap: "0",
+                      padding: "0",
                     },
                   },
                 }}
               >
-                <div className="splide__arrows" style={{ display: "none" }} />
                 {client.map((client, index) => (
-                  <SplideSlide key={index}>
-                    <div className="card h-[480px] bg-primary text-white">
-                      <figure className="h-3/5 w-full overflow-hidden">
+                  <SplideSlide
+                    key={index}
+                    className="max-sm:flex max-sm:w-screen max-sm:items-center max-sm:justify-center"
+                  >
+                    <div className="card h-[520px] bg-primary text-white max-2xl:h-[480px] max-sm:w-[90vw]">
+                      <figure className="h-5/5 w-full overflow-hidden">
                         <img src={client.image} alt="Shoes" />
                       </figure>
                       <div className="card-body h-3/5">

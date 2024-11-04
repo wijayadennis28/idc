@@ -7,6 +7,8 @@ import Twitter from "../../assets/image/footer/twitter.svg";
 import Tiktok from "../../assets/image/footer/tiktok.svg";
 
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   const addressList = [
     {
       branch: "Senayan Branch",
@@ -22,11 +24,26 @@ const Footer = () => {
   ];
 
   const link = [
-    { name: "Home", url: "" },
-    { name: "Our Services", url: "" },
-    { name: "Doctors", url: "" },
-    { name: "About Us", url: "" },
-    { name: "Articles", url: "" },
+    {
+      name: "Home",
+      URL: "/",
+    },
+    {
+      name: "Our Services",
+      URL: "/our-services",
+    },
+    {
+      name: "Doctors",
+      URL: "/doctors",
+    },
+    {
+      name: "About us",
+      URL: "/about-us",
+    },
+    {
+      name: "Articles",
+      URL: "/articles",
+    },
   ];
 
   const socialMedia = [
@@ -47,11 +64,24 @@ const Footer = () => {
     },
   ];
 
+  const handleClick = (path, event) => {
+    console.log(window.location.pathname, path);
+    if (
+      window.location.pathname.replace(/\/+$/, "") === path.replace(/\/+$/, "")
+    ) {
+      event.preventDefault();
+    }
+  };
+
   return (
     <aside className="flex w-full flex-col">
       <div className="divider divider-primary mb-12"></div>
       <div className="w-full px-4 lg:px-8">
-        <a onClick={() => navigate("/")} className="cursor-pointer">
+        <a
+          href="/"
+          className="cursor-pointer"
+          onClick={(e) => handleClick("/", e)}
+        >
           <img src={Logo} alt="logo" className="mb-12 w-28 lg:mb-20 lg:w-36" />
         </a>
 
@@ -81,7 +111,12 @@ const Footer = () => {
               Indo Dental Care
             </h6>
             {link.map((link, index) => (
-              <a href={link.url} key={index} className="cursor-pointer">
+              <a
+                href={link.URL}
+                key={index}
+                className="cursor-pointer"
+                onClick={(e) => handleClick(link.URL, e)}
+              >
                 {link.name}
               </a>
             ))}
@@ -106,7 +141,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="w-full p-4 text-center text-neutral-400">
-        Copyright (C) 2024 DigitalNest - Indo Dental Center. All rights
+        Copyright (C) {year} DigitalNest - Indo Dental Center. All rights
         reserved.
       </p>
     </aside>

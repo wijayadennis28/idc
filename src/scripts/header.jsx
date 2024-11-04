@@ -11,6 +11,8 @@ const Header = () => {
   const touchStartY = useRef(0); // Store the initial touch Y-coordinate
   const touchEndY = useRef(0); // Store the final touch Y-coordinate
 
+  const path = window.location.pathname.split("/")[1];
+
   useEffect(() => {
     setShowTextLanguage(handleLanguageText());
   }, [language]);
@@ -47,13 +49,20 @@ const Header = () => {
 
     detailsMobileRef.current.removeAttribute("open");
 
-    // Cleanup to remove the class when component unmounts
+    // Cleanup to remove the className when component unmounts
     return () => document.body.classList.remove("overflow-hidden");
   }, [showMenu]);
 
   useEffect(() => {
-    setShowMenu(false);
-  }, [window.innerWidth]);
+    const handleResize = () => {
+      setShowMenu(false);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const languageList = [
     {
@@ -68,29 +77,29 @@ const Header = () => {
 
   const menuList = [
     {
-      id: "home",
+      id: "",
       name: "Home",
       URL: "/",
     },
     {
-      id: "services",
+      id: "our-services",
       name: "Our Services",
-      URL: "/",
+      URL: "/our-services",
     },
     {
       id: "doctors",
       name: "Doctors",
-      URL: "/",
+      URL: "/doctors",
     },
     {
-      id: "about",
+      id: "about-us",
       name: "About us",
-      URL: "/",
+      URL: "/about-us",
     },
     {
       id: "articles",
       name: "Articles",
-      URL: "/article",
+      URL: "/articles",
     },
   ];
 
@@ -125,11 +134,23 @@ const Header = () => {
     }
   };
 
+  const handleClick = (path, event) => {
+    if (
+      window.location.pathname.replace(/\/+$/, "") === path.replace(/\/+$/, "")
+    ) {
+      event.preventDefault();
+    }
+  };
+
   return (
     <>
       <div className="navbar bg-base-100 px-8 py-6">
         <div className="flex-1">
-          <a className="cursor-pointer">
+          <a
+            className="cursor-pointer"
+            href="/"
+            onClick={(e) => handleClick("/", e)}
+          >
             <img
               src={Logo}
               alt="Indo Dental Center Logo"
@@ -141,7 +162,13 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1 text-base 2xl:text-lg">
             {menuList.map((item, index) => (
               <li key={index}>
-                <a className="idc-menu">{item.name}</a>
+                <a
+                  className={`idc-menu ${path === item.id ? "path" : ""}`}
+                  href={item.URL}
+                  onClick={(e) => handleClick(item.URL, e)}
+                >
+                  {item.name}
+                </a>
               </li>
             ))}
             <li className="pl-3">
@@ -152,7 +179,7 @@ const Header = () => {
                 >
                   {showTextLanguage}
                 </summary>
-                <ul className="z-[999] rounded-t-none bg-base-100 p-2">
+                <ul className="z-[9999] rounded-t-none bg-base-100 p-2">
                   {languageList.map((item) => (
                     <li key={item.id}>
                       <a
@@ -213,7 +240,7 @@ const Header = () => {
         </div>
       </div>
       <div
-        className={`fixed inset-x-0 bottom-0 top-[100px] z-40 bg-black transition-all duration-700 ease-in-out ${
+        className={`fixed inset-x-0 bottom-0 top-[200px] z-40 bg-black transition-all duration-700 ease-in-out ${
           showMenu ? "flex bg-opacity-50" : "hidden bg-opacity-0"
         }`}
         onClick={() => setShowMenu(false)} // Close menu on overlay click
@@ -231,18 +258,19 @@ const Header = () => {
           {menuList.map((item) => (
             <a
               key={item.id}
-              className="cursor-pointer text-xl"
+              className={`idc-menu cursor-pointer text-xl ${path === item.id ? "path" : ""}`}
               onClick={() => setShowMenu(false)}
+              href={item.URL}
             >
               {item.name}
             </a>
           ))}
-          <div class="relative">
-            <details class="group" ref={detailsMobileRef}>
-              <summary class="flex cursor-pointer items-center rounded-full bg-secondary px-4 py-3 text-base text-white focus-visible:outline-none">
-                <span class="mr-2">{showTextLanguage}</span>
+          <div className="relative">
+            <details className="group" ref={detailsMobileRef}>
+              <summary className="flex cursor-pointer items-center rounded-full bg-secondary px-4 py-3 text-base text-white focus-visible:outline-none">
+                <span className="mr-2">{showTextLanguage}</span>
                 <svg
-                  class="h-4 w-4 transform transition-transform duration-300 group-open:rotate-180"
+                  className="h-4 w-4 transform transition-transform duration-300 group-open:rotate-180"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -256,9 +284,9 @@ const Header = () => {
                   />
                 </svg>
               </summary>
-              <ul class="fixed z-[9999] mt-2 w-fit rounded-2xl border bg-white shadow-lg">
+              <ul className="fixed z-[99999] mt-2 w-fit rounded-2xl border bg-white shadow-lg">
                 {languageList.map((item) => (
-                  <li key={item.id} class="cursor-pointer px-6 py-3">
+                  <li key={item.id} className="cursor-pointer px-6 py-3">
                     <a
                       onClick={() => {
                         setLanguage(item.id);
