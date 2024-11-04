@@ -161,54 +161,58 @@ const Home = () => {
     <>
       <div>
         <div
-          className="relative h-[85vh] w-full overflow-hidden 2xl:h-[90vh]"
+          className="relative h-fit w-full overflow-hidden max-lg:flex max-lg:flex-col-reverse lg:h-[85vh] lg:max-h-[600px] xl:max-h-[1684px] 2xl:h-[87vh]"
           id="hero"
         >
-          <div className="absolute inset-x-0 bottom-0 z-20 mx-16 mb-8 flex flex-col gap-6 text-white">
-            <span className="badge bg-[color:#FCFBFD] bg-opacity-70 uppercase">
-              Simplify Your Smile Journey
-            </span>
-            <h1 className="italic">Dental Care, All in One Place</h1>
-            <div className="flex">
-              <p className="flex-1">
-                From routine dental checkups to implants to cosmetic dentistry.
-                Our team expertly guides and helps you to achieve your dream
-                smile.
-              </p>
-              <div className="flex flex-1 items-center justify-end gap-2">
-                <div className="avatar-group -space-x-4 rtl:space-x-reverse">
-                  {doctorList.slice(0, 3).map((doctor, index) => (
-                    <div className="avatar border-none" key={index}>
-                      <div className="w-12">
-                        <img src={doctor.image} />
+          <div className="bg-primary text-white lg:bg-transparent">
+            <div className="relative z-20 flex flex-col gap-6 px-4 max-lg:-top-4 lg:absolute lg:inset-x-0 lg:bottom-0 lg:px-16 lg:pb-8">
+              <span className="badge bg-[color:#FCFBFD] bg-opacity-70 p-4 uppercase">
+                Simplify Your Smile Journey
+              </span>
+              <h1 className="italic">Dental Care, All in One Place</h1>
+              <div className="flex flex-col max-lg:gap-6 lg:flex-row">
+                <div className="flex flex-1 flex-col gap-6">
+                  <p>
+                    From routine dental checkups to implants to cosmetic
+                    dentistry. Our team expertly guides and helps you to achieve
+                    your dream smile.
+                  </p>
+                  <p>#OneStopFamilyDentalCenter</p>
+                </div>
+                <div className="flex flex-1 items-center gap-2 lg:justify-end">
+                  <div className="avatar-group -space-x-4 rtl:space-x-reverse">
+                    {doctorList.slice(0, 4).map((doctor, index) => (
+                      <div className="avatar border-none" key={index}>
+                        <div className="w-11 max-lg:w-10">
+                          <img src={doctor.image} />
+                        </div>
+                      </div>
+                    ))}
+                    <div className="avatar placeholder border">
+                      <div className="w-11 bg-secondary text-neutral-content max-lg:w-10">
+                        <span>{doctorList.length - 3}+</span>
                       </div>
                     </div>
-                  ))}
-                  <div className="avatar placeholder border">
-                    <div className="w-12 bg-secondary text-neutral-content">
-                      <span>{doctorList.length - 3}+</span>
-                    </div>
                   </div>
+                  <p className="text-white max-lg:text-[14px]">
+                    Meet with our professional dentists
+                  </p>
                 </div>
-                <p className="text-white">
-                  Meet with our professional dentists
-                </p>
               </div>
-            </div>
-            <p>#OneStopFamilyDentalCenter</p>
 
-            <div className="flex h-full items-center">
-              <button
-                className="btn btn-primary flex w-fit"
-                onClick={openModal}
-              >
-                Make an Appointment today!{" "}
-                <ArrowLongRightIcon className="size-5" />
-              </button>
-              <div
-                className="home-splide flex flex-1 justify-end"
-                ref={paginationRef}
-              ></div>
+              <div className="flex h-full items-center max-lg:w-full max-lg:flex-col max-lg:gap-6">
+                <button
+                  className="btn btn-primary flex w-fit max-lg:w-full"
+                  onClick={openModal}
+                >
+                  Make an Appointment today!{" "}
+                  <ArrowLongRightIcon className="size-5" />
+                </button>
+                <div
+                  className="home-splide flex flex-1 justify-end"
+                  ref={paginationRef}
+                ></div>
+              </div>
             </div>
           </div>
           <div className="h-full w-full object-cover">
@@ -218,12 +222,13 @@ const Home = () => {
                 autoplay: true,
                 drag: false,
               }}
+              id="hero-splide"
             >
               <div className="splide__arrows" style={{ display: "none" }} />
-              {[Hero1Img, Hero2Img, Hero3Img].map((value, index) => (
+              {[1, 2, 3].map((value, index) => (
                 <SplideSlide key={index}>
                   <img
-                    src={value}
+                    src={`/images/home/hero/hero-${value}.jpg`}
                     alt="Hero Background"
                     className="h-full w-full object-cover"
                   />
