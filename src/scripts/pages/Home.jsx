@@ -141,7 +141,7 @@ const Home = () => {
   useEffect(() => {
     const movePagination = () => {
       const pagination = document.querySelector(
-        "#splide01 .splide__pagination",
+        "#hero-splide .splide__pagination",
       ); // Find the pagination
       if (pagination && paginationRef.current) {
         paginationRef.current.appendChild(pagination); // Move the pagination
@@ -225,10 +225,10 @@ const Home = () => {
               id="hero-splide"
             >
               <div className="splide__arrows" style={{ display: "none" }} />
-              {[1, 2, 3].map((value, index) => (
+              {[Hero1Img, Hero2Img, Hero3Img].map((value, index) => (
                 <SplideSlide key={index}>
                   <img
-                    src={`/images/home/hero/hero-${value}.jpg`}
+                    src={value}
                     alt="Hero Background"
                     className="h-full w-full object-cover"
                   />
