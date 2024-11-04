@@ -1,7 +1,7 @@
 import React from "react";
-import OurClinicImg from "../../assets/image/our-services/our-clinic.jpg";
-import Departments from "./components/Departments";
-import MakeAppointment from './components/MakeAppointment';
+import OurClinicImg from "../../../assets/image/our-services/our-clinic.jpg";
+import Departments from "../components/Departments";
+import MakeAppointment from '../components/MakeAppointment';
 
 const OurServices = () => {
   return (

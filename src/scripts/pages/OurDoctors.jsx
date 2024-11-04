@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import OurDoctorImg from "../../assets/image/our-doctors/our-doctor.png";
-import MakeAppointment from './components/MakeAppointment';
-import DoctorsGrid from "./components/DoctorsGrid";
-import Pill from "./components/Pill";
+import OurDoctorImg from "../../../assets/image/our-doctors/our-doctor.png";
+import MakeAppointment from '../components/MakeAppointment';
+import DoctorsGrid from "../components/DoctorsGrid";
+import Pill from "../components/Pill";
 import {MagnifyingGlassIcon} from '@heroicons/react/24/solid'
 
 const OurDoctors = () => {

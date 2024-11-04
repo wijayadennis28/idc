@@ -1,8 +1,8 @@
 import React from "react";
-import BannerBg from "../../assets/image/our-services/department-banner/general-dentist.png";
-import DoctorsGrid from "./components/DoctorsGrid";
-import MakeAppointment from "./components/MakeAppointment";
-import Pill from "./components/Pill";
+import BannerBg from "../../../assets/image/our-services/department-banner/general-dentist.png";
+import DoctorsGrid from "../components/DoctorsGrid";
+import MakeAppointment from "../components/MakeAppointment";
+import Pill from "../components/Pill";
 
 const ServiceDetails = () => {
   return (

@@ -29,6 +29,7 @@
   "dependencies": {
     "@heroicons/react": "^2.1.5",
     "@splidejs/react-splide": "^0.7.12",
-    "daisyui": "^4.12.13"
+    "daisyui": "^4.12.13",
+    "react-timeline-animation": "^1.2.3"
   }
 }

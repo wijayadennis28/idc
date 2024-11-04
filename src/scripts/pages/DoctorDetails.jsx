@@ -1,8 +1,8 @@
 import React from "react"
-import BannerBg from "../../assets/image/our-services/department-banner/general-dentist.png";
-import DoctorDummyImage from "../../assets/image/doctors/dr-michael.jpg";
+import BannerBg from "../../../assets/image/our-doctors/doctor-banner.png";
+import DoctorDummyImage from "../../../assets/image/doctors/dr-michael.jpg";
 import {MapPinIcon} from '@heroicons/react/24/outline'
-import MakeAppointment from "./components/MakeAppointment";
+import MakeAppointment from "../components/MakeAppointment";
 
 
 const DoctorDetails = () => {
@@ -12,14 +12,15 @@ const DoctorDetails = () => {
         style={{
           '--image-url': `url(${BannerBg})`,
         }}
-        className="flex flex-col justify-center w-full h-48 px-8 bg-[image:var(--image-url)] bg-right bg-contain bg-no-repeat"
-      >
-        <div class="breadcrumbs text-sm">
-          <ul>
-            <li className="text-secondary"><a>Doctor</a></li>
-            <li className="text-secondary"><a>General Dentistry</a></li>
-            <li className="text-[#4D4757]">drg. Michael Nathanael Mahama, MARS., Sp.Pros</li>
-          </ul>
+        className=" w-full h-48 bg-[image:var(--image-url)] bg-right bg-contain bg-no-repeat">
+        <div className="w-full h-full px-8 py-16 bg-gradient-to-bl from-transparent to-white to-75%">
+          <div class="breadcrumbs text-sm">
+            <ul>
+              <li className="text-secondary"><a>Doctor</a></li>
+              <li className="text-secondary"><a>General Dentistry</a></li>
+              <li className="text-[#4D4757]">drg. Michael Nathanael Mahama, MARS., Sp.Pros</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div className="flex gap-8 px-8 pb-24">
