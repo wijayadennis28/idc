@@ -374,8 +374,8 @@ const Home = () => {
                   breakpoints: {
                     640: {
                       perPage: 1,
-                      gap: "0",
-                      padding: "0",
+                      gap: "1px",
+                      padding: "1px",
                     },
                   },
                 }}
@@ -402,7 +402,10 @@ const Home = () => {
           </div>
         </div>
         <MakeAppointment />
-        <div className="flex w-full justify-center py-16" id="connect-with-us">
+        <div
+          className="hidden w-full justify-center py-16 lg:flex"
+          id="connect-with-us"
+        >
           <div className="flex max-w-[2400px] flex-col items-center gap-10">
             <h1 className="text-center font-normal text-primary">
               Connect with Us
@@ -431,7 +434,7 @@ const Home = () => {
                 <img
                   src={Connect1Img}
                   alt="connect-1"
-                  className="h-[85vh] max-h-[950px] w-full rounded-3xl object-cover"
+                  className="max-h-[950px] w-[23.295vw] max-w-[529px] rounded-3xl object-cover"
                 />
                 <img
                   src={ConnectLogoImg}
@@ -474,7 +477,7 @@ const Home = () => {
                   <div>
                     <img src={Connect7Img} alt="connect-7" className="w-fit" />
                     <div className="relative">
-                      <div className="absolute -bottom-4 -left-8 2xl:-bottom-8 2xl:-left-14">
+                      <div className="absolute -bottom-8 -left-[1vw] 2xl:-bottom-8 2xl:-left-14">
                         <p className="absolute -bottom-2 right-20 w-48 text-primary 2xl:right-36">
                           modern technology to achieve the best results
                         </p>
