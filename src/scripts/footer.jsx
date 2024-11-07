@@ -34,7 +34,7 @@ const Footer = () => {
     },
     {
       name: "Doctors",
-      URL: "/doctors",
+      URL: "/our-doctors",
     },
     {
       name: "About us",

@@ -87,9 +87,9 @@ const Header = () => {
       URL: "/our-services",
     },
     {
-      id: "doctors",
+      id: "our-doctors",
       name: "Doctors",
-      URL: "/doctors",
+      URL: "/our-doctors",
     },
     {
       id: "about-us",

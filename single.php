@@ -2,16 +2,17 @@
 
 get_header(); ?>
 
-<div class="max-w-4xl mx-auto px-4 prose">
-  <?php if (have_posts()) {
-    while(have_posts()) {
-      the_post(); ?>
-      <div>
-        <h1><?php the_title(); ?></h1>
-        <?php the_content(); ?>
-      </div>
-    <?php }
-  } ?>
-</div>
+
+<?php
+  $post_type = get_post_type(get_the_ID());
+  
+  if ($post_type === 'services') { ?>
+    <div id="service-details"></div>
+  <?php } else if ($post_type === 'doctors') { ?>
+    <div id="doctor-details"></div>
+  <?php } else if ($post_type === 'post') { ?>
+    <div id="article-details"></div>
+  <?php }
+?>
 
 <?php get_footer();

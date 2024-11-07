@@ -30,9 +30,9 @@ const Departments = () => {
             style={{
               backgroundImage: `url(${department.meta.image})`,
             }}
-            className="group card h-full w-[100%] cursor-pointer bg-[color:#fcfbfd] bg-[length:40%] bg-right-top bg-no-repeat hover:bg-primary hover:!bg-none md:w-[360px] 2xl:w-[420px]"
+            className="group card h-full w-[100%] cursor-pointer rounded-2xl bg-[color:#fcfbfd] bg-[length:40%] bg-right-top bg-no-repeat hover:bg-primary hover:!bg-none md:w-[360px] 2xl:w-[420px]"
           >
-            <div className="h-full w-full bg-gradient-to-bl from-white/50 to-40% to-white group-hover:!bg-none">
+            <div className="h-full w-full rounded-2xl bg-gradient-to-bl from-white/50 to-40% to-white group-hover:!bg-none">
               <div className="card-body">
                 <div className="mb-8 flex justify-between">
                   <img src={department.meta.icon}/>
