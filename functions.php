@@ -26,7 +26,7 @@ function register_my_menus() {
 add_action( 'init', 'register_my_menus' );
 
 function add_tags_string_to_rest_api() {
-  register_rest_field( 'services', 
+  register_rest_field( 'services', // TODO: Change to articles
       'article-tags', 
       array(
           'get_callback' => 'get_tags_as_string',
