@@ -145,3 +145,25 @@ body {
   max-width: 100%; /* Set your preferred width */
   display: block; /* Ensure it's block or inline-block */
 }
+
+.swiper {
+  width: 239px;
+  height: 431px;
+}
+
+@media (min-width: 768px) {
+  .swiper {
+    width: 319px;
+    height: 583px;
+  }
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+}
