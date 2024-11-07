@@ -1,39 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 
-const ClinicEquipmentSlider = () => {
-  const [equipments, setEquipments] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); 
-  const splideRef = useRef(null); 
-
-  useEffect(() => {
-    async function fetchEquipments() {
-      try {
-        const response = await fetch("/wp-json/wp/v2/clinic-equipments");
-        const data = await response.json();
-
-        const equipmentsWithMedia = await Promise.all(
-          data.map(async (equipment) => {
-            const mediaResponse = await fetch(`/wp-json/wp/v2/media/${equipment.featured_media}`);
-            const mediaData = await mediaResponse.json();
-            return {
-              ...equipment,
-              imageUrl: mediaData.source_url,
-            };
-          })
-        );
-
-        setEquipments(equipmentsWithMedia);
-      } catch (error) {
-        console.error('Error fetching clinic equipments:', error);
-      } finally {
-        setIsLoading(false); 
-      }
-    }
-
-    fetchEquipments();
-  }, []);
+const ClinicEquipmentSlider = ({ equipments, isLoading }) => {
+  const splideRef = useRef(null);
 
   if (isLoading) {
     return (
@@ -58,7 +28,7 @@ const ClinicEquipmentSlider = () => {
       >
         {equipments.map((equipment) => (
           <SplideSlide key={equipment.id}>
-            <div className="relative rounded-lg overflow-hidden group"  style={{borderRadius: '8px'}}>
+            <div className="relative rounded-lg overflow-hidden group" style={{ borderRadius: '8px' }}>
               <img src={equipment.imageUrl} alt={equipment.title.rendered} className="w-full h-auto rounded-lg" />
               {/* Gradient overlay */}
               <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-purple-900 to-transparent rounded-lg"></div>
@@ -74,6 +44,27 @@ const ClinicEquipmentSlider = () => {
           </SplideSlide>
         ))}
       </Splide>
+      {/* Custom Navigation Buttons */}
+      <div className="mt-4 flex justify-center space-x-4">
+        <button
+          className="bg-[#00A4E4] px-4 py-2 rounded-full shadow-lg focus:outline-none flex items-center justify-center hover:bg-[#0090c5] transition-all duration-200"
+          style={{ minWidth: '48px', borderRadius: '9999px' }}
+          onClick={() => splideRef.current.splide.go('<')}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          </svg>
+        </button>
+        <button
+          className="bg-[#00A4E4] px-4 py-2 rounded-full shadow-lg focus:outline-none flex items-center justify-center hover:bg-[#0090c5] transition-all duration-200"
+          style={{ minWidth: '48px', borderRadius: '9999px' }}
+          onClick={() => splideRef.current.splide.go('>')}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </button>
+      </div>
     </div>
   );
 };
