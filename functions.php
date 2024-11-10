@@ -53,11 +53,18 @@ function get_tags_as_string( $object ) {
 
 add_action( 'rest_api_init', 'add_tags_string_to_rest_api' );
 
-function add_service_name_to_doctors_api() {
+function add_custom_field_to_doctors_api() {
   register_rest_field( 'doctors',
       'service_name', 
       array(
           'get_callback' => 'get_service_name',
+          'schema'       => null,
+      )
+  );
+  register_rest_field( 'doctors',
+      'thumbnail', 
+      array(
+          'get_callback' => 'get_thumbnail',
           'schema'       => null,
       )
   );
@@ -70,7 +77,11 @@ function get_service_name( $object ) {
   return $service->post_title;
 }
 
-add_action( 'rest_api_init', 'add_service_name_to_doctors_api' );
+function get_thumbnail( $object ) {
+  return get_the_post_thumbnail_url($object['id']) ?: '';
+}
+
+add_action( 'rest_api_init', 'add_custom_field_to_doctors_api' );
 
 function add_doctor_details_to_services_api() {
   register_rest_field( 'services',
