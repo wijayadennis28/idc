@@ -38,33 +38,55 @@ import dummy1x1 from "../../../assets/image/dummy/dummy-1x1.png";
 
 const Home = () => {
   const paginationRef = useRef(null);
+  const [ourPartnerList, setOurPartnerList] = useState([]);
 
-  const ourPartnerList = [
-    {
-      name: "Wide",
-      logo: dummyWide,
-    },
-    {
-      name: "tall",
-      logo: dummyTall,
-    },
-    {
-      name: "1x1",
-      logo: dummy1x1,
-    },
-    {
-      name: "Wide",
-      logo: dummyWide,
-    },
-    {
-      name: "tall",
-      logo: dummyTall,
-    },
-    {
-      name: "1x1",
-      logo: dummy1x1,
-    },
-  ];
+  useEffect(() => {
+    async function loadPartners() {
+      try {
+        const response = await fetch("/wp-json/wp/v2/partners");
+        if (!response.ok) {
+          throw new Error("Failed to fetch partners data");
+        }
+
+        const partners = await response.json();
+
+        // Fetch logos for each partner based on the icon ID
+        const partnersWithIcons = await Promise.all(
+          partners.map(async (partner) => {
+            let logoUrl = ""; // Default to an empty string or a placeholder URL if desired
+
+            if (partner.meta && partner.meta.icon) {
+              try {
+                const iconResponse = await fetch(
+                  `/wp-json/wp/v2/media/${partner.meta.icon}`,
+                );
+                if (iconResponse.ok) {
+                  const iconData = await iconResponse.json();
+                  logoUrl = iconData.source_url; // Assume `source_url` contains the image URL
+                }
+              } catch (error) {
+                console.error(
+                  `Error fetching icon for partner ID ${partner.id}:`,
+                  error,
+                );
+              }
+            }
+
+            return {
+              title: partner.title.rendered,
+              logo: logoUrl,
+            };
+          }),
+        );
+
+        setOurPartnerList(partnersWithIcons);
+      } catch (error) {
+        console.error("Error loading partners:", error);
+      }
+    }
+
+    loadPartners();
+  }, []);
 
   const whyChooseUs = [
     {
