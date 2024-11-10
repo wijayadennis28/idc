@@ -52,3 +52,52 @@ function get_tags_as_string( $object ) {
 }
 
 add_action( 'rest_api_init', 'add_tags_string_to_rest_api' );
+
+function add_service_name_to_doctors_api() {
+  register_rest_field( 'doctors',
+      'service_name', 
+      array(
+          'get_callback' => 'get_service_name',
+          'schema'       => null,
+      )
+  );
+}
+
+function get_service_name( $object ) {
+  if (empty($object['meta']['service'])) return '';
+  $service = get_post($object['meta']['service']);
+
+  return $service->post_title;
+}
+
+add_action( 'rest_api_init', 'add_service_name_to_doctors_api' );
+
+function add_doctor_details_to_services_api() {
+  register_rest_field( 'services',
+      'doctors', 
+      array(
+          'get_callback' => 'get_doctor_details',
+          'schema'       => null,
+      )
+  );
+}
+
+function get_doctor_details( $object ) {
+  if (empty($object['meta']['doctors'])) return [];
+  $doctor_ids = $object['meta']['doctors'];
+  $doctor_details = [];
+  for ($i = 0; $i < count($doctor_ids); $i++) {
+    $permalink = get_permalink(($doctor_ids[$i]));
+    $thumbnail = get_the_post_thumbnail_url($doctor_ids[$i]) ?: '';
+    $name = get_the_title($doctor_ids[$i]);
+    $doctor_data = [
+      'permalink' => $permalink,
+      'thumbnail' => $thumbnail,
+      'name' => $name
+    ];
+    array_push($doctor_details, $doctor_data);
+  }
+  return $doctor_details;
+}
+
+add_action( 'rest_api_init', 'add_doctor_details_to_services_api' );
