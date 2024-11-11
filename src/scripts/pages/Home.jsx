@@ -50,36 +50,12 @@ const Home = () => {
 
         const partners = await response.json();
 
-        // Fetch logos for each partner based on the icon ID
-        const partnersWithIcons = await Promise.all(
-          partners.map(async (partner) => {
-            let logoUrl = ""; // Default to an empty string or a placeholder URL if desired
-
-            if (partner.meta && partner.meta.icon) {
-              try {
-                const iconResponse = await fetch(
-                  `/wp-json/wp/v2/media/${partner.meta.icon}`,
-                );
-                if (iconResponse.ok) {
-                  const iconData = await iconResponse.json();
-                  logoUrl = iconData.source_url; // Assume `source_url` contains the image URL
-                }
-              } catch (error) {
-                console.error(
-                  `Error fetching icon for partner ID ${partner.id}:`,
-                  error,
-                );
-              }
-            }
-
-            return {
-              title: partner.title.rendered,
-              logo: logoUrl,
-            };
-          }),
-        );
-
-        setOurPartnerList(partnersWithIcons);
+        setOurPartnerList(() => {
+          return partners.map((partner) => ({
+            title: partner.title.rendered,
+            logo: partner.meta.icon[0],
+          }));
+        });
       } catch (error) {
         console.error("Error loading partners:", error);
       }
@@ -311,9 +287,7 @@ const Home = () => {
               <span className="font-bold italic">best service</span>
             </h1>
           </div>
-          <div className="relative -top-24">
-            <Departments />
-          </div>
+          <div className="relative -top-24">{/* <Departments /> */}</div>
         </div>
         <div
           className="flex justify-center bg-[color:#E0EFF3]"
