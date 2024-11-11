@@ -287,7 +287,9 @@ const Home = () => {
               <span className="font-bold italic">best service</span>
             </h1>
           </div>
-          <div className="relative -top-24">{/* <Departments /> */}</div>
+          <div className="relative -top-24">
+            <Departments />
+          </div>
         </div>
         <div
           className="flex justify-center bg-[color:#E0EFF3]"
