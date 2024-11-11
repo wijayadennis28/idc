@@ -29,7 +29,7 @@ const ClinicEquipmentSlider = ({ equipments, isLoading }) => {
         {equipments.map((equipment) => (
           <SplideSlide key={equipment.id}>
             <div className="relative rounded-lg overflow-hidden group" style={{ borderRadius: '8px' }}>
-              <img src={equipment.imageUrl} alt={equipment.title.rendered} className="w-full h-auto rounded-lg" />
+            <img src={equipment.imageUrl} alt={equipment.title.rendered} className="w-full h-[50rem] object-cover rounded-lg"/>
               {/* Gradient overlay */}
               <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-purple-900 to-transparent rounded-lg"></div>
               

@@ -12,7 +12,7 @@ const Branches = ({ showTitle = false, btnColor = "primary" }) => {
       phone: "+628128080011",
       phoneLabel: "Senayan",
       mapSrc:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2281968094794!2d106.79508307575067!3d-6.2336209937545455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1d91cc5e8e4f%3A0x482830c08a46f6e2!2sINDO%20DENTAL%20CENTER%20-%20Klinik%20Gigi%20Spesialis!5e0!3m2!1sen!2sid!4v1729369270940!5m2!1sen!2sid.", // Replace with actual Google Maps embed link
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2281968094794!2d106.79508307575067!3d-6.2336209937545455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1d91cc5e8e4f%3A0x482830c08a46f6e2!2sINDO%20DENTAL%20CENTER%20-%20Klinik%20Gigi%20Spesialis!5e0!3m2!1sen!2sid!4v1729369270940!5m2!1sen!2sid.",
     },
     {
       name: "Pluit Branch",
@@ -25,31 +25,35 @@ const Branches = ({ showTitle = false, btnColor = "primary" }) => {
       phone: "+628128080011",
       phoneLabel: "Pluit",
       mapSrc:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0180537971087!2d106.78734657575!3d-6.128272493858513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1d6bd3175651%3A0xea7f602f2981257!2sINDO%20DENTAL%20CENTER%20-%20Klinik%20Gigi%20Spesialis!5e0!3m2!1sen!2sid!4v1729369350556!5m2!1sen!2sid", // Replace with actual Google Maps embed link
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0180537971087!2d106.78734657575!3d-6.128272493858513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1d6bd3175651%3A0xea7f602f2981257!2sINDO%20DENTAL%20CENTER%20-%20Klinik%20Gigi%20Spesialis!5e0!3m2!1sen!2sid!4v1729369350556!5m2!1sen!2sid",
     },
   ];
 
   return (
     <div id="branches" className="flex flex-col gap-8 lg:m-8">
-      {showTitle && <h2 className="text-purple-700">Address</h2>}
+      {showTitle && <h2 className="text-center text-xl font-bold text-purple-700 lg:text-2xl">Address</h2>}
       {branches.map((branch, index) => (
         <div
           key={index}
-          className="flex flex-col gap-8 overflow-hidden bg-white lg:flex-row"
+          className="flex flex-col gap-8 overflow-hidden bg-white lg:flex-row lg:gap-4"
         >
           <div className="h-fit w-full rounded-2xl bg-gray-100 p-4 lg:w-1/3">
-            <h4 className="mb-2">{branch.name}</h4>
+            <h4 className="mb-2 text-lg font-semibold lg:text-xl">{branch.name}</h4>
             <p className="mb-2 text-gray-600">{branch.address}</p>
             <div className="mb-4">
-              <h6 className="font-normal">Schedule</h6>
+              <h6 className="font-normal text-sm">Schedule</h6>
               <ul className="ml-2 list-inside list-disc text-sm text-gray-500">
                 {branch.schedule.map((time, idx) => (
                   <li key={idx}>{time}</li>
                 ))}
               </ul>
             </div>
-            <btn
-              className={`btn w-full ${btnColor === "primary" ? "border-none bg-primary text-white hover:bg-[#4b3478] active:bg-[#4b3478]" : "btn-primary"}`}
+            <button
+              className={`btn w-full ${
+                btnColor === "primary"
+                  ? "border-none bg-primary text-white hover:bg-[#4b3478] active:bg-[#4b3478]"
+                  : "btn-primary"
+              }`}
               onClick={() => {
                 window.open(`https://wa.me/${branch.phone}`, "_blank");
               }}
@@ -69,14 +73,14 @@ const Branches = ({ showTitle = false, btnColor = "primary" }) => {
                 />
               </svg>
               {branch.phone} ({branch.phoneLabel})
-            </btn>
+            </button>
           </div>
-          <div className="w-full max-w-full flex-1">
+          <div className="w-full lg:w-2/3">
             <div className="overflow-hidden rounded-2xl">
               <iframe
                 src={branch.mapSrc}
                 width="100%"
-                className="h-[300px] w-full lg:h-[400px]"
+                className="h-[250px] w-full md:h-[300px] lg:h-[400px]"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"

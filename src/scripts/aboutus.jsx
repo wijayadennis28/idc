@@ -27,7 +27,7 @@ const AboutUs = () => {
 
         setEquipments(equipmentsWithMedia);
       } catch (error) {
-        console.error('Error fetching clinic equipments:', error);
+        console.error("Error fetching clinic equipments:", error);
       } finally {
         setIsLoading(false);
       }
@@ -39,19 +39,19 @@ const AboutUs = () => {
   return (
     <div>
       <section
-        className="h-74 relative flex h-64 w-full items-center justify-center bg-cover bg-right bg-no-repeat text-white 2xl:h-96"
+        className="relative h-64 w-full bg-cover bg-right bg-no-repeat text-white md:h-80 lg:h-96 flex items-center justify-center"
         style={{
           backgroundImage: `url('http://indodentalcenter.local/wp-content/themes/idc/assets/image/aboutus/AboutUs.jpg')`,
         }}
       >
-        <div className="relative z-10 text-center">
-          <h2 className="text-3xl font-bold">About Us</h2>
+        <div className="relative z-10 text-center px-4 md:px-8">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">About Us</h2>
         </div>
       </section>
 
-      <section className="bg-white px-4 py-16 md:px-16 lg:px-24">
-        <h2 className="mb-8 text-center text-4xl font-bold text-purple-900">Our Milestone</h2>
-        <p className="mx-auto mb-16 max-w-2xl text-center text-gray-700">
+      <section className="bg-white px-4 py-16 sm:px-8 md:px-12 lg:px-16 xl:px-24">
+        <h2 className="mb-8 text-center text-3xl sm:text-4xl font-bold text-purple-900">Our Milestone</h2>
+        <p className="mx-auto mb-8 max-w-lg text-center text-gray-700 sm:max-w-2xl">
           We’re dedicated to transforming your dental experience. From routine
           checkups to advanced cosmetic procedures, our expert team is here to
           make your dream smile a reality.
@@ -59,9 +59,9 @@ const AboutUs = () => {
         <Timeline />
       </section>
 
-      <section className="bg-white px-4 py-16 md:px-16 lg:px-24">
-        <h2 className="mb-8 text-center text-4xl font-bold text-purple-900">Our Complete Clinic Equipment</h2>
-        <p className="mx-auto mb-16 max-w-2xl text-center text-gray-700">
+      <section className="bg-white px-4 py-16 sm:px-8 md:px-12 lg:px-16 xl:px-24">
+        <h2 className="mb-8 text-center text-3xl sm:text-4xl font-bold text-purple-900">Our Complete Clinic Equipment</h2>
+        <p className="mx-auto mb-8 max-w-lg text-center text-gray-700 sm:max-w-2xl">
           At Indo Dental Center, we believe that exceptional care begins with
           exceptional tools. Our clinic is equipped with the latest,
           cutting-edge technology to ensure you receive the best possible
@@ -69,7 +69,7 @@ const AboutUs = () => {
         </p>
         <ClinicEquipmentSlider equipments={equipments} isLoading={isLoading} />
       </section>
-      
+
       <Branches showTitle={true} />
       <MakeAppointment />
     </div>
