@@ -31,11 +31,6 @@ import ConnectArrowImg from "../../../assets/image/home/connect/arrow.svg";
 
 import OurClinicImg from "../../../assets/image/home/services/background.jpg";
 
-// dummy
-import dummyWide from "../../../assets/image/dummy/dummy-wide.png";
-import dummyTall from "../../../assets/image/dummy/dummy-tall.png";
-import dummy1x1 from "../../../assets/image/dummy/dummy-1x1.png";
-
 const Home = () => {
   const paginationRef = useRef(null);
   const [ourPartnerList, setOurPartnerList] = useState([]);
