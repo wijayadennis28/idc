@@ -53,12 +53,12 @@ const ServiceDetails = () => {
           <div className="breadcrumbs text-sm">
             <ul>
               <li className="text-secondary">
-                <a>Our Services</a>
+                <a href="/our-services">Our Services</a>
               </li>
-              <li className="text-[#4D4757]">{service.title.rendered}</li>
+              <li className="text-[#4D4757]" dangerouslySetInnerHTML={{__html: service.title.rendered}}></li>
             </ul>
           </div>
-          <h1 className="text-primary">{service.title.rendered}</h1>
+          <h1 className="text-primary" dangerouslySetInnerHTML={{__html: service.title.rendered}}></h1>
         </div>
       </div>
       <div className="flex flex-col md:flex-row lg justify-around gap-8 px-8">

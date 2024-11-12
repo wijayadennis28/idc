@@ -37,8 +37,8 @@ const DoctorDetails = () => {
         <div className="w-full h-full p-8 md:px-8 md:py-16 bg-gradient-to-bl from-transparent to-white to-75%">
           <div class="breadcrumbs text-sm">
             <ul className="flex-wrap">
-              <li className="text-secondary"><a>Doctor</a></li>
-              <li className="text-secondary"><a>{doctor.service_name}</a></li>
+              <li className="text-secondary"><a href="/our-doctors">Doctor</a></li>
+              <li className="text-secondary">{doctor.service_name}</li>
               <li className="text-[#4D4757]">{doctor.title.rendered}</li>
             </ul>
           </div>
