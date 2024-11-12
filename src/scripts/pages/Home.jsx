@@ -36,6 +36,10 @@ const Home = () => {
   const [ourPartnerList, setOurPartnerList] = useState([]);
 
   useEffect(() => {
+    loadPartners();
+    loadDoctors();
+  }, []);
+
     async function loadPartners() {
       try {
         const response = await fetch("/wp-json/wp/v2/partners");
