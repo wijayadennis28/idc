@@ -84,7 +84,7 @@ const MakeAppointment = () => {
       </div>
       <PopUpMap />
       {screenSize < 1024 && (
-        <div className="flex w-full flex-col items-center gap-8 px-4 py-16">
+        <div className="flex w-full flex-col items-center gap-8 px-4 pt-16">
           <h1 className="text-center font-normal text-primary">
             Connect with Us
           </h1>
