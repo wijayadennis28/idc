@@ -35,10 +35,12 @@ const Home = () => {
   const paginationRef = useRef(null);
   const [ourPartnerList, setOurPartnerList] = useState([]);
   const [doctorList, setDoctorList] = useState([]);
+  const [testimonies, setTestimonies] = useState([]);
 
   useEffect(() => {
     loadPartners();
     loadDoctors();
+    loadTestimonies();
   }, []);
 
   async function loadPartners() {
@@ -75,6 +77,20 @@ const Home = () => {
     }
   }
 
+  async function loadTestimonies() {
+    try {
+      const response = await fetch("/wp-json/wp/v2/testimonies");
+      if (!response.ok) {
+        throw new Error("Failed to fetch testimonies data");
+      }
+
+      const testimonies = await response.json();
+      setTestimonies(testimonies);
+    } catch (error) {
+      console.error("Error loading testimonies:", error);
+    }
+  }
+
   const whyChooseUs = [
     {
       title: "Affordable Care",
@@ -90,33 +106,6 @@ const Home = () => {
       title: "Patient-Centric Service",
       desc: "Your comfort and satisfaction are our top priorities. We tailor our services to meet your unique needs, ensuring a personalized and stress-free experience.",
       image: WhyChooseUs3Img,
-    },
-  ];
-
-  const client = [
-    {
-      name: "Sarah M.",
-      image: DrgRickyImg,
-      review:
-        "A Life-Changing Experience. I was always self-conscious about my smile. The team at One Stop Family Dental Center not only provided top-notch care but also made me feel comfortable and valued. Now, I can't stop smiling!",
-    },
-    {
-      name: "Sarah M.",
-      image: DrgRickyImg,
-      review:
-        "A Life-Changing Experience. I was always self-conscious about my smile. The team at One Stop Family Dental Center not only provided top-notch care but also made me feel comfortable and valued. Now, I can't stop smiling!",
-    },
-    {
-      name: "Sarah M.",
-      image: DrgRickyImg,
-      review:
-        "A Life-Changing Experience. I was always self-conscious about my smile. The team at One Stop Family Dental Center not only provided top-notch care but also made me feel comfortable and valued. Now, I can't stop smiling!",
-    },
-    {
-      name: "Sarah M.",
-      image: DrgRickyImg,
-      review:
-        "A Life-Changing Experience. I was always self-conscious about my smile. The team at One Stop Family Dental Center not only provided top-notch care but also made me feel comfortable and valued. Now, I can't stop smiling!",
     },
   ];
 
@@ -326,63 +315,71 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div
-          className="my-24 flex items-center justify-center overflow-hidden"
-          id="happy-client"
-        >
-          <div className="max-w-[2400px]">
-            <div className="mb-16 flex flex-col items-center gap-4 text-center">
-              <h1 className="font-normal text-primary max-lg:w-screen max-lg:px-8">
-                A lot of <span className="font-bold italic">happy clients</span>
-              </h1>
-              <p className="max-w-[850px] max-lg:w-screen max-lg:px-4">
-                At Indo Dental Center, our greatest pride comes from the smiles
-                we help create. But don't just take our word for it—hear
-                directly from our satisfied patients! Their experiences and
-                stories reflect our commitment to affordable, specialized, and
-                patient-centric dental care.
-              </p>
-            </div>
-            <div className="splide-hide-arrow w-full max-sm:w-screen">
-              <Splide
-                className="clients-splide"
-                options={{
-                  type: "loop",
-                  perPage: 2,
-                  focus: "center",
-                  gap: "2rem",
-                  padding: "47rem",
-                  autoplay: true,
-                  breakpoints: {
-                    640: {
-                      perPage: 1,
-                      gap: "1px",
-                      padding: "1px",
+        {testimonies.length > 0 && (
+          <div
+            className="my-24 flex items-center justify-center overflow-hidden"
+            id="happy-client"
+          >
+            <div className="max-w-[2400px]">
+              <div className="mb-16 flex flex-col items-center gap-4 text-center">
+                <h1 className="font-normal text-primary max-lg:w-screen max-lg:px-8">
+                  A lot of{" "}
+                  <span className="font-bold italic">happy clients</span>
+                </h1>
+                <p className="max-w-[850px] max-lg:w-screen max-lg:px-4">
+                  At Indo Dental Center, our greatest pride comes from the
+                  smiles we help create. But don't just take our word for
+                  it—hear directly from our satisfied patients! Their
+                  experiences and stories reflect our commitment to affordable,
+                  specialized, and patient-centric dental care.
+                </p>
+              </div>
+              <div className="splide-hide-arrow w-full max-sm:w-screen">
+                <Splide
+                  className="clients-splide"
+                  options={{
+                    type: "loop",
+                    perPage: 2,
+                    focus: "center",
+                    gap: "2rem",
+                    padding: "47rem",
+                    autoplay: true,
+                    breakpoints: {
+                      640: {
+                        perPage: 1,
+                        gap: "1px",
+                        padding: "1px",
+                      },
                     },
-                  },
-                }}
-              >
-                {client.map((client, index) => (
-                  <SplideSlide
-                    key={index}
-                    className="max-sm:flex max-sm:w-screen max-sm:items-center max-sm:justify-center"
-                  >
-                    <div className="card h-[520px] bg-primary text-white max-2xl:h-[480px] max-sm:w-[90vw]">
-                      <figure className="h-5/5 w-full overflow-hidden">
-                        <img src={client.image} alt="Shoes" />
-                      </figure>
-                      <div className="card-body h-3/5">
-                        <h2 className="card-title">{client.name}</h2>
-                        <div className="divider m-0 p-0 before:h-[1px] before:bg-white after:h-[1px] after:bg-white"></div>
-                        <p>{client.review}</p>
+                  }}
+                >
+                  {testimonies.map((testimony, index) => (
+                    <SplideSlide
+                      key={index}
+                      className="max-sm:flex max-sm:w-screen max-sm:items-center max-sm:justify-center"
+                    >
+                      <div className="card h-[520px] bg-primary text-white max-2xl:h-[480px] max-sm:w-[90vw]">
+                        <figure className="h-1/2 w-full overflow-hidden">
+                          <img
+                            src={testimony?.meta.photo}
+                            alt="patient image"
+                          />
+                        </figure>
+                        <div className="card-body h-1/2">
+                          <h2 className="card-title">
+                            {testimony.title.rendered}
+                          </h2>
+                          <div className="divider m-0 p-0 before:h-[1px] before:bg-white after:h-[1px] after:bg-white"></div>
+                          <p>{testimony.meta?.testimony}</p>
+                        </div>
                       </div>
-                    </div>
-                  </SplideSlide>
-                ))}
-              </Splide>
+                    </SplideSlide>
+                  ))}
+                </Splide>
+              </div>
             </div>
           </div>
-        </div>
+        )}
         <MakeAppointment />
         <div
           className="hidden w-full justify-center py-16 lg:flex"
