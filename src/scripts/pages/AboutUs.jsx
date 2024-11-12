@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import MakeAppointment from "./components/MakeAppointment";
-import Branches from "./components/Branches";
-import Timeline from "./components/timeline";
-import ClinicEquipmentSlider from "./components/Slider";
+import MakeAppointment from "../components/MakeAppointment";
+import Branches from "../components/Branches";
+import Timeline from "../components/timeline";
+import ClinicEquipmentSlider from "../components/Slider";
 
 const AboutUs = () => {
   const [equipments, setEquipments] = useState([]);
@@ -16,13 +16,15 @@ const AboutUs = () => {
 
         const equipmentsWithMedia = await Promise.all(
           data.map(async (equipment) => {
-            const mediaResponse = await fetch(`/wp-json/wp/v2/media/${equipment.featured_media}`);
+            const mediaResponse = await fetch(
+              `/wp-json/wp/v2/media/${equipment.featured_media}`,
+            );
             const mediaData = await mediaResponse.json();
             return {
               ...equipment,
               imageUrl: mediaData.source_url,
             };
-          })
+          }),
         );
 
         setEquipments(equipmentsWithMedia);
@@ -39,18 +41,22 @@ const AboutUs = () => {
   return (
     <div>
       <section
-        className="relative h-64 w-full bg-cover bg-right bg-no-repeat text-white md:h-80 lg:h-96 flex items-center justify-center"
+        className="relative flex h-64 w-full items-center justify-center bg-cover bg-right bg-no-repeat text-white md:h-80 lg:h-96"
         style={{
           backgroundImage: `url('http://indodentalcenter.local/wp-content/themes/idc/assets/image/aboutus/AboutUs.jpg')`,
         }}
       >
-        <div className="relative z-10 text-center px-4 md:px-8">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">About Us</h2>
+        <div className="relative z-10 px-4 text-center md:px-8">
+          <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl">
+            About Us
+          </h2>
         </div>
       </section>
 
       <section className="bg-white px-4 py-16 sm:px-8 md:px-12 lg:px-16 xl:px-24">
-        <h2 className="mb-8 text-center text-3xl sm:text-4xl font-bold text-purple-900">Our Milestone</h2>
+        <h2 className="mb-8 text-center text-3xl font-bold text-purple-900 sm:text-4xl">
+          Our Milestone
+        </h2>
         <p className="mx-auto mb-8 max-w-lg text-center text-gray-700 sm:max-w-2xl">
           We’re dedicated to transforming your dental experience. From routine
           checkups to advanced cosmetic procedures, our expert team is here to
@@ -60,7 +66,9 @@ const AboutUs = () => {
       </section>
 
       <section className="bg-white px-4 py-16 sm:px-8 md:px-12 lg:px-16 xl:px-24">
-        <h2 className="mb-8 text-center text-3xl sm:text-4xl font-bold text-purple-900">Our Complete Clinic Equipment</h2>
+        <h2 className="mb-8 text-center text-3xl font-bold text-purple-900 sm:text-4xl">
+          Our Complete Clinic Equipment
+        </h2>
         <p className="mx-auto mb-8 max-w-lg text-center text-gray-700 sm:max-w-2xl">
           At Indo Dental Center, we believe that exceptional care begins with
           exceptional tools. Our clinic is equipped with the latest,
@@ -70,7 +78,9 @@ const AboutUs = () => {
         <ClinicEquipmentSlider equipments={equipments} isLoading={isLoading} />
       </section>
 
-      <Branches showTitle={true} />
+      <div className="m-4 lg:m-8">
+        <Branches showTitle={true} />
+      </div>
       <MakeAppointment />
     </div>
   );
