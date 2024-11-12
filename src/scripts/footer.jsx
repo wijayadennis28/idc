@@ -65,7 +65,6 @@ const Footer = () => {
   ];
 
   const handleClick = (path, event) => {
-    console.log(window.location.pathname, path);
     if (
       window.location.pathname.replace(/\/+$/, "") === path.replace(/\/+$/, "")
     ) {
