@@ -34,34 +34,46 @@ import OurClinicImg from "../../../assets/image/home/services/background.jpg";
 const Home = () => {
   const paginationRef = useRef(null);
   const [ourPartnerList, setOurPartnerList] = useState([]);
+  const [doctorList, setDoctorList] = useState([]);
 
   useEffect(() => {
     loadPartners();
     loadDoctors();
   }, []);
 
-    async function loadPartners() {
-      try {
-        const response = await fetch("/wp-json/wp/v2/partners");
-        if (!response.ok) {
-          throw new Error("Failed to fetch partners data");
-        }
-
-        const partners = await response.json();
-
-        setOurPartnerList(() => {
-          return partners.map((partner) => ({
-            title: partner.title.rendered,
-            logo: partner.meta.icon[0],
-          }));
-        });
-      } catch (error) {
-        console.error("Error loading partners:", error);
+  async function loadPartners() {
+    try {
+      const response = await fetch("/wp-json/wp/v2/partners");
+      if (!response.ok) {
+        throw new Error("Failed to fetch partners data");
       }
-    }
 
-    loadPartners();
-  }, []);
+      const partners = await response.json();
+
+      setOurPartnerList(() => {
+        return partners.map((partner) => ({
+          title: partner.title.rendered,
+          logo: partner.meta.icon[0],
+        }));
+      });
+    } catch (error) {
+      console.error("Error loading partners:", error);
+    }
+  }
+
+  async function loadDoctors() {
+    try {
+      const response = await fetch("/wp-json/wp/v2/doctors");
+      if (!response.ok) {
+        throw new Error("Failed to fetch doctors data");
+      }
+
+      const doctors = await response.json();
+      setDoctorList(doctors);
+    } catch (error) {
+      console.error("Error loading doctors:", error);
+    }
+  }
 
   const whyChooseUs = [
     {
@@ -78,33 +90,6 @@ const Home = () => {
       title: "Patient-Centric Service",
       desc: "Your comfort and satisfaction are our top priorities. We tailor our services to meet your unique needs, ensuring a personalized and stress-free experience.",
       image: WhyChooseUs3Img,
-    },
-  ];
-
-  const doctorList = [
-    {
-      name: "Dr. John Doe",
-      image: DrgRickyImg,
-    },
-    {
-      name: "Dr. John Doe",
-      image: DrgRickyImg,
-    },
-    {
-      name: "Dr. John Doe",
-      image: DrgRickyImg,
-    },
-    {
-      name: "Dr. John Doe",
-      image: DrgRickyImg,
-    },
-    {
-      name: "Dr. John Doe",
-      image: DrgRickyImg,
-    },
-    {
-      name: "Dr. John Doe",
-      image: DrgRickyImg,
     },
   ];
 
@@ -181,7 +166,7 @@ const Home = () => {
                     {doctorList.slice(0, 4).map((doctor, index) => (
                       <div className="avatar border-none" key={index}>
                         <div className="w-11 max-lg:w-10">
-                          <img src={doctor.image} />
+                          <img src={doctor.thumbnail} alt={doctor.slug} />
                         </div>
                       </div>
                     ))}
@@ -315,7 +300,7 @@ const Home = () => {
                     {doctorList.slice(0, 4).map((doctor, index) => (
                       <div className="avatar border-none" key={index}>
                         <div className="w-10 lg:w-12">
-                          <img src={doctor.image} />
+                          <img src={doctor.thumbnail} alt={doctor.slug} />
                         </div>
                       </div>
                     ))}
