@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import OurDoctorImg from "../../../assets/image/our-doctors/our-doctor.png";
 import MakeAppointment from '../components/MakeAppointment';
 import DoctorsGrid from "../components/DoctorsGrid";
@@ -7,7 +7,58 @@ import {MagnifyingGlassIcon} from '@heroicons/react/24/solid'
 
 const OurDoctors = () => {
   const [category, setCategory] = useState("All doctors");
-  const availableCategories = ["All doctors", "Korean Doctors", "General Dentistry", "Prosthodontics", "Conservation & Endodontics", "Oral Surgeon"];
+  const [isLoading, setLoading] = useState(true);
+  const [availableCategories, setAvailableCategories] = useState(["All doctors"]);
+  const [doctors, setDoctors] = useState([]);
+  const [filteredDoctors, setFilteredDoctors] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
+
+  useEffect(() => {
+    getCategories().catch(console.error);
+    getDoctors().catch(console.error);
+  }, []);
+
+  useEffect(() => {
+    filterDoctors();
+  }, [searchValue, category]);
+
+  const getCategories = async () => {
+    const response = await fetch("/wp-json/wp/v2/services");
+    const services = await response.json();
+    setAvailableCategories(['All doctors', ...services.map((service) => service.title.rendered)]);
+  };
+
+  const getDoctors = async () => {
+    setLoading(true);
+    const response = await fetch(`/wp-json/wp/v2/doctors`);
+    const doctorsRaws = await response.json();
+    const doctors = doctorsRaws.map((doctor) => ({
+      permalink: doctor.link,
+      thumbnail: doctor.thumbnail,
+      name: doctor.title.rendered,
+      service: doctor.service_name,
+    }));
+    setDoctors(doctors);
+    setFilteredDoctors(doctors);
+    setLoading(false);
+  };
+
+  const handleSearch = (e) => {
+    setSearchValue(e.target.value);
+  };
+
+  const filterDoctors = () => {
+    if (category !== 'All doctors' && searchValue !== '') {
+      setFilteredDoctors(doctors.filter((doctor) => doctor.service === category && doctor.name.toLowerCase().includes(searchValue.toLowerCase())));
+    } else if (category !== 'All doctors'){
+      setFilteredDoctors(doctors.filter((doctor) => doctor.service === category));
+    } else if (searchValue !== '') {
+      setFilteredDoctors(doctors.filter((doctor) => doctor.name.toLowerCase().includes(searchValue.toLowerCase())));
+    } else {
+      setFilteredDoctors(doctors);
+    }
+  };
+
   return (
     <div className="flex flex-col">
       <div
@@ -22,7 +73,7 @@ const OurDoctors = () => {
       </div>
       <div className="flex mx-6 mb-8 gap-2 items-center spa">
         <MagnifyingGlassIcon className="size-8"/>
-        <input type="text" placeholder="Search by name" className="input w-full grow"/>
+        <input type="text" value={searchValue} placeholder="Search by name" className="input w-full grow" onChange={handleSearch}/>
       </div>
       <div className=" carousel carousel-start flex mx-6 mb-8 gap-2">
         {availableCategories.map((currCategory) => (
@@ -30,7 +81,7 @@ const OurDoctors = () => {
         ))}
       </div>
       <div className="pb-24">
-        <DoctorsGrid/>
+        <DoctorsGrid isLoading={isLoading} doctors={filteredDoctors}/>
       </div>
       <MakeAppointment/>
     </div>

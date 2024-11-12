@@ -1,90 +1,97 @@
-import React from "react";
-import BannerBg from "../../../assets/image/our-services/department-banner/general-dentist.png";
+import React, { useEffect, useState } from "react";
 import DoctorsGrid from "../components/DoctorsGrid";
 import MakeAppointment from "../components/MakeAppointment";
 import Pill from "../components/Pill";
+import Loading from "../components/Loading";
+import Slider from "../components/Slider";
 
 const ServiceDetails = () => {
+  const [service, setService] = useState(null);
+  useEffect(() => {
+    async function loadServiceDetails() {
+      const slug = window.location.pathname.split('/')[2];
+      const response = await fetch(`/wp-json/wp/v2/services?slug=${slug}`);
+      if (!response.ok) {
+        throw new Error('Service not found');
+      }
+
+      const service = await response.json();
+      setService(service[0]);
+    }
+
+    loadServiceDetails().catch(console.error);
+  }, []);
+
+  const getOurWorks = () => {
+    if (!service) return [];
+    return Object.values(service.meta.our_works).map((ourWork, i) => ({
+      id: i,
+      imageUrl: ourWork.image,
+      title: {rendered: ourWork.title},
+      content: {rendered: ourWork.content}
+    }));
+  };
+
+  const getDoctors = () => {
+    return service.doctors.map((doctor) => ({
+      ...doctor,
+      service: service.title.rendered,
+    }));
+  };
+
+  if (!service) return <Loading/>;
+
   return (
     <div className="flex flex-col gap-8">
       <div
         style={{
-          "--image-url": `url(${BannerBg})`,
+          "--image-url": `url(${service.meta.image})`,
         }}
-        className="flex px-8 h-48 w-full flex-col justify-center bg-white md:bg-[image:var(--image-url)] bg-contain bg-right bg-no-repeat"
+        className="h-48 w-full bg-white md:bg-[image:var(--image-url)] bg-[length:40%] bg-right bg-no-repeat"
       >
-        <div className="breadcrumbs text-sm">
-          <ul>
-            <li className="text-secondary">
-              <a>Our Services</a>
-            </li>
-            <li className="text-[#4D4757]">General Dentistry</li>
-          </ul>
+        <div className="flex px-8 w-full h-full flex-col justify-center bg-gradient-to-r from-white from-60% to-white/50">
+          <div className="breadcrumbs text-sm">
+            <ul>
+              <li className="text-secondary">
+                <a>Our Services</a>
+              </li>
+              <li className="text-[#4D4757]">{service.title.rendered}</li>
+            </ul>
+          </div>
+          <h1 className="text-primary">{service.title.rendered}</h1>
         </div>
-        <h1 className="text-primary">General Dentistry</h1>
       </div>
       <div className="flex flex-col md:flex-row lg justify-around gap-8 px-8">
-        <div className="py-8 basis-0 grow">
-          <p className="text-[#4D4757]">
-            At Indo Dental Center, our general dentists are experts on
-            preventing, diagnosing, and treating common dental issues. We cater
-            to regular check-ups, cleanings, fillings for cavities, root canals,
-            gum care, and advice on how to maintain good oral hygiene at home.
-            Our general dentists ensures that your teeth and gums are in the
-            best shape possible, guiding you on the path to a lifelong,
-            confident smile.
-          </p>
-        </div>
+        <div className="py-8 basis-0 grow text-[#4D4757]" dangerouslySetInnerHTML={{__html: service.content.rendered}}></div>
         <div className="flex flex-col gap-2 basis-0 grow">
           <h4 className="font-normal text-primary">Type of service</h4>
-          <div className="collapse collapse-arrow border">
-            <input type="radio" name="my-accordion-2" defaultChecked />
-            <div className="collapse-title text-lg font-bold text-[#4D4757]">
-              Teeth Whitening
+          {Object.values(service.meta.service_types).map((serviceType, i) => (
+            <div className="collapse collapse-arrow border">
+              <input type="radio" name="my-accordion-2" defaultChecked={i === 0} />
+              <div className="collapse-title text-lg font-bold text-[#4D4757]">
+                {serviceType.title}
+              </div>
+              <div className="collapse-content font-normal text-[#4D4757]">
+                <div className="divider mb-4 mt-0"></div>
+                <p>
+                  {serviceType.content}
+                </p>
+              </div>
             </div>
-            <div className="collapse-content font-normal text-[#4D4757]">
-              <div className="divider mb-4 mt-0"></div>
-              <p>
-                Unveil your brightest smileening services, designed to safely
-                and effectively remove stains and discoloration, giving you a
-                dazzling, confidence-boosting result in just one visit.
-              </p>
-            </div>
-          </div>
-          <div className="collapse collapse-arrow border">
-            <input type="radio" name="my-accordion-2" defaultChecked />
-            <div className="collapse-title text-lg font-bold text-[#4D4757]">
-              Teeth Whitening
-            </div>
-            <div className="collapse-content font-normal text-[#4D4757]">
-              <div className="divider mb-4 mt-0"></div>
-              <p>
-                Unveil your brightest smileening services, designed to safely
-                and effectively remove stains and discoloration, giving you a
-                dazzling, confidence-boosting result in just one visit.
-              </p>
-            </div>
-          </div>
-          <div className="collapse collapse-arrow border">
-            <input type="radio" name="my-accordion-2" defaultChecked />
-            <div className="collapse-title text-lg font-bold text-[#4D4757]">
-              Teeth Whitening
-            </div>
-            <div className="collapse-content font-normal text-[#4D4757]">
-              <div className="divider mb-4 mt-0"></div>
-              <p>
-                Unveil your brightest smileening services, designed to safely
-                and effectively remove stains and discoloration, giving you a
-                dazzling, confidence-boosting result in just one visit.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
-      <div className="px-8">
-        <Pill active={true} text="General Dentist"/>
+      <div className="p-8">
+        <h2 className="mb-8 text-center text-4xl font-bold text-purple-900">Our Works</h2>
+        <p className="mx-auto mb-16 max-w-2xl text-center text-[#4D4757]">
+          At Indo Dental Center, we believe that exceptional care begins with exceptional tools. Our clinic is equipped with the latest, cutting-edge technology to ensure you receive the best possible treatment in a comfortable and efficient manner.
+        </p>
+        <Slider equipments={getOurWorks()} isLoading={!service} />
       </div>
-      <DoctorsGrid />
+      <div className="px-8">
+        <Pill active={true} text={service.title.rendered}/>
+      </div>
+      <DoctorsGrid doctors={getDoctors()} isLoading={!service} />
       <MakeAppointment />
     </div>
   );

@@ -34,7 +34,7 @@ const Partners = ({ list = [], slider = false }) => {
             >
               <div className="flex h-24 w-40 items-center justify-center rounded-lg border border-solid border-neutral-400 bg-white md:w-48">
                 <img
-                  // src={images[partner.logo]}
+                  src={partner.logo}
                   alt={partner.name}
                   className="max-h-20 max-w-28"
                 />
@@ -54,8 +54,8 @@ const Partners = ({ list = [], slider = false }) => {
           className="flex h-24 w-40 items-center justify-center rounded-lg border border-solid border-neutral-400 bg-white md:w-48"
         >
           <img
-            // src={images[partner.logo]}
-            alt={partner.name}
+            src={partner.logo}
+            alt={partner.title}
             className="max-h-20 max-w-28"
           />
         </div>
