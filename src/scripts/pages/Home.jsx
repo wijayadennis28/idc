@@ -166,7 +166,7 @@ const Home = () => {
                     {doctorList.slice(0, 4).map((doctor, index) => (
                       <div className="avatar border-none" key={index}>
                         <div className="w-11 max-lg:w-10">
-                          <img src={doctor.thumbnail} alt={doctor.slug} />
+                          <img src={doctor?.thumbnail} alt={doctor?.slug} />
                         </div>
                       </div>
                     ))}
@@ -300,7 +300,7 @@ const Home = () => {
                     {doctorList.slice(0, 4).map((doctor, index) => (
                       <div className="avatar border-none" key={index}>
                         <div className="w-10 lg:w-12">
-                          <img src={doctor.thumbnail} alt={doctor.slug} />
+                          <img src={doctor?.thumbnail} alt={doctor?.slug} />
                         </div>
                       </div>
                     ))}
