@@ -28,14 +28,14 @@ const Departments = () => {
         <a href={department.link} key={index}>
           <div
             style={{
-              backgroundImage: `url(${department.meta.image})`,
+              backgroundImage: `url(${department.meta?.image})`,
             }}
             className="group card h-full w-[100%] cursor-pointer rounded-2xl bg-[color:#fcfbfd] bg-[length:40%] bg-right-top bg-no-repeat hover:bg-primary hover:!bg-none md:w-[360px] 2xl:w-[420px]"
           >
-            <div className="h-full w-full rounded-2xl bg-gradient-to-bl from-white/50 to-40% to-white group-hover:!bg-none">
+            <div className="h-full w-full rounded-2xl bg-gradient-to-bl from-white/50 to-white to-40% group-hover:!bg-none">
               <div className="card-body">
                 <div className="mb-8 flex justify-between">
-                  <img src={department.meta.icon}/>
+                  <img src={department.meta?.icon} />
                   <div className="card-actions">
                     <button className="btn btn-secondary no-animation hidden text-base font-normal group-hover:block">
                       See details
@@ -58,12 +58,14 @@ const Departments = () => {
                 </div>
                 <h4
                   className="text-primary group-hover:text-white"
-                  dangerouslySetInnerHTML={{ __html: department.title.rendered }}
+                  dangerouslySetInnerHTML={{
+                    __html: department.title.rendered,
+                  }}
                 ></h4>
                 <p
                   className="font-normal text-[#4D4757] group-hover:text-white"
                   dangerouslySetInnerHTML={{
-                    __html: department.meta.card_text
+                    __html: department.meta?.card_text,
                   }}
                 ></p>
               </div>
