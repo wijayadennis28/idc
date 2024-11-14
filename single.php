@@ -10,7 +10,7 @@ get_header(); ?>
     <div id="service-details"></div>
   <?php } else if ($post_type === 'doctors') { ?>
     <div id="doctor-details"></div>
-  <?php } else if ($post_type === 'post') { ?>
+  <?php } else if ($post_type === 'article') { ?>
     <div id="article-details"></div>
   <?php }
 ?>

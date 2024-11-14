@@ -26,12 +26,19 @@ function register_my_menus() {
 add_action( 'init', 'register_my_menus' );
 
 function add_tags_string_to_rest_api() {
-  register_rest_field( 'services', // TODO: Change to articles
+  register_rest_field( 'article', // TODO: Change to articles
       'article-tags', 
       array(
           'get_callback' => 'get_tags_as_string',
           'schema'       => null,
       )
+  );
+  register_rest_field( 'article',
+    'thumbnail', 
+    array(
+        'get_callback' => 'get_thumbnail',
+        'schema'       => null,
+    )
   );
 }
 
@@ -53,6 +60,7 @@ function get_tags_as_string( $object ) {
 
 add_action( 'rest_api_init', 'add_tags_string_to_rest_api' );
 
+// doctors api
 function add_custom_field_to_doctors_api() {
   register_rest_field( 'doctors',
       'service_name', 
@@ -112,3 +120,5 @@ function get_doctor_details( $object ) {
 }
 
 add_action( 'rest_api_init', 'add_doctor_details_to_services_api' );
+
+

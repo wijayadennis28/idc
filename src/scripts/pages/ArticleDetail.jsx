@@ -4,6 +4,7 @@ import PartnersList from "../components/PartnersList";
 import Loading from "../components/Loading";
 import ArticleList from "../components/ArticleList";
 import Appointment from "../components/MakeAppointment";
+import removeHTMLTags from "../../utils/removeHTMLTags";
 
 import Facebook from "../../../assets/image/footer/facebook.svg";
 import Twitter from "../../../assets/image/footer/twitter.svg";
@@ -13,8 +14,54 @@ import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 import DummyImg from "../../../assets/image/article/article1.jpg";
 
 const ArticleDetail = () => {
-  const [article, setArticle] = useState(null);
+  // const [article, setArticle] = useState(null);
   const currentUrl = window.location.href;
+
+  const [article, setArticle] = useState(null);
+  const [relatedArticles, setRelatedArticles] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    getArticle().catch(console.error);
+  }, []);
+
+  const getArticle = async () => {
+    const slug = window.location.pathname.split('/')[2];
+      const response = await fetch(`/wp-json/wp/v2/article?slug=${slug}`);
+      if (!response.ok) {
+        throw new Error('Service not found');
+      }
+
+      const articlesRaw = await response.json();
+      if (articlesRaw.length === 0) throw new Error("Article Not Found")
+      const articleData = articlesRaw[0];
+      const article = {
+        title: articleData.title.rendered,
+        content: articleData.content.rendered,
+        image: articleData.thumbnail,
+        tags: articleData['article-tags'],
+      } 
+
+      setArticle(article);
+
+      setLoading(true);
+
+      let url = `/wp-json/wp/v2/article?`;
+      url += `article-categories=${articleData['article-categories']}&per_page=2`; 
+      
+      const responseRelatedArticles = await fetch(url);
+  
+      const articleRaws = await responseRelatedArticles.json();
+      const articleList = articleRaws.map((article) => ({
+        permalink: article.link,
+        image: article.thumbnail,
+        title: article.title.rendered,
+        tags: article['article-tags'],
+        content: removeHTMLTags(article.content.rendered).split(".")[0]+"...",
+      }));
+      setRelatedArticles(articleList);
+      setLoading(false);
+  };
 
   const ourPartnerList = [
     {
@@ -55,34 +102,34 @@ const ArticleDetail = () => {
     },
   ];
 
-  const articleList = [
-    {
-      title: "The Ultimate Guide to Choosing the Right Dentist for Your Family",
-      content:
-        "<p>Choosing the right dentist for your family is a crucial decision that can impact your oral health for years to come. With so many options available, it can be overwhelming to find a dental practice that meets your needs and provides euy</p><p>dummy euy</p>",
-      image: DummyImg,
-      tags: [
-        "FamilyDentistry",
-        "ChoosingADentist",
-        "DentalCareTips",
-        "OralHealth",
-      ],
-      slug: "the-ultimate-guide-to-choosing-the-right-dentist-for-your-family",
-    },
-    {
-      title: "The Ultimate Guide to Choosing the Right Dentist for Your Family",
-      content:
-        "<p>Choosing the right dentist for your family is a crucial decision that can impact your oral health for years to come. With so many options available, it can be overwhelming to find a dental practice that meets your needs and provides euy</p><p>dummy euy</p>",
-      image: DummyImg,
-      tags: [
-        "FamilyDentistry",
-        "ChoosingADentist",
-        "DentalCareTips",
-        "OralHealth",
-      ],
-      slug: "the-ultimate-guide-to-choosing-the-right-dentist-for-your-family",
-    },
-  ];
+  // const articleList = [
+  //   {
+  //     title: "The Ultimate Guide to Choosing the Right Dentist for Your Family",
+  //     content:
+  //       "<p>Choosing the right dentist for your family is a crucial decision that can impact your oral health for years to come. With so many options available, it can be overwhelming to find a dental practice that meets your needs and provides euy</p><p>dummy euy</p>",
+  //     image: DummyImg,
+  //     tags: [
+  //       "FamilyDentistry",
+  //       "ChoosingADentist",
+  //       "DentalCareTips",
+  //       "OralHealth",
+  //     ],
+  //     slug: "the-ultimate-guide-to-choosing-the-right-dentist-for-your-family",
+  //   },
+  //   {
+  //     title: "The Ultimate Guide to Choosing the Right Dentist for Your Family",
+  //     content:
+  //       "<p>Choosing the right dentist for your family is a crucial decision that can impact your oral health for years to come. With so many options available, it can be overwhelming to find a dental practice that meets your needs and provides euy</p><p>dummy euy</p>",
+  //     image: DummyImg,
+  //     tags: [
+  //       "FamilyDentistry",
+  //       "ChoosingADentist",
+  //       "DentalCareTips",
+  //       "OralHealth",
+  //     ],
+  //     slug: "the-ultimate-guide-to-choosing-the-right-dentist-for-your-family",
+  //   },
+  // ];
 
   const socialMedia = [
     {
@@ -97,24 +144,26 @@ const ArticleDetail = () => {
     },
   ];
 
-  useEffect(() => {
-    setTimeout(() => {
-      setArticle({
-        title:
-          "The Ultimate Guide to Choosing the Right Dentist for Your Family",
-        content:
-          "<p>Choosing the right dentist for your family is a crucial decision that can impact your oral health for years to come. With so many options available, it can be overwhelming to find a dental practice that meets your needs and provides euy</p><br/><b><p>dummy euy</p></b>",
-        image: DummyImg,
-        tags: [
-          "FamilyDentistry",
-          "ChoosingADentist",
-          "DentalCareTips",
-          "OralHealth",
-        ],
-        slug: "the-ultimate-guide-to-choosing-the-right-dentist-for-your-family",
-      });
-    }, 0);
-  }, []);
+
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setArticle({
+  //       title:
+  //         "The Ultimate Guide to Choosing the Right Dentist for Your Family",
+  //       content:
+  //         "<p>Choosing the right dentist for your family is a crucial decision that can impact your oral health for years to come. With so many options available, it can be overwhelming to find a dental practice that meets your needs and provides euy</p><br/><b><p>dummy euy</p></b>",
+  //       image: DummyImg,
+  //       tags: [
+  //         "FamilyDentistry",
+  //         "ChoosingADentist",
+  //         "DentalCareTips",
+  //         "OralHealth",
+  //       ],
+  //       slug: "the-ultimate-guide-to-choosing-the-right-dentist-for-your-family",
+  //     });
+  //   }, 0);
+  // }, []);
 
   const truncateText = (text, maxLength) => {
     if (text.length <= maxLength) return text;
@@ -149,9 +198,7 @@ const ArticleDetail = () => {
           </div>
           <div>
             <p className="text-base text-neutral-500">
-              {article.tags.map((tag, key) => (
-                <span index={key}>#{tag + " "} </span>
-              ))}
+              {article.tags}
             </p>
             <h2 className="text-2xl font-bold lg:text-3xl">{article.title}</h2>
           </div>
@@ -193,7 +240,7 @@ const ArticleDetail = () => {
             Back
           </button>
         </div>
-        <ArticleList articles={articleList} title={"Related Articles"} />
+        <ArticleList articles={relatedArticles} title={"Related Articles"} isLoading={isLoading}/>
       </div>
       <Appointment />
     </>

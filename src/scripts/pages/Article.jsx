@@ -5,13 +5,18 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 
 import Appointment from "../components/MakeAppointment";
 import ArticleList from "../components/ArticleList";
+import removeHTMLTags from "../../utils/removeHTMLTags";
 
 // image
 import ArticleBg from "../../../assets/image/article/background.jpg";
 import DummyImg from "../../../assets/image/article/article1.jpg";
 
+
 const Article = () => {
-  const [categoryKey, setCategoryKey] = useState("all");
+  const [category, setCategory] = useState({name: "All Articles", id:null});
+  const [isLoading, setLoading] = useState(true);
+  const [availableArticleCategories, setAvailableCategories] = useState([{name: "All Articles", id:null}]);
+  const [articles, setArticles] = useState([]);
 
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -23,91 +28,119 @@ const Article = () => {
     "...",
     10,
   ]);
-  const pageSize = 8;
+  const [pageSize, setPageSize] = useState(10);
 
-  // maybe can be dynamic in the future, but for now it's static
-  const categoryList = [
-    {
-      title: "All Articles",
-      key: "all",
-    },
-    {
-      title: "After Care",
-      key: "after-care",
-    },
-    {
-      title: "What's New",
-      key: "whats-new",
-    },
-  ];
+  useEffect(() => {
+    getCategoriesArticle().catch(console.error);
+    getArticles().catch(console.error);
+  }, []);
 
-  const articleList = [
-    {
-      title: "The Ultimate Guide to Choosing the Right Dentist for Your Family",
-      content:
-        "<p>Choosing the right dentist for your family is a crucial decision that can impact your oral health for years to come. With so many options available, it can be overwhelming to find a dental practice that meets your needs and provides euy</p><p>dummy euy</p>",
-      image: DummyImg,
-      tags: [
-        "FamilyDentistry",
-        "ChoosingADentist",
-        "DentalCareTips",
-        "OralHealth",
-      ],
-      slug: "the-ultimate-guide-to-choosing-the-right-dentist-for-your-family",
-    },
-    {
-      title: "The Ultimate Guide to Choosing the Right Dentist for Your Family",
-      content:
-        "<p>Choosing the right dentist for your family is a crucial decision that can impact your oral health for years to come. With so many options available, it can be overwhelming to find a dental practice that meets your needs and provides euy</p><p>dummy euy</p>",
-      image: DummyImg,
-      tags: [
-        "FamilyDentistry",
-        "ChoosingADentist",
-        "DentalCareTips",
-        "OralHealth",
-      ],
-      slug: "the-ultimate-guide-to-choosing-the-right-dentist-for-your-family",
-    },
-    {
-      title: "The Ultimate Guide to Choosing the Right Dentist for Your Family",
-      content:
-        "<p>Choosing the right dentist for your family is a crucial decision that can impact your oral health for years to come. With so many options available, it can be overwhelming to find a dental practice that meets your needs and provides euy</p><p>dummy euy</p>",
-      image: DummyImg,
-      tags: [
-        "FamilyDentistry",
-        "ChoosingADentist",
-        "DentalCareTips",
-        "OralHealth",
-      ],
-      slug: "the-ultimate-guide-to-choosing-the-right-dentist-for-your-family",
-    },
-    {
-      title: "The Ultimate Guide to Choosing the Right Dentist for Your Family",
-      content:
-        "<p>Choosing the right dentist for your family is a crucial decision that can impact your oral health for years to come. With so many options available, it can be overwhelming to find a dental practice that meets your needs and provides euy</p><p>dummy euy</p>",
-      image: DummyImg,
-      tags: [
-        "FamilyDentistry",
-        "ChoosingADentist",
-        "DentalCareTips",
-        "OralHealth",
-      ],
-      slug: "the-ultimate-guide-to-choosing-the-right-dentist-for-your-family",
-    },
-    {
-      title: "The Ultimate Guide to Choosing the Right Dentist for Your Family",
-      content:
-        "<p>Choosing the right dentist for your family is a crucial decision that can impact your oral health for years to come. With so many options available, it can be overwhelming to find a dental practice that meets your needs and provides euy</p><p>dummy euy</p>",
-      image: DummyImg,
-      tags: [
-        "FamilyDentistry",
-        "ChoosingADentist",
-        "DentalCareTips",
-        "OralHealth",
-      ],
-      slug: "the-ultimate-guide-to-choosing-the-right-dentist-for-your-family",
-    },
-  ];
+  useEffect(() => {
+    getArticles().catch(console.error);
+  }, [category, currentPage])
+
+  const getCategoriesArticle = async () => {
+    const response = await fetch("/wp-json/wp/v2/article-categories");
+    const categoriesArticle = await response.json();
+    setAvailableCategories([{name: "All Articles", id:null}, ...categoriesArticle.map((categoriesArticle) => ({name: categoriesArticle.name, id: categoriesArticle.id}))]);
+  };
+
+  const getArticles = async () => {
+    setLoading(true);
+    let url = `/wp-json/wp/v2/article?per_page=5&page=${currentPage}`;
+    if (category.id){
+      url += `&article-categories=${category.id}`; 
+    }
+    
+    const response = await fetch(url);
+
+    // headers
+    const headers = response.headers;
+    const totalPages = headers.get('x-wp-totalpages');
+
+
+    const articleRaws = await response.json();
+    console.log(articleRaws);
+    const articleList = articleRaws.map((article) => ({
+      permalink: article.link,
+      image: article.thumbnail,
+      title: article.title.rendered,
+      tags: article['article-tags'],
+      content: removeHTMLTags(article.content.rendered).split(".")[0]+"...",
+    }));
+    console.log(articleList);
+    setArticles(articleList);
+    setPageSize(totalPages);
+    setLoading(false);
+  };
+
+  // const articleList = [
+  //   {
+  //     title: "The Ultimate Guide to Choosing the Right Dentist for Your Family",
+  //     content:
+  //       "<p>Choosing the right dentist for your family is a crucial decision that can impact your oral health for years to come. With so many options available, it can be overwhelming to find a dental practice that meets your needs and provides euy</p><p>dummy euy</p>",
+  //     image: DummyImg,
+  //     tags: [
+  //       "FamilyDentistry",
+  //       "ChoosingADentist",
+  //       "DentalCareTips",
+  //       "OralHealth",
+  //     ],
+  //     slug: "the-ultimate-guide-to-choosing-the-right-dentist-for-your-family",
+  //   },
+  //   {
+  //     title: "The Ultimate Guide to Choosing the Right Dentist for Your Family",
+  //     content:
+  //       "<p>Choosing the right dentist for your family is a crucial decision that can impact your oral health for years to come. With so many options available, it can be overwhelming to find a dental practice that meets your needs and provides euy</p><p>dummy euy</p>",
+  //     image: DummyImg,
+  //     tags: [
+  //       "FamilyDentistry",
+  //       "ChoosingADentist",
+  //       "DentalCareTips",
+  //       "OralHealth",
+  //     ],
+  //     slug: "the-ultimate-guide-to-choosing-the-right-dentist-for-your-family",
+  //   },
+  //   {
+  //     title: "The Ultimate Guide to Choosing the Right Dentist for Your Family",
+  //     content:
+  //       "<p>Choosing the right dentist for your family is a crucial decision that can impact your oral health for years to come. With so many options available, it can be overwhelming to find a dental practice that meets your needs and provides euy</p><p>dummy euy</p>",
+  //     image: DummyImg,
+  //     tags: [
+  //       "FamilyDentistry",
+  //       "ChoosingADentist",
+  //       "DentalCareTips",
+  //       "OralHealth",
+  //     ],
+  //     slug: "the-ultimate-guide-to-choosing-the-right-dentist-for-your-family",
+  //   },
+  //   {
+  //     title: "The Ultimate Guide to Choosing the Right Dentist for Your Family",
+  //     content:
+  //       "<p>Choosing the right dentist for your family is a crucial decision that can impact your oral health for years to come. With so many options available, it can be overwhelming to find a dental practice that meets your needs and provides euy</p><p>dummy euy</p>",
+  //     image: DummyImg,
+  //     tags: [
+  //       "FamilyDentistry",
+  //       "ChoosingADentist",
+  //       "DentalCareTips",
+  //       "OralHealth",
+  //     ],
+  //     slug: "the-ultimate-guide-to-choosing-the-right-dentist-for-your-family",
+  //   },
+  //   {
+  //     title: "The Ultimate Guide to Choosing the Right Dentist for Your Family",
+  //     content:
+  //       "<p>Choosing the right dentist for your family is a crucial decision that can impact your oral health for years to come. With so many options available, it can be overwhelming to find a dental practice that meets your needs and provides euy</p><p>dummy euy</p>",
+  //     image: DummyImg,
+  //     tags: [
+  //       "FamilyDentistry",
+  //       "ChoosingADentist",
+  //       "DentalCareTips",
+  //       "OralHealth",
+  //     ],
+  //     slug: "the-ultimate-guide-to-choosing-the-right-dentist-for-your-family",
+  //   },
+  // ];
 
   const nextPagination = () => {
     if (currentPage === pageSize) return;
@@ -131,29 +164,32 @@ const Article = () => {
 
   useEffect(() => {
     const pagination = [];
-    if (currentPage < 4) {
-      for (let i = 1; i <= 4; i++) {
+      for (let i = 1; i <= pageSize; i++) {
         pagination.push(i);
       }
-      pagination.push("...");
-      pagination.push(pageSize);
-    } else if (currentPage > pageSize - 3) {
-      pagination.push(1);
-      pagination.push("...");
-      for (let i = pageSize - 3; i <= pageSize; i++) {
-        pagination.push(i);
-      }
-    } else {
-      pagination.push(1);
-      pagination.push("...");
-      for (let i = currentPage - 1; i <= currentPage + 1; i++) {
-        pagination.push(i);
-      }
-      pagination.push("...");
-      pagination.push(pageSize);
-    }
+    // if (currentPage < 4) {
+    //   for (let i = 1; i <= 4; i++) {
+    //     pagination.push(i);
+    //   }
+    //   pagination.push("...");
+    //   pagination.push(pageSize);
+    // } else if (currentPage > pageSize - 3) {
+    //   pagination.push(1);
+    //   pagination.push("...");
+    //   for (let i = pageSize - 3; i <= pageSize; i++) {
+    //     pagination.push(i);
+    //   }
+    // } else {
+    //   pagination.push(1);
+    //   pagination.push("...");
+    //   for (let i = currentPage - 1; i <= currentPage + 1; i++) {
+    //     pagination.push(i);
+    //   }
+    //   pagination.push("...");
+    //   pagination.push(pageSize);
+    // }
     setPaginationButton(pagination);
-  }, [currentPage]);
+  }, [currentPage, pageSize]);
 
   return (
     <div>
@@ -169,18 +205,18 @@ const Article = () => {
           </div>
         </div>
         <div className="hidden gap-4 md:flex" id="category-selector">
-          {categoryList.map((category) => (
+          {availableArticleCategories.map((availableCategory) => (
             <button
               className={`btn w-fit font-bold text-primary ${
-                category.key === categoryKey ? "btn-primary no-animation" : ""
+                category.name === availableCategory.name ? "btn-primary no-animation" : ""
               } `}
               onClick={() => {
-                if (category.key === categoryKey) return;
-                setCategoryKey(category.key);
+                if (category.name === availableCategory.name) return;
+                setCategory(availableCategory);
                 setCurrentPage(1);
               }}
             >
-              <h4>{category.title}</h4>
+              <h4>{availableCategory.name}</h4>
             </button>
           ))}
         </div>
@@ -194,30 +230,31 @@ const Article = () => {
               autoWidth: true,
             }}
           >
-            {categoryList.map((category, index) => (
+            {availableArticleCategories.map((availableCategory, index) => (
               <SplideSlide key={index}>
                 <button
                   className={`btn me-4 w-fit font-bold text-primary ${
-                    category.key === categoryKey
+                    category.name === availableCategory.name
                       ? "btn-primary no-animation"
                       : ""
                   } `}
                   onClick={() => {
-                    if (category.key === categoryKey) return;
-                    setCategoryKey(category.key);
+                    if (category.name === availableCategory.name) return;
+                    setCategory(availableCategory.name);
                     setCurrentPage(1);
                   }}
                 >
-                  <h4>{category.title}</h4>
+                  <h4>{availableCategory.name}</h4>
                 </button>
               </SplideSlide>
             ))}
           </Splide>
         </div>
         <ArticleList
-          articles={articleList}
+          isLoading={isLoading}
+          articles={articles}
           title={
-            categoryList.find((category) => category.key === categoryKey).title
+            category.name
           }
         />
         <div className="flex items-end gap-2 md:gap-4">
