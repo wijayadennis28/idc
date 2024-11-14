@@ -1,19 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 
+import useScreenSize from "../../utils/useScreenSize";
+
 const Partners = ({ list = [], slider = false }) => {
-  const [screenSize, setScreenSize] = useState(0);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenSize(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const screenSize = useScreenSize();
 
   if (slider && screenSize < 540) {
     return (

@@ -16,10 +16,11 @@ import Connect5Img from "../../../assets/image/home/connect/connect-5.png";
 import Connect6Img from "../../../assets/image/home/connect/connect-6.png";
 import Connect7Img from "../../../assets/image/home/connect/connect-7.png";
 import ConnectLogoImg from "../../../assets/image/home/connect/connect-logo.png";
-import ConnectArrowImg from "../../../assets/image/home/connect/arrow.svg";
+
+import useScreenSize from "../../utils/useScreenSize";
 
 const MakeAppointment = () => {
-  const [screenSize, setScreenSize] = useState(0);
+  const screenSize = useScreenSize();
 
   const social = [
     { src: Connect2Img, alt: "connect-2" },
@@ -34,17 +35,6 @@ const MakeAppointment = () => {
     const dialog = document.getElementById("map-modal");
     dialog.showModal();
   };
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenSize(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
     <>
