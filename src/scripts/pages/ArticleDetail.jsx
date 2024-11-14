@@ -11,14 +11,12 @@ import Twitter from "../../../assets/image/footer/twitter.svg";
 
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 
-import DummyImg from "../../../assets/image/article/article1.jpg";
-
 const ArticleDetail = () => {
-  // const [article, setArticle] = useState(null);
   const currentUrl = window.location.href;
 
   const [article, setArticle] = useState(null);
   const [relatedArticles, setRelatedArticles] = useState([]);
+  const [ourPartnerList, setOurPartnerList] = useState([]); 
   const [isLoading, setLoading] = useState(true);
   
   useEffect(() => {
@@ -60,76 +58,17 @@ const ArticleDetail = () => {
         content: removeHTMLTags(article.content.rendered).split(".")[0]+"...",
       }));
       setRelatedArticles(articleList);
+
+      const adPartnersObj = articleData.meta?.ad_partners || {};
+      const adPartnersArray = Object.keys(adPartnersObj).map((key) => adPartnersObj[key]);
+      const partnersList = adPartnersArray.map((partner) => ({
+        name: partner.title,
+        logo: partner.image,
+      }));
+      setOurPartnerList(partnersList);
+
       setLoading(false);
   };
-
-  const ourPartnerList = [
-    {
-      name: "Wide",
-      logo: "dummy-wide.jpg",
-    },
-    {
-      name: "tall",
-      logo: "dummy-tall.jpg",
-    },
-    {
-      name: "1x1",
-      logo: "dummy-1x1.jpg",
-    },
-    {
-      name: "Wide",
-      logo: "dummy-wide.jpg",
-    },
-    {
-      name: "tall",
-      logo: "dummy-tall.jpg",
-    },
-    {
-      name: "1x1",
-      logo: "dummy-1x1.jpg",
-    },
-    {
-      name: "Wide",
-      logo: "dummy-wide.jpg",
-    },
-    {
-      name: "tall",
-      logo: "dummy-tall.jpg",
-    },
-    {
-      name: "1x1",
-      logo: "dummy-1x1.jpg",
-    },
-  ];
-
-  // const articleList = [
-  //   {
-  //     title: "The Ultimate Guide to Choosing the Right Dentist for Your Family",
-  //     content:
-  //       "<p>Choosing the right dentist for your family is a crucial decision that can impact your oral health for years to come. With so many options available, it can be overwhelming to find a dental practice that meets your needs and provides euy</p><p>dummy euy</p>",
-  //     image: DummyImg,
-  //     tags: [
-  //       "FamilyDentistry",
-  //       "ChoosingADentist",
-  //       "DentalCareTips",
-  //       "OralHealth",
-  //     ],
-  //     slug: "the-ultimate-guide-to-choosing-the-right-dentist-for-your-family",
-  //   },
-  //   {
-  //     title: "The Ultimate Guide to Choosing the Right Dentist for Your Family",
-  //     content:
-  //       "<p>Choosing the right dentist for your family is a crucial decision that can impact your oral health for years to come. With so many options available, it can be overwhelming to find a dental practice that meets your needs and provides euy</p><p>dummy euy</p>",
-  //     image: DummyImg,
-  //     tags: [
-  //       "FamilyDentistry",
-  //       "ChoosingADentist",
-  //       "DentalCareTips",
-  //       "OralHealth",
-  //     ],
-  //     slug: "the-ultimate-guide-to-choosing-the-right-dentist-for-your-family",
-  //   },
-  // ];
 
   const socialMedia = [
     {
@@ -143,27 +82,6 @@ const ArticleDetail = () => {
       icon: Twitter,
     },
   ];
-
-
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setArticle({
-  //       title:
-  //         "The Ultimate Guide to Choosing the Right Dentist for Your Family",
-  //       content:
-  //         "<p>Choosing the right dentist for your family is a crucial decision that can impact your oral health for years to come. With so many options available, it can be overwhelming to find a dental practice that meets your needs and provides euy</p><br/><b><p>dummy euy</p></b>",
-  //       image: DummyImg,
-  //       tags: [
-  //         "FamilyDentistry",
-  //         "ChoosingADentist",
-  //         "DentalCareTips",
-  //         "OralHealth",
-  //       ],
-  //       slug: "the-ultimate-guide-to-choosing-the-right-dentist-for-your-family",
-  //     });
-  //   }, 0);
-  // }, []);
 
   const truncateText = (text, maxLength) => {
     if (text.length <= maxLength) return text;
@@ -208,12 +126,14 @@ const ArticleDetail = () => {
             }}
           ></div>
         </div>
-        <div className="flex w-full flex-col items-center gap-8 py-8">
-          <div className="w-full max-w-[1300px] px-8 md:px-8 lg:w-[850px] lg:px-0">
-            <h2 className="font-normal text-primary">In Collaboration with</h2>
+        {ourPartnerList.length > 0 && (
+          <div className="flex w-full flex-col items-center gap-8 py-8">
+            <div className="w-full max-w-[1300px] px-8 md:px-8 lg:w-[850px] lg:px-0">
+              <h2 className="font-normal text-primary">In Collaboration with</h2>
+            </div>
+            <PartnersList list={ourPartnerList} />
           </div>
-          <PartnersList list={ourPartnerList} />
-        </div>
+        )}
         <div className="flex flex-col items-center gap-2">
           <h6 className="font-normal">Share</h6>
           <div className="flex gap-4">
