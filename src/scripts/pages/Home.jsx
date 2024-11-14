@@ -7,6 +7,8 @@ import MakeAppointment from "../components/MakeAppointment";
 import Departments from "../components/Departments";
 import PartnersList from "../components/PartnersList";
 
+import useScreenSize from "../../utils/useScreenSize";
+
 // image
 import Hero1Img from "../../../assets/image/home/hero/hero-1.jpg";
 import Hero2Img from "../../../assets/image/home/hero/hero-2.jpg";
@@ -32,6 +34,7 @@ import ConnectArrowImg from "../../../assets/image/home/connect/arrow.svg";
 import OurClinicImg from "../../../assets/image/home/services/background.jpg";
 
 const Home = () => {
+  const screenSize = useScreenSize();
   const paginationRef = useRef(null);
   const [ourPartnerList, setOurPartnerList] = useState([]);
   const [doctorList, setDoctorList] = useState([]);
@@ -335,47 +338,76 @@ const Home = () => {
                 </p>
               </div>
               <div className="splide-hide-arrow w-full max-sm:w-screen">
-                <Splide
-                  className="clients-splide"
-                  options={{
-                    type: "loop",
-                    perPage: 2,
-                    focus: "center",
-                    gap: "2rem",
-                    padding: "47rem",
-                    autoplay: true,
-                    breakpoints: {
-                      640: {
-                        perPage: 1,
-                        gap: "1px",
-                        padding: "1px",
-                      },
-                    },
-                  }}
-                >
-                  {testimonies.map((testimony, index) => (
-                    <SplideSlide
-                      key={index}
-                      className="max-sm:flex max-sm:w-screen max-sm:items-center max-sm:justify-center"
-                    >
-                      <div className="card h-[520px] bg-primary text-white max-2xl:h-[480px] max-sm:w-[90vw]">
-                        <figure className="h-1/2 w-full overflow-hidden">
-                          <img
-                            src={testimony?.meta.photo}
-                            alt="patient image"
-                          />
-                        </figure>
-                        <div className="card-body h-1/2">
-                          <h2 className="card-title">
-                            {testimony.title.rendered}
-                          </h2>
-                          <div className="divider m-0 p-0 before:h-[1px] before:bg-white after:h-[1px] after:bg-white"></div>
-                          <p>{testimony.meta?.testimony}</p>
+                {testimonies.length < 3 && screenSize > 768 ? (
+                  <>
+                    <div className="flex w-full flex-row-reverse justify-center gap-4 px-4 lg:gap-8">
+                      {testimonies.map((testimony, index) => (
+                        <div
+                          className="card h-[520px] w-96 bg-primary text-white max-2xl:h-[480px]"
+                          key={index}
+                        >
+                          <figure className="h-1/2 w-full overflow-hidden">
+                            <img
+                              src={testimony?.meta.photo}
+                              alt="patient image"
+                            />
+                          </figure>
+                          <div className="card-body h-1/2">
+                            <h2 className="card-title">
+                              {testimony.title.rendered}
+                            </h2>
+                            <div className="divider m-0 p-0 before:h-[1px] before:bg-white after:h-[1px] after:bg-white"></div>
+                            <p>{testimony.meta?.testimony}</p>
+                          </div>
                         </div>
-                      </div>
-                    </SplideSlide>
-                  ))}
-                </Splide>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <Splide
+                      className="clients-splide"
+                      options={{
+                        type: "loop",
+                        perPage: 2,
+                        focus: "center",
+                        gap: "2rem",
+                        padding: "47rem",
+                        autoplay: true,
+                        breakpoints: {
+                          640: {
+                            perPage: 1,
+                            gap: "1px",
+                            padding: "1px",
+                          },
+                        },
+                      }}
+                    >
+                      {testimonies.map((testimony, index) => (
+                        <SplideSlide
+                          key={index}
+                          className="max-sm:flex max-sm:w-screen max-sm:items-center max-sm:justify-center"
+                        >
+                          <div className="card h-[520px] bg-primary text-white max-2xl:h-[480px] max-sm:w-[90vw]">
+                            <figure className="h-1/2 w-full overflow-hidden">
+                              <img
+                                src={testimony?.meta.photo}
+                                alt="patient image"
+                              />
+                            </figure>
+                            <div className="card-body h-1/2">
+                              <h2 className="card-title">
+                                {testimony.title.rendered}
+                              </h2>
+                              <div className="divider m-0 p-0 before:h-[1px] before:bg-white after:h-[1px] after:bg-white"></div>
+                              <p>{testimony.meta?.testimony}</p>
+                            </div>
+                          </div>
+                        </SplideSlide>
+                      ))}
+                    </Splide>
+                  </>
+                )}
               </div>
             </div>
           </div>
