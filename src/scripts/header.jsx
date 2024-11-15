@@ -82,12 +82,12 @@ const Header = () => {
       URL: "/",
     },
     {
-      id: "our-services",
+      id: ["our-services", "services"],
       name: "Our Services",
       URL: "/our-services",
     },
     {
-      id: "our-doctors",
+      id: ["our-doctors", "doctors"],
       name: "Doctors",
       URL: "/our-doctors",
     },
@@ -97,7 +97,7 @@ const Header = () => {
       URL: "/about-us",
     },
     {
-      id: "articles",
+      id: ["articles", "article"],
       name: "Articles",
       URL: "/articles",
     },
@@ -163,7 +163,7 @@ const Header = () => {
             {menuList.map((item, index) => (
               <li key={index}>
                 <a
-                  className={`idc-menu ${path === item.id ? "path" : ""}`}
+                  className={`idc-menu ${item.id.includes(path) ? "path" : ""}`}
                   href={item.URL}
                   onClick={(e) => handleClick(item.URL, e)}
                 >
