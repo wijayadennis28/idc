@@ -13,7 +13,7 @@ const PopUpMap = () => {
           </button>
         </form>
         <div className="flex flex-col items-center">
-          <h1 className="font-normal text-primary">
+          <h1 className="pb-6 font-normal text-primary">
             Our <span className="font-bold">location</span>
           </h1>
           <Branches btnColor="secondary" />

@@ -157,13 +157,13 @@ const Home = () => {
                   <div className="avatar-group -space-x-4 rtl:space-x-reverse">
                     {doctorList.slice(0, 4).map((doctor, index) => (
                       <div className="avatar border-none" key={index}>
-                        <div className="w-11 max-lg:w-10">
+                        <div className="w-10 lg:w-11 2xl:w-14">
                           <img src={doctor?.thumbnail} alt={doctor?.slug} />
                         </div>
                       </div>
                     ))}
                     <div className="avatar placeholder border">
-                      <div className="w-11 bg-secondary text-neutral-content max-lg:w-10">
+                      <div className="w-10 bg-secondary text-neutral-content lg:w-11 2xl:w-14">
                         <span>{doctorList.length - 3}+</span>
                       </div>
                     </div>
@@ -291,14 +291,14 @@ const Home = () => {
                   <div className="avatar-group -space-x-4 rtl:space-x-reverse">
                     {doctorList.slice(0, 4).map((doctor, index) => (
                       <div className="avatar border-none" key={index}>
-                        <div className="w-10 lg:w-12">
+                        <div className="w-10 lg:w-11 2xl:w-14">
                           <img src={doctor?.thumbnail} alt={doctor?.slug} />
                         </div>
                       </div>
                     ))}
 
                     <div className="avatar placeholder border">
-                      <div className="w-10 bg-secondary text-neutral-content lg:w-12">
+                      <div className="w-10 bg-secondary text-neutral-content lg:w-11 2xl:w-14">
                         <span>{doctorList.length - 4}+</span>
                       </div>
                     </div>
@@ -340,7 +340,7 @@ const Home = () => {
               <div className="splide-hide-arrow w-full max-sm:w-screen">
                 {testimonies.length < 3 && screenSize > 768 ? (
                   <>
-                    <div className="flex w-full flex-row-reverse justify-center gap-4 px-4 lg:gap-8">
+                    <div className="flex w-full flex-row-reverse justify-center gap-4 px-4 lg:gap-12">
                       {testimonies.map((testimony, index) => (
                         <div
                           className="card h-[520px] w-96 bg-primary text-white max-2xl:h-[480px]"

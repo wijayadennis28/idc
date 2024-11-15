@@ -38,16 +38,16 @@ const MakeAppointment = () => {
 
   return (
     <>
-      <div className="flex justify-center">
-        <div className="w-full max-w-[1643px] p-4 md:p-8" id="make-appointment">
-          <div className="hidden h-28 md:flex lg:h-44">
+      <div className="flex justify-center py-8">
+        <div className="m-4 w-full max-w-[2400px] md:m-8" id="make-appointment">
+          <div className="hidden h-28 md:flex lg:h-44 xl:h-60">
             <div className="flex-1"></div>
             <div className="flex flex-1 justify-center">
               <div className="absolute">
                 <img
                   src={logoWithoutTextBig}
                   alt="logo"
-                  className="size-[380px] lg:size-[439px]"
+                  className="size-[380px] lg:size-[439px] xl:size-[520px]"
                 />
               </div>
             </div>
@@ -74,7 +74,7 @@ const MakeAppointment = () => {
       </div>
       <PopUpMap />
       {screenSize < 1024 && (
-        <div className="flex w-full flex-col items-center gap-8 px-4 pt-16">
+        <div className="flex w-full flex-col items-center gap-8 px-4 pb-8 pt-16">
           <h1 className="text-center font-normal text-primary">
             Connect with Us
           </h1>
