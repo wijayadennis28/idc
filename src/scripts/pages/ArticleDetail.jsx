@@ -16,58 +16,60 @@ const ArticleDetail = () => {
 
   const [article, setArticle] = useState(null);
   const [relatedArticles, setRelatedArticles] = useState([]);
-  const [ourPartnerList, setOurPartnerList] = useState([]); 
+  const [ourPartnerList, setOurPartnerList] = useState([]);
   const [isLoading, setLoading] = useState(true);
-  
+
   useEffect(() => {
     getArticle().catch(console.error);
   }, []);
 
   const getArticle = async () => {
-    const slug = window.location.pathname.split('/')[2];
-      const response = await fetch(`/wp-json/wp/v2/article?slug=${slug}`);
-      if (!response.ok) {
-        throw new Error('Service not found');
-      }
+    const slug = window.location.pathname.split("/")[2];
+    const response = await fetch(`/wp-json/wp/v2/article?slug=${slug}`);
+    if (!response.ok) {
+      throw new Error("Service not found");
+    }
 
-      const articlesRaw = await response.json();
-      if (articlesRaw.length === 0) throw new Error("Article Not Found")
-      const articleData = articlesRaw[0];
-      const article = {
-        title: articleData.title.rendered,
-        content: articleData.content.rendered,
-        image: articleData.thumbnail,
-        tags: articleData['article-tags'],
-      } 
+    const articlesRaw = await response.json();
+    if (articlesRaw.length === 0) throw new Error("Article Not Found");
+    const articleData = articlesRaw[0];
+    const article = {
+      title: articleData.title.rendered,
+      content: articleData.content.rendered,
+      image: articleData.thumbnail,
+      tags: articleData["article-tags"],
+    };
 
-      setArticle(article);
+    setArticle(article);
 
-      setLoading(true);
+    setLoading(true);
 
-      let url = `/wp-json/wp/v2/article?`;
-      url += `article-categories=${articleData['article-categories']}&per_page=2`; 
-      
-      const responseRelatedArticles = await fetch(url);
-  
-      const articleRaws = await responseRelatedArticles.json();
-      const articleList = articleRaws.map((article) => ({
-        permalink: article.link,
-        image: article.thumbnail,
-        title: article.title.rendered,
-        tags: article['article-tags'],
-        content: removeHTMLTags(article.content.rendered).split(".")[0]+"...",
-      }));
-      setRelatedArticles(articleList);
+    let url = `/wp-json/wp/v2/article?`;
+    url += `article-categories=${articleData["article-categories"]}&per_page=2`;
 
-      const adPartnersObj = articleData.meta?.ad_partners || {};
-      const adPartnersArray = Object.keys(adPartnersObj).map((key) => adPartnersObj[key]);
-      const partnersList = adPartnersArray.map((partner) => ({
-        name: partner.title,
-        logo: partner.image,
-      }));
-      setOurPartnerList(partnersList);
+    const responseRelatedArticles = await fetch(url);
 
-      setLoading(false);
+    const articleRaws = await responseRelatedArticles.json();
+    const articleList = articleRaws.map((article) => ({
+      permalink: article.link,
+      image: article.thumbnail,
+      title: article.title.rendered,
+      tags: article["article-tags"],
+      content: removeHTMLTags(article.content.rendered).split(".")[0] + "...",
+    }));
+    setRelatedArticles(articleList);
+
+    const adPartnersObj = articleData.meta?.ad_partners || {};
+    const adPartnersArray = Object.keys(adPartnersObj).map(
+      (key) => adPartnersObj[key],
+    );
+    const partnersList = adPartnersArray.map((partner) => ({
+      name: partner.title,
+      logo: partner.image,
+    }));
+    setOurPartnerList(partnersList);
+
+    setLoading(false);
   };
 
   const socialMedia = [
@@ -99,7 +101,7 @@ const ArticleDetail = () => {
           <div className="breadcrumbs overflow-hidden text-sm">
             <ul className="w-full">
               <li className="text-secondary">
-                <a>Article</a>
+                <a href="/articles">Article</a>
               </li>
 
               <li className="md:!hidden">{truncateText(article.title, 41)}</li>
@@ -115,9 +117,7 @@ const ArticleDetail = () => {
             />
           </div>
           <div>
-            <p className="text-base text-neutral-500">
-              {article.tags}
-            </p>
+            <p className="text-base text-neutral-500">{article.tags}</p>
             <h2 className="text-2xl font-bold lg:text-3xl">{article.title}</h2>
           </div>
           <div
@@ -129,7 +129,9 @@ const ArticleDetail = () => {
         {ourPartnerList.length > 0 && (
           <div className="flex w-full flex-col items-center gap-8 py-8">
             <div className="w-full max-w-[1300px] px-8 md:px-8 lg:w-[850px] lg:px-0">
-              <h2 className="font-normal text-primary">In Collaboration with</h2>
+              <h2 className="font-normal text-primary">
+                In Collaboration with
+              </h2>
             </div>
             <PartnersList list={ourPartnerList} />
           </div>
@@ -155,12 +157,18 @@ const ArticleDetail = () => {
           </div>
         </div>
         <div className="w-full px-8 pb-8 md:px-8 lg:w-[850px] lg:px-0">
-          <button className="btn btn-primary w-28">
-            <ChevronLeftIcon className="size-5" />
-            Back
-          </button>
+          <a href="/articles">
+            <button className="btn btn-primary w-28">
+              <ChevronLeftIcon className="size-5" />
+              Back
+            </button>
+          </a>
         </div>
-        <ArticleList articles={relatedArticles} title={"Related Articles"} isLoading={isLoading}/>
+        <ArticleList
+          articles={relatedArticles}
+          title={"Related Articles"}
+          isLoading={isLoading}
+        />
       </div>
       <Appointment />
     </>
