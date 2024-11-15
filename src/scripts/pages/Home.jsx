@@ -189,7 +189,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="h-full w-full object-cover">
+          <div className="h-full w-full">
             <Splide
               options={{
                 type: "loop",
@@ -198,14 +198,16 @@ const Home = () => {
               }}
               id="hero-splide"
             >
-              <div className="splide__arrows" style={{ display: "none" }} />
+              <div className="splide__arrows hidden" />
               {[Hero1Img, Hero2Img, Hero3Img].map((value, index) => (
                 <SplideSlide key={index}>
+                  <div className="h-fit w-full lg:h-[85vh] lg:max-h-[600px] xl:max-h-[1684px] 2xl:h-[87vh]">
                   <img
                     src={value}
                     alt="Hero Background"
-                    className="h-full w-full object-cover"
+                      className={`h-full w-full object-cover ${index === 0 ? "object-center" : "object-top"}`}
                   />
+                  </div>
                 </SplideSlide>
               ))}
             </Splide>
