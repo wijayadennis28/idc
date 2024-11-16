@@ -30,17 +30,39 @@ const OurDoctors = () => {
 
   const getDoctors = async () => {
     setLoading(true);
-    const response = await fetch(`/wp-json/wp/v2/doctors`);
-    const doctorsRaws = await response.json();
-    const doctors = doctorsRaws.map((doctor) => ({
-      permalink: doctor.link,
-      thumbnail: doctor.thumbnail,
-      name: doctor.title.rendered,
-      service: doctor.service_name,
-    }));
-    setDoctors(doctors);
-    setFilteredDoctors(doctors);
-    setLoading(false);
+    let doctors = [];
+    let page = 1;
+    let totalPages = 1;
+  
+    try {
+      do {
+        const response = await fetch(`/wp-json/wp/v2/doctors?per_page=100&page=${page}`);
+        const doctorsRaws = await response.json();
+  
+        if (!response.ok) {
+          throw new Error(`Error: ${response.statusText}`);
+        }
+  
+        totalPages = parseInt(response.headers.get('X-WP-TotalPages')) || 1;
+        doctors = doctors.concat(
+          doctorsRaws.map((doctor) => ({
+            permalink: doctor.link,
+            thumbnail: doctor.thumbnail,
+            name: doctor.title.rendered,
+            service: doctor.service_name,
+          }))
+        );
+  
+        page++;
+      } while (page <= totalPages);
+
+      setDoctors(doctors);
+      setFilteredDoctors(doctors);
+    } catch (error) {
+      console.error("Failed to fetch doctors:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleSearch = (e) => {
