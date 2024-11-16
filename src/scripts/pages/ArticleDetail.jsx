@@ -59,13 +59,10 @@ const ArticleDetail = () => {
     }));
     setRelatedArticles(articleList);
 
-    const adPartnersObj = articleData.meta?.ad_partners || {};
-    const adPartnersArray = Object.keys(adPartnersObj).map(
-      (key) => adPartnersObj[key],
-    );
+    const adPartnersArray = Object.values(articleData.meta?.ad_partners || {});
     const partnersList = adPartnersArray.map((partner) => ({
-      name: partner.title,
-      logo: partner.image,
+      name: partner?.title || '',
+      logo: partner?.image || '',
     }));
     setOurPartnerList(partnersList);
 

@@ -17,7 +17,7 @@ const DoctorsGrid = ({doctors, isLoading}) => {
             </figure>
             <div className="card-body items-center text-center">
               <h4 className="card-title text-[#4D4757]">{doctor.name}</h4>
-              <p className="text-[#4D4757]">{doctor.service}</p>
+              <p className="text-[#4D4757]" dangerouslySetInnerHTML={{__html: doctor.service}}></p>
               <div className="card-actions items-center">
                 <p className="text-secondary text-base">Discover more</p>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-5 text-secondary inline">
