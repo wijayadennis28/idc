@@ -32,7 +32,7 @@ const Branches = ({ showTitle = false, btnColor = "primary" }) => {
   return (
     <div id="branches" className="flex flex-col gap-8">
       {showTitle && (
-        <h2 className="text-center text-xl font-bold text-purple-700 lg:text-2xl">
+        <h2 className="text-xl font-bold text-purple-700 lg:text-2xl">
           Address
         </h2>
       )}
