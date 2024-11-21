@@ -30,9 +30,6 @@ const AboutUs = () => {
       <div className="m-4 lg:m-8">
         <Branches showTitle={true} />
       </div>
-      <div className="max-md:py-6">
-        <MakeAppointment />
-      </div>
     </div>
   );
 };

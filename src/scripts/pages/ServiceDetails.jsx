@@ -9,10 +9,10 @@ const ServiceDetails = () => {
   const [service, setService] = useState(null);
   useEffect(() => {
     async function loadServiceDetails() {
-      const slug = window.location.pathname.split('/')[2];
+      const slug = window.location.pathname.split("/")[2];
       const response = await fetch(`/wp-json/wp/v2/services?slug=${slug}`);
       if (!response.ok) {
-        throw new Error('Service not found');
+        throw new Error("Service not found");
       }
 
       const service = await response.json();
@@ -27,8 +27,8 @@ const ServiceDetails = () => {
     return Object.values(service.meta.our_works).map((ourWork, i) => ({
       id: i,
       imageUrl: ourWork.image,
-      title: {rendered: ourWork.title},
-      content: {rendered: ourWork.content}
+      title: { rendered: ourWork.title },
+      content: { rendered: ourWork.content },
     }));
   };
 
@@ -39,7 +39,7 @@ const ServiceDetails = () => {
     }));
   };
 
-  if (!service) return <Loading/>;
+  if (!service) return <Loading />;
 
   return (
     <div className="flex flex-col gap-8">
@@ -47,52 +47,67 @@ const ServiceDetails = () => {
         style={{
           "--image-url": `url(${service.meta.image})`,
         }}
-        className="h-48 w-full bg-white md:bg-[image:var(--image-url)] bg-[length:40%] bg-right bg-no-repeat"
+        className="h-48 w-full bg-white bg-[length:40%] bg-right bg-no-repeat md:bg-[image:var(--image-url)]"
       >
-        <div className="flex px-8 w-full h-full flex-col justify-center bg-gradient-to-r from-white from-60% to-white/50">
+        <div className="flex h-full w-full flex-col justify-center bg-gradient-to-r from-white from-60% to-white/50 px-8">
           <div className="breadcrumbs text-sm">
             <ul>
               <li className="text-secondary">
                 <a href="/our-services">Our Services</a>
               </li>
-              <li className="text-[#4D4757]" dangerouslySetInnerHTML={{__html: service.title.rendered}}></li>
+              <li
+                className="text-[#4D4757]"
+                dangerouslySetInnerHTML={{ __html: service.title.rendered }}
+              ></li>
             </ul>
           </div>
-          <h1 className="text-primary" dangerouslySetInnerHTML={{__html: service.title.rendered}}></h1>
+          <h1
+            className="text-primary"
+            dangerouslySetInnerHTML={{ __html: service.title.rendered }}
+          ></h1>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row lg justify-around gap-8 px-8">
-        <div className="py-8 basis-0 grow text-[#4D4757]" dangerouslySetInnerHTML={{__html: service.content.rendered}}></div>
-        <div className="flex flex-col gap-2 basis-0 grow">
+      <div className="lg flex flex-col justify-around gap-8 px-8 md:flex-row">
+        <div
+          className="grow basis-0 py-8 text-[#4D4757]"
+          dangerouslySetInnerHTML={{ __html: service.content.rendered }}
+        ></div>
+        <div className="flex grow basis-0 flex-col gap-2">
           <h4 className="font-normal text-primary">Type of service</h4>
           {Object.values(service.meta.service_types).map((serviceType, i) => (
             <div className="collapse collapse-arrow border">
-              <input type="radio" name="my-accordion-2" defaultChecked={i === 0} />
+              <input
+                type="radio"
+                name="my-accordion-2"
+                defaultChecked={i === 0}
+              />
               <div className="collapse-title text-lg font-bold text-[#4D4757]">
                 {serviceType.title}
               </div>
               <div className="collapse-content font-normal text-[#4D4757]">
                 <div className="divider mb-4 mt-0"></div>
-                <p>
-                  {serviceType.content}
-                </p>
+                <p>{serviceType.content}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
       <div className="p-8">
-        <h2 className="mb-8 text-center text-4xl font-bold text-purple-900">Our Works</h2>
+        <h2 className="mb-8 text-center text-4xl font-bold text-purple-900">
+          Our Works
+        </h2>
         <p className="mx-auto mb-16 max-w-2xl text-center text-[#4D4757]">
-          At Indo Dental Center, we believe that exceptional care begins with exceptional tools. Our clinic is equipped with the latest, cutting-edge technology to ensure you receive the best possible treatment in a comfortable and efficient manner.
+          At Indo Dental Center, we believe that exceptional care begins with
+          exceptional tools. Our clinic is equipped with the latest,
+          cutting-edge technology to ensure you receive the best possible
+          treatment in a comfortable and efficient manner.
         </p>
         <Slider equipments={getOurWorks()} isLoading={!service} />
       </div>
       <div className="px-8">
-        <Pill active={true} text={service.title.rendered}/>
+        <Pill active={true} text={service.title.rendered} />
       </div>
       <DoctorsGrid doctors={getDoctors()} isLoading={!service} />
-      <MakeAppointment />
     </div>
   );
 };

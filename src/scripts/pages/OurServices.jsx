@@ -37,7 +37,7 @@ const OurServices = () => {
 
     fetchEquipments();
   }, []);
-  
+
   return (
     <>
       <div className="flex flex-col items-center">
@@ -63,11 +63,11 @@ const OurServices = () => {
           Our Complete Clinic Equipment
         </h1>
         <p className="mx-auto mb-8 max-w-lg text-center sm:max-w-2xl">
-        Here, exceptional care is enhanced through high-quality and modern tools. 
+          Here, exceptional care is enhanced through high-quality and modern
+          tools.
         </p>
         <ClinicEquipmentSlider equipments={equipments} isLoading={isLoading} />
       </section>
-      <MakeAppointment />
     </>
   );
 };

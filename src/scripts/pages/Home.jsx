@@ -183,11 +183,11 @@ const Home = () => {
               {[Hero1Img, Hero2Img, Hero3Img].map((value, index) => (
                 <SplideSlide key={index}>
                   <div className="h-fit w-full lg:h-[85vh] lg:max-h-[600px] xl:max-h-[1684px] 2xl:h-[87vh]">
-                  <img
-                    src={value}
-                    alt="Hero Background"
+                    <img
+                      src={value}
+                      alt="Hero Background"
                       className={`h-full w-full object-cover ${index === 0 ? "object-center" : "object-top"}`}
-                  />
+                    />
                   </div>
                 </SplideSlide>
               ))}
@@ -393,7 +393,6 @@ const Home = () => {
             </div>
           </div>
         )}
-        <MakeAppointment />
         <div
           className="hidden w-full justify-center py-16 lg:flex"
           id="connect-with-us"
