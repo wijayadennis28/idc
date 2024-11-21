@@ -240,13 +240,13 @@ const Header = () => {
         </div>
       </div>
       <div
-        className={`fixed inset-x-0 bottom-0 top-[200px] z-40 bg-black transition-all duration-700 ease-in-out ${
+        className={`fixed inset-x-0 bottom-0 top-[200px] z-40 bg-black transition-all duration-700 ease-in-out lg:hidden ${
           showMenu ? "flex bg-opacity-50" : "hidden bg-opacity-0"
         }`}
         onClick={() => setShowMenu(false)} // Close menu on overlay click
       />
       <div
-        className={`absolute z-[999] w-full bg-white transition-all duration-700 ease-in-out ${
+        className={`absolute z-[999] w-full bg-white transition-all duration-700 ease-in-out lg:hidden ${
           showMenu ? "max-h-[500px] overflow-hidden" : "max-h-0 overflow-hidden"
         }`}
         id="mobile-menu"
