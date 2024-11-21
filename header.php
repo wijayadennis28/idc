@@ -13,4 +13,4 @@
     <?php wp_head(); ?>
   </head>
   <body>
-  <header id="header" class="relative" style="z-index: 100;"></header>
+  <header id="header" class="sticky top-0" style="z-index: 100;"></header>
