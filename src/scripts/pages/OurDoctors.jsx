@@ -25,7 +25,7 @@ const OurDoctors = () => {
   const getCategories = async () => {
     const response = await fetch("/wp-json/wp/v2/services");
     const services = await response.json();
-    setAvailableCategories(['All doctors', ...services.map((service) => service.title.rendered)]);
+    setAvailableCategories(['All doctors', ...services.map((service) => service.service_name)]);
   };
 
   const getDoctors = async () => {

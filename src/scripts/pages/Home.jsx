@@ -243,7 +243,7 @@ const Home = () => {
           >
             <h1 className="text-center font-normal text-white">
               We provide the{" "}
-              <span className="font-bold italic">best service</span>
+              <span className="font-bold italic">best services</span>
             </h1>
           </div>
           <div className="relative -top-24">

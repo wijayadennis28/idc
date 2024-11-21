@@ -13,7 +13,7 @@ const DoctorsGrid = ({doctors, isLoading}) => {
               <img
                 src={doctor.thumbnail}
                 alt="Doctor"
-                className="h-[450px] object-cover -z-10" />
+                className="object-cover -z-10" />
             </figure>
             <div className="card-body items-center text-center">
               <h4 className="card-title text-[#4D4757]">{doctor.name}</h4>

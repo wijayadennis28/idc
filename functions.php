@@ -91,11 +91,19 @@ function get_thumbnail( $object ) {
 
 add_action( 'rest_api_init', 'add_custom_field_to_doctors_api' );
 
-function add_doctor_details_to_services_api() {
+// services api
+function add_custom_field_to_services_api() {
   register_rest_field( 'services',
       'doctors', 
       array(
           'get_callback' => 'get_doctor_details',
+          'schema'       => null,
+      )
+  );
+  register_rest_field( 'services',
+      'service_name', 
+      array(
+          'get_callback' => 'get_raw_title',
           'schema'       => null,
       )
   );
@@ -119,6 +127,8 @@ function get_doctor_details( $object ) {
   return $doctor_details;
 }
 
-add_action( 'rest_api_init', 'add_doctor_details_to_services_api' );
+function get_raw_title( $object ) {
+  return $object['title']['raw'];
+}
 
-
+add_action( 'rest_api_init', 'add_custom_field_to_services_api' );
