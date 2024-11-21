@@ -3,7 +3,7 @@ import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 
-import MakeAppointment from "../components/MakeAppointment";
+import PopUpMap from "../components/PopUpMap";
 import Departments from "../components/Departments";
 import PartnersList from "../components/PartnersList";
 
@@ -534,6 +534,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <PopUpMap />
     </>
   );
 };
