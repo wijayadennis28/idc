@@ -47,17 +47,13 @@ const AboutUs = () => {
         }}
       >
         <div className="relative z-10 px-4 text-center md:px-8">
-          <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl">
-            About Us
-          </h2>
+          <h1>About Us</h1>
         </div>
       </section>
 
       <section className="bg-white px-4 py-16 sm:px-8 md:px-12 lg:px-16 xl:px-24">
-        <h2 className="mb-8 text-center text-3xl font-bold text-purple-900 sm:text-4xl">
-          Our Milestone
-        </h2>
-        <p className="mx-auto mb-8 max-w-lg text-center text-gray-700 sm:max-w-2xl">
+        <h1 className="mb-8 text-center text-primary">Our Milestone</h1>
+        <p className="mx-auto mb-8 max-w-lg text-center sm:max-w-2xl">
           We’re dedicated to transforming your dental experience. From routine
           checkups to advanced cosmetic procedures, our expert team is here to
           make your dream smile a reality.
@@ -66,10 +62,10 @@ const AboutUs = () => {
       </section>
 
       <section className="bg-white px-4 py-16 sm:px-8 md:px-12 lg:px-16 xl:px-24">
-        <h2 className="mb-8 text-center text-3xl font-bold text-purple-900 sm:text-4xl">
+        <h1 className="mb-8 text-center text-primary">
           Our Complete Clinic Equipment
-        </h2>
-        <p className="mx-auto mb-8 max-w-lg text-center text-gray-700 sm:max-w-2xl">
+        </h1>
+        <p className="mx-auto mb-8 max-w-lg text-center sm:max-w-2xl">
           At Indo Dental Center, we believe that exceptional care begins with
           exceptional tools. Our clinic is equipped with the latest,
           cutting-edge technology to ensure you receive the best possible
