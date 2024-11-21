@@ -19,7 +19,7 @@ const Footer = () => {
       branch: "Pluit Branch",
       address:
         "Ruko CBD Pluit No. B2,<br/>Jl. Pluit Selatan Raya, Penjaringan,<br/>North Jakarta City – 14440",
-      phone: "+62 812-808-0011",
+      phone: "+62 812-1818-6161",
     },
   ];
 
@@ -107,7 +107,7 @@ const Footer = () => {
           </div>
           <div className="flex w-80 flex-col gap-3 text-lg">
             <h6 className="text-xl font-bold text-neutral-400 lg:text-base 2xl:text-lg">
-              Indo Dental Care
+              Indo Dental Center
             </h6>
             {link.map((link, index) => (
               <a

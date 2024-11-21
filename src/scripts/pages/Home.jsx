@@ -153,25 +153,6 @@ const Home = () => {
                   </p>
                   <p>#OneStopFamilyDentalCenter</p>
                 </div>
-                <div className="flex flex-1 items-center gap-2 lg:justify-end">
-                  <div className="avatar-group -space-x-4 rtl:space-x-reverse">
-                    {doctorList.slice(0, 4).map((doctor, index) => (
-                      <div className="avatar border-none" key={index}>
-                        <div className="w-10 lg:w-11 2xl:w-14">
-                          <img src={doctor?.thumbnail} alt={doctor?.slug} />
-                        </div>
-                      </div>
-                    ))}
-                    <div className="avatar placeholder border">
-                      <div className="w-10 bg-secondary text-neutral-content lg:w-11 2xl:w-14">
-                        <span>{doctorList.length - 3}+</span>
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-white max-lg:text-[14px]">
-                    Meet with our professional dentists
-                  </p>
-                </div>
               </div>
 
               <div className="flex h-full items-center max-lg:w-full max-lg:flex-col max-lg:gap-6">
@@ -247,7 +228,7 @@ const Home = () => {
                   <h5 className="relative font-bold text-primary">
                     {why.title}
                   </h5>
-                  <p className="relative">{why.desc}</p>
+                  {/* <p className="relative">{why.desc}</p> */}
                 </div>
               ))}
             </div>
@@ -334,9 +315,7 @@ const Home = () => {
                 <p className="max-w-[850px] max-lg:w-screen max-lg:px-4">
                   At Indo Dental Center, our greatest pride comes from the
                   smiles we help create. But don't just take our word for
-                  it—hear directly from our satisfied patients! Their
-                  experiences and stories reflect our commitment to affordable,
-                  specialized, and patient-centric dental care.
+                  it—hear directly from our satisfied patients!
                 </p>
               </div>
               <div className="splide-hide-arrow w-full max-sm:w-screen">
