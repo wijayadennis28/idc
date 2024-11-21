@@ -92,7 +92,7 @@ const Header = () => {
       URL: "/our-doctors",
     },
     {
-      id: "about-us",
+      id: ["about-us"],
       name: "About us",
       URL: "/about-us",
     },
