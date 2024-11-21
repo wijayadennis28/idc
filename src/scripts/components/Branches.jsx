@@ -22,7 +22,7 @@ const Branches = ({ showTitle = false, btnColor = "primary" }) => {
         "Mon - Fri = 10.00 AM - 06.00 PM",
         "Sat = 10.00 AM - 06.00 PM",
       ],
-      phone: "+628128080011",
+      phone: "+6281218186161",
       phoneLabel: "Pluit",
       mapSrc:
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0180537971087!2d106.78734657575!3d-6.128272493858513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1d6bd3175651%3A0xea7f602f2981257!2sINDO%20DENTAL%20CENTER%20-%20Klinik%20Gigi%20Spesialis!5e0!3m2!1sen!2sid!4v1729369350556!5m2!1sen!2sid",

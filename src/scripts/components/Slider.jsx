@@ -31,7 +31,7 @@ const ClinicEquipmentSlider = ({ equipments, isLoading }) => {
             <div className="relative rounded-lg overflow-hidden group" style={{ borderRadius: '8px' }}>
             <img src={equipment.imageUrl} alt={equipment.title.rendered} className="w-full h-[50rem] object-cover rounded-lg"/>
               {/* Gradient overlay */}
-              <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-purple-900 to-transparent rounded-lg"></div>
+              {/* <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-purple-900 to-transparent rounded-lg"></div> */}
               
               <div className="absolute bottom-5 left-5 text-white p-3 text-left transform group-hover:translate-y-0 translate-y-4 transition-transform duration-300 ease-out">
                 <h3 className="text-lg font-semibold">{equipment.title.rendered}</h3>
