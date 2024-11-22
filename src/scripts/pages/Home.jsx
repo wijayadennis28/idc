@@ -287,8 +287,21 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="hidden lg:flex">
-              <img src={DrgRickyImg} alt="doctor" className="w-full" />
+            <div className="splide-hide-arrow splide-hide-pagination hidden lg:flex lg:w-6/12 2xl:w-4/12">
+              <Splide
+                options={{
+                  type: "loop",
+                  autoplay: true,
+                  drag: false,
+                }}
+                id="hero-splide"
+              >
+                {[Hero1Img, Hero2Img, Hero3Img].map((value, index) => (
+                  <SplideSlide key={index}>
+                    <img src={DrgRickyImg} alt="doctor" className="w-full" />
+                  </SplideSlide>
+                ))}
+              </Splide>
             </div>
           </div>
         </div>
