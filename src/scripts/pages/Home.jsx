@@ -237,7 +237,7 @@ const Home = () => {
               <span className="font-bold italic">best services</span>
             </h1>
           </div>
-          <div className="relative -top-24">
+          <div className="relative -top-24 w-full max-sm:px-4">
             <Departments />
           </div>
         </div>

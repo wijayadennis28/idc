@@ -25,10 +25,10 @@ const Departments = () => {
   if (departments.length === 0) return <Loading />;
 
   return (
-    <div className="mt-8 flex max-w-[2292px] flex-wrap justify-stretch gap-8 max-lg:gap-4 max-lg:px-4 max-md:flex-col max-md:gap-8 max-md:px-4 md:justify-center">
+    <div className="mt-8 flex max-w-[2292px] flex-wrap justify-stretch gap-8 max-lg:gap-4 max-lg:px-4 max-md:flex-col max-md:gap-8 max-md:px-4 max-sm:px-0 md:justify-center">
       {departments.map((department, index) => (
         <a href={department.link} key={index}>
-          <div className="group card relative h-48 w-[380px] overflow-hidden !bg-white bg-right bg-no-repeat text-primary-content hover:!bg-primary hover:!bg-none">
+          <div className="group card relative h-44 w-full overflow-hidden !bg-white bg-right bg-no-repeat text-primary-content hover:!bg-primary hover:!bg-none sm:w-[340px] lg:h-48 lg:w-[380px]">
             <div className="card-body z-10 flex-row justify-between">
               <h4
                 className="w-[168px] overflow-visible text-primary group-hover:text-white"
@@ -43,7 +43,7 @@ const Departments = () => {
                 </button>
               </div>
             </div>
-            <div className="absolute -right-36 group-hover:hidden">
+            <div className="absolute -right-[190px] group-hover:hidden lg:-right-36">
               <img
                 src={department.meta?.image}
                 alt={department.title?.rendered + "image"}
