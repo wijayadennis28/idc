@@ -29,8 +29,9 @@ const Departments = () => {
       {departments.map((department, index) => (
         <a href={department.link} key={index}>
           <div className="group card relative h-44 w-full overflow-hidden !bg-white bg-right bg-no-repeat text-primary-content hover:!bg-primary hover:!bg-none sm:w-[340px] lg:h-48 lg:w-[380px]">
-          <div className="card relative overflow-hidden w-full h-full">
-            <div className="absolute inset-0">
+          <div className="card relative overflow-hidden group w-full h-full">
+            {/* Image and gradient */}
+            <div className="absolute inset-0 group-hover:hidden">
               <img
                 src={department.meta?.image}
                 alt={`${department.title?.rendered} image`}
@@ -38,6 +39,8 @@ const Departments = () => {
               />
               <div className="absolute inset-0 w-10 bg-gradient-to-r from-white to-transparent"></div>
             </div>
+
+            {/* Card content */}
             <div className="card-body z-10 relative flex flex-row flex-wrap justify-between">
               <h4
                 className="w-[138px] overflow-visible text-primary group-hover:text-white lg:w-[168px]"
