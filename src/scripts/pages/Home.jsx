@@ -245,7 +245,7 @@ const Home = () => {
           className="flex justify-center bg-[color:#E0EFF3]"
           id="meet-our-dentist"
         >
-          <div className="flex max-w-[1885px] gap-32 overflow-hidden">
+          <div className="flex max-w-[2400px] justify-between gap-32 overflow-hidden">
             <div className="max-lg:px-8 max-lg:py-20 lg:w-4/6 lg:ps-16">
               <div className="flex h-full flex-col justify-center gap-2 lg:gap-6">
                 <h1 className="font-medium text-primary">
