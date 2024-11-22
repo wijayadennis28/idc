@@ -29,9 +29,9 @@ const Departments = () => {
       {departments.map((department, index) => (
         <a href={department.link} key={index}>
           <div className="group card relative h-44 w-full overflow-hidden !bg-white bg-right bg-no-repeat text-primary-content hover:!bg-primary hover:!bg-none sm:w-[340px] lg:h-48 lg:w-[380px]">
-            <div className="card-body z-10 flex-row justify-between">
+            <div className="card-body z-10 flex flex-row flex-wrap justify-between">
               <h4
-                className="w-[168px] overflow-visible text-primary group-hover:text-white"
+                className="w-[138px] overflow-visible text-primary group-hover:text-white lg:w-[168px]"
                 dangerouslySetInnerHTML={{
                   __html: department.title.rendered,
                 }}
