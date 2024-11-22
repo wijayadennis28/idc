@@ -232,7 +232,7 @@ const Home = () => {
               backgroundImage: `url(${OurClinicImg})`,
             }}
           >
-            <h1 className="text-center font-normal text-white">
+            <h1 className="px-4 text-center font-normal text-white">
               We provide the{" "}
               <span className="font-bold italic">best services</span>
             </h1>
