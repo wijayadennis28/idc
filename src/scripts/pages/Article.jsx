@@ -3,19 +3,18 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
 
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 
-import Appointment from "../components/MakeAppointment";
 import ArticleList from "../components/ArticleList";
 import removeHTMLTags from "../../utils/removeHTMLTags";
 
 // image
 import ArticleBg from "../../../assets/image/article/background.jpg";
-import DummyImg from "../../../assets/image/article/article1.jpg";
-
 
 const Article = () => {
-  const [category, setCategory] = useState({name: "All Articles", id:null});
+  const [category, setCategory] = useState({ name: "All Articles", id: null });
   const [isLoading, setLoading] = useState(true);
-  const [availableArticleCategories, setAvailableCategories] = useState([{name: "All Articles", id:null}]);
+  const [availableArticleCategories, setAvailableCategories] = useState([
+    { name: "All Articles", id: null },
+  ]);
   const [articles, setArticles] = useState([]);
 
   // pagination
@@ -37,27 +36,32 @@ const Article = () => {
 
   useEffect(() => {
     getArticles().catch(console.error);
-  }, [category, currentPage])
+  }, [category, currentPage]);
 
   const getCategoriesArticle = async () => {
     const response = await fetch("/wp-json/wp/v2/article-categories");
     const categoriesArticle = await response.json();
-    setAvailableCategories([{name: "All Articles", id:null}, ...categoriesArticle.map((categoriesArticle) => ({name: categoriesArticle.name, id: categoriesArticle.id}))]);
+    setAvailableCategories([
+      { name: "All Articles", id: null },
+      ...categoriesArticle.map((categoriesArticle) => ({
+        name: categoriesArticle.name,
+        id: categoriesArticle.id,
+      })),
+    ]);
   };
 
   const getArticles = async () => {
     setLoading(true);
     let url = `/wp-json/wp/v2/article?per_page=5&page=${currentPage}`;
-    if (category.id){
-      url += `&article-categories=${category.id}`; 
+    if (category.id) {
+      url += `&article-categories=${category.id}`;
     }
-    
+
     const response = await fetch(url);
 
     // headers
     const headers = response.headers;
-    const totalPages = headers.get('x-wp-totalpages');
-
+    const totalPages = headers.get("x-wp-totalpages");
 
     const articleRaws = await response.json();
     console.log(articleRaws);
@@ -65,8 +69,8 @@ const Article = () => {
       permalink: article.link,
       image: article.thumbnail,
       title: article.title.rendered,
-      tags: article['article-tags'],
-      content: removeHTMLTags(article.content.rendered).split(".")[0]+"...",
+      tags: article["article-tags"],
+      content: removeHTMLTags(article.content.rendered).split(".")[0] + "...",
     }));
     console.log(articleList);
     setArticles(articleList);
@@ -164,9 +168,9 @@ const Article = () => {
 
   useEffect(() => {
     const pagination = [];
-      for (let i = 1; i <= pageSize; i++) {
-        pagination.push(i);
-      }
+    for (let i = 1; i <= pageSize; i++) {
+      pagination.push(i);
+    }
     // if (currentPage < 4) {
     //   for (let i = 1; i <= 4; i++) {
     //     pagination.push(i);
@@ -208,7 +212,9 @@ const Article = () => {
           {availableArticleCategories.map((availableCategory) => (
             <button
               className={`btn w-fit font-bold text-primary ${
-                category.name === availableCategory.name ? "btn-primary no-animation" : ""
+                category.name === availableCategory.name
+                  ? "btn-primary no-animation"
+                  : ""
               } `}
               onClick={() => {
                 if (category.name === availableCategory.name) return;
@@ -253,9 +259,7 @@ const Article = () => {
         <ArticleList
           isLoading={isLoading}
           articles={articles}
-          title={
-            category.name
-          }
+          title={category.name}
         />
         <div className="flex items-end gap-2 md:gap-4">
           <button
@@ -295,7 +299,6 @@ const Article = () => {
           </button>
         </div>
       </div>
-      <Appointment />
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import DoctorsGrid from "../components/DoctorsGrid";
-import MakeAppointment from "../components/MakeAppointment";
 import Pill from "../components/Pill";
 import Loading from "../components/Loading";
 import Slider from "../components/Slider";

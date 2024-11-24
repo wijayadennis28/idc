@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import PartnersList from "../components/PartnersList";
 import Loading from "../components/Loading";
 import ArticleList from "../components/ArticleList";
-import Appointment from "../components/MakeAppointment";
 import removeHTMLTags from "../../utils/removeHTMLTags";
 
 import Facebook from "../../../assets/image/footer/facebook.svg";
@@ -61,8 +60,8 @@ const ArticleDetail = () => {
 
     const adPartnersArray = Object.values(articleData.meta?.ad_partners || {});
     const partnersList = adPartnersArray.map((partner) => ({
-      name: partner?.title || '',
-      logo: partner?.image || '',
+      name: partner?.title || "",
+      logo: partner?.image || "",
     }));
     setOurPartnerList(partnersList);
 
@@ -167,7 +166,6 @@ const ArticleDetail = () => {
           isLoading={isLoading}
         />
       </div>
-      <Appointment />
     </>
   );
 };

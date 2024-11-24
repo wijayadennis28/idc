@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import OurClinicImg from "../../../assets/image/our-services/our-clinic.jpg";
 import Departments from "../components/Departments";
-import MakeAppointment from "../components/MakeAppointment";
 import ClinicEquipmentSlider from "../components/Slider";
 
 const OurServices = () => {

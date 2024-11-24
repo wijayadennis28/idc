@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import MakeAppointment from "../components/MakeAppointment";
+import React from "react";
 import Branches from "../components/Branches";
 import Timeline from "../components/timeline";
 
