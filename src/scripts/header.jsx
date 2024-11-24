@@ -258,7 +258,7 @@ const Header = () => {
           {menuList.map((item) => (
             <a
               key={item.id}
-              className={`idc-menu cursor-pointer text-xl ${path === item.id ? "path" : ""}`}
+              className={`idc-menu cursor-pointer text-xl ${item.id.includes(path) ? "path" : ""}`}
               onClick={() => setShowMenu(false)}
               href={item.URL}
             >
