@@ -5,7 +5,23 @@ import ClinicEquipmentSlider from "../components/Slider";
 
 const OurServices = () => {
   const [equipments, setEquipments] = useState([]);
+  const [departments, setDepartments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadDepartments() {
+      const response = await fetch("/wp-json/wp/v2/services");
+      if (!response.ok) {
+        // oups! something went wrong
+        return;
+      }
+
+      const departments = await response.json();
+      setDepartments(departments);
+    }
+
+    loadDepartments().catch(console.error);
+  }, []);
 
   useEffect(() => {
     async function fetchEquipments() {
@@ -54,7 +70,7 @@ const OurServices = () => {
           </div>
         </div>
         <div className="w-full pb-24 max-sm:px-4 sm:flex sm:justify-center">
-          <Departments />
+          <Departments departments={departments} />
         </div>
       </div>
       <section className="bg-white px-4 py-16 sm:px-8 md:px-12 lg:px-16 xl:px-24">
