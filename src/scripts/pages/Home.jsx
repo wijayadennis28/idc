@@ -384,7 +384,7 @@ const Home = () => {
                                 alt="patient image"
                               />
                             </figure>
-                            <div className="card-body h-1/2">
+                            <div className="card-body h-1/2 gap-1 max-md:p-4 md:gap-2">
                               <h2 className="card-title">
                                 {testimony.title.rendered}
                               </h2>
