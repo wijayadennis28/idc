@@ -10,9 +10,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      screens: {
-        sm: "400px",
-      },
       fontFamily: {
         sans: ["Nunito", "sans-serif"],
         sora: ["Sora", "sans-serif"],
