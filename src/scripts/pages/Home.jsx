@@ -30,11 +30,14 @@ const Home = () => {
   const [ourPartnerList, setOurPartnerList] = useState([]);
   const [doctorList, setDoctorList] = useState([]);
   const [testimonies, setTestimonies] = useState([]);
+  const [departments, setDepartments] = useState([]);
+  const [topDoctors, setTopDoctors] = useState([]);
 
   useEffect(() => {
-    loadPartners();
-    loadDoctors();
-    loadTestimonies();
+    loadPartners().catch(console.error);
+    loadDoctors().catch(console.error);
+    loadTestimonies().catch(console.error);
+    loadDepartments().catch(console.error);
   }, []);
 
   async function loadPartners() {
@@ -83,6 +86,33 @@ const Home = () => {
     } catch (error) {
       console.error("Error loading testimonies:", error);
     }
+  }
+
+  async function loadDepartments() {
+    const response = await fetch("/wp-json/wp/v2/services");
+    if (!response.ok) {
+      // oups! something went wrong
+      return;
+    }
+
+    const departments = await response.json();
+    setDepartments(departments);
+
+    setTopDoctors(() => {
+      const servicesDoctors = [];
+
+      departments.forEach((department) => {
+        const doctor = department.doctors[0];
+        if (
+          doctor &&
+          servicesDoctors.findIndex((d) => d.name === doctor.name) === -1
+        ) {
+          servicesDoctors.push(doctor);
+        }
+      });
+
+      return servicesDoctors;
+    });
   }
 
   const whyChooseUs = [
@@ -238,7 +268,7 @@ const Home = () => {
             </h1>
           </div>
           <div className="relative -top-24 w-full max-sm:px-4 sm:flex sm:justify-center">
-            <Departments />
+            <Departments departments={departments} />
           </div>
         </div>
         <div
@@ -296,15 +326,18 @@ const Home = () => {
                 }}
                 id="hero-splide"
               >
-                {[Hero1Img, Hero2Img, Hero3Img].map((value, index) => (
-                  <SplideSlide key={index}>
-                    <img
-                      src={DrgRickyImg}
-                      alt="doctor"
-                      className="aspect-square w-full md:aspect-auto"
-                    />
-                  </SplideSlide>
-                ))}
+                {topDoctors.map(
+                  (value, index) =>
+                    value.thumbnail && (
+                      <SplideSlide key={index}>
+                        <img
+                          src={value.thumbnail}
+                          alt={value.name + " image"}
+                          className="aspect-square w-full md:aspect-auto"
+                        />
+                      </SplideSlide>
+                    ),
+                )}
               </Splide>
             </div>
           </div>
