@@ -54,7 +54,7 @@ const OurServices = () => {
             </h1>
           </div>
         </div>
-        <div className="pb-24">
+        <div className="w-full pb-24 max-sm:px-4 sm:flex sm:justify-center">
           <Departments />
         </div>
       </div>
