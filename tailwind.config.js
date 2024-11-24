@@ -9,9 +9,6 @@ module.exports = {
     "./src/**/*.jsx",
   ],
   theme: {
-    screens: {
-      sm: "400px",
-    },
     extend: {
       screens: {
         sm: "400px",
