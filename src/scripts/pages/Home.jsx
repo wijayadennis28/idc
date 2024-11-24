@@ -265,14 +265,14 @@ const Home = () => {
                   <div className="avatar-group flex -space-x-4 md:hidden lg:flex rtl:space-x-reverse">
                     {doctorList.slice(0, 4).map((doctor, index) => (
                       <div className="avatar border-none" key={index}>
-                        <div className="w-8 sm:w-10 lg:w-12">
+                        <div className="w-8 min-[400px]:w-10 lg:w-12">
                           <img src={doctor?.thumbnail} alt={doctor?.slug} />
                         </div>
                       </div>
                     ))}
 
                     <div className="avatar placeholder border">
-                      <div className="w-8 bg-secondary text-neutral-content sm:w-10 lg:w-12">
+                      <div className="w-8 bg-secondary text-neutral-content min-[400px]:w-10 lg:w-12">
                         <span>{doctorList.length - 4}+</span>
                       </div>
                     </div>
