@@ -245,34 +245,34 @@ const Home = () => {
           className="flex justify-center bg-[color:#E0EFF3]"
           id="meet-our-dentist"
         >
-          <div className="flex max-w-[2400px] justify-between gap-32 overflow-hidden">
-            <div className="max-lg:px-8 max-lg:py-20 lg:w-4/6 lg:ps-16">
-              <div className="flex h-full flex-col justify-center gap-2 lg:gap-6">
+          <div className="flex max-w-[2400px] flex-col-reverse justify-between overflow-hidden md:flex-row md:gap-16 lg:gap-32">
+            <div className="px-8 py-8 md:px-0 md:py-0 md:ps-16 lg:w-4/6">
+              <div className="flex h-full flex-col justify-center gap-2 md:gap-3 lg:gap-6">
                 <h1 className="font-medium text-primary">
                   Meet with our{" "}
                   <span className="font-bold">expert dentist,</span>
                   <br />
                   Just for you
                 </h1>
-                <p className="max-md:pb-10">
+                <p className="max-md:pb-8">
                   We pride ourselves on delivering the best service in dental
                   care. From routine checkups to advanced treatments, our
                   dedicated team is committed to providing you with
                   personalized, top-quality care that ensures your smile shines
                   its brightest.
                 </p>
-                <div className="flex items-center gap-1 lg:gap-2">
-                  <div className="avatar-group -space-x-4 rtl:space-x-reverse">
+                <div className="flex flex-wrap items-center gap-2">
+                  <div className="avatar-group flex -space-x-4 md:hidden lg:flex rtl:space-x-reverse">
                     {doctorList.slice(0, 4).map((doctor, index) => (
                       <div className="avatar border-none" key={index}>
-                        <div className="w-10 lg:w-11 2xl:w-14">
+                        <div className="w-8 sm:w-10 lg:w-12">
                           <img src={doctor?.thumbnail} alt={doctor?.slug} />
                         </div>
                       </div>
                     ))}
 
                     <div className="avatar placeholder border">
-                      <div className="w-10 bg-secondary text-neutral-content lg:w-11 2xl:w-14">
+                      <div className="w-8 bg-secondary text-neutral-content sm:w-10 lg:w-12">
                         <span>{doctorList.length - 4}+</span>
                       </div>
                     </div>
@@ -287,7 +287,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="splide-hide-arrow splide-hide-pagination hidden lg:flex lg:w-6/12 2xl:w-4/12">
+            <div className="splide-hide-arrow splide-hide-pagination max-h-[612px] w-full max-w-[588px] md:w-[2775px] lg:w-6/12 2xl:w-4/12">
               <Splide
                 options={{
                   type: "loop",
@@ -298,7 +298,11 @@ const Home = () => {
               >
                 {[Hero1Img, Hero2Img, Hero3Img].map((value, index) => (
                   <SplideSlide key={index}>
-                    <img src={DrgRickyImg} alt="doctor" className="w-full" />
+                    <img
+                      src={DrgRickyImg}
+                      alt="doctor"
+                      className="aspect-square w-full md:aspect-auto"
+                    />
                   </SplideSlide>
                 ))}
               </Splide>
