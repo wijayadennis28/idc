@@ -4,24 +4,7 @@ import Loading from "./Loading";
 
 import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
 
-const Departments = () => {
-  const [departments, setDepartments] = useState([]);
-
-  useEffect(() => {
-    async function loadDepartments() {
-      const response = await fetch("/wp-json/wp/v2/services");
-      if (!response.ok) {
-        // oups! something went wrong
-        return;
-      }
-
-      const departments = await response.json();
-      setDepartments(departments);
-    }
-
-    loadDepartments().catch(console.error);
-  }, []);
-
+const Departments = ({ departments = [] }) => {
   if (departments.length === 0) return <Loading />;
 
   return (
