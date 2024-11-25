@@ -31,23 +31,17 @@ const Branches = ({ showTitle = false, btnColor = "primary" }) => {
 
   return (
     <div id="branches" className="flex flex-col gap-8">
-      {showTitle && (
-        <h2 className="text-xl font-bold text-purple-700 lg:text-2xl">
-          Address
-        </h2>
-      )}
+      {showTitle && <h4>Address</h4>}
       {branches.map((branch, index) => (
         <div
           key={index}
           className="flex flex-col gap-8 overflow-hidden bg-white lg:flex-row lg:gap-4"
         >
           <div className="h-fit w-full rounded-2xl bg-gray-100 p-4 lg:w-1/3">
-            <h4 className="mb-2 text-lg font-semibold lg:text-xl">
-              {branch.name}
-            </h4>
-            <p className="mb-2 text-gray-600">{branch.address}</p>
+            <h5 className="pb-2 font-semibold">{branch.name}</h5>
+            <p className="pb-2">{branch.address}</p>
             <div className="mb-4">
-              <h6 className="text-sm font-normal">Schedule</h6>
+              <p className="text-sm font-normal">Schedule</p>
               <ul className="ml-2 list-inside list-disc text-sm text-gray-500">
                 {branch.schedule.map((time, idx) => (
                   <li key={idx}>{time}</li>
