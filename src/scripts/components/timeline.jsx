@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import TimelineObserver from "react-timeline-animation";
+import aboutUs from "../../../assets/image/aboutus/milestone.png";
 
 const Timeline = ({ setObserver, callback }) => {
-  const [message1, setMessage1] = useState("");
-  const [message2, setMessage2] = useState("");
+  const [year1, setYear1] = useState("");
+  const [year2, setYear2] = useState("");
   const [image1, setImage1] = useState("");
   const [image2, setImage2] = useState("");
   const [title1, setTitle1] = useState("");
@@ -21,18 +22,22 @@ const Timeline = ({ setObserver, callback }) => {
   const circle2 = useRef(null);
 
   const someCallback = () => {
-    setMessage1("2020");
-    setImage1("http://indodentalcenter.local/wp-content/themes/idc/assets/image/aboutus/milestone.png");
+    setYear1("2020");
+    setImage1(aboutUs);
     setTitle1("Lorem ipsum dolor sit amet, consectetur adipiscing elit. 1");
-    setDesc1("We offer competitive pricing to ensure that top-notch dental care is within everyone's reach. Quality service shouldn't break the bank. 1");
+    setDesc1(
+      "We offer competitive pricing to ensure that top-notch dental care is within everyone's reach. Quality service shouldn't break the bank. 1",
+    );
     setFadeIn1(true); // Trigger fade-in animation for the first section
   };
-  
+
   const someCallback2 = () => {
-    setMessage2("2019");
-    setImage2("http://indodentalcenter.local/wp-content/themes/idc/assets/image/aboutus/milestone.png");
+    setYear2("2019");
+    setImage2(aboutUs);
     setTitle2("Lorem ipsum dolor sit amet, consectetur adipiscing elit. 2");
-    setDesc2("We offer competitive pricing to ensure that top-notch dental care is within everyone's reach. Quality service shouldn't break the bank. 2");
+    setDesc2(
+      "We offer competitive pricing to ensure that top-notch dental care is within everyone's reach. Quality service shouldn't break the bank. 2",
+    );
     setFadeIn2(true); // Trigger fade-in animation for the second section
   };
 
@@ -47,29 +52,42 @@ const Timeline = ({ setObserver, callback }) => {
   return (
     <div className="wrapper mb-16">
       <div id="timeline1" ref={timeline1} className="timeline text-primary" />
-      <div className="circleWrapper">
-        <div id="circle1" ref={circle1} className="circle text-primary"></div>
-        <div className={`message text-primary transition-opacity duration-700 ${fadeIn1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>{message1}</div>
-        <img src={image1} className={`timeline-image px-10 transition-opacity duration-700 ${fadeIn1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} />
-        <div className={`description-block transition-opacity duration-700 ${fadeIn1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h3 className="description-title text-primary">{title1}</h3>
-          <p className="description-text">
-            {desc1}
-          </p>
+      <div className="circleWrapper gap-4 lg:gap-8">
+        <div id="circle1" ref={circle1} className="circle"></div>
+        <div
+          className={`flex items-center gap-4 duration-700 lg:gap-8 ${fadeIn1 ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+        >
+          <p className={`font-bold text-primary transition-opacity`}>{year1}</p>
+          <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
+            <img src={image1} className={`timeline-imag transition-opacity`} />
+            <div className="description-block flex flex-col gap-1 transition-opacity lg:gap-2">
+              <h5 className="text-primary">{title1}</h5>
+              <p className="description-text">{desc1}</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div id="timeline2" ref={timeline2} className="timeline text-primary" />
-      <div className="circleWrapper">
-        <div id="circle2" ref={circle2} className="circle text-primary"></div>
-        <div className={`message text-primary transition-opacity duration-700 ${fadeIn2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>{message2}</div>
-        <img src={image2} className={`timeline-image px-10 transition-opacity duration-700 ${fadeIn2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} />
-        <div className={`description-block transition-opacity duration-700 ${fadeIn2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h3 className="description-title text-primary">{title2}</h3>
-          <p className="description-text">
-            {desc2}
-          </p>
+      <div
+        id="timeline2"
+        ref={timeline2}
+        className="timeline-gap text-primary"
+      />
+      <div className="circleWrapper gap-4 lg:gap-8">
+        <div id="circle2" ref={circle2} className="circle"></div>
+        <div
+          className={`flex items-center gap-4 duration-700 lg:gap-8 ${fadeIn2 ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+        >
+          <p className={`font-bold text-primary transition-opacity`}>{year2}</p>
+          <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
+            <img src={image2} className={`timeline-imag transition-opacity`} />
+            <div className="description-block flex flex-col gap-2 transition-opacity lg:gap-2">
+              <h5 className="text-primary">{title2}</h5>
+              <p className="description-text">{desc2}</p>
+            </div>
+          </div>
         </div>
       </div>
+
       <div id="timeline3" ref={timeline3} className="timeline" />
     </div>
   );
@@ -82,12 +100,9 @@ export default function App() {
     <div className="App">
       <TimelineObserver
         initialColor="#e5e5e5"
-        fillColor="black"
+        fillColor="#654696"
         handleObserve={(setObserver) => (
-          <Timeline
-            className="timeline"
-            setObserver={setObserver}
-          />
+          <Timeline className="timeline" setObserver={setObserver} />
         )}
       />
       <div className="stub2">{message}</div>

@@ -8,11 +8,20 @@
   max-width: 1200px; /* Set a max width that fits your layout */
 }
 
-
-.timeline {
-  height: 250px;
+.timeline-gap {
+  height: 379px;
   width: 1px;
-  background-color: #e5e5e5;
+}
+
+@media (min-width: 768px) {
+  .timeline-gap {
+    height: 270px;
+    width: 1px;
+  }
+}
+.timeline {
+  height: 200px;
+  width: 1px;
 }
 
 .circleWrapper {
@@ -24,35 +33,13 @@
 }
 
 .circle {
-  width: 30px;
-  height: 30px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  border-radius: 50%;
-  background-color: #e5e5e5;
-}
-
-.message {
-  margin-left: 20px; /* Space between circle and message */
-  font-weight: bold;
+  width: 30px; /* Fixed width */
+  height: 30px; /* Fixed height */
+  border-radius: 50%; /* Ensures it remains a circle */
+  display: inline-block; /* Prevents it from growing or shrinking */
+  flex-shrink: 0; /* If inside a flex container */
 }
 
 .description-block {
   max-width: 600px; /* Adjust to fit the container */
 }
-
-.description-title {
-  font-size: 18px;
-  font-weight: bold;
-  color: #4a148c; /* Dark purple */
-  margin-bottom: 8px;
-}
-
-.description-text {
-  font-size: 14px;
-  color: #333;
-  line-height: 1.6;
-}
-
