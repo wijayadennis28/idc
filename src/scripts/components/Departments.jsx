@@ -11,7 +11,7 @@ const Departments = ({ departments = [] }) => {
     <div className="mt-8 flex max-w-[2292px] flex-wrap justify-stretch gap-8 max-lg:gap-4 max-lg:px-4 max-md:flex-col max-md:gap-8 max-md:px-4 max-sm:px-0 md:justify-center">
       {departments.map((department, index) => (
         <a href={department.link} key={index}>
-          <div className="group card relative h-44 w-full overflow-hidden !bg-white bg-right bg-no-repeat text-primary-content hover:!bg-primary hover:!bg-none sm:w-[340px] lg:h-48 lg:w-[380px]">
+          <div className="group card relative h-44 w-full overflow-hidden !bg-white bg-right bg-no-repeat text-primary-content shadow-sm hover:!bg-primary hover:!bg-none sm:w-[340px] lg:h-48 lg:w-[380px]">
             <div className="group card relative h-full w-full overflow-hidden">
               {/* Image and gradient */}
               <div className="absolute inset-0 group-hover:hidden">

@@ -240,7 +240,7 @@ const Home = () => {
                 <div
                   id="choose-us-item"
                   key={index}
-                  className="bg-p relative flex h-fit max-w-md flex-col gap-4 rounded-lg border border-solid border-transparent !bg-[#fcfbfd] bg-[length:50%] bg-right-bottom bg-no-repeat p-8 max-lg:!bg-none md:h-96 md:w-1/3 lg:h-80"
+                  className="bg-p relative flex h-fit max-w-md flex-col gap-4 rounded-lg border border-solid border-transparent !bg-[#fcfbfd] bg-[length:50%] bg-right-bottom bg-no-repeat p-8 shadow-sm max-lg:!bg-none md:h-96 md:w-1/3 lg:h-80"
                   style={{
                     backgroundImage: `url(${why.image})`,
                     backgroundColor: "#fcfbfd",
@@ -300,9 +300,9 @@ const Home = () => {
                             src={doctor?.thumbnail}
                             alt={doctor?.slug}
                             style={{
-                              width: "100%", 
-                              height: "auto", 
-                              imageRendering: "auto", 
+                              width: "100%",
+                              height: "auto",
+                              imageRendering: "auto",
                             }}
                           />
                         </div>

@@ -23,7 +23,7 @@ const Partners = ({ list = [], slider = false }) => {
               key={index}
               className="flex w-screen items-center justify-center"
             >
-              <div className="flex h-24 w-40 items-center justify-center rounded-lg border border-solid border-neutral-400 bg-white md:w-48">
+              <div className="flex h-24 w-40 items-center justify-center rounded-lg border border-solid border-neutral-400 bg-white shadow-sm md:w-48">
                 <img
                   src={partner.logo}
                   alt={partner.name}
@@ -42,7 +42,7 @@ const Partners = ({ list = [], slider = false }) => {
       {list.map((partner, index) => (
         <div
           key={index}
-          className="flex h-24 w-40 items-center justify-center rounded-lg border border-solid border-neutral-400 bg-white md:w-48"
+          className="flex h-24 w-40 items-center justify-center rounded-lg border border-solid border-neutral-400 bg-white shadow-sm md:w-48"
         >
           <img
             src={partner.logo}
