@@ -207,7 +207,7 @@ const Home = () => {
                     <img
                       src={value}
                       alt="Hero Background"
-                      className={`h-full w-full object-cover ${index === 0 ? "object-center" : "object-top"}`}
+                      className={`h-full w-full object-cover object-center`}
                     />
                   </div>
                 </SplideSlide>
@@ -296,7 +296,15 @@ const Home = () => {
                     {doctorList.slice(0, 4).map((doctor, index) => (
                       <div className="avatar border-none" key={index}>
                         <div className="w-8 min-[400px]:w-10 lg:w-12">
-                          <img src={doctor?.thumbnail} alt={doctor?.slug} />
+                          <img
+                            src={doctor?.thumbnail}
+                            alt={doctor?.slug}
+                            style={{
+                              width: "100%", 
+                              height: "auto", 
+                              imageRendering: "auto", 
+                            }}
+                          />
                         </div>
                       </div>
                     ))}
