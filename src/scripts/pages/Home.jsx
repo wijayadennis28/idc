@@ -7,6 +7,7 @@ import PopUpMap from "../components/PopUpMap";
 import Departments from "../components/Departments";
 import PartnersList from "../components/PartnersList";
 import Social from "../components/Social";
+import IdcCard from "../components/IdcCard";
 
 import useScreenSize from "../../utils/useScreenSize";
 
@@ -235,23 +236,14 @@ const Home = () => {
             <h1 className="text-center font-normal text-primary">
               Why<span className="font-bold italic"> choose us</span>
             </h1>
-            <div className="flex flex-col items-center gap-6 md:flex-row">
-              {whyChooseUs.map((why, index) => (
-                <div
-                  id="choose-us-item"
-                  key={index}
-                  className="bg-p relative flex h-fit max-w-md flex-col gap-4 rounded-lg border border-solid border-transparent !bg-[#fcfbfd] bg-[length:50%] bg-right-bottom bg-no-repeat p-8 shadow-sm max-lg:!bg-none md:h-96 md:w-1/3 lg:h-80"
-                  style={{
-                    backgroundImage: `url(${why.image})`,
-                    backgroundColor: "#fcfbfd",
-                  }}
-                >
-                  <h5 className="relative font-bold text-primary">
-                    {why.title}
-                  </h5>
-                  {/* <p className="relative">{why.desc}</p> */}
-                </div>
-              ))}
+            <div className="w-full max-sm:px-4 sm:flex sm:justify-center">
+              <div className="flex max-w-[2292px] flex-wrap justify-stretch gap-8 max-lg:flex-col max-lg:gap-4 max-lg:px-4 max-md:gap-8 max-md:px-4 max-sm:px-0 md:justify-center">
+                {whyChooseUs.map((why, index) => (
+                  <>
+                    <IdcCard key={index} title={why.title} image={why.image} />
+                  </>
+                ))}
+              </div>
             </div>
           </div>
         </div>
