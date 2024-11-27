@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 
 import Loading from "./Loading";
-
 import IdcCard from "./IdcCard";
 
+import useScreenSize from "../../utils/useScreenSize";
+
 const Departments = ({ departments = [] }) => {
+  const screenSize = useScreenSize();
+
   if (departments.length === 0) return <Loading />;
 
   return (
@@ -14,7 +17,7 @@ const Departments = ({ departments = [] }) => {
           <IdcCard
             image={department.meta?.image}
             title={department.title.rendered}
-            hover={true}
+            hover={screenSize < 640 ? true : false}
           />
         </a>
       ))}
