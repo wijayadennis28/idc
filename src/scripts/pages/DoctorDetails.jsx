@@ -109,37 +109,37 @@ const DoctorDetails = () => {
           <div className="flex flex-col gap-2">
             <h4 className="font-normal text-primary">Schedule</h4>
             <div className="p-4">
-              {Object.values(doctor.meta.schedule).map((schedule, i, arr) => {
-                if (i < arr.length - 1) {
-                  return (
-                    <>
-                      <p className="text-[#4D4757]">
-                        {schedule.from && schedule.to
-                          ? `${schedule.day}: ${schedule.from} - ${schedule.to}`
-                          : schedule.notes && !schedule.day
-                          ? `${schedule.notes}`
-                          : schedule.notes
-                          ? `${schedule.day}: ${schedule.notes}`
-                          : `${schedule.day}`}
-                      </p>
-                      <div className="divider my-0"></div>
-                    </>
-                  );
-                }
+            {Object.values(doctor.meta.schedule).map((schedule, i, arr) => {
+              if (i < arr.length - 1) {
                 return (
                   <>
                     <p className="text-[#4D4757]">
                       {schedule.from && schedule.to
-                        ? `${schedule.day}: ${schedule.from} - ${schedule.to}`
+                        ? `${schedule.day ? `${schedule.day}:` : ''} ${schedule.from} - ${schedule.to}`
                         : schedule.notes && !schedule.day
                         ? `${schedule.notes}`
                         : schedule.notes
-                        ? `${schedule.day}: ${schedule.notes}`
+                        ? `${schedule.day ? `${schedule.day}:` : ''} ${schedule.notes}`
                         : `${schedule.day}`}
                     </p>
+                    <div className="divider my-0"></div>
                   </>
                 );
-              })}
+              }
+              return (
+                <>
+                  <p className="text-[#4D4757]">
+                    {schedule.from && schedule.to
+                      ? `${schedule.day ? `${schedule.day}:` : ''} ${schedule.from} - ${schedule.to}`
+                      : schedule.notes && !schedule.day
+                      ? `${schedule.notes}`
+                      : schedule.notes
+                      ? `${schedule.day ? `${schedule.day}:` : ''} ${schedule.notes}`
+                      : `${schedule.day}`}
+                  </p>
+                </>
+              );
+            })}
             </div>
           </div>
           <div className="flex flex-col gap-2">
