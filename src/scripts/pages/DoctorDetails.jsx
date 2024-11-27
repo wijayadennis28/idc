@@ -116,9 +116,11 @@ const DoctorDetails = () => {
                       <p className="text-[#4D4757]">
                         {schedule.from && schedule.to
                           ? `${schedule.day}: ${schedule.from} - ${schedule.to}`
+                          : schedule.notes && !schedule.day
+                          ? `${schedule.notes}`
                           : schedule.notes
                           ? `${schedule.day}: ${schedule.notes}`
-                          : `${schedule.day}: -`}
+                          : `${schedule.day}`}
                       </p>
                       <div className="divider my-0"></div>
                     </>
@@ -129,9 +131,11 @@ const DoctorDetails = () => {
                     <p className="text-[#4D4757]">
                       {schedule.from && schedule.to
                         ? `${schedule.day}: ${schedule.from} - ${schedule.to}`
+                        : schedule.notes && !schedule.day
+                        ? `${schedule.notes}`
                         : schedule.notes
                         ? `${schedule.day}: ${schedule.notes}`
-                        : `${schedule.day}: -`}
+                        : `${schedule.day}`}
                     </p>
                   </>
                 );

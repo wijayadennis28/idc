@@ -321,6 +321,7 @@ const Home = () => {
                   type: "loop",
                   autoplay: true,
                   drag: false,
+                  interval: 2500,
                 }}
                 id="hero-splide"
               >
