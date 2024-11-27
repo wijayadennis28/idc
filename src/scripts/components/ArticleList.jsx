@@ -1,6 +1,8 @@
 import React from "react";
 import Loading from "./Loading";
 
+import logoWithoutTextBig from "../../../assets/image/logo/logo-without-text-big.svg";
+
 const ArticleList = ({ articles = 0, title, isLoading}) => {
   if (isLoading) return <Loading/>
   return (
@@ -16,7 +18,7 @@ const ArticleList = ({ articles = 0, title, isLoading}) => {
           <div className="flex flex-col items-center gap-4 md:flex-row md:gap-6">
             <div className="rounded md:size-48 md:overflow-hidden lg:size-56">
               <img
-                src={article.image}
+                src={article.image || logoWithoutTextBig}
                 alt={`${article.title} - image`}
                 className="h-full w-full object-cover"
               />

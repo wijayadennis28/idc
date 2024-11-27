@@ -113,14 +113,26 @@ const DoctorDetails = () => {
                 if (i < arr.length - 1) {
                   return (
                     <>
-                      <p className="text-[#4D4757]">{`${schedule.day}: ${schedule.from} - ${schedule.to}`}</p>
+                      <p className="text-[#4D4757]">
+                        {schedule.from && schedule.to
+                          ? `${schedule.day}: ${schedule.from} - ${schedule.to}`
+                          : schedule.notes
+                          ? `${schedule.day}: ${schedule.notes}`
+                          : `${schedule.day}: -`}
+                      </p>
                       <div className="divider my-0"></div>
                     </>
                   );
                 }
                 return (
                   <>
-                    <p className="text-[#4D4757]">{`${schedule.day}: ${schedule.from} - ${schedule.to}`}</p>
+                    <p className="text-[#4D4757]">
+                      {schedule.from && schedule.to
+                        ? `${schedule.day}: ${schedule.from} - ${schedule.to}`
+                        : schedule.notes
+                        ? `${schedule.day}: ${schedule.notes}`
+                        : `${schedule.day}: -`}
+                    </p>
                   </>
                 );
               })}

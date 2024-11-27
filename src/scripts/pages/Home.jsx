@@ -165,15 +165,13 @@ const Home = () => {
               <span className="badge bg-[color:#FCFBFD] bg-opacity-70 p-4 uppercase">
                 Simplify Your Smile Journey
               </span>
-              <h1 className="italic">Dental Care, All in One Place</h1>
               <div className="flex flex-col max-lg:gap-6 lg:flex-row">
                 <div className="flex flex-1 flex-col gap-6">
+                  <h1>One Stop Family Dental Center</h1>
                   <p>
-                    From routine dental checkups to implants to cosmetic
-                    dentistry. Our team expertly guides and helps you to achieve
-                    your dream smile.
+                    From routine family dental checkups to implants to cosmetic dentistry. Our team expertly guides and helps you to achieve your dream smile.
+                    Make an Appointment today!
                   </p>
-                  <p>#OneStopFamilyDentalCenter</p>
                 </div>
               </div>
 
