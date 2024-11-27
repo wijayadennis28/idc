@@ -8,6 +8,8 @@ import removeHTMLTags from "../../utils/removeHTMLTags";
 import Facebook from "../../../assets/image/footer/facebook.svg";
 import Twitter from "../../../assets/image/footer/twitter.svg";
 
+import logoWithoutTextBig from "../../../assets/image/logo/logo-without-text-big.svg";
+
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 
 const ArticleDetail = () => {
@@ -107,7 +109,7 @@ const ArticleDetail = () => {
 
           <div className="flex w-full justify-center">
             <img
-              src={article.image}
+              src={article.image || logoWithoutTextBig}
               alt="article image"
               className="rounded-lg md:w-[548px]"
             />
