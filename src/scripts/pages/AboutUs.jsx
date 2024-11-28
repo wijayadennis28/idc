@@ -19,9 +19,7 @@ const AboutUs = () => {
       <section className="bg-white px-4 py-16 sm:px-8 md:px-12 lg:px-16 xl:px-24">
         <h1 className="mb-8 text-center text-primary">Our Milestone</h1>
         <p className="mx-auto mb-8 max-w-lg text-center sm:max-w-2xl">
-          We’re dedicated to transforming your dental experience. From routine
-          checkups to advanced cosmetic procedures, our expert team is here to
-          make your dream smile a reality.
+          20+ years of experience, same patient-centric value and a continuous habit of improvement, we merge timeless care with the latest technology and innovation. Experience how our legacy comes together to create your best smile yet.
         </p>
         <Timeline />
       </section>
