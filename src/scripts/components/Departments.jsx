@@ -17,7 +17,7 @@ const Departments = ({ departments = [] }) => {
           <IdcCard
             image={department.meta?.image}
             title={department.title.rendered}
-            hover={screenSize < 640 ? true : false}
+            hover={screenSize > 640 ? true : false}
           />
         </a>
       ))}
