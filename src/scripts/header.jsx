@@ -8,7 +8,6 @@ const Header = () => {
   const [showTextLanguage, setShowTextLanguage] = useState("");
   const [showMenu, setShowMenu] = useState(false);
 
-  const detailsMobileRef = useRef(null);
   const touchStartY = useRef(0); // Store the initial touch Y-coordinate
   const touchEndY = useRef(0); // Store the final touch Y-coordinate
 
@@ -25,8 +24,6 @@ const Header = () => {
     } else {
       document.body.classList.remove("overflow-hidden");
     }
-
-    detailsMobileRef.current.removeAttribute("open");
 
     // Cleanup to remove the className when component unmounts
     return () => document.body.classList.remove("overflow-hidden");
@@ -232,41 +229,9 @@ const Header = () => {
               {item.name}
             </a>
           ))}
-          <div className="relative">
-            <details className="group" ref={detailsMobileRef}>
-              <summary className="flex cursor-pointer items-center rounded-full bg-secondary px-4 py-3 text-base text-white focus-visible:outline-none">
-                <span className="mr-2">{showTextLanguage}</span>
-                <svg
-                  className="h-4 w-4 transform transition-transform duration-300 group-open:rotate-180"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </summary>
-              <ul className="fixed z-[99999] mt-2 w-fit rounded-2xl border bg-white shadow-lg">
-                {languageList.map((item) => (
-                  <li key={item.id} className="cursor-pointer px-6 py-3">
-                    <a
-                      onClick={() => {
-                        setLanguage(item.id);
-                        detailsMobileRef.current.removeAttribute("open");
-                      }}
-                    >
-                      {languageText(item.id)}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </details>
-          </div>
+          <button className="btn btn-primary" onClick={openModal}>
+            Make an Appointment
+          </button>
         </div>
       </div>
       <PopUpMap />
