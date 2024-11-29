@@ -254,7 +254,7 @@ const Home = () => {
             }}
           >
             <h1 className="px-4 text-center font-normal text-white">
-              We provide the <span className="font-bold">best services</span>
+              Explore our <span className="font-bold">services</span>
             </h1>
           </div>
           <div className="relative -top-24 w-full max-sm:px-4 sm:flex sm:justify-center">

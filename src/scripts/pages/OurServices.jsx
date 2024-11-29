@@ -64,7 +64,7 @@ const OurServices = () => {
         >
           <div className="flex h-full items-center justify-center bg-primary bg-opacity-75">
             <h1 className="text-center font-sans font-normal text-white">
-              We provide the <span className="font-bold">best services</span>
+              Explore our <span className="font-bold">services</span>
             </h1>
           </div>
         </div>
