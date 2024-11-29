@@ -7,7 +7,8 @@ const Branches = ({ showTitle = false, btnColor = "primary" }) => {
       address: "Jl. Hang Tuah Raya No.35, Kby. Baru, South Jakarta - 12120",
       schedule: [
         "Mon - Fri = 10.00 AM - 06.00 PM",
-        "Sat = 10.00 AM - 06.00 PM",
+        "Sat = 10.00 AM - 03.00 PM",
+        "Sun = By appointment",
       ],
       phone: "+628128080011",
       phoneLabel: "Senayan",
@@ -20,7 +21,7 @@ const Branches = ({ showTitle = false, btnColor = "primary" }) => {
         "Ruko CBD Pluit No. B2, Jl. Pluit Selatan Raya, Penjaringan, North Jakarta City - 14440",
       schedule: [
         "Mon - Fri = 10.00 AM - 06.00 PM",
-        "Sat = 10.00 AM - 06.00 PM",
+        "Sat = 10.00 AM - 03.00 PM",
       ],
       phone: "+6281218186161",
       phoneLabel: "Pluit",
