@@ -191,7 +191,7 @@ const Timeline = ({ setObserver, callback }) => {
       <div
         id="timeline4"
         ref={timeline4}
-        className="h-[586px] w-[1px] md:h-[370px] lg:h-[270px]"
+        className="h-[550px] w-[1px] md:h-[370px] lg:h-[270px]"
       />
       <div className="circleWrapper gap-4 lg:gap-8">
         <div id="circle4" ref={circle4} className="circle"></div>
@@ -214,7 +214,7 @@ const Timeline = ({ setObserver, callback }) => {
       <div
         id="timeline5"
         ref={timeline5}
-        className="h-[670px] w-[1px] md:h-[420px] lg:h-[270px]"
+        className="h-[587px] w-[1px] md:h-[420px] lg:h-[270px]"
       />
       <div className="circleWrapper gap-4 lg:gap-8">
         <div id="circle5" ref={circle5} className="circle"></div>
@@ -237,7 +237,7 @@ const Timeline = ({ setObserver, callback }) => {
       <div
         id="timeline6"
         ref={timeline6}
-        className="h-[410px] w-[1px] md:h-60 lg:h-52"
+        className="h-[293px] w-[1px] md:h-60 lg:h-52"
       />
     </div>
   );
