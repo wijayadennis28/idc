@@ -7,7 +7,6 @@ import timeline2007Img from "../../../assets/image/aboutus/timeline-2007.png";
 import timeline2012Img from "../../../assets/image/aboutus/timeline-2012.jpg";
 import timeline2023Img from "../../../assets/image/aboutus/timeline-2023.jpg";
 
-
 const Timeline = ({ setObserver, callback }) => {
   const [year1, setYear1] = useState("");
   const [year2, setYear2] = useState("");
@@ -51,7 +50,9 @@ const Timeline = ({ setObserver, callback }) => {
   const someCallback = () => {
     setYear1("2001");
     setImage1(timeline2001Img);
-    setTitle1("On July 28, 2001, the first Indo Dental Center clinic opened in Pluit Putri, North Jakarta.");
+    setTitle1(
+      "On July 28, 2001, the first Indo Dental Center clinic opened in Pluit Putri, North Jakarta.",
+    );
     setDesc1(
       "That year, we began our dream and journey to provide the best dental care services.",
     );
@@ -61,7 +62,9 @@ const Timeline = ({ setObserver, callback }) => {
   const someCallback2 = () => {
     setYear2("2003");
     setImage2(timeline2003Img);
-    setTitle2("Two years later, in 2003, we relocated to Pluit Putra, North Jakarta.");
+    setTitle2(
+      "Two years later, in 2003, we relocated to Pluit Putra, North Jakarta.",
+    );
     setDesc2(
       "Starting with just two doctors, we slowly grew and began serving more patients with high dedication.",
     );
@@ -71,7 +74,9 @@ const Timeline = ({ setObserver, callback }) => {
   const someCallback3 = () => {
     setYear3("2007");
     setImage3(timeline2007Img);
-    setTitle3("At the end of 2007, we took a significant step by establishing our first permanent location in Pluit, North Jakarta.");
+    setTitle3(
+      "At the end of 2007, we took a significant step by establishing our first permanent location in Pluit, North Jakarta.",
+    );
     setDesc3(
       "Indo Dental Center opened at CBD Pluit, focusing on specialist services and a dental laboratory— a new concept at the time.",
     );
@@ -81,7 +86,9 @@ const Timeline = ({ setObserver, callback }) => {
   const someCallback4 = () => {
     setYear4("2012");
     setImage4(timeline2012Img);
-    setTitle4("In 2012, driven by our commitment to continually improve service quality, we opened a branch in Wolter Monginsidi, South Jakarta.");
+    setTitle4(
+      "In 2012, driven by our commitment to continually improve service quality, we opened a branch in Wolter Monginsidi, South Jakarta.",
+    );
     setDesc4(
       "With a focus on enhancing the patient experience, we aimed to provide more comfortable and professional care, supported by a strong teamwork approach. From just a few doctors, our team has grown to more than 20 dental specialists, all ready to provide the best care for you.",
     );
@@ -91,7 +98,9 @@ const Timeline = ({ setObserver, callback }) => {
   const someCallback5 = () => {
     setYear5("2023");
     setImage5(timeline2023Img);
-    setTitle5("In August 2023, Indo Dental Center settled in Hang Tuah, South Jakarta.");
+    setTitle5(
+      "In August 2023, Indo Dental Center settled in Hang Tuah, South Jakarta.",
+    );
     setDesc5(
       "We are proud to have been serving the community for over 23 years and treating more than 4,000 patients annually. We are ready to become your One-Stop Family Dental Center, meeting all your dental care needs from general services to specialized treatments, ensuring a healthier, more beautiful smile for you and your family!",
     );
@@ -114,7 +123,7 @@ const Timeline = ({ setObserver, callback }) => {
 
   return (
     <div className="wrapper mb-16">
-      <div id="timeline1" ref={timeline1} className="timeline text-primary" />
+      <div id="timeline1" ref={timeline1} className="h-52 w-[1px]" />
       <div className="circleWrapper gap-4 lg:gap-8">
         <div id="circle1" ref={circle1} className="circle"></div>
         <div
@@ -122,7 +131,10 @@ const Timeline = ({ setObserver, callback }) => {
         >
           <p className={`font-bold text-primary transition-opacity`}>{year1}</p>
           <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
-            <img src={image1} className={`timeline-imag transition-opacity w-[300px] h-[200px] object-cover`} />
+            <img
+              src={image1}
+              className={`timeline-imag h-[200px] object-cover transition-opacity lg:w-[300px]`}
+            />
             <div className="description-block flex flex-col gap-1 transition-opacity lg:gap-2">
               <h5 className="text-primary">{title1}</h5>
               <p className="description-text">{desc1}</p>
@@ -130,7 +142,11 @@ const Timeline = ({ setObserver, callback }) => {
           </div>
         </div>
       </div>
-      <div id="timeline2" ref={timeline2} className="timeline-gap text-primary" />
+      <div
+        id="timeline2"
+        ref={timeline2}
+        className="h-[410px] w-[1px] md:h-[320px] lg:h-[270px]"
+      />
       <div className="circleWrapper gap-4 lg:gap-8">
         <div id="circle2" ref={circle2} className="circle"></div>
         <div
@@ -138,7 +154,10 @@ const Timeline = ({ setObserver, callback }) => {
         >
           <p className={`font-bold text-primary transition-opacity`}>{year2}</p>
           <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
-            <img src={image2} className={`timeline-imag transition-opacity w-[300px] h-[200px] object-cover`} />
+            <img
+              src={image2}
+              className={`timeline-imag h-[200px] object-cover transition-opacity lg:w-[300px]`}
+            />
             <div className="description-block flex flex-col gap-2 transition-opacity lg:gap-2">
               <h5 className="text-primary">{title2}</h5>
               <p className="description-text">{desc2}</p>
@@ -146,7 +165,11 @@ const Timeline = ({ setObserver, callback }) => {
           </div>
         </div>
       </div>
-      <div id="timeline3" ref={timeline3} className="timeline-gap text-primary" />
+      <div
+        id="timeline3"
+        ref={timeline3}
+        className="h-[435px] w-[1px] md:h-[320px] lg:h-[270px]"
+      />
       <div className="circleWrapper gap-4 lg:gap-8">
         <div id="circle3" ref={circle3} className="circle"></div>
         <div
@@ -154,7 +177,10 @@ const Timeline = ({ setObserver, callback }) => {
         >
           <p className={`font-bold text-primary transition-opacity`}>{year3}</p>
           <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
-            <img src={image3} className={`timeline-imag transition-opacity w-[300px] h-[200px] object-cover`} />
+            <img
+              src={image3}
+              className={`timeline-imag h-[200px] object-cover transition-opacity lg:w-[300px]`}
+            />
             <div className="description-block flex flex-col gap-2 transition-opacity lg:gap-2">
               <h5 className="text-primary">{title3}</h5>
               <p className="description-text">{desc3}</p>
@@ -162,7 +188,11 @@ const Timeline = ({ setObserver, callback }) => {
           </div>
         </div>
       </div>
-      <div id="timeline4" ref={timeline4} className="timeline-gap text-primary" />
+      <div
+        id="timeline4"
+        ref={timeline4}
+        className="h-[586px] w-[1px] md:h-[370px] lg:h-[270px]"
+      />
       <div className="circleWrapper gap-4 lg:gap-8">
         <div id="circle4" ref={circle4} className="circle"></div>
         <div
@@ -170,7 +200,10 @@ const Timeline = ({ setObserver, callback }) => {
         >
           <p className={`font-bold text-primary transition-opacity`}>{year4}</p>
           <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
-            <img src={image4} className={`timeline-imag transition-opacity w-[300px] h-[200px] object-cover`} />
+            <img
+              src={image4}
+              className={`timeline-imag h-[200px] object-cover transition-opacity lg:w-[300px]`}
+            />
             <div className="description-block flex flex-col gap-2 transition-opacity lg:gap-2">
               <h5 className="text-primary">{title4}</h5>
               <p className="description-text">{desc4}</p>
@@ -178,7 +211,11 @@ const Timeline = ({ setObserver, callback }) => {
           </div>
         </div>
       </div>
-      <div id="timeline5" ref={timeline5} className="timeline-gap text-primary" />
+      <div
+        id="timeline5"
+        ref={timeline5}
+        className="h-[670px] w-[1px] md:h-[420px] lg:h-[270px]"
+      />
       <div className="circleWrapper gap-4 lg:gap-8">
         <div id="circle5" ref={circle5} className="circle"></div>
         <div
@@ -186,7 +223,10 @@ const Timeline = ({ setObserver, callback }) => {
         >
           <p className={`font-bold text-primary transition-opacity`}>{year5}</p>
           <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
-            <img src={image5} className={`timeline-imag transition-opacity w-[300px] h-[200px] object-cover`} />
+            <img
+              src={image5}
+              className={`timeline-imag h-[200px] object-cover transition-opacity lg:w-[300px]`}
+            />
             <div className="description-block flex flex-col gap-2 transition-opacity lg:gap-2">
               <h5 className="text-primary">{title5}</h5>
               <p className="description-text">{desc5}</p>
@@ -194,8 +234,11 @@ const Timeline = ({ setObserver, callback }) => {
           </div>
         </div>
       </div>
-
-      <div id="timeline6" ref={timeline6} className="timeline" />
+      <div
+        id="timeline6"
+        ref={timeline6}
+        className="h-[410px] w-[1px] md:h-60 lg:h-52"
+      />
     </div>
   );
 };
