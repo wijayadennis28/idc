@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import OurDoctorImg from "../../../assets/image/our-doctors/our-doctor.png";
+import BackgroundImg from "../../../assets/image/our-doctors/background.jpg";
 import DoctorsGrid from "../components/DoctorsGrid";
 import Pill from "../components/Pill";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
@@ -103,7 +104,7 @@ const OurDoctors = () => {
     <div className="flex flex-col">
       <div
         style={{
-          "--image-url": `url(${OurDoctorImg})`,
+          "--image-url": `url(${BackgroundImg})`,
         }}
         className={String.raw`mb-8 h-[355px] w-full bg-[image:var(--image-url)] bg-cover bg-center`}
       >
