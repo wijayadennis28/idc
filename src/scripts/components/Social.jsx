@@ -118,7 +118,7 @@ const Social = () => {
                       <div className="relative">
                         <div className="absolute -bottom-8 -left-[1vw] 2xl:-bottom-8 2xl:-left-14">
                           <p className="absolute -bottom-2 right-20 w-48 text-primary 2xl:right-36">
-                            modern technology to achieve the best results
+                            Modern technology to enhance comfort and experience
                           </p>
                           <img
                             src={ConnectArrowImg}
