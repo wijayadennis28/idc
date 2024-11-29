@@ -110,8 +110,7 @@ const OurDoctors = () => {
       >
         <div className="flex h-full items-center justify-center bg-primary bg-opacity-75">
           <h1 className="text-center font-sans font-normal text-white">
-            Meet with our <span className="font-bold">Expert Dentist,</span>{" "}
-            Just for You
+            Meet with our <span className="font-bold">Expert Dentist</span>
           </h1>
         </div>
       </div>

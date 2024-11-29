@@ -270,9 +270,7 @@ const Home = () => {
               <div className="flex h-full flex-col justify-center gap-2 md:gap-3 lg:gap-6">
                 <h1 className="font-medium text-primary">
                   Meet with our{" "}
-                  <span className="font-bold">expert dentist,</span>
-                  <br />
-                  Just for you
+                  <span className="font-bold">expert dentist</span>
                 </h1>
                 <p className="max-md:pb-8">
                   We pride ourselves on delivering the best service in dental
