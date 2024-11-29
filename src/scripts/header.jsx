@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import Logo from "../../assets/image/logo/logo.png";
 
+import PopUpMap from "./components/PopUpMap";
+
 const Header = () => {
   const [language, setLanguage] = useState("EN");
   const [showTextLanguage, setShowTextLanguage] = useState("");
   const [showMenu, setShowMenu] = useState(false);
 
-  const detailsRef = useRef(null);
   const detailsMobileRef = useRef(null);
   const touchStartY = useRef(0); // Store the initial touch Y-coordinate
   const touchEndY = useRef(0); // Store the final touch Y-coordinate
@@ -16,28 +17,6 @@ const Header = () => {
   useEffect(() => {
     setShowTextLanguage(handleLanguageText());
   }, [language]);
-
-  useEffect(() => {
-    // Add an event listener to detect outside clicks
-    const handleClickOutside = (event) => {
-      if (detailsRef.current && !detailsRef.current.contains(event.target)) {
-        detailsRef.current.removeAttribute("open"); // Close the <details> if clicked outside
-      }
-
-      if (
-        detailsMobileRef.current &&
-        !detailsMobileRef.current.contains(event.target)
-      ) {
-        detailsMobileRef.current.removeAttribute("open"); // Close the <details> if clicked outside
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [detailsRef]);
 
   // Toggle overflow on body when menu opens or closes
   useEffect(() => {
@@ -142,6 +121,11 @@ const Header = () => {
     }
   };
 
+  const openModal = () => {
+    const dialog = document.getElementById("map-modal");
+    dialog.showModal();
+  };
+
   return (
     <>
       <div className="navbar bg-base-100 px-8 py-6">
@@ -171,30 +155,13 @@ const Header = () => {
                 </a>
               </li>
             ))}
-            <li className="pl-3">
-              <details ref={detailsRef}>
-                <summary
-                  className="idc-menu-country w-[139px] bg-secondary text-white hover:bg-[#1FAECD] 2xl:w-[150px]"
-                  style={{ borderRadius: "360px" }}
-                >
-                  {showTextLanguage}
-                </summary>
-                <ul className="z-[9999] rounded-t-none bg-base-100 p-2">
-                  {languageList.map((item) => (
-                    <li key={item.id}>
-                      <a
-                        onClick={() => {
-                          setLanguage(item.id);
-                          detailsRef.current.removeAttribute("open"); // Close after selection
-                        }}
-                      >
-                        {languageText(item.id)}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </details>
-            </li>
+            <button
+              className="btn btn-primary btn-sm"
+              style={{ height: "2.5rem" }}
+              onClick={openModal}
+            >
+              Make an Appointment
+            </button>
           </ul>
         </div>
         <div className="flex lg:hidden">
@@ -302,6 +269,7 @@ const Header = () => {
           </div>
         </div>
       </div>
+      <PopUpMap />
     </>
   );
 };

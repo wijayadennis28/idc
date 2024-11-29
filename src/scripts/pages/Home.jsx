@@ -3,7 +3,6 @@ import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 
-import PopUpMap from "../components/PopUpMap";
 import Departments from "../components/Departments";
 import PartnersList from "../components/PartnersList";
 import Social from "../components/Social";
@@ -432,7 +431,6 @@ const Home = () => {
         )}
         <Social />
       </div>
-      <PopUpMap />
     </>
   );
 };
