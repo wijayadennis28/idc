@@ -132,3 +132,16 @@ function get_raw_title( $object ) {
 }
 
 add_action( 'rest_api_init', 'add_custom_field_to_services_api' );
+
+add_filter('rest_services_query', function($args) {
+  error_log(print_r($args, true)); // Logs the arguments to debug
+  $args['orderby'] = 'menu_order';
+  $args['order'] = 'ASC';
+  return $args;
+});
+
+function enable_page_attributes_for_services() {
+  add_post_type_support('services', 'page-attributes');
+}
+add_action('init', 'enable_page_attributes_for_services');
+

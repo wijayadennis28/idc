@@ -350,7 +350,7 @@ const Home = () => {
               <div className="mb-16 flex flex-col items-center gap-4 text-center">
                 <h1 className="font-normal text-primary max-lg:w-screen max-lg:px-8">
                   A lot of{" "}
-                  <span className="font-bold italic">happy clients</span>
+                  <span className="font-bold italic">happy patients</span>
                 </h1>
                 <p className="max-w-[850px] max-lg:w-screen max-lg:px-4">
                   At Indo Dental Center, our greatest pride comes from the
