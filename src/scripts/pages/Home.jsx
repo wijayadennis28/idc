@@ -169,8 +169,9 @@ const Home = () => {
                 <div className="flex flex-1 flex-col gap-6">
                   <h1>One Stop Family Dental Center</h1>
                   <p>
-                    From routine family dental checkups to implants to cosmetic dentistry. Our team expertly guides and helps you to achieve your dream smile.
-                    Make an Appointment today!
+                    From routine family dental checkups to implants to cosmetic
+                    dentistry. Our team expertly guides and helps you to achieve
+                    your dream smile. Make an Appointment today!
                   </p>
                 </div>
               </div>
@@ -223,7 +224,7 @@ const Home = () => {
             className="flex flex-col items-center gap-8 py-16"
           >
             <h1 className="text-center font-normal text-primary">
-              <span className="font-bold italic">Our</span> partners
+              <span className="font-bold">Our</span> partners
             </h1>
             <PartnersList list={ourPartnerList} slider={true} />
           </div>
@@ -232,7 +233,7 @@ const Home = () => {
             className="flex flex-col items-center gap-8 px-8 py-16"
           >
             <h1 className="text-center font-normal text-primary">
-              Why<span className="font-bold italic"> choose us</span>
+              Why<span className="font-bold"> choose us</span>
             </h1>
             <div className="w-full max-sm:px-4 sm:flex sm:justify-center">
               <div className="flex max-w-[2292px] flex-wrap justify-stretch gap-8 max-lg:flex-col max-lg:gap-4 max-lg:px-4 max-md:gap-8 max-md:px-4 max-sm:px-0 md:justify-center">
@@ -253,8 +254,7 @@ const Home = () => {
             }}
           >
             <h1 className="px-4 text-center font-normal text-white">
-              We provide the{" "}
-              <span className="font-bold italic">best services</span>
+              We provide the <span className="font-bold">best services</span>
             </h1>
           </div>
           <div className="relative -top-24 w-full max-sm:px-4 sm:flex sm:justify-center">
@@ -349,8 +349,7 @@ const Home = () => {
             <div className="max-w-[2400px]">
               <div className="mb-16 flex flex-col items-center gap-4 text-center">
                 <h1 className="font-normal text-primary max-lg:w-screen max-lg:px-8">
-                  A lot of{" "}
-                  <span className="font-bold italic">happy patients</span>
+                  A lot of <span className="font-bold">happy patients</span>
                 </h1>
                 <p className="max-w-[850px] max-lg:w-screen max-lg:px-4">
                   At Indo Dental Center, our greatest pride comes from the
