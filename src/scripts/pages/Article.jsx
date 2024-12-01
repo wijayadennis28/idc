@@ -57,7 +57,6 @@ const Article = () => {
     const totalPages = headers.get("x-wp-totalpages");
 
     const articleRaws = await response.json();
-    console.log(articleRaws);
     const articleList = articleRaws.map((article) => ({
       permalink: article.link,
       image: article.thumbnail,
@@ -65,9 +64,8 @@ const Article = () => {
       tags: article["article-tags"],
       content: removeHTMLTags(article.content.rendered).split(".")[0] + "...",
     }));
-    console.log(articleList);
     setArticles(articleList);
-    setPageSize(totalPages);
+    setPageSize(Number(totalPages));
     setLoading(false);
   };
 
