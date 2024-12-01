@@ -19,14 +19,7 @@ const Article = () => {
 
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const [paginationButton, setPaginationButton] = useState([
-    1,
-    2,
-    3,
-    4,
-    "...",
-    10,
-  ]);
+  const [paginationButton, setPaginationButton] = useState([]);
   const [pageSize, setPageSize] = useState(0);
 
   useEffect(() => {
@@ -167,32 +160,37 @@ const Article = () => {
   };
 
   useEffect(() => {
+    setPaginationButton(() => {
     const pagination = [];
+      if (pageSize < 6) {
     for (let i = 1; i <= pageSize; i++) {
       pagination.push(i);
     }
-    // if (currentPage < 4) {
-    //   for (let i = 1; i <= 4; i++) {
-    //     pagination.push(i);
-    //   }
-    //   pagination.push("...");
-    //   pagination.push(pageSize);
-    // } else if (currentPage > pageSize - 3) {
-    //   pagination.push(1);
-    //   pagination.push("...");
-    //   for (let i = pageSize - 3; i <= pageSize; i++) {
-    //     pagination.push(i);
-    //   }
-    // } else {
-    //   pagination.push(1);
-    //   pagination.push("...");
-    //   for (let i = currentPage - 1; i <= currentPage + 1; i++) {
-    //     pagination.push(i);
-    //   }
-    //   pagination.push("...");
-    //   pagination.push(pageSize);
-    // }
-    setPaginationButton(pagination);
+      } else {
+        if (currentPage < 4) {
+          for (let i = 1; i <= 4; i++) {
+            pagination.push(i);
+          }
+          pagination.push("...");
+          pagination.push(pageSize);
+        } else if (currentPage > pageSize - 3) {
+          pagination.push(1);
+          pagination.push("...");
+          for (let i = pageSize - 3; i <= pageSize; i++) {
+            pagination.push(i);
+          }
+        } else {
+          pagination.push(1);
+          pagination.push("...");
+          for (let i = currentPage - 1; i <= currentPage + 1; i++) {
+            pagination.push(i);
+          }
+          pagination.push("...");
+          pagination.push(pageSize);
+        }
+      }
+      return pagination;
+    });
   }, [currentPage, pageSize]);
 
   return (
