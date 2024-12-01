@@ -107,11 +107,11 @@ const ArticleDetail = () => {
             </ul>
           </div>
 
-          <div className="flex w-full justify-center">
+          <div className="flex h-60 w-full justify-center md:h-80 2xl:h-96">
             <img
               src={article.image || logoWithoutTextBig}
               alt="article image"
-              className="rounded-lg md:w-[548px]"
+              className="w-full rounded-lg object-cover object-center md:w-[501px]"
             />
           </div>
           <div>
