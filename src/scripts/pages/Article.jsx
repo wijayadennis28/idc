@@ -24,12 +24,15 @@ const Article = () => {
 
   useEffect(() => {
     getCategoriesArticle().catch(console.error);
-    getArticles().catch(console.error);
   }, []);
 
   useEffect(() => {
     getArticles().catch(console.error);
   }, [category, currentPage]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [category]);
 
   const getCategoriesArticle = async () => {
     const response = await fetch("/wp-json/wp/v2/article-categories");
