@@ -27,7 +27,7 @@ const Article = () => {
     "...",
     10,
   ]);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(0);
 
   useEffect(() => {
     getCategoriesArticle().catch(console.error);
@@ -261,6 +261,7 @@ const Article = () => {
           articles={articles}
           title={category.name}
         />
+        {pageSize > 1 && (
         <div className="flex items-end gap-2 md:gap-4">
           <button
             className={`btn btn-primary btn-sm size-10 !p-0 md:size-12 ${
@@ -298,6 +299,7 @@ const Article = () => {
             <ArrowRightIcon className="size-4" />
           </button>
         </div>
+        )}
       </div>
     </div>
   );
