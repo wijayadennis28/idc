@@ -5,8 +5,8 @@ import PopUpMap from "./components/PopUpMap";
 
 const Header = () => {
   const [language, setLanguage] = useState("EN");
-  const [showTextLanguage, setShowTextLanguage] = useState("");
   const [showMenu, setShowMenu] = useState(false);
+  const detailsRef = useRef(null);
 
   const touchStartY = useRef(0); // Store the initial touch Y-coordinate
   const touchEndY = useRef(0); // Store the final touch Y-coordinate
@@ -14,8 +14,26 @@ const Header = () => {
   const path = window.location.pathname.split("/")[1];
 
   useEffect(() => {
-    setShowTextLanguage(handleLanguageText());
-  }, [language]);
+    // Add an event listener to detect outside clicks
+    const handleClickOutside = (event) => {
+      if (detailsRef.current && !detailsRef.current.contains(event.target)) {
+        detailsRef.current.removeAttribute("open"); // Close the <details> if clicked outside
+      }
+
+      if (
+        detailsMobileRef.current &&
+        !detailsMobileRef.current.contains(event.target)
+      ) {
+        detailsMobileRef.current.removeAttribute("open"); // Close the <details> if clicked outside
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [detailsRef]);
 
   // Toggle overflow on body when menu opens or closes
   useEffect(() => {
@@ -43,7 +61,7 @@ const Header = () => {
   const languageList = [
     {
       id: "ID",
-      name: "Bahasa",
+      name: "Indonesia",
     },
     {
       id: "EN",
@@ -78,14 +96,6 @@ const Header = () => {
       URL: "/articles",
     },
   ];
-
-  const handleLanguageText = () => {
-    return languageList.map((item) => {
-      if (item.id === language) {
-        return languageText(item.id);
-      }
-    });
-  };
 
   const languageText = (id) => {
     const selectedLanguage = languageList.find((item) => item.id === id);
@@ -159,6 +169,29 @@ const Header = () => {
             >
               Make an Appointment
             </button>
+            <div className="w-auto border-r border-base-content px-2" />
+            <li>
+              <details ref={detailsRef}>
+                <summary className="idc-menu-country w-[70px] hover:bg-white active:bg-white">
+                  {language}
+                </summary>
+                <ul className="right-0 z-[9999] w-max rounded-t-none bg-base-100 p-2 shadow">
+                  {languageList.map((item) => (
+                    <li key={item.id} class="flex items-center">
+                      <a
+                        className={`idc-menu-country-item ${item.id === language ? "idc-menu-country-item-active bg-secondary text-white hover:bg-secondary hover:text-white" : ""}`}
+                        onClick={() => {
+                          setLanguage(item.id);
+                          detailsRef.current.removeAttribute("open"); // Close after selection
+                        }}
+                      >
+                        {languageText(item.id)}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </li>
           </ul>
         </div>
         <div className="flex lg:hidden">

@@ -105,7 +105,15 @@ body {
 }
 
 .idc-menu-country:active {
-  @apply !bg-[#1FAECD] !text-white;
+  @apply !bg-white !text-base-content;
+}
+
+.idc-menu-country-item-active:active {
+  @apply !bg-secondary !text-white;
+}
+
+.idc-menu-country-item:active {
+  @apply !bg-base-300 !text-base-content;
 }
 
 .home-splide .splide__pagination {
