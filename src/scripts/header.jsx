@@ -6,7 +6,9 @@ import PopUpMap from "./components/PopUpMap";
 const Header = () => {
   const [language, setLanguage] = useState("EN");
   const [showMenu, setShowMenu] = useState(false);
+
   const detailsRef = useRef(null);
+  const detailsMobileRef = useRef(null);
 
   const touchStartY = useRef(0); // Store the initial touch Y-coordinate
   const touchEndY = useRef(0); // Store the final touch Y-coordinate
@@ -42,6 +44,8 @@ const Header = () => {
     } else {
       document.body.classList.remove("overflow-hidden");
     }
+
+    detailsMobileRef.current.removeAttribute("open");
 
     // Cleanup to remove the className when component unmounts
     return () => document.body.classList.remove("overflow-hidden");
@@ -265,6 +269,46 @@ const Header = () => {
           <button className="btn btn-primary" onClick={openModal}>
             Make an Appointment
           </button>
+
+          <div className="relative">
+            <details className="group" ref={detailsMobileRef}>
+              <summary className="flex w-[150px] cursor-pointer items-center justify-center rounded-full px-4 py-2 text-base focus-visible:outline-none">
+                <span className="mr-2">{language}</span>
+                <svg
+                  className="h-4 w-4 transform transition-transform duration-300 group-open:rotate-180"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </summary>
+              <ul className="fixed z-[99999] mt-2 w-fit rounded-2xl border bg-white shadow-lg">
+                {languageList.map((item, index) => (
+                  <li
+                    key={index}
+                    className="flex cursor-pointer justify-center px-6 py-3"
+                  >
+                    <a
+                      onClick={() => {
+                        setLanguage(item.id);
+                        detailsMobileRef.current.removeAttribute("open");
+                        setShowMenu(false);
+                      }}
+                    >
+                      {languageText(item.id)}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          </div>
         </div>
       </div>
       <PopUpMap />
