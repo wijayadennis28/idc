@@ -67,43 +67,47 @@ const DoctorDetails = () => {
               dangerouslySetInnerHTML={{ __html: doctor.content.rendered }}
             ></div>
           </div>
-          <div className="flex flex-col gap-2">
-            <h4 className="font-normal text-primary">Specialisation</h4>
-            <ul className="list-inside list-disc">
-              {Object.values(doctor.meta.specialisation).map(
-                (specialisation) => (
+          {(Object.values(doctor.meta.specialisation).length > 0) && (
+            <div className="flex flex-col gap-2">
+              <h4 className="font-normal text-primary">Specialisation</h4>
+              <ul className="list-inside list-disc">
+                {Object.values(doctor.meta.specialisation).map(
+                  (specialisation) => (
+                    <li>
+                      <p className="inline text-[#4D4757]">
+                        {specialisation.title}
+                      </p>
+                    </li>
+                  ),
+                )}
+              </ul>
+            </div>
+          )}
+          {(Object.values(doctor.meta.certification).length > 0) && (
+            <div className="flex flex-col gap-2">
+              <h4 className="font-normal text-primary">
+                Qualification & Certification
+              </h4>
+              <ul className="list-inside list-disc">
+                {Object.values(doctor.meta.certification).map((certification) => (
                   <li>
-                    <p className="inline text-[#4D4757]">
-                      {specialisation.title}
-                    </p>
+                    <a
+                      className="cursor-pointer text-[#4D4757] underline"
+                      onClick={() =>
+                        setModal({
+                          show: true,
+                          title: certification.title,
+                          imageUrl: certification.image,
+                        })
+                      }
+                    >
+                      <p className="inline">{certification.title}</p>
+                    </a>
                   </li>
-                ),
-              )}
-            </ul>
-          </div>
-          <div className="flex flex-col gap-2">
-            <h4 className="font-normal text-primary">
-              Qualification & Certification
-            </h4>
-            <ul className="list-inside list-disc">
-              {Object.values(doctor.meta.certification).map((certification) => (
-                <li>
-                  <a
-                    className="cursor-pointer text-[#4D4757] underline"
-                    onClick={() =>
-                      setModal({
-                        show: true,
-                        title: certification.title,
-                        imageUrl: certification.image,
-                      })
-                    }
-                  >
-                    <p className="inline">{certification.title}</p>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
         <div className="flex grow basis-0 flex-col gap-6">
           <div className="flex flex-col gap-2">
