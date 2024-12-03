@@ -90,7 +90,7 @@ const Timeline = ({ setObserver, callback }) => {
       "In 2012, driven by our commitment to continually improve service quality, we opened a branch in Wolter Monginsidi, South Jakarta.",
     );
     setDesc4(
-      "With a focus on enhancing the patient experience, we aimed to provide more comfortable and professional care, supported by a strong teamwork approach. From just a few doctors, our team has grown to more than 20 dental specialists, all ready to provide the best care for you.",
+      "From just a few doctors, our team has grown to more than 20 dental specialists, all ready to provide the best care for you.",
     );
     setFadeIn4(true); // Trigger fade-in animation for the second section
   };
@@ -102,7 +102,7 @@ const Timeline = ({ setObserver, callback }) => {
       "In August 2023, Indo Dental Center settled in Hang Tuah, South Jakarta.",
     );
     setDesc5(
-      "We are proud to have been serving the community for over 23 years and treating more than 4,000 patients annually. We are ready to become your One-Stop Family Dental Center, meeting all your dental care needs from general services to specialized treatments, ensuring a healthier, more beautiful smile for you and your family!",
+      "We are proud to have been serving the community for over 23 years and treating more than 4,000 patients annually. We are ready to become your One-Stop Family Dental Center!",
     );
     setFadeIn5(true); // Trigger fade-in animation for the second section
   };
@@ -131,10 +131,17 @@ const Timeline = ({ setObserver, callback }) => {
         >
           <p className={`font-bold text-primary transition-opacity`}>{year1}</p>
           <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
-            <img
-              src={image1}
-              className={`timeline-imag h-[200px] object-cover transition-opacity lg:w-[300px]`}
-            />
+            <div className="relative w-[300px] h-[200px] overflow-hidden">
+              <img
+                src={image1}
+                className="w-full h-full object-cover"
+                alt="Timeline Image"
+              />
+              <div className="absolute inset-x-0 top-0 h-[50px] bg-gradient-to-b from-white to-transparent"></div>
+              <div className="absolute inset-x-0 bottom-0 h-[50px] bg-gradient-to-t from-white to-transparent"></div>
+              <div className="absolute inset-y-0 left-0 w-[50px] bg-gradient-to-r from-white to-transparent"></div>
+              <div className="absolute inset-y-0 right-0 w-[50px] bg-gradient-to-l from-white to-transparent"></div>
+            </div>
             <div className="description-block flex flex-col gap-1 transition-opacity lg:gap-2">
               <h5 className="text-primary">{title1}</h5>
               <p className="description-text">{desc1}</p>
@@ -154,10 +161,17 @@ const Timeline = ({ setObserver, callback }) => {
         >
           <p className={`font-bold text-primary transition-opacity`}>{year2}</p>
           <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
-            <img
-              src={image2}
-              className={`timeline-imag h-[200px] object-cover transition-opacity lg:w-[300px]`}
-            />
+            <div className="relative w-[300px] h-[200px] overflow-hidden">
+              <img
+                src={image2}
+                className="w-full h-full object-cover"
+                alt="Timeline Image"
+              />
+              <div className="absolute inset-x-0 top-0 h-[50px] bg-gradient-to-b from-white to-transparent"></div>
+              <div className="absolute inset-x-0 bottom-0 h-[50px] bg-gradient-to-t from-white to-transparent"></div>
+              <div className="absolute inset-y-0 left-0 w-[50px] bg-gradient-to-r from-white to-transparent"></div>
+              <div className="absolute inset-y-0 right-0 w-[50px] bg-gradient-to-l from-white to-transparent"></div>
+            </div>
             <div className="description-block flex flex-col gap-2 transition-opacity lg:gap-2">
               <h5 className="text-primary">{title2}</h5>
               <p className="description-text">{desc2}</p>
@@ -177,10 +191,17 @@ const Timeline = ({ setObserver, callback }) => {
         >
           <p className={`font-bold text-primary transition-opacity`}>{year3}</p>
           <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
-            <img
-              src={image3}
-              className={`timeline-imag h-[200px] object-cover transition-opacity lg:w-[300px]`}
-            />
+            <div className="relative w-[300px] h-[200px] overflow-hidden">
+              <img
+                src={image3}
+                className="w-full h-full object-cover"
+                alt="Timeline Image"
+              />
+              <div className="absolute inset-x-0 top-0 h-[50px] bg-gradient-to-b from-white to-transparent"></div>
+              <div className="absolute inset-x-0 bottom-0 h-[50px] bg-gradient-to-t from-white to-transparent"></div>
+              <div className="absolute inset-y-0 left-0 w-[50px] bg-gradient-to-r from-white to-transparent"></div>
+              <div className="absolute inset-y-0 right-0 w-[50px] bg-gradient-to-l from-white to-transparent"></div>
+            </div>
             <div className="description-block flex flex-col gap-2 transition-opacity lg:gap-2">
               <h5 className="text-primary">{title3}</h5>
               <p className="description-text">{desc3}</p>
@@ -200,10 +221,17 @@ const Timeline = ({ setObserver, callback }) => {
         >
           <p className={`font-bold text-primary transition-opacity`}>{year4}</p>
           <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
-            <img
-              src={image4}
-              className={`timeline-imag h-[200px] object-cover transition-opacity lg:w-[300px]`}
-            />
+            <div className="relative w-[300px] h-[200px] overflow-hidden">
+              <img
+                src={image4}
+                className="w-full h-full object-cover"
+                alt="Timeline Image"
+              />
+              <div className="absolute inset-x-0 top-0 h-[50px] bg-gradient-to-b from-white to-transparent"></div>
+              <div className="absolute inset-x-0 bottom-0 h-[50px] bg-gradient-to-t from-white to-transparent"></div>
+              <div className="absolute inset-y-0 left-0 w-[50px] bg-gradient-to-r from-white to-transparent"></div>
+              <div className="absolute inset-y-0 right-0 w-[50px] bg-gradient-to-l from-white to-transparent"></div>
+            </div>
             <div className="description-block flex flex-col gap-2 transition-opacity lg:gap-2">
               <h5 className="text-primary">{title4}</h5>
               <p className="description-text">{desc4}</p>
@@ -223,10 +251,17 @@ const Timeline = ({ setObserver, callback }) => {
         >
           <p className={`font-bold text-primary transition-opacity`}>{year5}</p>
           <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
-            <img
-              src={image5}
-              className={`timeline-imag h-[200px] object-cover transition-opacity lg:w-[300px]`}
-            />
+            <div className="relative w-[300px] h-[200px] overflow-hidden">
+              <img
+                src={image5}
+                className="w-full h-full object-cover"
+                alt="Timeline Image"
+              />
+              <div className="absolute inset-x-0 top-0 h-[50px] bg-gradient-to-b from-white to-transparent"></div>
+              <div className="absolute inset-x-0 bottom-0 h-[50px] bg-gradient-to-t from-white to-transparent"></div>
+              <div className="absolute inset-y-0 left-0 w-[50px] bg-gradient-to-r from-white to-transparent"></div>
+              <div className="absolute inset-y-0 right-0 w-[50px] bg-gradient-to-l from-white to-transparent"></div>
+            </div>
             <div className="description-block flex flex-col gap-2 transition-opacity lg:gap-2">
               <h5 className="text-primary">{title5}</h5>
               <p className="description-text">{desc5}</p>

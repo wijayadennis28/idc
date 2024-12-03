@@ -156,7 +156,7 @@ const DoctorDetails = () => {
               <button
                 className="btn btn-primary w-full"
                 onClick={() =>
-                  window.open("https://wa.me/+628128080011", "_blank")
+                  window.open("https://wa.me/+6281218186161", "_blank")
                 }
               >
                 Book an appointment

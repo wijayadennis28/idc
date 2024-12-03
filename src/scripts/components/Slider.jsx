@@ -24,19 +24,25 @@ const ClinicEquipmentSlider = ({ equipments, isLoading }) => {
           interval: 3000,
           pagination: false,
           arrows: false,
+          perPage: 3,
+          breakpoints: {
+            768: { perPage: 1 },
+            1024: { perPage: 2 },
+          },
         }}
       >
         {equipments.map((equipment) => (
           <SplideSlide key={equipment.id}>
-            <div className="relative rounded-lg overflow-hidden group" style={{ borderRadius: '8px' }}>
-            <img src={equipment.imageUrl} alt={equipment.title.rendered} className="w-full h-[50rem] object-cover rounded-lg"/>
-              {/* Gradient overlay */}
-              {/* <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-purple-900 to-transparent rounded-lg"></div> */}
-              
-              <div className="absolute bottom-5 left-5 text-white p-3 text-left transform group-hover:translate-y-0 translate-y-4 transition-transform duration-300 ease-out">
-                <h3 className="text-lg font-semibold">{equipment.title.rendered}</h3>
+            <div className="flex flex-col items-center bg-gray-200 shadow-lg rounded-lg p-4 h-full overflow-auto">
+              <img
+                src={equipment.imageUrl}
+                alt={equipment.title.rendered}
+                className="w-full h-64 object-cover rounded-lg mb-4"
+              />
+              <div className="flex flex-col justify-between h-full">
+                <h3 className="text-lg font-semibold mb-2">{equipment.title.rendered}</h3>
                 <div
-                  className="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2"
+                  className="text-sm"
                   dangerouslySetInnerHTML={{ __html: equipment.content.rendered }}
                 />
               </div>
@@ -45,7 +51,7 @@ const ClinicEquipmentSlider = ({ equipments, isLoading }) => {
         ))}
       </Splide>
       {/* Custom Navigation Buttons */}
-      <div className="mt-4 flex justify-center space-x-4">
+      <div className="mt-6 flex justify-center space-x-4">
         <button
           className="bg-[#00A4E4] px-4 py-2 rounded-full shadow-lg focus:outline-none flex items-center justify-center hover:bg-[#0090c5] transition-all duration-200"
           style={{ minWidth: '48px', borderRadius: '9999px' }}
