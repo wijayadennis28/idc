@@ -24,7 +24,12 @@ import DrgRickyImg from "../../../assets/image/doctors/drg-ricky.png";
 
 import OurClinicImg from "../../../assets/image/home/services/background.jpg";
 
+// Utility Functions for Language Management
+import { getCurrentLanguage, switchLanguage } from "../../utils/languageUtils";
+
 const Home = () => {
+  const currentLanguage = getCurrentLanguage(); // Detect current language
+
   const screenSize = useScreenSize();
   const paginationRef = useRef(null);
   const [ourPartnerList, setOurPartnerList] = useState([]);
@@ -115,23 +120,56 @@ const Home = () => {
     });
   }
 
-  const whyChooseUs = [
+  // const whyChooseUs = [
+  //   {
+  //     title: "Affordable Care",
+  //     desc: "We offer competitive pricing to ensure that top-notch dental care is within everyone's reach. Quality service shouldn't break the bank.",
+  //     image: WhyChooseUs1Img,
+  //   },
+  //   {
+  //     title: "Specialized Treatments",
+  //     desc: "Our team of specialists is trained in various dental fields to provide you with comprehensive care. Whatever your dental needs, we have the expertise to handle them",
+  //     image: WhyChooseUs2Img,
+  //   },
+  //   {
+  //     title: "Patient-Centric Service",
+  //     desc: "Your comfort and satisfaction are our top priorities. We tailor our services to meet your unique needs, ensuring a personalized and stress-free experience.",
+  //     image: WhyChooseUs3Img,
+  //   },
+  // ];
+  const getWhyChooseUsContent = (language) => {
+  return [
     {
-      title: "Affordable Care",
-      desc: "We offer competitive pricing to ensure that top-notch dental care is within everyone's reach. Quality service shouldn't break the bank.",
+      title: language === "id" ? "Perawatan Terjangkau" : "Affordable Care",
+      desc:
+        language === "id"
+          ? "Kami menawarkan harga yang kompetitif untuk memastikan bahwa perawatan gigi terbaik dapat dijangkau oleh semua orang. Layanan berkualitas tidak harus mahal."
+          : "We offer competitive pricing to ensure that top-notch dental care is within everyone's reach. Quality service shouldn't break the bank.",
       image: WhyChooseUs1Img,
     },
     {
-      title: "Specialized Treatments",
-      desc: "Our team of specialists is trained in various dental fields to provide you with comprehensive care. Whatever your dental needs, we have the expertise to handle them",
+      title: language === "id" ? "Perawatan Khusus" : "Specialized Treatments",
+      desc:
+        language === "id"
+          ? "Tim spesialis kami terlatih di berbagai bidang kedokteran gigi untuk memberikan perawatan yang komprehensif kepada Anda. Apapun kebutuhan gigi Anda, kami memiliki keahlian untuk menanganinya."
+          : "Our team of specialists is trained in various dental fields to provide you with comprehensive care. Whatever your dental needs, we have the expertise to handle them.",
       image: WhyChooseUs2Img,
     },
     {
-      title: "Patient-Centric Service",
-      desc: "Your comfort and satisfaction are our top priorities. We tailor our services to meet your unique needs, ensuring a personalized and stress-free experience.",
+      title:
+        language === "id"
+          ? "Layanan yang Berpusat pada Pasien"
+          : "Patient-Centric Service",
+      desc:
+        language === "id"
+          ? "Kenyamanan dan kepuasan Anda adalah prioritas utama kami. Kami menyesuaikan layanan kami untuk memenuhi kebutuhan unik Anda, memastikan pengalaman yang personal dan bebas stres."
+          : "Your comfort and satisfaction are our top priorities. We tailor our services to meet your unique needs, ensuring a personalized and stress-free experience.",
       image: WhyChooseUs3Img,
     },
   ];
+};
+const whyChooseUs = getWhyChooseUsContent(currentLanguage);
+
 
   useEffect(() => {
     const movePagination = () => {
