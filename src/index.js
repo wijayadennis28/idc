@@ -10,6 +10,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import OurDoctors from "./scripts/pages/OurDoctors";
 import DoctorDetails from "./scripts/pages/DoctorDetails";
+import "./i18n";
 
 if (document.querySelector("#render-react")) {
   const root = ReactDOM.createRoot(document.querySelector("#render-react"));
