@@ -1,12 +1,15 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+
 import Logo from "../../assets/image/logo/logo.png";
 
 import Facebook from "../../assets/image/footer/facebook.svg";
 import Instagram from "../../assets/image/footer/instagram.svg";
-import Twitter from "../../assets/image/footer/twitter.svg";
 import Tiktok from "../../assets/image/footer/tiktok.svg";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   const year = new Date().getFullYear();
 
   const addressList = [
@@ -25,23 +28,23 @@ const Footer = () => {
 
   const link = [
     {
-      name: "Home",
+      name: t("navigation.home"),
       URL: "/",
     },
     {
-      name: "Our Services",
+      name: t("navigation.ourServices"),
       URL: "/our-services",
     },
     {
-      name: "Doctors",
+      name: t("navigation.doctors"),
       URL: "/our-doctors",
     },
     {
-      name: "About us",
+      name: t("navigation.aboutUs"),
       URL: "/about-us",
     },
     {
-      name: "Articles",
+      name: t("navigation.articles"),
       URL: "/articles",
     },
   ];

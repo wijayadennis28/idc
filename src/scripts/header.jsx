@@ -1,9 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
+
 import Logo from "../../assets/image/logo/logo.png";
 
 import PopUpMap from "./components/PopUpMap";
 
 const Header = () => {
+  const { t } = useTranslation();
+
   const [language, setLanguage] = useState("EN");
   const [showMenu, setShowMenu] = useState(false);
 
@@ -76,27 +80,27 @@ const Header = () => {
   const menuList = [
     {
       id: "",
-      name: "Home",
+      name: t("navigation.home"),
       URL: "/",
     },
     {
       id: ["our-services", "services"],
-      name: "Our Services",
+      name: t("navigation.ourServices"),
       URL: "/our-services",
     },
     {
       id: ["our-doctors", "doctors"],
-      name: "Doctors",
+      name: t("navigation.doctors"),
       URL: "/our-doctors",
     },
     {
       id: ["about-us"],
-      name: "About us",
+      name: t("navigation.aboutUs"),
       URL: "/about-us",
     },
     {
       id: ["articles", "article"],
-      name: "Articles",
+      name: t("navigation.articles"),
       URL: "/articles",
     },
   ];
