@@ -143,8 +143,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="w-full p-4 text-center text-neutral-400">
-        Copyright (C) {year} DigitalNest - Indo Dental Center. All rights
-        reserved.
+        {t("copyright", { year })}
       </p>
     </aside>
   );
