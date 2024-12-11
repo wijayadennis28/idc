@@ -14,5 +14,11 @@
     "doctors": "Doctors",
     "aboutUs": "About us",
     "articles": "Articles"
-  }
+  },
+  "makeAppointment": "Make an Appointment",
+  "branch": {
+    "senayan": "Senayan Branch",
+    "pluit": "Pluit Branch"
+  },
+  "copyright": "Copyright (C) {{year}} DigitalNest - Indo Dental Center. All rights reserved."
 }

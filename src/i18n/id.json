@@ -5,5 +5,11 @@
     "doctors": "Dokter",
     "aboutUs": "Tentang Kami",
     "articles": "Artikel"
-  }
+  },
+  "makeAppointment": "Atur Janji Temu",
+  "branch": {
+    "senayan": "Cabang Senayan",
+    "pluit": "Cabang Pluit"
+  },
+  "copyright": "Hak Cipta (C) {{year}} DigitalNest - Indo Dental Center. Seluruh hak cipta dilindungi."
 }
