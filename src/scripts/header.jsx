@@ -182,7 +182,7 @@ const Header = () => {
               style={{ height: "2.5rem" }}
               onClick={openModal}
             >
-              Make an Appointment
+              {t("makeAppointment")}
             </button>
             <div className="w-auto border-r border-base-content px-2" />
             <li>
@@ -278,7 +278,7 @@ const Header = () => {
             </a>
           ))}
           <button className="btn btn-primary" onClick={openModal}>
-            Make an Appointment
+            {t("makeAppointment")}
           </button>
 
           <div className="relative">
