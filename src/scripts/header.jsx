@@ -6,7 +6,7 @@ import Logo from "../../assets/image/logo/logo.png";
 import PopUpMap from "./components/PopUpMap";
 
 const Header = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const [language, setLanguage] = useState("EN");
   const [showMenu, setShowMenu] = useState(false);
@@ -69,10 +69,12 @@ const Header = () => {
   const languageList = [
     {
       id: "ID",
+      key: "id",
       name: "Indonesia",
     },
     {
       id: "EN",
+      key: "en",
       name: "English",
     },
   ];
@@ -104,6 +106,11 @@ const Header = () => {
       URL: "/articles",
     },
   ];
+
+  const onChangeLanguage = (lang) => {
+    i18n.changeLanguage(lang.key);
+    setLanguage(lang.id);
+  };
 
   const languageText = (id) => {
     const selectedLanguage = languageList.find((item) => item.id === id);
@@ -189,7 +196,7 @@ const Header = () => {
                       <a
                         className={`idc-menu-country-item ${item.id === language ? "idc-menu-country-item-active bg-secondary text-white hover:bg-secondary hover:text-white" : ""}`}
                         onClick={() => {
-                          setLanguage(item.id);
+                          onChangeLanguage(item);
                           detailsRef.current.removeAttribute("open"); // Close after selection
                         }}
                       >
@@ -301,7 +308,7 @@ const Header = () => {
                   >
                     <a
                       onClick={() => {
-                        setLanguage(item.id);
+                        onChangeLanguage(item);
                         detailsMobileRef.current.removeAttribute("open");
                         setShowMenu(false);
                       }}
