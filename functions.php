@@ -146,7 +146,7 @@ add_filter('rest_doctors_query', function($args) {
 });
 
 function enable_page_attributes_for_custom_post_types() {
-  $post_types = ['services', 'doctors']; 
+  $post_types = ['services', 'doctors', 'partners']; 
 
   foreach ($post_types as $post_type) {
       add_post_type_support($post_type, 'page-attributes'); // Enables menu_order
