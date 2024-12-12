@@ -35,7 +35,7 @@ const Article = () => {
   }, [category]);
 
   const getCategoriesArticle = async () => {
-    const response = await fetch(`${wpApiSettings.restUrl}/wp/v2/article-categories`);
+    const response = await fetch(`${wpApiSettings.restUrl}wp/v2/article-categories`);
     const categoriesArticle = await response.json();
     setAvailableCategories([
       { name: "All Articles", id: null },

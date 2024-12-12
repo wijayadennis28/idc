@@ -42,7 +42,7 @@ const Home = () => {
 
   async function loadPartners() {
     try {
-      const response = await fetch(`${wpApiSettings.restUrl}/wp/v2/partners`);
+      const response = await fetch(`${wpApiSettings.restUrl}wp/v2/partners`);
       if (!response.ok) {
         throw new Error("Failed to fetch partners data");
       }
@@ -62,7 +62,7 @@ const Home = () => {
 
   async function loadDoctors() {
     try {
-      const response = await fetch(`${wpApiSettings.restUrl}/wp/v2/doctors`);
+      const response = await fetch(`${wpApiSettings.restUrl}wp/v2/doctors`);
       if (!response.ok) {
         throw new Error("Failed to fetch doctors data");
       }
