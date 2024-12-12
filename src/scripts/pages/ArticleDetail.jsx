@@ -26,7 +26,7 @@ const ArticleDetail = () => {
 
   const getArticle = async () => {
     const slug = window.location.pathname.split("/")[2];
-    const response = await fetch(`/wp-json/wp/v2/article?slug=${slug}`);
+    const response = await fetch(`${wpApiSettings.restUrl}wp/v2/article?slug=${slug}`);
     if (!response.ok) {
       throw new Error("Service not found");
     }
@@ -45,7 +45,7 @@ const ArticleDetail = () => {
 
     setLoading(true);
 
-    let url = `/wp-json/wp/v2/article?`;
+    let url = `${wpApiSettings.restUrl}wp/v2/article?`;
     url += `article-categories=${articleData["article-categories"]}&per_page=2`;
 
     const responseRelatedArticles = await fetch(url);

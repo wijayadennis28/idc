@@ -10,7 +10,7 @@ const OurServices = () => {
 
   useEffect(() => {
     async function loadDepartments() {
-      const response = await fetch("/wp-json/wp/v2/services");
+      const response = await fetch(`${wpApiSettings.restUrl}/wp/v2/services`);
       if (!response.ok) {
         // oups! something went wrong
         return;
@@ -26,13 +26,13 @@ const OurServices = () => {
   useEffect(() => {
     async function fetchEquipments() {
       try {
-        const response = await fetch("/wp-json/wp/v2/clinic-equipments");
+        const response = await fetch(`${wpApiSettings.restUrl}wp/v2/clinic-equipments`);
         const data = await response.json();
 
         const equipmentsWithMedia = await Promise.all(
           data.map(async (equipment) => {
             const mediaResponse = await fetch(
-              `/wp-json/wp/v2/media/${equipment.featured_media}`,
+              `${wpApiSettings.restUrl}wp/v2/media/${equipment.featured_media}`,
             );
             const mediaData = await mediaResponse.json();
             return {

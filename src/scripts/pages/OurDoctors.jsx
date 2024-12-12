@@ -25,7 +25,7 @@ const OurDoctors = () => {
   }, [searchValue, category]);
 
   const getCategories = async () => {
-    const response = await fetch("/wp-json/wp/v2/services");
+    const response = await fetch(`${wpApiSettings.restUrl}/wp/v2/services`);
     const services = await response.json();
     setAvailableCategories([
       "All doctors",
@@ -42,7 +42,7 @@ const OurDoctors = () => {
     try {
       do {
         const response = await fetch(
-          `/wp-json/wp/v2/doctors?per_page=100&page=${page}`,
+          `${wpApiSettings.restUrl}/wp/v2/doctors?per_page=100&page=${page}`,
         );
         const doctorsRaws = await response.json();
 

@@ -42,7 +42,7 @@ const Home = () => {
 
   async function loadPartners() {
     try {
-      const response = await fetch("/wp-json/wp/v2/partners");
+      const response = await fetch(`${wpApiSettings.restUrl}/wp/v2/partners`);
       if (!response.ok) {
         throw new Error("Failed to fetch partners data");
       }
@@ -62,7 +62,7 @@ const Home = () => {
 
   async function loadDoctors() {
     try {
-      const response = await fetch("/wp-json/wp/v2/doctors");
+      const response = await fetch(`${wpApiSettings.restUrl}/wp/v2/doctors`);
       if (!response.ok) {
         throw new Error("Failed to fetch doctors data");
       }
@@ -76,7 +76,7 @@ const Home = () => {
 
   async function loadTestimonies() {
     try {
-      const response = await fetch("/wp-json/wp/v2/testimonies");
+      const response = await fetch(`${wpApiSettings.restUrl}wp/v2/testimonies`);
       if (!response.ok) {
         throw new Error("Failed to fetch testimonies data");
       }
@@ -89,7 +89,6 @@ const Home = () => {
   }
 
   async function loadDepartments() {
-    console.log(`${wpApiSettings.restUrl}wp/v2/services`);
     const response = await fetch(`${wpApiSettings.restUrl}wp/v2/services`);
     if (!response.ok) {
       // oups! something went wrong

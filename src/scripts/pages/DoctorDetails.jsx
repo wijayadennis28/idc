@@ -14,7 +14,7 @@ const DoctorDetails = () => {
 
   const getDoctor = async () => {
     const slug = window.location.pathname.split("/")[2];
-    const response = await fetch(`/wp-json/wp/v2/doctors?slug=${slug}`);
+    const response = await fetch(`${wpApiSettings.restUrl}wp/v2/doctors?slug=${slug}`);
     if (!response.ok) {
       throw new Error("Service not found");
     }

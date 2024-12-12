@@ -35,7 +35,7 @@ const Article = () => {
   }, [category]);
 
   const getCategoriesArticle = async () => {
-    const response = await fetch("/wp-json/wp/v2/article-categories");
+    const response = await fetch(`${wpApiSettings.restUrl}/wp/v2/article-categories`);
     const categoriesArticle = await response.json();
     setAvailableCategories([
       { name: "All Articles", id: null },
@@ -48,7 +48,7 @@ const Article = () => {
 
   const getArticles = async () => {
     setLoading(true);
-    let url = `/wp-json/wp/v2/article?per_page=5&page=${currentPage}`;
+    let url = `${wpApiSettings.restUrl}wp/v2/article?per_page=5&page=${currentPage}`;
     if (category.id) {
       url += `&article-categories=${category.id}`;
     }
