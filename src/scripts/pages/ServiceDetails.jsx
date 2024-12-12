@@ -91,18 +91,21 @@ const ServiceDetails = () => {
           ))}
         </div>
       </div>
-      <div className="p-8">
-        <h2 className="mb-8 text-center text-4xl font-bold text-purple-900">
-          Our Works
-        </h2>
-        <p className="mx-auto mb-16 max-w-2xl text-center text-[#4D4757]">
-          At Indo Dental Center, we believe that exceptional care begins with
-          exceptional tools. Our clinic is equipped with the latest,
-          cutting-edge technology to ensure you receive the best possible
-          treatment in a comfortable and efficient manner.
-        </p>
-        <Slider equipments={getOurWorks()} isLoading={!service} />
-      </div>
+      {Object.values(service.meta.our_works).length > 0 && (
+          <div className="p-8">
+            <h2 className="mb-8 text-center text-4xl font-bold text-purple-900">
+              Our Works
+            </h2>
+            <p className="mx-auto mb-16 max-w-2xl text-center text-[#4D4757]">
+              At Indo Dental Center, we believe that exceptional care begins with
+              exceptional tools. Our clinic is equipped with the latest,
+              cutting-edge technology to ensure you receive the best possible
+              treatment in a comfortable and efficient manner.
+            </p>
+            <Slider equipments={getOurWorks()} isLoading={!service} />
+          </div>
+        )
+      }
       <div className="px-8">
         <Pill active={true} text={service.title.rendered} />
       </div>

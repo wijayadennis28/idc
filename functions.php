@@ -154,3 +154,20 @@ function enable_page_attributes_for_custom_post_types() {
 }
 add_action('init', 'enable_page_attributes_for_custom_post_types');
 
+function enqueue_react_scripts_with_rest_url() {
+  wp_enqueue_script(
+      'react-app',
+      get_template_directory_uri() . '/js/index.js', 
+      array(), 
+      '1.0', 
+      true 
+  );
+
+  // Pass the REST API URL to the React app
+  wp_localize_script('react-app', 'wpApiSettings', array(
+      'restUrl' => esc_url(get_rest_url()), // Dynamically generates the REST API URL
+  ));
+}
+add_action('wp_enqueue_scripts', 'enqueue_react_scripts_with_rest_url');
+
+
