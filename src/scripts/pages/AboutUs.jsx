@@ -2,13 +2,15 @@ import React from "react";
 import Branches from "../components/Branches";
 import Timeline from "../components/timeline";
 
+import AboutUsCoverImg from "../../../assets/image/aboutus/AboutUs.jpg";
+
 const AboutUs = () => {
   return (
     <div>
       <section
         className="relative flex h-64 w-full items-center justify-center bg-cover bg-right bg-no-repeat text-white md:h-80 lg:h-96"
         style={{
-          backgroundImage: `url('http://indodentalcenter.local/wp-content/themes/idc/assets/image/aboutus/AboutUs.jpg')`,
+          backgroundImage: `url(${AboutUsCoverImg})`,
         }}
       >
         <div className="relative z-10 px-4 text-center md:px-8">
