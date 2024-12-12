@@ -89,6 +89,7 @@ const Home = () => {
   }
 
   async function loadDepartments() {
+    console.log(`${wpApiSettings.restUrl}wp/v2/services`);
     const response = await fetch(`${wpApiSettings.restUrl}wp/v2/services`);
     if (!response.ok) {
       // oups! something went wrong
