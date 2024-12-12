@@ -10,7 +10,7 @@ const OurServices = () => {
 
   useEffect(() => {
     async function loadDepartments() {
-      const response = await fetch(`${wpApiSettings.restUrl}/wp/v2/services`);
+      const response = await fetch(`${wpApiSettings.restUrl}wp/v2/services`);
       if (!response.ok) {
         // oups! something went wrong
         return;
