@@ -25,7 +25,7 @@ const ArticleDetail = () => {
   }, []);
 
   const getArticle = async () => {
-    const slug = window.location.pathname.split("/")[2];
+    const slug = window.location.pathname.split("/").filter(Boolean).pop();
     const response = await fetch(`${wpApiSettings.restUrl}wp/v2/article?slug=${slug}`);
     if (!response.ok) {
       throw new Error("Service not found");

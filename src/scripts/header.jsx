@@ -13,7 +13,7 @@ const Header = () => {
   const touchStartY = useRef(0); // Store the initial touch Y-coordinate
   const touchEndY = useRef(0); // Store the final touch Y-coordinate
 
-  const path = window.location.pathname.split("/")[1];
+  const path = window.location.pathname;
 
   useEffect(() => {
     // Add an event listener to detect outside clicks
