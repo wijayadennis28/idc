@@ -6,6 +6,11 @@ import Instagram from "../../assets/image/footer/instagram.svg";
 import Twitter from "../../assets/image/footer/twitter.svg";
 import Tiktok from "../../assets/image/footer/tiktok.svg";
 
+const path = window.location.pathname.split("/")[1];
+const isRootPath = path === "";
+
+const getDynamicURL = (url) => (isRootPath ? url : `/${path}${url}`);
+
 const Footer = () => {
   const year = new Date().getFullYear();
 
@@ -111,10 +116,10 @@ const Footer = () => {
             </h6>
             {link.map((link, index) => (
               <a
-                href={link.URL}
+                href={getDynamicURL(link.URL)}
                 key={index}
                 className="cursor-pointer"
-                onClick={(e) => handleClick(link.URL, e)}
+                onClick={(e) => handleClick(getDynamicURL(link.URL), e)}
               >
                 {link.name}
               </a>

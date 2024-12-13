@@ -13,7 +13,10 @@ const Header = () => {
   const touchStartY = useRef(0); // Store the initial touch Y-coordinate
   const touchEndY = useRef(0); // Store the final touch Y-coordinate
 
-  const path = window.location.pathname;
+  const path = window.location.pathname.split("/")[1];
+  const isRootPath = path === "";
+
+  const getDynamicURL = (url) => (isRootPath ? url : `/${path}${url}`);
 
   useEffect(() => {
     // Add an event listener to detect outside clicks
@@ -159,8 +162,8 @@ const Header = () => {
               <li key={index}>
                 <a
                   className={`idc-menu ${item.id.includes(path) ? "path" : ""}`}
-                  href={item.URL}
-                  onClick={(e) => handleClick(item.URL, e)}
+                  href={getDynamicURL(item.URL)}
+                  onClick={(e) => handleClick(getDynamicURL(item.URL), e)}
                 >
                   {item.name}
                 </a>
@@ -261,7 +264,7 @@ const Header = () => {
               key={item.id}
               className={`idc-menu cursor-pointer text-xl ${item.id.includes(path) ? "path" : ""}`}
               onClick={() => setShowMenu(false)}
-              href={item.URL}
+              href={getDynamicURL(item.URL)}
             >
               {item.name}
             </a>
