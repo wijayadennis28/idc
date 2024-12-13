@@ -13,10 +13,7 @@ const Header = () => {
   const touchStartY = useRef(0); // Store the initial touch Y-coordinate
   const touchEndY = useRef(0); // Store the final touch Y-coordinate
 
-  const path = window.location.pathname.split("/")[1];
-  const isRootPath = path === "";
-
-  const getDynamicURL = (url) => (isRootPath ? url : `/${path}${url}`);
+  const path = `${wpApiSettings.homeUrl}`;
 
   useEffect(() => {
     // Add an event listener to detect outside clicks
@@ -127,13 +124,16 @@ const Header = () => {
     }
   };
 
-  const handleClick = (path, event) => {
-    if (
-      window.location.pathname.replace(/\/+$/, "") === path.replace(/\/+$/, "")
-    ) {
-      event.preventDefault();
+  const handleClick = (targetPath, event) => {
+    // Compare current URL with the target path and prevent navigation if they match
+    const currentPath = window.location.pathname.replace(/\/+$/, ""); // Remove trailing slashes
+    const cleanTargetPath = new URL(targetPath, window.location.origin).pathname.replace(/\/+$/, ""); // Ensure consistency
+  
+    if (currentPath === cleanTargetPath) {
+      event.preventDefault(); // Prevent navigation
     }
   };
+  
 
   const openModal = () => {
     const dialog = document.getElementById("map-modal");
@@ -158,17 +158,28 @@ const Header = () => {
         </div>
         <div className="hidden lg:flex">
           <ul className="menu menu-horizontal px-1 text-base 2xl:text-lg">
-            {menuList.map((item, index) => (
-              <li key={index}>
-                <a
-                  className={`idc-menu ${item.id.includes(path) ? "path" : ""}`}
-                  href={getDynamicURL(item.URL)}
-                  onClick={(e) => handleClick(getDynamicURL(item.URL), e)}
-                >
-                  {item.name}
-                </a>
-              </li>
-            ))}
+            {menuList.map((item, index) => {
+              // Remove trailing slash from wpApiSettings.homeUrl if it exists
+              const basePath = wpApiSettings.homeUrl.replace(/\/+$/, "");
+
+              // Adjust URLs dynamically
+              const adjustedURL =
+                item.URL === "/" // If it's the homepage
+                  ? basePath // Use basePath directly
+                  : `${basePath}${item.URL}`.replace(`${basePath}${basePath}`, basePath); 
+
+              return (
+                <li key={index}>
+                  <a
+                    className={`idc-menu ${Array.isArray(item.id) && item.id.includes(path) ? "path" : ""}`}
+                    href={adjustedURL} 
+                    onClick={(e) => handleClick(adjustedURL, e)} 
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              );
+            })}
             <button
               className="btn btn-primary btn-sm"
               style={{ height: "2.5rem" }}
@@ -264,7 +275,7 @@ const Header = () => {
               key={item.id}
               className={`idc-menu cursor-pointer text-xl ${item.id.includes(path) ? "path" : ""}`}
               onClick={() => setShowMenu(false)}
-              href={getDynamicURL(item.URL)}
+              href={item.URL}
             >
               {item.name}
             </a>

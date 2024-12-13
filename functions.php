@@ -158,11 +158,10 @@ function inject_rest_url_inline() {
   ?>
   <script>
       var wpApiSettings = {
-          restUrl: "<?php echo esc_url(get_rest_url()); ?>"
+          restUrl: "<?php echo esc_url(get_rest_url()); ?>",
+          homeUrl: "<?php echo esc_url(home_url('/')); ?>"
       };
   </script>
   <?php
 }
 add_action('wp_head', 'inject_rest_url_inline');
-
-

@@ -6,10 +6,7 @@ import Instagram from "../../assets/image/footer/instagram.svg";
 import Twitter from "../../assets/image/footer/twitter.svg";
 import Tiktok from "../../assets/image/footer/tiktok.svg";
 
-const path = window.location.pathname.split("/")[1];
-const isRootPath = path === "";
-
-const getDynamicURL = (url) => (isRootPath ? url : `/${path}${url}`);
+const path = `${wpApiSettings.homeUrl}`;
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -114,16 +111,27 @@ const Footer = () => {
             <h6 className="text-xl font-bold text-neutral-400 lg:text-base 2xl:text-lg">
               Indo Dental Center
             </h6>
-            {link.map((link, index) => (
-              <a
-                href={getDynamicURL(link.URL)}
-                key={index}
-                className="cursor-pointer"
-                onClick={(e) => handleClick(getDynamicURL(link.URL), e)}
-              >
-                {link.name}
-              </a>
-            ))}
+            {link.map((link, index) => {
+              // Normalize wpApiSettings.homeUrl (remove trailing slash)
+              const basePath = wpApiSettings.homeUrl.replace(/\/+$/, "");
+
+              // Dynamically construct the URL
+              const adjustedURL =
+                link.URL === "/" // If it's the homepage
+                  ? basePath // Use basePath directly for the homepage
+                  : `${basePath}${link.URL}`.replace(/\/\//g, "/");
+
+              return (
+                <a
+                  href={adjustedURL} 
+                  key={index}
+                  className="cursor-pointer"
+                  onClick={(e) => handleClick(adjustedURL, e)}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
           </div>
         </div>
         <div className="flex justify-center gap-4 py-4 lg:justify-start">
