@@ -162,11 +162,13 @@ const ArticleDetail = () => {
             </button>
           </a>
         </div>
-        <ArticleList
-          articles={relatedArticles}
-          title={"Related Articles"}
-          isLoading={isLoading}
-        />
+        {relatedArticles.length > 0 && (
+          <ArticleList
+            articles={relatedArticles}
+            title={"Related Articles"}
+            isLoading={isLoading}
+          />
+        )}
       </div>
     </>
   );
