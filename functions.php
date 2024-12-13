@@ -165,4 +165,11 @@ function inject_rest_url_inline() {
 }
 add_action('wp_head', 'inject_rest_url_inline');
 
+add_filter('rest_authentication_errors', function ($result) {
+  if (!is_user_logged_in()) {
+      return new WP_Error('rest_forbidden', 'REST API restricted to logged-in users only.', array('status' => 401));
+  }
+  return $result;
+});
+
 
