@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import BannerBg from "../../../assets/image/our-doctors/new-doctor-banner.png";
+import BannerBg from "../../../assets/image/our-doctors/doctor-banner.png";
+import NewBannerBg from "../../../assets/image/our-doctors/new-doctor-banner.png";
 import DoctorDummyImage from "../../../assets/image/doctors/dr-michael.jpg";
 import { MapPinIcon } from "@heroicons/react/24/outline";
 import Loading from "../components/Loading";
@@ -29,7 +30,7 @@ const DoctorDetails = () => {
     <div className="flex flex-col gap-8">
       <div
         style={{
-          "--image-url": `url(${BannerBg})`,
+          "--image-url": `url(${NewBannerBg})`,
         }}
         className="h-24 w-full bg-contain bg-right bg-no-repeat md:h-48 md:bg-[image:var(--image-url)]"
       >
