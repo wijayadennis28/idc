@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import BannerBg from "../../../assets/image/our-doctors/doctor-banner.png";
+import BannerBg from "../../../assets/image/our-doctors/new-doctor-banner.png";
 import DoctorDummyImage from "../../../assets/image/doctors/dr-michael.jpg";
 import { MapPinIcon } from "@heroicons/react/24/outline";
 import Loading from "../components/Loading";
