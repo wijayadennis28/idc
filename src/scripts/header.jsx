@@ -150,7 +150,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="navbar bg-base-100 px-8 py-6">
+      <div className="navbar bg-base-100 px-8 py-6 shadow-sm">
         <div className="flex-1">
           <a
             className="cursor-pointer"
