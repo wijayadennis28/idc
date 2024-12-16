@@ -6,7 +6,32 @@
     "aboutUs": "Tentang Kami",
     "articles": "Artikel"
   },
-  "makeAppointment": "Atur Janji Temu",
+  "makeAppointment": "Buat Janji Sekarang",
+  "makeAppointmentToday": "Buat Janji Hari Ini!",
+  "ourPartners": "<span>Mitra</span> kami",
+  "whyChooseUs": "Mengapa<span> memilih kami</span>",
+  "whyChooseUsItem": {
+    "affordableCare": "Perawatan Terjangkau",
+    "specializedTreatments": "Perawatan Khusus",
+    "patientCentricService": "Layanan Berpusat pada Pasien"
+  },
+  "exploreServices": "Jelajahi Layanan <span>Kami</span>",
+  "meetOurDentist": {
+    "title": "Kenali <span>Dokter Gigi </span>Ahli Kami",
+    "description": "Kami bangga memberikan layanan terbaik dalam perawatan gigi. Mulai dari pemeriksaan rutin hingga perawatan canggih, tim kami yang berdedikasi siap memberikan perhatian pribadi dan perawatan berkualitas tinggi untuk memastikan senyuman Anda tetap bersinar paling cerah."
+  },
+  "happyPatient": {
+    "title": "Banyak <span>Pasien Bahagia</span>",
+    "description": "Di Indo Dental Center, kebanggaan terbesar kami adalah senyuman yang berhasil kami wujudkan. Namun, jangan hanya percaya pada kata-kata kami—dengarkan langsung dari pasien-pasien kami yang puas!"
+  },
+  "connectWithUs": {
+    "title": "Connect with Us",
+    "item1": "Tim kolaboratif spesialis gigi profesional",
+    "item2": "Pusat perawatan gigi keluarga dalam satu atap",
+    "item3": "Hasil alami terbaik, disesuaikan untuk Anda",
+    "item4": "Teknologi modern untuk kenyamanan dan pengalaman maksimal",
+    "button": "Follow Kami"
+  },
   "branch": {
     "senayan": "Cabang Senayan",
     "pluit": "Cabang Pluit"

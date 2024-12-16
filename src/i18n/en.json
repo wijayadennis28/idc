@@ -3,8 +3,6 @@
   "heroTitle": "One Stop Family Dental Center",
   "heroDescription": "From routine family dental checkups to implants to cosmetic dentistry. Our team expertly guides and helps you to achieve your dream smile. Make an Appointment today!",
   "btnMakeAppointment": "Make an Appointment today!",
-  "ourPartners": "Our Partners",
-  "whyChooseUs": "Why Choose Us",
   "affordableCare": "Affordable Care",
   "specializedTreatments": "Specialized Treatments",
   "patientCentricService": "Patient-Centric Service",
@@ -16,6 +14,31 @@
     "articles": "Articles"
   },
   "makeAppointment": "Make an Appointment",
+  "makeAppointmentToday": "Make an Appointment Today!",
+  "ourPartners": "<span className='font-bold'>Our</span> partners",
+  "whyChooseUs": "Why<span className='font-bold'> choose us</span>",
+  "whyChooseUsItem": {
+    "affordableCare": "Affordable Care",
+    "specializedTreatments": "Specialized Treatments",
+    "patientCentricService": "Patient-Centric Service"
+  },
+  "exploreServices": "Explore Our <span>Services</span>",
+  "meetOurDentist": {
+    "title": "Meet Our <span>expert dentist</span>",
+    "description": "We pride ourselves on delivering the best service in dental care. From routine checkups to advanced treatments, our dedicated team is committed to providing you with personalized, top-quality care that ensures your smile shines its brightest."
+  },
+  "happyPatient": {
+    "title": "A lot of <span>happy patients</span>",
+    "description": "We are proud to have the opportunity to give you the smile of your dreams. Our team of experts is here to help you achieve the smile you have always wanted. Take a look at some of our happy patients!"
+  },
+  "connectWithUs": {
+    "title": "Connect with Us",
+    "item1": "A collaborative team of professional dental specialists",
+    "item2": "Family dental center, all in one roof",
+    "item3": "⁠Best natural results, catered to you",
+    "item4": "Modern technology to enhance comfort and experience",
+    "button": "Follow Us"
+  },
   "branch": {
     "senayan": "Senayan Branch",
     "pluit": "Pluit Branch"

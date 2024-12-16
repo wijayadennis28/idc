@@ -25,10 +25,10 @@ import DrgRickyImg from "../../../assets/image/doctors/drg-ricky.png";
 import OurClinicImg from "../../../assets/image/home/services/background.jpg";
 
 // Utility Functions for Language Management
-import { getCurrentLanguage, switchLanguage } from "../../utils/languageUtils";
+import { useTranslation, Trans } from "react-i18next";
 
 const Home = () => {
-  const currentLanguage = getCurrentLanguage(); // Detect current language
+  const { t } = useTranslation(); // Initialize translation hook
 
   const screenSize = useScreenSize();
   const paginationRef = useRef(null);
@@ -37,6 +37,21 @@ const Home = () => {
   const [testimonies, setTestimonies] = useState([]);
   const [departments, setDepartments] = useState([]);
   const [topDoctors, setTopDoctors] = useState([]);
+
+  const whyChooseUs = [
+    {
+      title: t("whyChooseUsItem.affordableCare"),
+      image: WhyChooseUs1Img,
+    },
+    {
+      title: t("whyChooseUsItem.specializedTreatments"),
+      image: WhyChooseUs2Img,
+    },
+    {
+      title: t("whyChooseUsItem.patientCentricService"),
+      image: WhyChooseUs3Img,
+    },
+  ];
 
   useEffect(() => {
     loadPartners().catch(console.error);
@@ -120,57 +135,6 @@ const Home = () => {
     });
   }
 
-  // const whyChooseUs = [
-  //   {
-  //     title: "Affordable Care",
-  //     desc: "We offer competitive pricing to ensure that top-notch dental care is within everyone's reach. Quality service shouldn't break the bank.",
-  //     image: WhyChooseUs1Img,
-  //   },
-  //   {
-  //     title: "Specialized Treatments",
-  //     desc: "Our team of specialists is trained in various dental fields to provide you with comprehensive care. Whatever your dental needs, we have the expertise to handle them",
-  //     image: WhyChooseUs2Img,
-  //   },
-  //   {
-  //     title: "Patient-Centric Service",
-  //     desc: "Your comfort and satisfaction are our top priorities. We tailor our services to meet your unique needs, ensuring a personalized and stress-free experience.",
-  //     image: WhyChooseUs3Img,
-  //   },
-  // ];
-  const getWhyChooseUsContent = (language) => {
-  return [
-    {
-      title: language === "id" ? "Perawatan Terjangkau" : "Affordable Care",
-      desc:
-        language === "id"
-          ? "Kami menawarkan harga yang kompetitif untuk memastikan bahwa perawatan gigi terbaik dapat dijangkau oleh semua orang. Layanan berkualitas tidak harus mahal."
-          : "We offer competitive pricing to ensure that top-notch dental care is within everyone's reach. Quality service shouldn't break the bank.",
-      image: WhyChooseUs1Img,
-    },
-    {
-      title: language === "id" ? "Perawatan Khusus" : "Specialized Treatments",
-      desc:
-        language === "id"
-          ? "Tim spesialis kami terlatih di berbagai bidang kedokteran gigi untuk memberikan perawatan yang komprehensif kepada Anda. Apapun kebutuhan gigi Anda, kami memiliki keahlian untuk menanganinya."
-          : "Our team of specialists is trained in various dental fields to provide you with comprehensive care. Whatever your dental needs, we have the expertise to handle them.",
-      image: WhyChooseUs2Img,
-    },
-    {
-      title:
-        language === "id"
-          ? "Layanan yang Berpusat pada Pasien"
-          : "Patient-Centric Service",
-      desc:
-        language === "id"
-          ? "Kenyamanan dan kepuasan Anda adalah prioritas utama kami. Kami menyesuaikan layanan kami untuk memenuhi kebutuhan unik Anda, memastikan pengalaman yang personal dan bebas stres."
-          : "Your comfort and satisfaction are our top priorities. We tailor our services to meet your unique needs, ensuring a personalized and stress-free experience.",
-      image: WhyChooseUs3Img,
-    },
-  ];
-};
-const whyChooseUs = getWhyChooseUsContent(currentLanguage);
-
-
   useEffect(() => {
     const movePagination = () => {
       const pagination = document.querySelector(
@@ -218,7 +182,7 @@ const whyChooseUs = getWhyChooseUsContent(currentLanguage);
                   className="btn btn-primary flex w-fit max-lg:w-full"
                   onClick={openModal}
                 >
-                  Make an Appointment today!{" "}
+                  {t("makeAppointmentToday")}{" "}
                   <ArrowLongRightIcon className="size-5" />
                 </button>
                 <div
@@ -261,7 +225,10 @@ const whyChooseUs = getWhyChooseUsContent(currentLanguage);
             className="flex flex-col items-center gap-8 py-16"
           >
             <h1 className="text-center font-normal text-primary">
-              <span className="font-bold">Our</span> partners
+              <Trans
+                i18nKey="ourPartners"
+                components={{ span: <span className="font-bold" /> }}
+              />
             </h1>
             <PartnersList list={ourPartnerList} slider={true} />
           </div>
@@ -270,7 +237,10 @@ const whyChooseUs = getWhyChooseUsContent(currentLanguage);
             className="flex flex-col items-center gap-8 px-8 py-16"
           >
             <h1 className="text-center font-normal text-primary">
-              Why<span className="font-bold"> choose us</span>
+              <Trans
+                i18nKey="whyChooseUs"
+                components={{ span: <span className="font-bold" /> }}
+              />
             </h1>
             <div className="w-full max-sm:px-4 sm:flex sm:justify-center">
               <div className="flex max-w-[2292px] flex-wrap justify-stretch gap-8 max-lg:flex-col max-lg:gap-4 max-lg:px-4 max-md:gap-8 max-md:px-4 max-sm:px-0 md:justify-center">
@@ -291,7 +261,10 @@ const whyChooseUs = getWhyChooseUsContent(currentLanguage);
             }}
           >
             <h1 className="px-4 text-center font-normal text-white">
-              Explore our <span className="font-bold">services</span>
+              <Trans
+                i18nKey="exploreServices"
+                components={{ span: <span className="font-bold" /> }}
+              />
             </h1>
           </div>
           <div className="relative -top-24 w-full max-sm:px-4 sm:flex sm:justify-center">
@@ -306,16 +279,12 @@ const whyChooseUs = getWhyChooseUsContent(currentLanguage);
             <div className="px-8 py-8 md:px-0 md:py-0 md:ps-16 lg:w-4/6">
               <div className="flex h-full flex-col justify-center gap-2 md:gap-3 lg:gap-6">
                 <h1 className="font-medium text-primary">
-                  Meet with our{" "}
-                  <span className="font-bold">expert dentist</span>
+                  <Trans
+                    i18nKey="meetOurDentist.title"
+                    components={{ span: <span className="font-bold" /> }}
+                  />
                 </h1>
-                <p className="max-md:pb-8">
-                  We pride ourselves on delivering the best service in dental
-                  care. From routine checkups to advanced treatments, our
-                  dedicated team is committed to providing you with
-                  personalized, top-quality care that ensures your smile shines
-                  its brightest.
-                </p>
+                <p className="max-md:pb-8">{t("meetOurDentist.description")}</p>
                 <div className="flex flex-wrap items-center gap-2">
                   <div className="avatar-group flex -space-x-4 md:hidden lg:flex rtl:space-x-reverse">
                     {doctorList.slice(0, 4).map((doctor, index) => (
@@ -344,7 +313,7 @@ const whyChooseUs = getWhyChooseUsContent(currentLanguage);
                     onClick={openModal}
                     className="btn btn-primary w-fit max-md:btn-sm max-md:h-10 max-md:text-[11px]"
                   >
-                    Make an Appointment today!{" "}
+                    {t("makeAppointmentToday")}{" "}
                     <ArrowLongRightIcon className="size-3 lg:size-5" />
                   </button>
                 </div>
@@ -384,12 +353,13 @@ const whyChooseUs = getWhyChooseUsContent(currentLanguage);
             <div className="max-w-[2400px]">
               <div className="mb-16 flex flex-col items-center gap-4 text-center">
                 <h1 className="font-normal text-primary max-lg:w-screen max-lg:px-8">
-                  A lot of <span className="font-bold">happy patients</span>
+                  <Trans
+                    i18nKey="happyPatient.title"
+                    components={{ span: <span className="font-bold" /> }}
+                  />
                 </h1>
                 <p className="max-w-[850px] max-lg:w-screen max-lg:px-4">
-                  At Indo Dental Center, our greatest pride comes from the
-                  smiles we help create. But don't just take our word for
-                  it—hear directly from our satisfied patients!
+                  {t("happyPatient.description")}
                 </p>
               </div>
               <div className="splide-hide-arrow w-full max-sm:w-screen">
