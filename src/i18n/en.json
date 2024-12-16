@@ -39,9 +39,18 @@
     "item4": "Modern technology to enhance comfort and experience",
     "button": "Follow Us"
   },
+  "ourLocation": "Our <span>Location</span>",
   "branch": {
     "senayan": "Senayan Branch",
     "pluit": "Pluit Branch"
+  },
+  "schedule": {
+    "title": "Schedule",
+    "list": {
+      "weekday": "Mon - Fri = 10.00 AM - 06.00 PM",
+      "saturday": "Sat = 10.00 AM - 03.00 PM",
+      "sunday": "Sun = By appointment"
+    }
   },
   "copyright": "Copyright (C) {{year}} DigitalNest - Indo Dental Center. All rights reserved."
 }

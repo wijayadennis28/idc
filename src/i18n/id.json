@@ -32,9 +32,18 @@
     "item4": "Teknologi modern untuk kenyamanan dan pengalaman maksimal",
     "button": "Follow Kami"
   },
+  "ourLocation": "Lokasi <span>Kami</span>",
   "branch": {
     "senayan": "Cabang Senayan",
     "pluit": "Cabang Pluit"
+  },
+  "schedule": {
+    "title": "Jadwal",
+    "list": {
+      "weekday": "Senin - Jumat = 10.00 - 18.00",
+      "saturday": "Sabtu = 10.00 - 15.00",
+      "sunday": "Minggu = Hanya dengan janji temu"
+    }
   },
   "copyright": "Hak Cipta (C) {{year}} DigitalNest - Indo Dental Center. Seluruh hak cipta dilindungi."
 }

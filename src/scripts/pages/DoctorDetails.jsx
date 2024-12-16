@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import BannerBg from "../../../assets/image/our-doctors/doctor-banner.png";
-import DoctorDummyImage from "../../../assets/image/doctors/dr-michael.jpg";
 import { MapPinIcon } from "@heroicons/react/24/outline";
 import Loading from "../components/Loading";
+import { t } from "i18next";
 
 const DoctorDetails = () => {
   const [doctor, setDoctor] = useState(null);
@@ -67,7 +67,7 @@ const DoctorDetails = () => {
               dangerouslySetInnerHTML={{ __html: doctor.content.rendered }}
             ></div>
           </div>
-          {(Object.values(doctor.meta.specialisation).length > 0) && (
+          {Object.values(doctor.meta.specialisation).length > 0 && (
             <div className="flex flex-col gap-2">
               <h4 className="font-normal text-primary">Specialisation</h4>
               <ul className="list-inside list-disc">
@@ -83,67 +83,69 @@ const DoctorDetails = () => {
               </ul>
             </div>
           )}
-          {(Object.values(doctor.meta.certification).length > 0) && (
+          {Object.values(doctor.meta.certification).length > 0 && (
             <div className="flex flex-col gap-2">
               <h4 className="font-normal text-primary">
                 Qualification & Certification
               </h4>
               <ul className="list-inside list-disc">
-                {Object.values(doctor.meta.certification).map((certification) => (
-                  <li>
-                    <a
-                      className="cursor-pointer text-[#4D4757] underline"
-                      onClick={() =>
-                        setModal({
-                          show: true,
-                          title: certification.title,
-                          imageUrl: certification.image,
-                        })
-                      }
-                    >
-                      <p className="inline">{certification.title}</p>
-                    </a>
-                  </li>
-                ))}
+                {Object.values(doctor.meta.certification).map(
+                  (certification) => (
+                    <li>
+                      <a
+                        className="cursor-pointer text-[#4D4757] underline"
+                        onClick={() =>
+                          setModal({
+                            show: true,
+                            title: certification.title,
+                            imageUrl: certification.image,
+                          })
+                        }
+                      >
+                        <p className="inline">{certification.title}</p>
+                      </a>
+                    </li>
+                  ),
+                )}
               </ul>
             </div>
           )}
         </div>
         <div className="flex grow basis-0 flex-col gap-6">
           <div className="flex flex-col gap-2">
-            <h4 className="font-normal text-primary">Schedule</h4>
+            <h4 className="font-normal text-primary">{t("schedule.title")}</h4>
             <div className="p-4">
-            {Object.values(doctor.meta.schedule).map((schedule, i, arr) => {
-              if (i < arr.length - 1) {
+              {Object.values(doctor.meta.schedule).map((schedule, i, arr) => {
+                if (i < arr.length - 1) {
+                  return (
+                    <>
+                      <p className="text-[#4D4757]">
+                        {schedule.from && schedule.to
+                          ? `${schedule.day ? `${schedule.day}:` : ""} ${schedule.from} - ${schedule.to}`
+                          : schedule.notes && !schedule.day
+                            ? `${schedule.notes}`
+                            : schedule.notes
+                              ? `${schedule.day ? `${schedule.day}:` : ""} ${schedule.notes}`
+                              : `${schedule.day}`}
+                      </p>
+                      <div className="divider my-0"></div>
+                    </>
+                  );
+                }
                 return (
                   <>
                     <p className="text-[#4D4757]">
                       {schedule.from && schedule.to
-                        ? `${schedule.day ? `${schedule.day}:` : ''} ${schedule.from} - ${schedule.to}`
+                        ? `${schedule.day ? `${schedule.day}:` : ""} ${schedule.from} - ${schedule.to}`
                         : schedule.notes && !schedule.day
-                        ? `${schedule.notes}`
-                        : schedule.notes
-                        ? `${schedule.day ? `${schedule.day}:` : ''} ${schedule.notes}`
-                        : `${schedule.day}`}
+                          ? `${schedule.notes}`
+                          : schedule.notes
+                            ? `${schedule.day ? `${schedule.day}:` : ""} ${schedule.notes}`
+                            : `${schedule.day}`}
                     </p>
-                    <div className="divider my-0"></div>
                   </>
                 );
-              }
-              return (
-                <>
-                  <p className="text-[#4D4757]">
-                    {schedule.from && schedule.to
-                      ? `${schedule.day ? `${schedule.day}:` : ''} ${schedule.from} - ${schedule.to}`
-                      : schedule.notes && !schedule.day
-                      ? `${schedule.notes}`
-                      : schedule.notes
-                      ? `${schedule.day ? `${schedule.day}:` : ''} ${schedule.notes}`
-                      : `${schedule.day}`}
-                  </p>
-                </>
-              );
-            })}
+              })}
             </div>
           </div>
           <div className="flex flex-col gap-2">
@@ -151,7 +153,9 @@ const DoctorDetails = () => {
             <div className="flex flex-col gap-2 p-4">
               <div className="flex items-center gap-2">
                 <MapPinIcon className="size-6" />
-                <p className="font-bold">Indo Dental Center - Senayan Branch</p>
+                <p className="font-bold">
+                  Indo Dental Center - {t("branch.senayan")}
+                </p>
               </div>
               <div className="divider my-0"></div>
               <p className="text-[#4D4757]">
@@ -169,7 +173,9 @@ const DoctorDetails = () => {
             <div className="flex flex-col gap-2 p-4">
               <div className="flex items-center gap-2">
                 <MapPinIcon className="size-6" />
-                <p className="font-bold">Indo Dental Center - Pluit Branch</p>
+                <p className="font-bold">
+                  Indo Dental Center - {t("branch.pluit")}
+                </p>
               </div>
               <div className="divider my-0"></div>
               <p className="text-[#4D4757]">

@@ -2,6 +2,8 @@ import React from "react";
 
 import Branches from "./Branches";
 
+import { Trans } from "react-i18next";
+
 const PopUpMap = () => {
   return (
     <dialog id="map-modal" className="modal">
@@ -14,7 +16,10 @@ const PopUpMap = () => {
         </form>
         <div className="flex flex-col items-center">
           <h1 className="pb-6 font-normal text-primary">
-            Our <span className="font-bold">location</span>
+            <Trans
+              i18nKey="ourLocation"
+              components={{ span: <span className="font-bold" /> }}
+            />
           </h1>
           <Branches btnColor="secondary" />
         </div>
