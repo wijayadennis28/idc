@@ -77,7 +77,7 @@ const Social = () => {
                     className="absolute bottom-[-3.5rem] size-32"
                   />
                   <div className="absolute -bottom-8 -left-8 2xl:-bottom-20">
-                    <p className="absolute -left-64 bottom-1 w-fit text-primary 2xl:-left-72">
+                    <p className="absolute -left-[16rem] bottom-1 w-[252px] text-right text-primary 2xl:-left-72">
                       {t("connectWithUs.item2")}
                     </p>
                     <img
@@ -96,7 +96,7 @@ const Social = () => {
                         className="w-11/12"
                       />
                       <div className="absolute -right-14 -top-4">
-                        <p className="absolute -left-28 -top-10 w-72 text-primary">
+                        <p className="absolute -left-28 -top-10 w-80 text-primary">
                           {t("connectWithUs.item3")}
                         </p>
                         <img
