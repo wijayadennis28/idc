@@ -32,7 +32,10 @@ const Social = () => {
     <>
       {screenSize >= 1024 && (
         <>
-          <div className="w-full justify-center py-16" id="connect-with-us">
+          <div
+            className="flex w-full justify-center py-16"
+            id="connect-with-us"
+          >
             <div className="flex max-w-[2400px] flex-col items-center gap-10">
               <h1 className="text-center font-normal text-primary">
                 Connect with Us
