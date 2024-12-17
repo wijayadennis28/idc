@@ -2,7 +2,11 @@ import React from "react";
 
 import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
 
+import { useTranslation } from "react-i18next";
+
 const IdcCard = ({ image, title, hover = false }) => {
+  const { t } = useTranslation();
+
   return (
     <>
       <div
@@ -33,7 +37,7 @@ const IdcCard = ({ image, title, hover = false }) => {
             {hover && (
               <div className={`card-actions hidden group-hover:block`}>
                 <button className="btn btn-secondary no-animation btn-sm h-11 w-fit">
-                  See details
+                  {t("seeDetails")}
                   <ArrowUpRightIcon className="w-4" />
                 </button>
               </div>
