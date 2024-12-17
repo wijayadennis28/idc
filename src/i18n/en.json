@@ -85,5 +85,11 @@
   "clinicEquipment": {
     "title": "Our Complete Clinic Equipment",
     "description": "Here, exceptional care is enhanced through high-quality and modern tools."
-  }
+  },
+  "typeOfServices": "Type of Services",
+  "ourWorks": {
+    "title": "Our Works",
+    "description": "At Indo Dental Center, we believe that exceptional care begins with exceptional tools. Our clinic is equipped with the latest, cutting-edge technology to ensure you receive the best possible treatment in a comfortable and efficient manner."
+  },
+  "discoverMore": "Discover More"
 }

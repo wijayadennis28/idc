@@ -84,5 +84,11 @@
   "clinicEquipment": {
     "title": "Peralatan Klinik Kami yang Lengkap",
     "description": "Di sini, perawatan terbaik didukung oleh peralatan berkualitas tinggi dan modern."
-  }
+  },
+  "typeOfServices": "Jenis Layanan",
+  "ourWorks": {
+    "title": "Hasil Kerja Kami",
+    "description": "Di Indo Dental Center, kami percaya bahwa perawatan terbaik dimulai dengan peralatan terbaik. Klinik kami dilengkapi dengan teknologi terkini dan mutakhir untuk memastikan Anda mendapatkan perawatan terbaik dengan nyaman dan efisien."
+  },
+  "discoverMore": "Selengkapnya"
 }

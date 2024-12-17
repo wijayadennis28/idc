@@ -4,7 +4,10 @@ import Pill from "../components/Pill";
 import Loading from "../components/Loading";
 import Slider from "../components/Slider";
 
+import { useTranslation } from "react-i18next";
+
 const ServiceDetails = () => {
+  const { t } = useTranslation();
   const [service, setService] = useState(null);
   useEffect(() => {
     async function loadServiceDetails() {
@@ -52,7 +55,7 @@ const ServiceDetails = () => {
           <div className="breadcrumbs text-sm">
             <ul>
               <li className="text-secondary">
-                <a href="/our-services">Our Services</a>
+                <a href="/our-services">{t("pages.ourServices")}</a>
               </li>
               <li
                 className="text-[#4D4757]"
@@ -72,7 +75,7 @@ const ServiceDetails = () => {
           dangerouslySetInnerHTML={{ __html: service.content.rendered }}
         ></div>
         <div className="flex grow basis-0 flex-col gap-2">
-          <h4 className="font-normal text-primary">Type of service</h4>
+          <h4 className="font-normal text-primary">{t("typeOfServices")}</h4>
           {Object.values(service.meta.service_types).map((serviceType, i) => (
             <div className="collapse collapse-arrow border">
               <input
@@ -93,13 +96,10 @@ const ServiceDetails = () => {
       </div>
       <div className="p-8">
         <h2 className="mb-8 text-center text-4xl font-bold text-purple-900">
-          Our Works
+          {t("ourWorks.title")}
         </h2>
         <p className="mx-auto mb-16 max-w-2xl text-center text-[#4D4757]">
-          At Indo Dental Center, we believe that exceptional care begins with
-          exceptional tools. Our clinic is equipped with the latest,
-          cutting-edge technology to ensure you receive the best possible
-          treatment in a comfortable and efficient manner.
+          {t("ourWorks.description")}
         </p>
         <Slider equipments={getOurWorks()} isLoading={!service} />
       </div>
