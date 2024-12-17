@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import BannerBg from "../../../assets/image/our-doctors/doctor-banner.png";
 import { MapPinIcon } from "@heroicons/react/24/outline";
 import Loading from "../components/Loading";
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 const DoctorDetails = () => {
+  const { t } = useTranslation();
   const [doctor, setDoctor] = useState(null);
   const [modal, setModal] = useState({ show: false, title: "", imageUrl: "" });
 

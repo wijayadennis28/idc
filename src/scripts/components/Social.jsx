@@ -14,10 +14,11 @@ import ConnectLogoImg from "../../../assets/image/home/connect/connect-logo.png"
 import ConnectArrowImg from "../../../assets/image/home/connect/arrow.svg";
 
 import useScreenSize from "../../utils/useScreenSize";
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 const Social = () => {
   const screenSize = useScreenSize();
+  const { t } = useTranslation();
 
   const social = [
     { src: Connect2Img, alt: "connect-2" },

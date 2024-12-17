@@ -1,7 +1,8 @@
 import React from "react";
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 const Branches = ({ showTitle = false, btnColor = "primary" }) => {
+  const { t } = useTranslation();
   const branches = [
     {
       name: t("branch.senayan"),
