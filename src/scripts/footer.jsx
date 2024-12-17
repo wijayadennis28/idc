@@ -28,23 +28,23 @@ const Footer = () => {
 
   const link = [
     {
-      name: t("navigation.home"),
+      name: t("pages.home"),
       URL: "/",
     },
     {
-      name: t("navigation.ourServices"),
+      name: t("pages.ourServices"),
       URL: "/our-services",
     },
     {
-      name: t("navigation.doctors"),
+      name: t("pages.doctors"),
       URL: "/our-doctors",
     },
     {
-      name: t("navigation.aboutUs"),
+      name: t("pages.aboutUs"),
       URL: "/about-us",
     },
     {
-      name: t("navigation.articles"),
+      name: t("pages.articles"),
       URL: "/articles",
     },
   ];

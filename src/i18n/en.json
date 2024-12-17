@@ -2,7 +2,7 @@
   "homeHero": {
     "description": "We are a team of dedicated dental care professionals who aim to provide the best dental care services in the area. Our team of experts is here to help you achieve the smile you have always wanted. Take a look at some of our happy patients!"
   },
-  "navigation": {
+  "pages": {
     "home": "Home",
     "ourServices": "Our Services",
     "doctors": "Doctors",

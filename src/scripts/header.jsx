@@ -82,27 +82,27 @@ const Header = () => {
   const menuList = [
     {
       id: "",
-      name: t("navigation.home"),
+      name: t("pages.home"),
       URL: "/",
     },
     {
       id: ["our-services", "services"],
-      name: t("navigation.ourServices"),
+      name: t("pages.ourServices"),
       URL: "/our-services",
     },
     {
       id: ["our-doctors", "doctors"],
-      name: t("navigation.doctors"),
+      name: t("pages.doctors"),
       URL: "/our-doctors",
     },
     {
       id: ["about-us"],
-      name: t("navigation.aboutUs"),
+      name: t("pages.aboutUs"),
       URL: "/about-us",
     },
     {
       id: ["articles", "article"],
-      name: t("navigation.articles"),
+      name: t("pages.articles"),
       URL: "/articles",
     },
   ];
