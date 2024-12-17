@@ -80,5 +80,9 @@
       "description": "We are proud to have been serving the community for over 23 years and treating more than 4,000 patients annually. We are ready to become your One-Stop Family Dental Center!"
     }
   },
-  "address": "Address"
+  "address": "Address",
+  "clinicEquipment": {
+    "title": "Our Complete Clinic Equipment",
+    "description": "Here, exceptional care is enhanced through high-quality and modern tools."
+  }
 }

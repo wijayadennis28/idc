@@ -79,5 +79,9 @@
       "description": "Kami bangga telah melayani masyarakat selama lebih dari 23 tahun dan merawat lebih dari 4.000 pasien setiap tahunnya. Kami siap menjadi One-Stop Family Dental Center untuk Anda!"
     }
   },
-  "address": "Alamat"
+  "address": "Alamat",
+  "clinicEquipment": {
+    "title": "Peralatan Klinik Kami yang Lengkap",
+    "description": "Di sini, perawatan terbaik didukung oleh peralatan berkualitas tinggi dan modern."
+  }
 }
