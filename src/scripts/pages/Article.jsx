@@ -12,15 +12,15 @@ import ArticleBg from "../../../assets/image/article/background.jpg";
 import { useTranslation } from "react-i18next";
 
 const Article = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [category, setCategory] = useState({
     name: t("allArticles"),
     id: null,
   });
-  const [isLoading, setLoading] = useState(true);
   const [availableArticleCategories, setAvailableCategories] = useState([
     { name: t("allArticles"), id: null },
   ]);
+  const [isLoading, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
 
   // pagination
@@ -39,6 +39,28 @@ const Article = () => {
   useEffect(() => {
     setCurrentPage(1);
   }, [category]);
+
+  useEffect(() => {
+    // Re-run this block when the language changes
+    if (category.id === null) {
+      setCategory({
+        name: t("allArticles"),
+        id: null,
+      });
+    }
+
+    setAvailableCategories((prev) => {
+      // find id that null and replace it with allArticles
+      const newCategories = prev.map((category) => {
+        if (category.id === null) {
+          return { name: t("allArticles"), id: null };
+        }
+        return category;
+      });
+
+      return newCategories;
+    });
+  }, [i18n.language]);
 
   const getCategoriesArticle = async () => {
     const response = await fetch("/wp-json/wp/v2/article-categories");
