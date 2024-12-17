@@ -48,5 +48,10 @@
       "sunday": "Sun = By appointment"
     }
   },
-  "copyright": "Copyright (C) {{year}} DigitalNest - Indo Dental Center. All rights reserved."
+  "copyright": "Copyright (C) {{year}} DigitalNest - Indo Dental Center. All rights reserved.",
+
+  "allArticles": "All Articles",
+  "share": "Share",
+  "back": "Back",
+  "relatedArticles": "Related Articles"
 }

@@ -48,5 +48,9 @@
       "sunday": "Minggu = Hanya dengan janji temu"
     }
   },
-  "copyright": "Hak Cipta (C) {{year}} DigitalNest - Indo Dental Center. Seluruh hak cipta dilindungi."
+  "copyright": "Hak Cipta (C) {{year}} DigitalNest - Indo Dental Center. Seluruh hak cipta dilindungi.",
+  "allArticles": "Semua Artikel",
+  "share": "Bagikan",
+  "back": "Kembali",
+  "relatedArticles": "Artikel Terkait"
 }
