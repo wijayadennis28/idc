@@ -6,7 +6,7 @@
     "home": "Home",
     "ourServices": "Our Services",
     "doctors": "Doctors",
-    "aboutUs": "About us",
+    "aboutUs": "About Us",
     "articles": "Articles"
   },
   "makeAppointment": "Make an Appointment",
@@ -53,5 +53,32 @@
   "allArticles": "All Articles",
   "share": "Share",
   "back": "Back",
-  "relatedArticles": "Related Articles"
+  "relatedArticles": "Related Articles",
+  "ourMilestone": {
+    "title": "Our Milestone",
+    "description": "20+ years of experience, same patient-centric value and a continuous habit of improvement, we merge timeless care with the latest technology and innovation. Experience how our legacy comes together to create your best smile yet."
+  },
+  "timeline": {
+    "item1": {
+      "title": "On July 28, 2001, the first Indo Dental Center clinic opened in Pluit Putri, North Jakarta",
+      "description": "That year, we began our dream and journey to provide the best dental care services."
+    },
+    "item2": {
+      "title": "Two years later, in 2003, we relocated to Pluit Putra, North Jakarta",
+      "description": "Starting with just two doctors, we slowly grew and began serving more patients with high dedication."
+    },
+    "item3": {
+      "title": "At the end of 2007, we took a significant step by establishing our first permanent location in Pluit, North Jakarta",
+      "description": "Indo Dental Center opened at CBD Pluit, focusing on specialist services and a dental laboratory—a new concept at the time."
+    },
+    "item4": {
+      "title": "In 2012, driven by our commitment to continually improve service quality, we opened a branch in Wolter Monginsidi, South Jakarta",
+      "description": "From just a few doctors, our team has grown to more than 20 dental specialists, all ready to provide the best care for you."
+    },
+    "item5": {
+      "title": "In August 2023, Indo Dental Center settled in Hang Tuah, South Jakarta",
+      "description": "We are proud to have been serving the community for over 23 years and treating more than 4,000 patients annually. We are ready to become your One-Stop Family Dental Center!"
+    }
+  },
+  "address": "Address"
 }

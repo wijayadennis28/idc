@@ -52,5 +52,32 @@
   "allArticles": "Semua Artikel",
   "share": "Bagikan",
   "back": "Kembali",
-  "relatedArticles": "Artikel Terkait"
+  "relatedArticles": "Artikel Terkait",
+  "ourMilestone": {
+    "title": "Pencapaian Kami",
+    "description": "Lebih dari 20 tahun pengalaman dengan nilai kepedulian terhadap pasien yang tak lekang oleh waktu dan kebiasaan untuk terus berinovasi. Kami memadukan perawatan terbaik dengan teknologi mutakhir. Rasakan bagaimana warisan kami menghadirkan senyum terbaik untuk Anda."
+  },
+  "timeline": {
+    "item1": {
+      "title": "Pada 28 Juli 2001, Klinik Indo Dental Center Pertama Dibuka di Pluit Putri, Jakarta Utara",
+      "description": "Tahun itu, kami memulai mimpi dan perjalanan untuk memberikan layanan perawatan gigi terbaik."
+    },
+    "item2": {
+      "title": "Dua Tahun Kemudian, pada 2003, Kami Pindah ke Pluit Putra, Jakarta Utara",
+      "description": "Berawal dengan hanya dua dokter, kami perlahan berkembang dan mulai melayani lebih banyak pasien dengan dedikasi tinggi."
+    },
+    "item3": {
+      "title": "Akhir 2007, Kami Mengambil Langkah Besar dengan Mendirikan Lokasi Permanen Pertama di Pluit, Jakarta Utara",
+      "description": "Indo Dental Center resmi dibuka di CBD Pluit, berfokus pada layanan spesialis dan laboratorium gigi—sebuah konsep baru pada masanya."
+    },
+    "item4": {
+      "title": "Pada 2012, Didukung Komitmen untuk Terus Meningkatkan Kualitas Layanan, Kami Membuka Cabang di Wolter Monginsidi, Jakarta Selatan",
+      "description": "Berawal dari beberapa dokter, kini tim kami telah berkembang menjadi lebih dari 20 dokter gigi spesialis yang siap memberikan perawatan terbaik untuk Anda."
+    },
+    "item5": {
+      "title": "Agustus 2023, Indo Dental Center Resmi Berada di Hang Tuah, Jakarta Selatan",
+      "description": "Kami bangga telah melayani masyarakat selama lebih dari 23 tahun dan merawat lebih dari 4.000 pasien setiap tahunnya. Kami siap menjadi One-Stop Family Dental Center untuk Anda!"
+    }
+  },
+  "address": "Alamat"
 }

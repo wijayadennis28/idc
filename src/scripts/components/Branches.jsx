@@ -31,7 +31,7 @@ const Branches = ({ showTitle = false, btnColor = "primary" }) => {
 
   return (
     <div id="branches" className="flex flex-col gap-8">
-      {showTitle && <h4>Address</h4>}
+      {showTitle && <h4>{t("address")}</h4>}
       {branches.map((branch, index) => (
         <div
           key={index}

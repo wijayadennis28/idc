@@ -7,7 +7,12 @@ import timeline2007Img from "../../../assets/image/aboutus/timeline-2007.png";
 import timeline2012Img from "../../../assets/image/aboutus/timeline-2012.jpg";
 import timeline2023Img from "../../../assets/image/aboutus/timeline-2023.jpg";
 
+import { useTranslation } from "react-i18next";
+import { use } from "i18next";
+
 const Timeline = ({ setObserver, callback }) => {
+  const { t, i18n } = useTranslation();
+
   const [year1, setYear1] = useState("");
   const [year2, setYear2] = useState("");
   const [year3, setYear3] = useState("");
@@ -50,60 +55,40 @@ const Timeline = ({ setObserver, callback }) => {
   const someCallback = () => {
     setYear1("2001");
     setImage1(timeline2001Img);
-    setTitle1(
-      "On July 28, 2001, the first Indo Dental Center clinic opened in Pluit Putri, North Jakarta.",
-    );
-    setDesc1(
-      "That year, we began our dream and journey to provide the best dental care services.",
-    );
+    setTitle1(t("timeline.item1.title"));
+    setDesc1(t("timeline.item1.description"));
     setFadeIn1(true); // Trigger fade-in animation for the first section
   };
 
   const someCallback2 = () => {
     setYear2("2003");
     setImage2(timeline2003Img);
-    setTitle2(
-      "Two years later, in 2003, we relocated to Pluit Putra, North Jakarta.",
-    );
-    setDesc2(
-      "Starting with just two doctors, we slowly grew and began serving more patients with high dedication.",
-    );
+    setTitle2(t("timeline.item2.title"));
+    setDesc2(t("timeline.item2.description"));
     setFadeIn2(true); // Trigger fade-in animation for the second section
   };
 
   const someCallback3 = () => {
     setYear3("2007");
     setImage3(timeline2007Img);
-    setTitle3(
-      "At the end of 2007, we took a significant step by establishing our first permanent location in Pluit, North Jakarta.",
-    );
-    setDesc3(
-      "Indo Dental Center opened at CBD Pluit, focusing on specialist services and a dental laboratory— a new concept at the time.",
-    );
+    setTitle3(t("timeline.item3.title"));
+    setDesc3(t("timeline.item3.description"));
     setFadeIn3(true); // Trigger fade-in animation for the second section
   };
 
   const someCallback4 = () => {
     setYear4("2012");
     setImage4(timeline2012Img);
-    setTitle4(
-      "In 2012, driven by our commitment to continually improve service quality, we opened a branch in Wolter Monginsidi, South Jakarta.",
-    );
-    setDesc4(
-      "From just a few doctors, our team has grown to more than 20 dental specialists, all ready to provide the best care for you.",
-    );
+    setTitle4(t("timeline.item4.title"));
+    setDesc4(t("timeline.item4.description"));
     setFadeIn4(true); // Trigger fade-in animation for the second section
   };
 
   const someCallback5 = () => {
     setYear5("2023");
     setImage5(timeline2023Img);
-    setTitle5(
-      "In August 2023, Indo Dental Center settled in Hang Tuah, South Jakarta.",
-    );
-    setDesc5(
-      "We are proud to have been serving the community for over 23 years and treating more than 4,000 patients annually. We are ready to become your One-Stop Family Dental Center!",
-    );
+    setTitle5(t("timeline.item5.title"));
+    setDesc5(t("timeline.item5.description"));
     setFadeIn5(true); // Trigger fade-in animation for the second section
   };
 
@@ -121,6 +106,19 @@ const Timeline = ({ setObserver, callback }) => {
     setObserver(circle5.current, someCallback5);
   }, []);
 
+  useEffect(() => {
+    setTitle1(t("timeline.item1.title"));
+    setDesc1(t("timeline.item1.description"));
+    setTitle2(t("timeline.item2.title"));
+    setDesc2(t("timeline.item2.description"));
+    setTitle3(t("timeline.item3.title"));
+    setDesc3(t("timeline.item3.description"));
+    setTitle4(t("timeline.item4.title"));
+    setDesc4(t("timeline.item4.description"));
+    setTitle5(t("timeline.item5.title"));
+    setDesc5(t("timeline.item5.description"));
+  }, [i18n.language]);
+
   return (
     <div className="wrapper mb-16">
       <div id="timeline1" ref={timeline1} className="h-52 w-[1px]" />
@@ -131,10 +129,10 @@ const Timeline = ({ setObserver, callback }) => {
         >
           <p className={`font-bold text-primary transition-opacity`}>{year1}</p>
           <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
-            <div className="relative w-[300px] h-[200px] overflow-hidden">
+            <div className="relative h-[200px] w-[300px] overflow-hidden">
               <img
                 src={image1}
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover"
                 alt="Timeline Image"
               />
               <div className="absolute inset-x-0 top-0 h-[50px] bg-gradient-to-b from-white to-transparent"></div>
@@ -161,10 +159,10 @@ const Timeline = ({ setObserver, callback }) => {
         >
           <p className={`font-bold text-primary transition-opacity`}>{year2}</p>
           <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
-            <div className="relative w-[300px] h-[200px] overflow-hidden">
+            <div className="relative h-[200px] w-[300px] overflow-hidden">
               <img
                 src={image2}
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover"
                 alt="Timeline Image"
               />
               <div className="absolute inset-x-0 top-0 h-[50px] bg-gradient-to-b from-white to-transparent"></div>
@@ -191,10 +189,10 @@ const Timeline = ({ setObserver, callback }) => {
         >
           <p className={`font-bold text-primary transition-opacity`}>{year3}</p>
           <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
-            <div className="relative w-[300px] h-[200px] overflow-hidden">
+            <div className="relative h-[200px] w-[300px] overflow-hidden">
               <img
                 src={image3}
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover"
                 alt="Timeline Image"
               />
               <div className="absolute inset-x-0 top-0 h-[50px] bg-gradient-to-b from-white to-transparent"></div>
@@ -221,10 +219,10 @@ const Timeline = ({ setObserver, callback }) => {
         >
           <p className={`font-bold text-primary transition-opacity`}>{year4}</p>
           <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
-            <div className="relative w-[300px] h-[200px] overflow-hidden">
+            <div className="relative h-[200px] w-[300px] overflow-hidden">
               <img
                 src={image4}
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover"
                 alt="Timeline Image"
               />
               <div className="absolute inset-x-0 top-0 h-[50px] bg-gradient-to-b from-white to-transparent"></div>
@@ -251,10 +249,10 @@ const Timeline = ({ setObserver, callback }) => {
         >
           <p className={`font-bold text-primary transition-opacity`}>{year5}</p>
           <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
-            <div className="relative w-[300px] h-[200px] overflow-hidden">
+            <div className="relative h-[200px] w-[300px] overflow-hidden">
               <img
                 src={image5}
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover"
                 alt="Timeline Image"
               />
               <div className="absolute inset-x-0 top-0 h-[50px] bg-gradient-to-b from-white to-transparent"></div>
