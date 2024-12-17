@@ -169,11 +169,7 @@ const Home = () => {
               <div className="flex flex-col max-lg:gap-6 lg:flex-row">
                 <div className="flex flex-1 flex-col gap-6">
                   <h1>One Stop Family Dental Center</h1>
-                  <p>
-                    From routine family dental checkups to implants to cosmetic
-                    dentistry. Our team expertly guides and helps you to achieve
-                    your dream smile. Make an Appointment today!
-                  </p>
+                  <p>{t("homeHero.description")}</p>
                 </div>
               </div>
 
