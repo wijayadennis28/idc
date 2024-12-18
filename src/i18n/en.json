@@ -11,8 +11,8 @@
   },
   "makeAppointment": "Make an Appointment",
   "makeAppointmentToday": "Make an Appointment Today!",
-  "ourPartners": "<span className='font-bold'>Our</span> partners",
-  "whyChooseUs": "Why<span className='font-bold'> choose us</span>",
+  "ourPartners": "<span>Our</span> partners",
+  "whyChooseUs": "Why<span> choose us</span>",
   "whyChooseUsItem": {
     "affordableCare": "Affordable Care",
     "specializedTreatments": "Specialized Treatments",
@@ -21,7 +21,7 @@
   "exploreServices": "Explore Our <span>Services</span>",
   "seeDetails": "See Details",
   "meetOurDentist": {
-    "title": "Meet Our <span>expert dentist</span>",
+    "title": "Meet Our <span>Expert Dentist</span>",
     "description": "We pride ourselves on delivering the best service in dental care. From routine checkups to advanced treatments, our dedicated team is committed to providing you with personalized, top-quality care that ensures your smile shines its brightest."
   },
   "happyPatient": {
@@ -37,6 +37,7 @@
     "button": "Follow Us"
   },
   "ourLocation": "Our <span>Location</span>",
+  "location": "Location",
   "branch": {
     "senayan": "Senayan Branch",
     "pluit": "Pluit Branch"
@@ -91,5 +92,9 @@
     "title": "Our Works",
     "description": "At Indo Dental Center, we believe that exceptional care begins with exceptional tools. Our clinic is equipped with the latest, cutting-edge technology to ensure you receive the best possible treatment in a comfortable and efficient manner."
   },
-  "discoverMore": "Discover More"
+  "allDoctors": "All Doctors",
+  "discoverMore": "Discover More",
+  "searchByName": "Search by Name",
+  "specialization": "Specialization",
+  "qualification": "Qualification & Certification"
 }

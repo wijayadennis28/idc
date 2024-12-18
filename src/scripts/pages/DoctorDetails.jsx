@@ -38,7 +38,7 @@ const DoctorDetails = () => {
           <div class="breadcrumbs text-sm">
             <ul className="flex-wrap">
               <li className="text-secondary">
-                <a href="/our-doctors">Doctor</a>
+                <a href="/our-doctors">{t("pages.doctors")}</a>
               </li>
               <li className="text-secondary">{doctor.service_name}</li>
               <li className="text-[#4D4757]">{doctor.title.rendered}</li>
@@ -62,7 +62,7 @@ const DoctorDetails = () => {
         </div>
         <div className="flex grow basis-0 flex-col gap-6">
           <div className="flex flex-col gap-2">
-            <h4 className="font-normal text-primary">About us</h4>
+            <h4 className="font-normal text-primary">{t(pages.aboutUs)}</h4>
             <div
               className="text-[#4D4757]"
               dangerouslySetInnerHTML={{ __html: doctor.content.rendered }}
@@ -70,7 +70,9 @@ const DoctorDetails = () => {
           </div>
           {Object.values(doctor.meta.specialisation).length > 0 && (
             <div className="flex flex-col gap-2">
-              <h4 className="font-normal text-primary">Specialisation</h4>
+              <h4 className="font-normal text-primary">
+                {t("specialization")}
+              </h4>
               <ul className="list-inside list-disc">
                 {Object.values(doctor.meta.specialisation).map(
                   (specialisation) => (
@@ -86,9 +88,7 @@ const DoctorDetails = () => {
           )}
           {Object.values(doctor.meta.certification).length > 0 && (
             <div className="flex flex-col gap-2">
-              <h4 className="font-normal text-primary">
-                Qualification & Certification
-              </h4>
+              <h4 className="font-normal text-primary">{t("qualification")}</h4>
               <ul className="list-inside list-disc">
                 {Object.values(doctor.meta.certification).map(
                   (certification) => (
@@ -150,7 +150,7 @@ const DoctorDetails = () => {
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <h4 className="font-normal text-primary">Location</h4>
+            <h4 className="font-normal text-primary">{t("Location")}</h4>
             <div className="flex flex-col gap-2 p-4">
               <div className="flex items-center gap-2">
                 <MapPinIcon className="size-6" />
@@ -168,7 +168,7 @@ const DoctorDetails = () => {
                   window.open("https://wa.me/+6281218186161", "_blank")
                 }
               >
-                Book an appointment
+                {t("makeAppointment")}
               </button>
             </div>
             <div className="flex flex-col gap-2 p-4">
@@ -189,7 +189,7 @@ const DoctorDetails = () => {
                   window.open("https://wa.me/+628128080011", "_blank")
                 }
               >
-                Book an appointment
+                {t("makeAppointment")}
               </button>
             </div>
           </div>

@@ -21,7 +21,7 @@
   "exploreServices": "Jelajahi Layanan <span>Kami</span>",
   "seeDetails": "Lihat Detail",
   "meetOurDentist": {
-    "title": "Kenali <span>Dokter Gigi </span>Ahli Kami",
+    "title": "Kenali Dokter Gigi <span>Ahli Kami</span>",
     "description": "Kami bangga memberikan layanan terbaik dalam perawatan gigi. Mulai dari pemeriksaan rutin hingga perawatan canggih, tim kami yang berdedikasi siap memberikan perhatian pribadi dan perawatan berkualitas tinggi untuk memastikan senyuman Anda tetap bersinar paling cerah."
   },
   "happyPatient": {
@@ -37,6 +37,7 @@
     "button": "Follow Kami"
   },
   "ourLocation": "Lokasi <span>Kami</span>",
+  "location": "Lokasi",
   "branch": {
     "senayan": "Cabang Senayan",
     "pluit": "Cabang Pluit"
@@ -90,5 +91,9 @@
     "title": "Hasil Kerja Kami",
     "description": "Di Indo Dental Center, kami percaya bahwa perawatan terbaik dimulai dengan peralatan terbaik. Klinik kami dilengkapi dengan teknologi terkini dan mutakhir untuk memastikan Anda mendapatkan perawatan terbaik dengan nyaman dan efisien."
   },
-  "discoverMore": "Selengkapnya"
+  "allDoctors": "Semua Dokter",
+  "discoverMore": "Selengkapnya",
+  "searchByName": "Cari berdasarkan Nama",
+  "specialization": "Spesialisasi",
+  "qualification": "Kualifikasi & Sertifikasi"
 }
