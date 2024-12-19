@@ -112,8 +112,19 @@ const Header = () => {
   ];
 
   const onChangeLanguage = (lang) => {
-    i18n.changeLanguage(lang.key);
-    setLanguage(lang.id);
+    if (lang.id === language) return;
+
+    let urlOrigin = window.location.origin;
+    const pathName = window.location.pathname;
+
+    if (lang.id === "ID") {
+      urlOrigin = urlOrigin + "/id";
+    } else {
+      urlOrigin = urlOrigin.replace(/\/id$/, "");
+    }
+
+    // to new url urlOrigin + pathName
+    window.location.href = urlOrigin + pathName;
   };
 
   const languageText = (id) => {
