@@ -21,7 +21,6 @@ const Header = () => {
 
   useEffect(() => {
     setLanguage(i18n.language.toUpperCase());
-    console.log(i18n.language);
   }, [i18n.language]);
 
   useEffect(() => {
