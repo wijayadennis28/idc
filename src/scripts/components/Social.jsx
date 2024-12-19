@@ -14,9 +14,11 @@ import ConnectLogoImg from "../../../assets/image/home/connect/connect-logo.png"
 import ConnectArrowImg from "../../../assets/image/home/connect/arrow.svg";
 
 import useScreenSize from "../../utils/useScreenSize";
+import { useTranslation } from "react-i18next";
 
 const Social = () => {
   const screenSize = useScreenSize();
+  const { t } = useTranslation();
 
   const social = [
     { src: Connect2Img, alt: "connect-2" },
@@ -32,10 +34,13 @@ const Social = () => {
     <>
       {screenSize >= 1024 && (
         <>
-          <div className="w-full justify-center py-16" id="connect-with-us">
+          <div
+            className="flex w-full justify-center py-16"
+            id="connect-with-us"
+          >
             <div className="flex max-w-[2400px] flex-col items-center gap-10">
               <h1 className="text-center font-normal text-primary">
-                Connect with Us
+                {t("connectWithUs.title")}
               </h1>
               <div className="flex w-full justify-center gap-4 pb-8">
                 <div className="flex flex-1 gap-4">
@@ -43,7 +48,7 @@ const Social = () => {
                     <img src={Connect2Img} alt="connect-2" className="w-fit" />
                     <div className="absolute -top-4 right-8">
                       <p className="absolute -top-6 left-28 w-64 text-primary">
-                        A collaborative team of professional dental specialists
+                        {t("connectWithUs.item1")}
                       </p>
                       <img
                         src={ConnectArrowImg}
@@ -73,8 +78,8 @@ const Social = () => {
                     className="absolute bottom-[-3.5rem] size-32"
                   />
                   <div className="absolute -bottom-8 -left-8 2xl:-bottom-20">
-                    <p className="absolute -left-64 bottom-1 w-fit text-primary 2xl:-left-72">
-                      Family dental center, all in one roof
+                    <p className="absolute -left-[16rem] bottom-1 w-[252px] text-right text-primary 2xl:-left-72">
+                      {t("connectWithUs.item2")}
                     </p>
                     <img
                       src={ConnectArrowImg}
@@ -92,8 +97,8 @@ const Social = () => {
                         className="w-11/12"
                       />
                       <div className="absolute -right-14 -top-4">
-                        <p className="absolute -left-28 -top-10 w-72 text-primary">
-                          ⁠Best natural results, catered to you
+                        <p className="absolute -left-28 -top-10 w-80 text-primary">
+                          {t("connectWithUs.item3")}
                         </p>
                         <img
                           src={ConnectArrowImg}
@@ -118,7 +123,7 @@ const Social = () => {
                       <div className="relative">
                         <div className="absolute -bottom-8 -left-[1vw] 2xl:-bottom-8 2xl:-left-14">
                           <p className="absolute -bottom-2 right-20 w-48 text-primary 2xl:right-36">
-                            Modern technology to enhance comfort and experience
+                            {t("connectWithUs.item4")}
                           </p>
                           <img
                             src={ConnectArrowImg}
@@ -176,7 +181,7 @@ const Social = () => {
                       </clipPath>
                     </defs>
                   </svg>
-                  Follow Us
+                  {t("connectWithUs.button")}
                 </button>
               </a>
             </div>

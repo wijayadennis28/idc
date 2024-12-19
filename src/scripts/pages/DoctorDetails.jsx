@@ -4,8 +4,10 @@ import NewBannerBg from "../../../assets/image/our-doctors/new-doctor-banner.png
 import DoctorDummyImage from "../../../assets/image/doctors/dr-michael.jpg";
 import { MapPinIcon } from "@heroicons/react/24/outline";
 import Loading from "../components/Loading";
+import { useTranslation } from "react-i18next";
 
 const DoctorDetails = () => {
+  const { t } = useTranslation();
   const [doctor, setDoctor] = useState(null);
   const [modal, setModal] = useState({ show: false, title: "", imageUrl: "" });
 
@@ -38,7 +40,7 @@ const DoctorDetails = () => {
           <div class="breadcrumbs text-sm">
             <ul className="flex-wrap">
               <li className="text-secondary">
-                <a href="/our-doctors">Doctor</a>
+                <a href="/our-doctors">{t("pages.doctors")}</a>
               </li>
               <li className="text-secondary">{doctor.service_name}</li>
               <li className="text-[#4D4757]">{doctor.title.rendered}</li>
@@ -62,15 +64,17 @@ const DoctorDetails = () => {
         </div>
         <div className="flex grow basis-0 flex-col gap-6">
           <div className="flex flex-col gap-2">
-            <h4 className="font-normal text-primary">About us</h4>
+            <h4 className="font-normal text-primary">{t(pages.aboutUs)}</h4>
             <div
               className="text-[#4D4757]"
               dangerouslySetInnerHTML={{ __html: doctor.content.rendered }}
             ></div>
           </div>
-          {(Object.values(doctor.meta.specialisation).length > 0) && (
+          {Object.values(doctor.meta.specialisation).length > 0 && (
             <div className="flex flex-col gap-2">
-              <h4 className="font-normal text-primary">Specialisation</h4>
+              <h4 className="font-normal text-primary">
+                {t("specialization")}
+              </h4>
               <ul className="list-inside list-disc">
                 {Object.values(doctor.meta.specialisation).map(
                   (specialisation) => (
@@ -84,75 +88,77 @@ const DoctorDetails = () => {
               </ul>
             </div>
           )}
-          {(Object.values(doctor.meta.certification).length > 0) && (
+          {Object.values(doctor.meta.certification).length > 0 && (
             <div className="flex flex-col gap-2">
-              <h4 className="font-normal text-primary">
-                Qualification & Certification
-              </h4>
+              <h4 className="font-normal text-primary">{t("qualification")}</h4>
               <ul className="list-inside list-disc">
-                {Object.values(doctor.meta.certification).map((certification) => (
-                  <li>
-                    <a
-                      className="cursor-pointer text-[#4D4757] underline"
-                      onClick={() =>
-                        setModal({
-                          show: true,
-                          title: certification.title,
-                          imageUrl: certification.image,
-                        })
-                      }
-                    >
-                      <p className="inline">{certification.title}</p>
-                    </a>
-                  </li>
-                ))}
+                {Object.values(doctor.meta.certification).map(
+                  (certification) => (
+                    <li>
+                      <a
+                        className="cursor-pointer text-[#4D4757] underline"
+                        onClick={() =>
+                          setModal({
+                            show: true,
+                            title: certification.title,
+                            imageUrl: certification.image,
+                          })
+                        }
+                      >
+                        <p className="inline">{certification.title}</p>
+                      </a>
+                    </li>
+                  ),
+                )}
               </ul>
             </div>
           )}
         </div>
         <div className="flex grow basis-0 flex-col gap-6">
           <div className="flex flex-col gap-2">
-            <h4 className="font-normal text-primary">Schedule</h4>
+            <h4 className="font-normal text-primary">{t("schedule.title")}</h4>
             <div className="p-4">
-            {Object.values(doctor.meta.schedule).map((schedule, i, arr) => {
-              if (i < arr.length - 1) {
+              {Object.values(doctor.meta.schedule).map((schedule, i, arr) => {
+                if (i < arr.length - 1) {
+                  return (
+                    <>
+                      <p className="text-[#4D4757]">
+                        {schedule.from && schedule.to
+                          ? `${schedule.day ? `${schedule.day}:` : ""} ${schedule.from} - ${schedule.to}`
+                          : schedule.notes && !schedule.day
+                            ? `${schedule.notes}`
+                            : schedule.notes
+                              ? `${schedule.day ? `${schedule.day}:` : ""} ${schedule.notes}`
+                              : `${schedule.day}`}
+                      </p>
+                      <div className="divider my-0"></div>
+                    </>
+                  );
+                }
                 return (
                   <>
                     <p className="text-[#4D4757]">
                       {schedule.from && schedule.to
-                        ? `${schedule.day ? `${schedule.day}:` : ''} ${schedule.from} - ${schedule.to}`
+                        ? `${schedule.day ? `${schedule.day}:` : ""} ${schedule.from} - ${schedule.to}`
                         : schedule.notes && !schedule.day
-                        ? `${schedule.notes}`
-                        : schedule.notes
-                        ? `${schedule.day ? `${schedule.day}:` : ''} ${schedule.notes}`
-                        : `${schedule.day}`}
+                          ? `${schedule.notes}`
+                          : schedule.notes
+                            ? `${schedule.day ? `${schedule.day}:` : ""} ${schedule.notes}`
+                            : `${schedule.day}`}
                     </p>
-                    <div className="divider my-0"></div>
                   </>
                 );
-              }
-              return (
-                <>
-                  <p className="text-[#4D4757]">
-                    {schedule.from && schedule.to
-                      ? `${schedule.day ? `${schedule.day}:` : ''} ${schedule.from} - ${schedule.to}`
-                      : schedule.notes && !schedule.day
-                      ? `${schedule.notes}`
-                      : schedule.notes
-                      ? `${schedule.day ? `${schedule.day}:` : ''} ${schedule.notes}`
-                      : `${schedule.day}`}
-                  </p>
-                </>
-              );
-            })}
+              })}
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <h4 className="font-normal text-primary">Location</h4>
+            <h4 className="font-normal text-primary">{t("Location")}</h4>
             <div className="flex flex-col gap-2 p-4">
               <div className="flex items-center gap-2">
                 <MapPinIcon className="size-6" />
-                <p className="font-bold">Indo Dental Center - Senayan Branch</p>
+                <p className="font-bold">
+                  Indo Dental Center - {t("branch.senayan")}
+                </p>
               </div>
               <div className="divider my-0"></div>
               <p className="text-[#4D4757]">
@@ -164,13 +170,15 @@ const DoctorDetails = () => {
                   window.open("https://wa.me/+6281218186161", "_blank")
                 }
               >
-                Book an appointment
+                {t("makeAppointment")}
               </button>
             </div>
             <div className="flex flex-col gap-2 p-4">
               <div className="flex items-center gap-2">
                 <MapPinIcon className="size-6" />
-                <p className="font-bold">Indo Dental Center - Pluit Branch</p>
+                <p className="font-bold">
+                  Indo Dental Center - {t("branch.pluit")}
+                </p>
               </div>
               <div className="divider my-0"></div>
               <p className="text-[#4D4757]">
@@ -183,7 +191,7 @@ const DoctorDetails = () => {
                   window.open("https://wa.me/+628128080011", "_blank")
                 }
               >
-                Book an appointment
+                {t("makeAppointment")}
               </button>
             </div>
           </div>

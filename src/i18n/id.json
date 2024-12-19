@@ -1,0 +1,99 @@
+{
+  "homeHero": {
+    "description": "Dari pemeriksaan gigi rutin keluarga hingga implan dan senyuman yang estetik, tim kami dengan siap membantu Anda untuk mencapai senyum impian Anda."
+  },
+  "pages": {
+    "home": "Beranda",
+    "ourServices": "Layanan Kami",
+    "doctors": "Dokter",
+    "aboutUs": "Tentang Kami",
+    "articles": "Artikel"
+  },
+  "makeAppointment": "Buat Janji Sekarang",
+  "makeAppointmentToday": "Buat Janji Hari Ini!",
+  "ourPartners": "<span>Mitra</span> kami",
+  "whyChooseUs": "Mengapa<span> memilih kami</span>",
+  "whyChooseUsItem": {
+    "affordableCare": "Perawatan Terjangkau",
+    "specializedTreatments": "Perawatan Khusus",
+    "patientCentricService": "Layanan Berpusat pada Pasien"
+  },
+  "exploreServices": "Jelajahi Layanan <span>Kami</span>",
+  "seeDetails": "Lihat Detail",
+  "meetOurDentist": {
+    "title": "Kenali Dokter Gigi <span>Ahli Kami</span>",
+    "description": "Kami bangga memberikan layanan terbaik dalam perawatan gigi. Mulai dari pemeriksaan rutin hingga perawatan canggih, tim kami yang berdedikasi siap memberikan perhatian pribadi dan perawatan berkualitas tinggi untuk memastikan senyuman Anda tetap bersinar paling cerah."
+  },
+  "happyPatient": {
+    "title": "Banyak <span>Pasien Bahagia</span>",
+    "description": "Di Indo Dental Center, kebanggaan terbesar kami adalah senyuman yang berhasil kami wujudkan. Namun, jangan hanya percaya pada kata-kata kami—dengarkan langsung dari pasien-pasien kami yang puas!"
+  },
+  "connectWithUs": {
+    "title": "Connect with Us",
+    "item1": "Tim kolaboratif spesialis gigi profesional",
+    "item2": "Pusat perawatan gigi keluarga dalam satu atap",
+    "item3": "Hasil alami terbaik, disesuaikan untuk Anda",
+    "item4": "Teknologi modern untuk kenyamanan dan pengalaman maksimal",
+    "button": "Follow Kami"
+  },
+  "ourLocation": "Lokasi <span>Kami</span>",
+  "location": "Lokasi",
+  "branch": {
+    "senayan": "Cabang Senayan",
+    "pluit": "Cabang Pluit"
+  },
+  "schedule": {
+    "title": "Jadwal",
+    "list": {
+      "weekday": "Senin - Jumat = 10.00 - 18.00",
+      "saturday": "Sabtu = 10.00 - 15.00",
+      "sunday": "Minggu = Hanya dengan janji temu"
+    }
+  },
+  "copyright": "Hak Cipta (C) {{year}} DigitalNest - Indo Dental Center. Seluruh hak cipta dilindungi.",
+  "allArticles": "Semua Artikel",
+  "share": "Bagikan",
+  "back": "Kembali",
+  "relatedArticles": "Artikel Terkait",
+  "ourMilestone": {
+    "title": "Pencapaian Kami",
+    "description": "Lebih dari 20 tahun pengalaman dengan nilai kepedulian terhadap pasien yang tak lekang oleh waktu dan kebiasaan untuk terus berinovasi. Kami memadukan perawatan terbaik dengan teknologi mutakhir. Rasakan bagaimana warisan kami menghadirkan senyum terbaik untuk Anda."
+  },
+  "timeline": {
+    "item1": {
+      "title": "Pada 28 Juli 2001, Klinik Indo Dental Center Pertama Dibuka di Pluit Putri, Jakarta Utara",
+      "description": "Tahun itu, kami memulai mimpi dan perjalanan untuk memberikan layanan perawatan gigi terbaik."
+    },
+    "item2": {
+      "title": "Dua Tahun Kemudian, pada 2003, Kami Pindah ke Pluit Putra, Jakarta Utara",
+      "description": "Berawal dengan hanya dua dokter, kami perlahan berkembang dan mulai melayani lebih banyak pasien dengan dedikasi tinggi."
+    },
+    "item3": {
+      "title": "Akhir 2007, Kami Mengambil Langkah Besar dengan Mendirikan Lokasi Permanen Pertama di Pluit, Jakarta Utara",
+      "description": "Indo Dental Center resmi dibuka di CBD Pluit, berfokus pada layanan spesialis dan laboratorium gigi—sebuah konsep baru pada masanya."
+    },
+    "item4": {
+      "title": "Pada 2012, Didukung Komitmen untuk Terus Meningkatkan Kualitas Layanan, Kami Membuka Cabang di Wolter Monginsidi, Jakarta Selatan",
+      "description": "Berawal dari beberapa dokter, kini tim kami telah berkembang menjadi lebih dari 20 dokter gigi spesialis yang siap memberikan perawatan terbaik untuk Anda."
+    },
+    "item5": {
+      "title": "Agustus 2023, Indo Dental Center Resmi Berada di Hang Tuah, Jakarta Selatan",
+      "description": "Kami bangga telah melayani masyarakat selama lebih dari 23 tahun dan merawat lebih dari 4.000 pasien setiap tahunnya. Kami siap menjadi One-Stop Family Dental Center untuk Anda!"
+    }
+  },
+  "address": "Alamat",
+  "clinicEquipment": {
+    "title": "Peralatan Klinik Kami yang Lengkap",
+    "description": "Di sini, perawatan terbaik didukung oleh peralatan berkualitas tinggi dan modern."
+  },
+  "typeOfServices": "Jenis Layanan",
+  "ourWorks": {
+    "title": "Hasil Kerja Kami",
+    "description": "Di Indo Dental Center, kami percaya bahwa perawatan terbaik dimulai dengan peralatan terbaik. Klinik kami dilengkapi dengan teknologi terkini dan mutakhir untuk memastikan Anda mendapatkan perawatan terbaik dengan nyaman dan efisien."
+  },
+  "allDoctors": "Semua Dokter",
+  "discoverMore": "Selengkapnya",
+  "searchByName": "Cari berdasarkan Nama",
+  "specialization": "Spesialisasi",
+  "qualification": "Kualifikasi & Sertifikasi"
+}

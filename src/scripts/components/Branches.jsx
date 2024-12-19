@@ -1,14 +1,16 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const Branches = ({ showTitle = false, btnColor = "primary" }) => {
+  const { t } = useTranslation();
   const branches = [
     {
-      name: "Senayan Branch",
+      name: t("branch.senayan"),
       address: "Jl. Hang Tuah Raya No.35, Kby. Baru, South Jakarta - 12120",
       schedule: [
-        "Mon - Fri = 10.00 AM - 06.00 PM",
-        "Sat = 10.00 AM - 03.00 PM",
-        "Sun = By appointment",
+        t("schedule.list.weekday"),
+        t("schedule.list.saturday"),
+        t("schedule.list.sunday"),
       ],
       phone: "+628128080011",
       phoneLabel: "Senayan",
@@ -16,13 +18,10 @@ const Branches = ({ showTitle = false, btnColor = "primary" }) => {
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2281968094794!2d106.79508307575067!3d-6.2336209937545455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1d91cc5e8e4f%3A0x482830c08a46f6e2!2sINDO%20DENTAL%20CENTER%20-%20Klinik%20Gigi%20Spesialis!5e0!3m2!1sen!2sid!4v1729369270940!5m2!1sen!2sid.",
     },
     {
-      name: "Pluit Branch",
+      name: t("branch.pluit"),
       address:
         "Ruko CBD Pluit No. B2, Jl. Pluit Selatan Raya, Penjaringan, North Jakarta City - 14440",
-      schedule: [
-        "Mon - Fri = 10.00 AM - 06.00 PM",
-        "Sat = 10.00 AM - 03.00 PM",
-      ],
+      schedule: [t("schedule.list.weekday"), t("schedule.list.saturday")],
       phone: "+6281218186161",
       phoneLabel: "Pluit",
       mapSrc:
@@ -32,7 +31,7 @@ const Branches = ({ showTitle = false, btnColor = "primary" }) => {
 
   return (
     <div id="branches" className="flex flex-col gap-8">
-      {showTitle && <h4>Address</h4>}
+      {showTitle && <h4>{t("address")}</h4>}
       {branches.map((branch, index) => (
         <div
           key={index}
@@ -42,7 +41,7 @@ const Branches = ({ showTitle = false, btnColor = "primary" }) => {
             <h5 className="pb-2 font-semibold">{branch.name}</h5>
             <p className="pb-2">{branch.address}</p>
             <div className="mb-4">
-              <p className="text-sm font-normal">Schedule</p>
+              <p className="text-sm font-normal">{t("schedule.title")}</p>
               <ul className="ml-2 list-inside list-disc text-sm text-gray-500">
                 {branch.schedule.map((time, idx) => (
                   <li key={idx}>{time}</li>

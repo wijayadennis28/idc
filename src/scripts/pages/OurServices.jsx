@@ -3,7 +3,11 @@ import OurClinicImg from "../../../assets/image/our-services/our-clinic.jpg";
 import Departments from "../components/Departments";
 import ClinicEquipmentSlider from "../components/Slider";
 
+import { useTranslation, Trans } from "react-i18next";
+
 const OurServices = () => {
+  const { t } = useTranslation();
+
   const [equipments, setEquipments] = useState([]);
   const [departments, setDepartments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -64,7 +68,10 @@ const OurServices = () => {
         >
           <div className="flex h-full items-center justify-center bg-primary bg-opacity-75">
             <h1 className="text-center font-sans font-normal text-white">
-              Explore our <span className="font-bold">services</span>
+              <Trans
+                i18nKey="exploreServices"
+                components={{ span: <span className="font-bold" /> }}
+              />
             </h1>
           </div>
         </div>
@@ -74,11 +81,10 @@ const OurServices = () => {
       </div>
       <section className="bg-white px-4 py-16 sm:px-8 md:px-12 lg:px-16 xl:px-24">
         <h1 className="mb-8 text-center text-primary">
-          Our Complete Clinic Equipment
+          {t("clinicEquipment.title")}
         </h1>
         <p className="mx-auto mb-8 max-w-lg text-center sm:max-w-2xl">
-          Here, exceptional care is enhanced through high-quality and modern
-          tools.
+          {t("clinicEquipment.description")}
         </p>
         <ClinicEquipmentSlider equipments={equipments} isLoading={isLoading} />
       </section>

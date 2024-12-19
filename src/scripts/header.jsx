@@ -1,9 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
+
 import Logo from "../../assets/image/logo/logo.png";
 
 import PopUpMap from "./components/PopUpMap";
 
 const Header = () => {
+  const { t, i18n } = useTranslation();
+
   const [language, setLanguage] = useState("EN");
   const [showMenu, setShowMenu] = useState(false);
 
@@ -65,10 +69,12 @@ const Header = () => {
   const languageList = [
     {
       id: "ID",
+      key: "id",
       name: "Indonesia",
     },
     {
       id: "EN",
+      key: "en",
       name: "English",
     },
   ];
@@ -76,30 +82,35 @@ const Header = () => {
   const menuList = [
     {
       id: "",
-      name: "Home",
+      name: t("pages.home"),
       URL: "/",
     },
     {
       id: ["our-services", "services"],
-      name: "Our Services",
+      name: t("pages.ourServices"),
       URL: "/our-services",
     },
     {
       id: ["our-doctors", "doctors"],
-      name: "Doctors",
+      name: t("pages.doctors"),
       URL: "/our-doctors",
     },
     {
       id: ["about-us"],
-      name: "About us",
+      name: t("pages.aboutUs"),
       URL: "/about-us",
     },
     {
       id: ["articles", "article"],
-      name: "Articles",
+      name: t("pages.articles"),
       URL: "/articles",
     },
   ];
+
+  const onChangeLanguage = (lang) => {
+    i18n.changeLanguage(lang.key);
+    setLanguage(lang.id);
+  };
 
   const languageText = (id) => {
     const selectedLanguage = languageList.find((item) => item.id === id);
@@ -142,7 +153,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="navbar bg-base-100 px-8 py-6">
+      <div className="navbar bg-base-100 px-8 py-6 shadow-sm">
         <div className="flex-1">
           <a
             className="cursor-pointer"
@@ -185,7 +196,7 @@ const Header = () => {
               style={{ height: "2.5rem" }}
               onClick={openModal}
             >
-              Make an Appointment
+              {t("makeAppointment")}
             </button>
             <div className="w-auto border-r border-base-content px-2" />
             <li>
@@ -199,7 +210,7 @@ const Header = () => {
                       <a
                         className={`idc-menu-country-item ${item.id === language ? "idc-menu-country-item-active bg-secondary text-white hover:bg-secondary hover:text-white" : ""}`}
                         onClick={() => {
-                          setLanguage(item.id);
+                          onChangeLanguage(item);
                           detailsRef.current.removeAttribute("open"); // Close after selection
                         }}
                       >
@@ -281,7 +292,7 @@ const Header = () => {
             </a>
           ))}
           <button className="btn btn-primary" onClick={openModal}>
-            Make an Appointment
+            {t("makeAppointment")}
           </button>
 
           <div className="relative">
@@ -311,7 +322,7 @@ const Header = () => {
                   >
                     <a
                       onClick={() => {
-                        setLanguage(item.id);
+                        onChangeLanguage(item);
                         detailsMobileRef.current.removeAttribute("open");
                         setShowMenu(false);
                       }}

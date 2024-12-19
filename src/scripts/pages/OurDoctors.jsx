@@ -5,7 +5,10 @@ import DoctorsGrid from "../components/DoctorsGrid";
 import Pill from "../components/Pill";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 
+import { useTranslation, Trans } from "react-i18next";
+
 const OurDoctors = () => {
+  const { t } = useTranslation();
   const [category, setCategory] = useState("All doctors");
   const [isLoading, setLoading] = useState(true);
   const [availableCategories, setAvailableCategories] = useState([
@@ -110,7 +113,10 @@ const OurDoctors = () => {
       >
         <div className="flex h-full items-center justify-center bg-primary bg-opacity-75">
           <h1 className="text-center font-sans font-normal text-white">
-            Meet with our <span className="font-bold">Expert Dentist</span>
+            <Trans
+              i18nKey="meetOurDentist.title"
+              components={{ span: <span className="font-bold" /> }}
+            />
           </h1>
         </div>
       </div>
@@ -119,7 +125,7 @@ const OurDoctors = () => {
         <input
           type="text"
           value={searchValue}
-          placeholder="Search by name"
+          placeholder={t("searchByName")}
           className="input w-full grow"
           onChange={handleSearch}
         />

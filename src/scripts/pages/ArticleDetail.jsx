@@ -12,8 +12,11 @@ import logoArticle from "../../../assets/image/logo/logo-article.jpg";
 
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 
+import { useTranslation } from "react-i18next";
+
 const ArticleDetail = () => {
   const currentUrl = window.location.href;
+  const { t } = useTranslation();
 
   const [article, setArticle] = useState(null);
   const [relatedArticles, setRelatedArticles] = useState([]);
@@ -99,7 +102,7 @@ const ArticleDetail = () => {
           <div className="breadcrumbs overflow-hidden text-sm">
             <ul className="w-full">
               <li className="text-secondary">
-                <a href="/articles">Article</a>
+                <a href="/articles">{t("pages.articles")}</a>
               </li>
 
               <li className="md:!hidden">{truncateText(article.title, 41)}</li>
@@ -135,7 +138,7 @@ const ArticleDetail = () => {
           </div>
         )}
         <div className="flex flex-col items-center gap-2">
-          <h6 className="font-normal">Share</h6>
+          <h6 className="font-normal">{t("share")}</h6>
           <div className="flex gap-4">
             {socialMedia.map((social, index) => (
               <a href={social.url} target="_blank" rel="noopener noreferrer">
@@ -158,7 +161,7 @@ const ArticleDetail = () => {
           <a href="/articles">
             <button className="btn btn-primary w-28">
               <ChevronLeftIcon className="size-5" />
-              Back
+              {t("back")}
             </button>
           </a>
         </div>

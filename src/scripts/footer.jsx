@@ -1,24 +1,27 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+
 import Logo from "../../assets/image/logo/logo.png";
 
 import Facebook from "../../assets/image/footer/facebook.svg";
 import Instagram from "../../assets/image/footer/instagram.svg";
-import Twitter from "../../assets/image/footer/twitter.svg";
 import Tiktok from "../../assets/image/footer/tiktok.svg";
 
 const path = `${wpApiSettings.homeUrl}`;
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   const year = new Date().getFullYear();
 
   const addressList = [
     {
-      branch: "Senayan Branch",
+      branch: t("branch.senayan"),
       address: "Jl. Hang Tuah Raya No.35,<br/>Kby. Baru, South Jakarta -12120",
       phone: "+62 812-808-0011",
     },
     {
-      branch: "Pluit Branch",
+      branch: t("branch.pluit"),
       address:
         "Ruko CBD Pluit No. B2,<br/>Jl. Pluit Selatan Raya, Penjaringan,<br/>North Jakarta City – 14440",
       phone: "+62 812-1818-6161",
@@ -27,23 +30,23 @@ const Footer = () => {
 
   const link = [
     {
-      name: "Home",
+      name: t("pages.home"),
       URL: "/",
     },
     {
-      name: "Our Services",
+      name: t("pages.ourServices"),
       URL: "/our-services",
     },
     {
-      name: "Doctors",
+      name: t("pages.doctors"),
       URL: "/our-doctors",
     },
     {
-      name: "About us",
+      name: t("pages.aboutUs"),
       URL: "/about-us",
     },
     {
-      name: "Articles",
+      name: t("pages.articles"),
       URL: "/articles",
     },
   ];
@@ -153,8 +156,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="w-full p-4 text-center text-neutral-400">
-        Copyright (C) {year} DigitalNest - Indo Dental Center. All rights
-        reserved.
+        {t("copyright", { year })}
       </p>
     </aside>
   );

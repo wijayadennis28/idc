@@ -9,12 +9,18 @@ import removeHTMLTags from "../../utils/removeHTMLTags";
 // image
 import ArticleBg from "../../../assets/image/article/background.jpg";
 
+import { useTranslation } from "react-i18next";
+
 const Article = () => {
-  const [category, setCategory] = useState({ name: "All Articles", id: null });
-  const [isLoading, setLoading] = useState(true);
+  const { t, i18n } = useTranslation();
+  const [category, setCategory] = useState({
+    name: t("allArticles"),
+    id: null,
+  });
   const [availableArticleCategories, setAvailableCategories] = useState([
-    { name: "All Articles", id: null },
+    { name: t("allArticles"), id: null },
   ]);
+  const [isLoading, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
 
   // pagination
@@ -34,11 +40,33 @@ const Article = () => {
     setCurrentPage(1);
   }, [category]);
 
+  useEffect(() => {
+    // Re-run this block when the language changes
+    if (category.id === null) {
+      setCategory({
+        name: t("allArticles"),
+        id: null,
+      });
+    }
+
+    setAvailableCategories((prev) => {
+      // find id that null and replace it with allArticles
+      const newCategories = prev.map((category) => {
+        if (category.id === null) {
+          return { name: t("allArticles"), id: null };
+        }
+        return category;
+      });
+
+      return newCategories;
+    });
+  }, [i18n.language]);
+
   const getCategoriesArticle = async () => {
     const response = await fetch(`${wpApiSettings.restUrl}wp/v2/article-categories`);
     const categoriesArticle = await response.json();
     setAvailableCategories([
-      { name: "All Articles", id: null },
+      { name: t("allArticles"), id: null },
       ...categoriesArticle.map((categoriesArticle) => ({
         name: categoriesArticle.name,
         id: categoriesArticle.id,
@@ -94,11 +122,11 @@ const Article = () => {
 
   useEffect(() => {
     setPaginationButton(() => {
-    const pagination = [];
+      const pagination = [];
       if (pageSize < 6) {
-    for (let i = 1; i <= pageSize; i++) {
-      pagination.push(i);
-    }
+        for (let i = 1; i <= pageSize; i++) {
+          pagination.push(i);
+        }
       } else {
         if (currentPage < 4) {
           for (let i = 1; i <= 4; i++) {
@@ -135,7 +163,7 @@ const Article = () => {
             style={{ backgroundImage: `url(${ArticleBg})` }}
           >
             <h1 className="text-white" id="page-title">
-              Article
+              {t("pages.articles")}
             </h1>
           </div>
         </div>
@@ -193,43 +221,43 @@ const Article = () => {
           title={category.name}
         />
         {pageSize > 1 && (
-        <div className="flex items-end gap-2 md:gap-4">
-          <button
-            className={`btn btn-primary btn-sm size-10 !p-0 md:size-12 ${
-              currentPage === 1 ? "btn-disabled" : ""
-            }`}
-            onClick={prevPagination}
-          >
-            <ArrowLeftIcon className="size-4" />
-          </button>
-          {paginationButton.map((pageNumber) => (
-            <>
-              {pageNumber === "..." ? (
-                <span>{pageNumber}</span>
-              ) : (
-                <button
-                  className={`btn btn-sm size-10 border-none bg-[#E0EFF3] text-primary md:size-12 ${
-                    currentPage === pageNumber ? "btn-active" : ""
-                  }`}
-                  onClick={() => {
-                    setCurrentPage(pageNumber);
-                    goToTop();
-                  }}
-                >
-                  {pageNumber}
-                </button>
-              )}
-            </>
-          ))}
-          <button
-            className={`btn btn-primary btn-active btn-sm size-10 !p-0 md:size-12 ${
-              currentPage === pageSize ? "btn-disabled" : ""
-            }`}
-            onClick={nextPagination}
-          >
-            <ArrowRightIcon className="size-4" />
-          </button>
-        </div>
+          <div className="flex items-end gap-2 md:gap-4">
+            <button
+              className={`btn btn-primary btn-sm size-10 !p-0 md:size-12 ${
+                currentPage === 1 ? "btn-disabled" : ""
+              }`}
+              onClick={prevPagination}
+            >
+              <ArrowLeftIcon className="size-4" />
+            </button>
+            {paginationButton.map((pageNumber) => (
+              <>
+                {pageNumber === "..." ? (
+                  <span>{pageNumber}</span>
+                ) : (
+                  <button
+                    className={`btn btn-sm size-10 border-none bg-[#E0EFF3] text-primary md:size-12 ${
+                      currentPage === pageNumber ? "btn-active" : ""
+                    }`}
+                    onClick={() => {
+                      setCurrentPage(pageNumber);
+                      goToTop();
+                    }}
+                  >
+                    {pageNumber}
+                  </button>
+                )}
+              </>
+            ))}
+            <button
+              className={`btn btn-primary btn-active btn-sm size-10 !p-0 md:size-12 ${
+                currentPage === pageSize ? "btn-disabled" : ""
+              }`}
+              onClick={nextPagination}
+            >
+              <ArrowRightIcon className="size-4" />
+            </button>
+          </div>
         )}
       </div>
     </div>
