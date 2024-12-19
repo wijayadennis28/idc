@@ -115,12 +115,12 @@ const Header = () => {
     if (lang.id === language) return;
 
     let urlOrigin = window.location.origin;
-    const pathName = window.location.pathname;
+    let pathName = window.location.pathname;
 
     if (lang.id === "ID") {
       urlOrigin = urlOrigin + "/id";
     } else {
-      urlOrigin = urlOrigin.replace(/\/id$/, "");
+      pathName = pathName.replace(/^\/id/, "");;
     }
 
     // to new url urlOrigin + pathName
