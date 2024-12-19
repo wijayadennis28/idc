@@ -121,7 +121,7 @@ const Timeline = ({ setObserver, callback }) => {
 
   return (
     <div className="wrapper mb-16">
-      <div id="timeline1" ref={timeline1} className="h-52 w-[1px]" />
+      <div id="timeline1" ref={timeline1} className="h-[410px] w-[1px] md:h-[320px] lg:h-[270px]" />
       <div className="circleWrapper gap-4 lg:gap-8">
         <div id="circle1" ref={circle1} className="circle"></div>
         <div
@@ -132,7 +132,7 @@ const Timeline = ({ setObserver, callback }) => {
             <div className="relative h-[150px] md:h-[200px] w-full max-w-[300px] overflow-hidden">
               <img
                 src={image1}
-                className="h-[410px] w-[1px] md:h-[320px] lg:h-[270px]"
+                className="h-full w-full object-cover"
                 alt="Timeline Image"
               />
               <div className="absolute inset-x-0 top-0 h-[50px] bg-gradient-to-b from-white to-transparent"></div>
