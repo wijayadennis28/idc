@@ -128,8 +128,8 @@ const Timeline = ({ setObserver, callback }) => {
           className={`flex items-center gap-4 duration-700 lg:gap-8 ${fadeIn1 ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
         >
           <p className={`font-bold text-primary transition-opacity`}>{year1}</p>
-          <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
-            <div className="relative h-[200px] w-[300px] overflow-hidden">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 md:gap-8 lg:flex-nowrap lg:gap-8 p-4">
+            <div className="relative h-[150px] md:h-[200px] w-full max-w-[300px] overflow-hidden">
               <img
                 src={image1}
                 className="h-full w-full object-cover"
@@ -140,9 +140,9 @@ const Timeline = ({ setObserver, callback }) => {
               <div className="absolute inset-y-0 left-0 w-[50px] bg-gradient-to-r from-white to-transparent"></div>
               <div className="absolute inset-y-0 right-0 w-[50px] bg-gradient-to-l from-white to-transparent"></div>
             </div>
-            <div className="description-block flex flex-col gap-1 transition-opacity lg:gap-2">
-              <h5 className="text-primary">{title1}</h5>
-              <p className="description-text">{desc1}</p>
+            <div className="description-block flex flex-col gap-2 transition-opacity">
+              <h5 className="text-primary text-lg font-semibold">{title1}</h5>
+              <p className="description-text text-sm leading-relaxed">{desc1}</p>
             </div>
           </div>
         </div>
@@ -158,8 +158,8 @@ const Timeline = ({ setObserver, callback }) => {
           className={`flex items-center gap-4 duration-700 lg:gap-8 ${fadeIn2 ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
         >
           <p className={`font-bold text-primary transition-opacity`}>{year2}</p>
-          <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
-            <div className="relative h-[200px] w-[300px] overflow-hidden">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 md:gap-8 lg:flex-nowrap lg:gap-8 p-4">
+            <div className="relative h-[150px] md:h-[200px] w-full max-w-[300px] overflow-hidden">
               <img
                 src={image2}
                 className="h-full w-full object-cover"
@@ -170,7 +170,7 @@ const Timeline = ({ setObserver, callback }) => {
               <div className="absolute inset-y-0 left-0 w-[50px] bg-gradient-to-r from-white to-transparent"></div>
               <div className="absolute inset-y-0 right-0 w-[50px] bg-gradient-to-l from-white to-transparent"></div>
             </div>
-            <div className="description-block flex flex-col gap-2 transition-opacity lg:gap-2">
+            <div className="description-block flex flex-col gap-2 transition-opacity">
               <h5 className="text-primary">{title2}</h5>
               <p className="description-text">{desc2}</p>
             </div>
@@ -188,8 +188,8 @@ const Timeline = ({ setObserver, callback }) => {
           className={`flex items-center gap-4 duration-700 lg:gap-8 ${fadeIn3 ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
         >
           <p className={`font-bold text-primary transition-opacity`}>{year3}</p>
-          <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
-            <div className="relative h-[200px] w-[300px] overflow-hidden">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 md:gap-8 lg:flex-nowrap lg:gap-8 p-4">
+            <div className="relative h-[150px] md:h-[200px] w-full max-w-[300px] overflow-hidden">
               <img
                 src={image3}
                 className="h-full w-full object-cover"
@@ -218,8 +218,8 @@ const Timeline = ({ setObserver, callback }) => {
           className={`flex items-center gap-4 duration-700 lg:gap-8 ${fadeIn4 ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
         >
           <p className={`font-bold text-primary transition-opacity`}>{year4}</p>
-          <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
-            <div className="relative h-[200px] w-[300px] overflow-hidden">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 md:gap-8 lg:flex-nowrap lg:gap-8 p-4">
+            <div className="relative h-[150px] md:h-[200px] w-full max-w-[300px] overflow-hidden">
               <img
                 src={image4}
                 className="h-full w-full object-cover"
@@ -248,8 +248,8 @@ const Timeline = ({ setObserver, callback }) => {
           className={`flex items-center gap-4 duration-700 lg:gap-8 ${fadeIn5 ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
         >
           <p className={`font-bold text-primary transition-opacity`}>{year5}</p>
-          <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:gap-8">
-            <div className="relative h-[200px] w-[300px] overflow-hidden">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 md:gap-8 lg:flex-nowrap lg:gap-8 p-4">
+            <div className="relative h-[150px] md:h-[200px] w-full max-w-[300px] overflow-hidden">
               <img
                 src={image5}
                 className="h-full w-full object-cover"
