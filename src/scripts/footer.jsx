@@ -122,7 +122,7 @@ const Footer = () => {
               const adjustedURL =
                 link.URL === "/" // If it's the homepage
                   ? basePath // Use basePath directly for the homepage
-                  : `${basePath}${link.URL}`.replace(/\/\//g, "/");
+                  : `${basePath}${link.URL}`;
 
               return (
                 <a
