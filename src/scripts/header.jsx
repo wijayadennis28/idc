@@ -20,6 +20,11 @@ const Header = () => {
   const path = `${wpApiSettings.homeUrl}`;
 
   useEffect(() => {
+    setLanguage(i18n.language.toUpperCase());
+    console.log(i18n.language);
+  }, [i18n.language]);
+
+  useEffect(() => {
     // Add an event listener to detect outside clicks
     const handleClickOutside = (event) => {
       if (detailsRef.current && !detailsRef.current.contains(event.target)) {
@@ -138,13 +143,15 @@ const Header = () => {
   const handleClick = (targetPath, event) => {
     // Compare current URL with the target path and prevent navigation if they match
     const currentPath = window.location.pathname.replace(/\/+$/, ""); // Remove trailing slashes
-    const cleanTargetPath = new URL(targetPath, window.location.origin).pathname.replace(/\/+$/, ""); // Ensure consistency
-  
+    const cleanTargetPath = new URL(
+      targetPath,
+      window.location.origin,
+    ).pathname.replace(/\/+$/, ""); // Ensure consistency
+
     if (currentPath === cleanTargetPath) {
       event.preventDefault(); // Prevent navigation
     }
   };
-  
 
   const openModal = () => {
     const dialog = document.getElementById("map-modal");
@@ -177,14 +184,17 @@ const Header = () => {
               const adjustedURL =
                 item.URL === "/" // If it's the homepage
                   ? basePath // Use basePath directly
-                  : `${basePath}${item.URL}`.replace(`${basePath}${basePath}`, basePath); 
+                  : `${basePath}${item.URL}`.replace(
+                      `${basePath}${basePath}`,
+                      basePath,
+                    );
 
               return (
                 <li key={index}>
                   <a
                     className={`idc-menu ${Array.isArray(item.id) && item.id.includes(path) ? "path" : ""}`}
-                    href={adjustedURL} 
-                    onClick={(e) => handleClick(adjustedURL, e)} 
+                    href={adjustedURL}
+                    onClick={(e) => handleClick(adjustedURL, e)}
                   >
                     {item.name}
                   </a>
