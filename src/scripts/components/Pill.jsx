@@ -11,7 +11,6 @@ const Pill = ({ active, text, onClick }) => {
 
   useEffect(() => {
     setRenderedText(renderText());
-    console.log("Pill rendered");
   }, [i18n.language, text]);
 
   return (
