@@ -171,8 +171,8 @@ const Timeline = ({ setObserver, callback }) => {
               <div className="absolute inset-y-0 right-0 w-[50px] bg-gradient-to-l from-white to-transparent"></div>
             </div>
             <div className="description-block flex flex-col gap-2 transition-opacity">
-              <h5 className="text-primary">{title2}</h5>
-              <p className="description-text">{desc2}</p>
+              <h5 className="text-primary text-lg font-semibold">{title2}</h5>
+              <p className="description-text text-sm leading-relaxed">{desc2}</p>
             </div>
           </div>
         </div>
@@ -201,8 +201,8 @@ const Timeline = ({ setObserver, callback }) => {
               <div className="absolute inset-y-0 right-0 w-[50px] bg-gradient-to-l from-white to-transparent"></div>
             </div>
             <div className="description-block flex flex-col gap-2 transition-opacity lg:gap-2">
-              <h5 className="text-primary">{title3}</h5>
-              <p className="description-text">{desc3}</p>
+              <h5 className="text-primary text-lg font-semibold">{title3}</h5>
+              <p className="description-text text-sm leading-relaxed">{desc3}</p>
             </div>
           </div>
         </div>
@@ -231,8 +231,8 @@ const Timeline = ({ setObserver, callback }) => {
               <div className="absolute inset-y-0 right-0 w-[50px] bg-gradient-to-l from-white to-transparent"></div>
             </div>
             <div className="description-block flex flex-col gap-2 transition-opacity lg:gap-2">
-              <h5 className="text-primary">{title4}</h5>
-              <p className="description-text">{desc4}</p>
+              <h5 className="text-primary text-lg font-semibold">{title4}</h5>
+              <p className="description-text text-sm leading-relaxed">{desc4}</p>
             </div>
           </div>
         </div>
@@ -261,8 +261,8 @@ const Timeline = ({ setObserver, callback }) => {
               <div className="absolute inset-y-0 right-0 w-[50px] bg-gradient-to-l from-white to-transparent"></div>
             </div>
             <div className="description-block flex flex-col gap-2 transition-opacity lg:gap-2">
-              <h5 className="text-primary">{title5}</h5>
-              <p className="description-text">{desc5}</p>
+              <h5 className="text-primary text-lg font-semibold">{title5}</h5>
+              <p className="description-text text-sm leading-relaxed">{desc5}</p>
             </div>
           </div>
         </div>
