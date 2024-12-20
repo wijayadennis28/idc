@@ -4,12 +4,14 @@ import { useTranslation } from "react-i18next";
 import Logo from "../../assets/image/logo/logo.png";
 
 import PopUpMap from "./components/PopUpMap";
+import { use } from "i18next";
 
 const Header = () => {
   const { t, i18n } = useTranslation();
 
   const [language, setLanguage] = useState("EN");
   const [showMenu, setShowMenu] = useState(false);
+  const [showButtonAnimation, setShowButtonAnimation] = useState(false);
 
   const detailsRef = useRef(null);
   const detailsMobileRef = useRef(null);
@@ -70,6 +72,10 @@ const Header = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    setShowButtonAnimation(true);
+  }, []);
+
   const languageList = [
     {
       id: "ID",
@@ -120,7 +126,7 @@ const Header = () => {
     if (lang.id === "ID") {
       urlOrigin = urlOrigin + "/id";
     } else {
-      pathName = pathName.replace(/^\/id/, "");;
+      pathName = pathName.replace(/^\/id/, "");
     }
 
     // to new url urlOrigin + pathName
@@ -212,7 +218,7 @@ const Header = () => {
               );
             })}
             <button
-              className="btn btn-primary btn-sm"
+              className={`btn btn-primary btn-sm ${showButtonAnimation ? "" : "no-animation"}`}
               style={{ height: "2.5rem" }}
               onClick={openModal}
             >
