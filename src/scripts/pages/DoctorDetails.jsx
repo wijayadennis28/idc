@@ -64,7 +64,7 @@ const DoctorDetails = () => {
         </div>
         <div className="flex grow basis-0 flex-col gap-6">
           <div className="flex flex-col gap-2">
-            <h4 className="font-normal text-primary">{t(pages.aboutUs)}</h4>
+            <h4 className="font-normal text-primary">{t("pages.aboutUs")}</h4>
             <div
               className="text-[#4D4757]"
               dangerouslySetInnerHTML={{ __html: doctor.content.rendered }}
