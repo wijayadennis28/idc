@@ -121,7 +121,7 @@ const ArticleDetail = () => {
             <p className="text-base text-neutral-500">{article.tags}</p>
             <h2 className="text-2xl font-bold lg:text-3xl">{article.title}</h2>
           </div>
-          <div
+          <div id="article-content"
             dangerouslySetInnerHTML={{
               __html: article.content,
             }}

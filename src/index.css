@@ -181,3 +181,20 @@ body {
   font-weight: bold;
   color: #fff;
 }
+
+#article-content ul {
+  @apply list-none;
+}
+
+#article-content > ul {
+  @apply list-disc pl-5;
+}
+
+#article-content > ul > li > ul {
+  @apply pl-5;
+  list-style-type: circle;
+}
+
+#article-content > ul > li > ul > li {
+  list-style-type: circle;
+}
