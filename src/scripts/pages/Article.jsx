@@ -93,7 +93,7 @@ const Article = () => {
       image: article.thumbnail,
       title: article.title.rendered,
       tags: article["article-tags"],
-      content: removeHTMLTags(article.content.rendered).split(".")[0] + "...",
+      content: removeHTMLTags(article.content.rendered).substring(0, 150) + "...",
     }));
     setArticles(articleList);
     setPageSize(Number(totalPages));
