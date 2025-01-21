@@ -165,6 +165,7 @@ const DoctorDetails = () => {
                 Jl. Hang Tuah Raya No.35, Kby. Baru, South Jakarta - 12120
               </p>
               <button
+                id="doctor-whatsapp-senayan"
                 className="btn btn-primary w-full"
                 onClick={() =>
                   window.open("https://wa.me/+6281218186161", "_blank")
@@ -186,6 +187,7 @@ const DoctorDetails = () => {
                 North Jakarta City - 14440
               </p>
               <button
+                id="doctor-whatsapp-pluit"
                 className="btn btn-primary w-full"
                 onClick={() =>
                   window.open("https://wa.me/+628128080011", "_blank")

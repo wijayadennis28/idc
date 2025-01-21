@@ -174,7 +174,8 @@ const Home = () => {
               </div>
 
               <div className="flex h-full items-center max-lg:w-full max-lg:flex-col max-lg:gap-6">
-                <button
+                <button 
+                  id="home-btnMakeAppointment-hero"
                   className="btn btn-primary flex w-fit max-lg:w-full"
                   onClick={openModal}
                 >
@@ -306,6 +307,7 @@ const Home = () => {
                     </div>
                   </div>
                   <button
+                    id="home-btnMakeAppointment-doctor"
                     onClick={openModal}
                     className="btn btn-primary w-fit max-md:btn-sm max-md:h-10 max-md:text-[11px]"
                   >

@@ -218,6 +218,7 @@ const Header = () => {
               );
             })}
             <button
+              id="menu-btnMakeAppointment"
               className={`btn btn-primary btn-sm ${showButtonAnimation ? "" : "no-animation"}`}
               style={{ height: "2.5rem" }}
               onClick={openModal}
