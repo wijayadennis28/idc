@@ -185,7 +185,7 @@ const Header = () => {
           >
             <img
               src={Logo}
-              alt="Indo Dental Center Logo"
+              alt={t("logo.imageAlt")}
               className="w-28 lg:w-36"
             />
           </a>

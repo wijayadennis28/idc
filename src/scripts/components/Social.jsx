@@ -45,7 +45,7 @@ const Social = () => {
               <div className="flex w-full justify-center gap-4 pb-8">
                 <div className="flex flex-1 gap-4">
                   <div className="relative flex flex-1 flex-col justify-center pb-20">
-                    <img src={Connect2Img} alt="connect-2" className="w-fit" />
+                    <img src={Connect2Img} alt={t("carousellImage.carousellImageAlt1")} className="w-fit" />
                     <div className="absolute -top-4 right-8">
                       <p className="absolute -top-6 left-28 w-64 text-primary">
                         {t("connectWithUs.item1")}
@@ -58,10 +58,10 @@ const Social = () => {
                     </div>
                   </div>
                   <div className="mt-8 flex flex-1 flex-col items-center gap-8">
-                    <img src={Connect3Img} alt="connect-3" className="w-8/12" />
+                    <img src={Connect3Img} alt={t("carousellImage.carousellImageAlt2")} className="w-8/12" />
                     <img
                       src={Connect4Img}
-                      alt="connect-4"
+                      alt={t("carousellImage.carousellImageAlt3")}
                       className="w-11/12"
                     />
                   </div>
@@ -69,7 +69,7 @@ const Social = () => {
                 <div className="relative flex justify-center">
                   <img
                     src={Connect1Img}
-                    alt="connect-1"
+                    alt={t("carousellImage.carousellImageAlt4")}
                     className="max-h-[950px] w-[23.295vw] max-w-[529px] rounded-3xl object-cover"
                   />
                   <img
@@ -93,7 +93,7 @@ const Social = () => {
                     <div className="relative">
                       <img
                         src={Connect5Img}
-                        alt="connect-5"
+                        alt={t("carousellImage.carousellImageAlt5")}
                         className="w-11/12"
                       />
                       <div className="absolute -right-14 -top-4">
@@ -109,7 +109,7 @@ const Social = () => {
                     </div>
                     <img
                       src={Connect6Img}
-                      alt="connect-6"
+                      alt={t("carousellImage.carousellImageAlt6")}
                       className="w-10/12"
                     />
                   </div>
@@ -117,7 +117,7 @@ const Social = () => {
                     <div>
                       <img
                         src={Connect7Img}
-                        alt="connect-7"
+                        alt={t("carousellImage.carousellImageAlt7")}
                         className="w-fit"
                       />
                       <div className="relative">

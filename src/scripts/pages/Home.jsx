@@ -53,6 +53,12 @@ const Home = () => {
     },
   ];
 
+  const altTexts = [
+    t("homeImageHero.heroImageAlt1"),
+    t("homeImageHero.heroImageAlt2"),
+    t("homeImageHero.heroImageAlt3"),
+  ];  
+
   useEffect(() => {
     loadPartners().catch(console.error);
     loadDoctors().catch(console.error);
@@ -204,7 +210,7 @@ const Home = () => {
                   <div className="h-fit w-full lg:h-[85vh] lg:max-h-[600px] xl:max-h-[1684px] 2xl:h-[87vh]">
                     <img
                       src={value}
-                      alt="Hero Background"
+                      alt={altTexts[index]}
                       className={`h-full w-full object-cover object-center`}
                     />
                   </div>

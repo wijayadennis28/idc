@@ -1,6 +1,30 @@
 {
+  "logo":{
+    "imageAlt": "Indo Dental Center - The Best Dental Clinic in Jakarta"
+  },
+  "homeImageHero": {
+    "heroImageAlt1": "Dental Clinic with Complete Equipment",
+    "heroImageAlt2": "drg. Michael Nathanael Mahama, MARS., Sp.Pros with Audrey Vanessa (Miss Indonesia 2022)",
+    "heroImageAlt3": "Indo Dental Center Clinic Jakarta Selatan"
+  },
   "homeHero": {
     "description": "We are a team of dedicated dental care professionals who aim to provide the best dental care services in the area. Our team of experts is here to help you achieve the smile you have always wanted. Take a look at some of our happy patients!"
+  },
+  "carousellImage":{
+    "carousellImageAlt1": "Giving Comprehensive Consultation",
+    "carousellImageAlt2": "Comfortable Waiting Room Jakarta Selatan",
+    "carousellImageAlt3": "Expert Dentist Giving Specialized Treatment",
+    "carousellImageAlt4": "Doctors Explaining Indo Dental Center's Patient-Centric Service",
+    "carousellImageAlt5": "Doctors Reading X-Ray results for Specialized and Patient-Centric Treatment",
+    "carousellImageAlt6": "Comfortable Waiting Room Jakarta Utara",
+    "carousellImageAlt7": "Doctors Giving Comprehensive Dental Thorough Checkup"
+  },
+  "timelineImage":{
+    "timelineImageAlt1": "Our Clinic Image in 2001",
+    "timelineImageAlt2": "Our Clinic Image in 2003",
+    "timelineImageAlt3": "Our Clinic Image in 2007",
+    "timelineImageAlt4": "Our Clinic Image in 2012",
+    "timelineImageAlt5": "Our Clinic Image in 2023"
   },
   "pages": {
     "home": "Home",

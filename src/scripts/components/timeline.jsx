@@ -133,7 +133,7 @@ const Timeline = ({ setObserver, callback }) => {
               <img
                 src={image1}
                 className="h-full w-full object-cover"
-                alt="Timeline Image"
+                alt={t("timelineImage.timelineImageAlt1")}
               />
               <div className="absolute inset-x-0 top-0 h-[50px] bg-gradient-to-b from-white to-transparent"></div>
               <div className="absolute inset-x-0 bottom-0 h-[50px] bg-gradient-to-t from-white to-transparent"></div>
@@ -163,7 +163,7 @@ const Timeline = ({ setObserver, callback }) => {
               <img
                 src={image2}
                 className="h-full w-full object-cover"
-                alt="Timeline Image"
+                alt={t("timelineImage.timelineImageAlt2")}
               />
               <div className="absolute inset-x-0 top-0 h-[50px] bg-gradient-to-b from-white to-transparent"></div>
               <div className="absolute inset-x-0 bottom-0 h-[50px] bg-gradient-to-t from-white to-transparent"></div>
@@ -193,7 +193,7 @@ const Timeline = ({ setObserver, callback }) => {
               <img
                 src={image3}
                 className="h-full w-full object-cover"
-                alt="Timeline Image"
+                alt={t("timelineImage.timelineImageAlt3")}
               />
               <div className="absolute inset-x-0 top-0 h-[50px] bg-gradient-to-b from-white to-transparent"></div>
               <div className="absolute inset-x-0 bottom-0 h-[50px] bg-gradient-to-t from-white to-transparent"></div>
@@ -223,7 +223,7 @@ const Timeline = ({ setObserver, callback }) => {
               <img
                 src={image4}
                 className="h-full w-full object-cover"
-                alt="Timeline Image"
+                alt={t("timelineImage.timelineImageAlt4")}
               />
               <div className="absolute inset-x-0 top-0 h-[50px] bg-gradient-to-b from-white to-transparent"></div>
               <div className="absolute inset-x-0 bottom-0 h-[50px] bg-gradient-to-t from-white to-transparent"></div>
@@ -253,7 +253,7 @@ const Timeline = ({ setObserver, callback }) => {
               <img
                 src={image5}
                 className="h-full w-full object-cover"
-                alt="Timeline Image"
+                alt={t("timelineImage.timelineImageAlt5")}
               />
               <div className="absolute inset-x-0 top-0 h-[50px] bg-gradient-to-b from-white to-transparent"></div>
               <div className="absolute inset-x-0 bottom-0 h-[50px] bg-gradient-to-t from-white to-transparent"></div>

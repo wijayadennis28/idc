@@ -1,6 +1,30 @@
 {
+  "logo":{
+    "imageAlt": "Indo Dental Center - Klinik Gigi Terbaik di Jakarta"
+  },
+  "homeImageHero": {
+    "heroImageAlt1": "Klinik Gigi dengan Peralatan Terlengkap",
+    "heroImageAlt2": "drg. Michael Nathanael Mahama, MARS., Sp.Pros bersama Audrey Vanessa (Miss Indonesia 2022)",
+    "heroImageAlt3": "Indo Dental Center Klinik Jakarta Selatan"
+  },
   "homeHero": {
     "description": "Dari pemeriksaan gigi rutin keluarga hingga implan dan senyuman yang estetik, tim kami dengan siap membantu Anda untuk mencapai senyum impian Anda."
+  },
+  "carousellImage":{
+    "carousellImageAlt1": "Memberikan Konsultasi Lengkap",
+    "carousellImageAlt2": "Ruang Tunggu Clinic Gigi yang nyaman Jakarta Selatan",
+    "carousellImageAlt3": "Dokter Gigi Ahli Memberikan Perawatan Khusus",
+    "carousellImageAlt4": "Dokter Menjelaskan Layanan yang Terspesialisasi pada Pasien",
+    "carousellImageAlt5": "Dokter Membaca Hasil X-Ray untuk Perawatan Khusus yang Berpusat pada Pasien",
+    "carousellImageAlt6": "Ruang Tunggu Clinic Gigi yang nyaman Jakarta Utara",
+    "carousellImageAlt7": "Dokter Memberikan Pemeriksaan Gigi Menyeluruh"
+  },
+  "timelineImage":{
+    "timelineImageAlt1": "Gambar Klinik Kami di 2001",
+    "timelineImageAlt2": "Gambar Klinik Kami di 2003",
+    "timelineImageAlt3": "Gambar Klinik Kami di 2007",
+    "timelineImageAlt4": "Gambar Klinik Kami di 2012",
+    "timelineImageAlt5": "Gambar Klinik Kami di 2023"
   },
   "pages": {
     "home": "Beranda",
