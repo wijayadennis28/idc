@@ -182,19 +182,41 @@ body {
   color: #fff;
 }
 
-#article-content ul {
+#article-content ul,
+#article-content ol {
   @apply list-none;
 }
 
+#article-content > ul,
+#article-content > ol {
+  @apply pl-5;
+}
+
 #article-content > ul {
-  @apply list-disc pl-5;
+  list-style-type: disc;
+}
+
+#article-content > ol {
+  list-style-type: decimal;
+}
+
+#article-content > ul > li > ul,
+#article-content > ol > li > ol {
+  @apply pl-5;
 }
 
 #article-content > ul > li > ul {
-  @apply pl-5;
   list-style-type: circle;
+}
+
+#article-content > ol > li > ol {
+  list-style-type: lower-roman;
 }
 
 #article-content > ul > li > ul > li {
   list-style-type: circle;
+}
+
+#article-content > ol > li > ol > li {
+  list-style-type: lower-roman;
 }
