@@ -59,7 +59,9 @@ const ArticleDetail = () => {
       image: article.thumbnail,
       title: article.title.rendered,
       tags: article["article-tags"],
-      content: removeHTMLTags(article.content.rendered).split(".")[0] + "...",
+      content: removeHTMLTags(article.content.rendered).length > 150 
+      ? removeHTMLTags(article.content.rendered).substring(0, removeHTMLTags(article.content.rendered).lastIndexOf(" ", 150)) + "..." 
+      : removeHTMLTags(article.content.rendered),
     }));
     setRelatedArticles(articleList);
 
