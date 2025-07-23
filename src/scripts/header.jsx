@@ -308,16 +308,35 @@ const Header = () => {
         onTouchEnd={handleTouchEnd}
       >
         <div className="flex flex-col items-center gap-8 py-4">
-          {menuList.map((item) => (
-            <a
-              key={item.id}
-              className={`idc-menu cursor-pointer text-xl ${item.id.includes(path) ? "path" : ""}`}
-              onClick={() => setShowMenu(false)}
-              href={item.URL}
-            >
-              {item.name}
-            </a>
-          ))}
+          {menuList.map((item) => {
+            // Remove trailing slash from wpApiSettings.homeUrl if it exists
+            const basePath = wpApiSettings.homeUrl.replace(/\/+$/, "");
+
+            // Adjust URLs dynamically
+            const adjustedURL =
+              item.URL === "/" // If it's the homepage
+                ? basePath // Use basePath directly
+                : `${basePath}${item.URL}`.replace(
+                    `${basePath}${basePath}`,
+                    basePath,
+                  );
+
+            // Determine if this menu item is active
+            const currentPath = window.location.pathname.replace(/\/+$/, "");
+            const cleanTargetPath = new URL(adjustedURL, window.location.origin).pathname.replace(/\/+$/, "");
+            const isActive = currentPath === cleanTargetPath;
+
+            return (
+              <a
+                key={item.id}
+                className={`idc-menu cursor-pointer text-xl ${isActive ? "path" : ""}`}
+                onClick={() => setShowMenu(false)}
+                href={adjustedURL}
+              >
+                {item.name}
+              </a>
+            );
+          })}
           <button className="btn btn-primary" onClick={openModal}>
             {t("makeAppointment")}
           </button>
