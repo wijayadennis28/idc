@@ -1,8 +1,11 @@
 <?php
 
 function boilerplate_load_assets() {
-  wp_enqueue_script('ourmainjs', get_theme_file_uri('/build/index.js'), array('wp-element'), '1.0', true);
-  wp_enqueue_style('ourmaincss', get_theme_file_uri('/build/index.css'));
+  $asset_file = get_theme_file_path('/build/index.asset.php');
+  $asset_data = file_exists($asset_file) ? include $asset_file : array('dependencies' => array('wp-element'), 'version' => '1.0');
+  
+  wp_enqueue_script('ourmainjs', get_theme_file_uri('/build/index.js'), $asset_data['dependencies'], $asset_data['version'], true);
+  wp_enqueue_style('ourmaincss', get_theme_file_uri('/build/index.css'), array(), $asset_data['version']);
   wp_enqueue_style('template', get_theme_file_uri('/src/scripts/components/timeline.css'));
 }
 
