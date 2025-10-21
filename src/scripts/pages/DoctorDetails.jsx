@@ -168,7 +168,7 @@ const DoctorDetails = () => {
                 id="doctor-whatsapp-senayan"
                 className="btn btn-primary w-full"
                 onClick={() =>
-                  window.open("https://wa.me/+6281218186161", "_blank")
+                  window.open("https://wa.me/+628128080011", "_blank")
                 }
               >
                 {t("makeAppointment")}
@@ -190,7 +190,7 @@ const DoctorDetails = () => {
                 id="doctor-whatsapp-pluit"
                 className="btn btn-primary w-full"
                 onClick={() =>
-                  window.open("https://wa.me/+628128080011", "_blank")
+                  window.open("https://wa.me/+6281218186161", "_blank")
                 }
               >
                 {t("makeAppointment")}
