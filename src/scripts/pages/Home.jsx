@@ -6,7 +6,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import Departments from "../components/Departments";
 import PartnersList from "../components/PartnersList";
 import Social from "../components/Social";
-import IdcCard from "../components/IdcCard";
+import WhyChooseUs from "../components/WhyChooseUs";
 
 import useScreenSize from "../../utils/useScreenSize";
 
@@ -14,11 +14,6 @@ import useScreenSize from "../../utils/useScreenSize";
 import Hero1Img from "../../../assets/image/home/hero/hero-1.jpg";
 import Hero2Img from "../../../assets/image/home/hero/hero-2.jpg";
 import Hero3Img from "../../../assets/image/home/hero/hero-3.jpg";
-
-import WhyChooseUs1Img from "../../../assets/image/home/why-choose-us/affordable-care.png";
-import WhyChooseUs2Img from "../../../assets/image/home/why-choose-us/specialized-treatments.png";
-import WhyChooseUs3Img from "../../../assets/image/home/why-choose-us/patient-centric-service.png";
-import WhyChooseUsBgImg from "../../../assets/image/home/why-choose-us/background.svg";
 
 import DrgRickyImg from "../../../assets/image/doctors/drg-ricky.png";
 
@@ -37,21 +32,6 @@ const Home = () => {
   const [testimonies, setTestimonies] = useState([]);
   const [departments, setDepartments] = useState([]);
   const [topDoctors, setTopDoctors] = useState([]);
-
-  const whyChooseUs = [
-    {
-      title: t("whyChooseUsItem.affordableCare"),
-      image: WhyChooseUs1Img,
-    },
-    {
-      title: t("whyChooseUsItem.specializedTreatments"),
-      image: WhyChooseUs2Img,
-    },
-    {
-      title: t("whyChooseUsItem.patientCentricService"),
-      image: WhyChooseUs3Img,
-    },
-  ];
 
   const altTexts = [
     t("homeImageHero.heroImageAlt1"),
@@ -156,8 +136,7 @@ const Home = () => {
   }, []);
 
   const openModal = () => {
-    const dialog = document.getElementById("map-modal");
-    dialog.showModal();
+    window.open("https://wa.me/+628128080011", "_blank");
   };
 
   return (
@@ -220,42 +199,18 @@ const Home = () => {
           </div>
         </div>
         <div
-          className="bg-auto bg-left bg-no-repeat"
-          style={{ backgroundImage: `url(${WhyChooseUsBgImg})` }}
+          id="our-partner"
+          className="flex flex-col items-center gap-8 py-16"
         >
-          <div
-            id="our-partner"
-            className="flex flex-col items-center gap-8 py-16"
-          >
-            <h1 className="text-center font-normal text-primary">
-              <Trans
-                i18nKey="ourPartners"
-                components={{ span: <span className="font-bold" /> }}
-              />
-            </h1>
-            <PartnersList list={ourPartnerList} slider={true} />
-          </div>
-          <div
-            id="why-choose-us"
-            className="flex flex-col items-center gap-8 px-8 py-16"
-          >
-            <h1 className="text-center font-normal text-primary">
-              <Trans
-                i18nKey="whyChooseUs"
-                components={{ span: <span className="font-bold" /> }}
-              />
-            </h1>
-            <div className="w-full max-sm:px-4 sm:flex sm:justify-center">
-              <div className="flex max-w-[2292px] flex-wrap justify-stretch gap-8 max-lg:flex-col max-lg:gap-4 max-lg:px-4 max-md:gap-8 max-md:px-4 max-sm:px-0 md:justify-center">
-                {whyChooseUs.map((why, index) => (
-                  <>
-                    <IdcCard key={index} title={why.title} image={why.image} />
-                  </>
-                ))}
-              </div>
-            </div>
-          </div>
+          <h1 className="text-center font-normal text-primary">
+            <Trans
+              i18nKey="ourPartners"
+              components={{ span: <span className="font-bold" /> }}
+            />
+          </h1>
+          <PartnersList list={ourPartnerList} slider={true} />
         </div>
+        <WhyChooseUs />
         <div id="service" className="mb-12 flex flex-col items-center">
           <div
             className="flex h-72 w-full items-center justify-center bg-cover bg-center bg-no-repeat 2xl:h-96"

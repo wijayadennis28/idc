@@ -39,8 +39,11 @@
   "whyChooseUs": "Mengapa<span> memilih kami</span>",
   "whyChooseUsItem": {
     "affordableCare": "Perawatan Terjangkau",
+    "affordableCareDesc": "Kami menawarkan harga kompetitif untuk memastikan perawatan gigi berkualitas tinggi dapat dijangkau oleh semua orang. Layanan terbaik tidak harus mahal.",
     "specializedTreatments": "Perawatan Khusus",
-    "patientCentricService": "Layanan Berpusat pada Pasien"
+    "specializedTreatmentsDesc": "Tim spesialis kami terlatih di berbagai bidang gigi untuk memberikan perawatan komprehensif. Apapun kebutuhan gigi Anda, kami memiliki keahlian untuk menanganinya.",
+    "patientCentricService": "Layanan Berpusat pada Pasien",
+    "patientCentricServiceDesc": "Kenyamanan dan kepuasan Anda adalah prioritas utama kami. Kami menyesuaikan layanan untuk memenuhi kebutuhan unik Anda, memastikan pengalaman yang personal dan bebas stres."
   },
   "exploreServices": "Jelajahi Layanan <span>Kami</span>",
   "seeDetails": "Lihat Detail",

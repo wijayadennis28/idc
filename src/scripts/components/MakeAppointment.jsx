@@ -32,8 +32,7 @@ const MakeAppointment = () => {
     { src: Connect7Img, alt: "connect-7" },
   ];
   const openModal = () => {
-    const dialog = document.getElementById("map-modal");
-    dialog.showModal();
+    window.open("https://wa.me/+628128080011", "_blank");
   };
 
   return (

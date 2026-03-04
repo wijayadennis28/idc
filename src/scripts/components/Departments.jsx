@@ -1,23 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import Loading from "./Loading";
 import IdcCard from "./IdcCard";
 
-import useScreenSize from "../../utils/useScreenSize";
-
 const Departments = ({ departments = [] }) => {
-  const screenSize = useScreenSize();
-
   if (departments.length === 0) return <Loading />;
 
   return (
-    <div className="mt-8 flex max-w-[2292px] flex-wrap justify-stretch gap-8 max-lg:gap-4 max-lg:px-4 max-md:flex-col max-md:gap-8 max-md:px-4 max-sm:px-0 md:justify-center">
+    <div className="mt-8 grid w-full max-w-[1200px] grid-cols-1 gap-6 px-4 sm:grid-cols-2 lg:grid-cols-3">
       {departments.map((department, index) => (
-        <a href={department.link} key={index}>
+        <a href={department.link} key={index} className="block">
           <IdcCard
             image={department.meta?.image}
+            icon={department.meta?.icon}
             title={department.title.rendered}
-            hover={screenSize > 640 ? true : false}
+            description={department.meta?.card_text}
           />
         </a>
       ))}

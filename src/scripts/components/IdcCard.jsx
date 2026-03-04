@@ -1,51 +1,44 @@
 import React from "react";
 
-import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
-
-import { useTranslation } from "react-i18next";
-
-const IdcCard = ({ image, title, hover = false }) => {
-  const { t } = useTranslation();
-
+const IdcCard = ({ image, icon, title, description }) => {
   return (
-    <>
-      <div
-        className={`group card relative h-44 w-full overflow-hidden !bg-white bg-right bg-no-repeat text-primary-content shadow sm:w-[340px] lg:h-48 lg:w-[380px] ${hover ? "hover:!bg-primary hover:!bg-none" : ""}`}
-      >
-        <div className="group card relative h-full w-full overflow-hidden">
-          {/* Image and gradient */}
-          <div
-            className={`absolute inset-0 ${hover ? "group-hover:hidden" : ""}`}
-          >
-            {" "}
-            <img
-              src={image}
-              alt={`${title} image`}
-              className="h-full w-full object-cover opacity-50"
-            />
-            <div className="absolute inset-0 w-10 bg-gradient-to-r from-white to-transparent"></div>
-          </div>
-
-          {/* Card content */}
-          <div className="card-body relative z-10 flex flex-row flex-wrap justify-between">
-            <h4
-              className={`overflow-visible text-primary ${hover ? "w-[138px] group-hover:text-white lg:w-[168px]" : ""} `}
-              dangerouslySetInnerHTML={{
-                __html: title,
-              }}
-            ></h4>
-            {hover && (
-              <div className={`card-actions hidden group-hover:block`}>
-                <button className="btn btn-secondary no-animation btn-sm h-11 w-fit">
-                  {t("seeDetails")}
-                  <ArrowUpRightIcon className="w-4" />
-                </button>
-              </div>
+    <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-[#FCFBFD] shadow-sm">
+      {/* Top area: icon left, image right — fixed height so text below is never overlapped */}
+      <div className="flex h-28 items-start">
+        {/* Left: teal icon circle */}
+        <div className="flex shrink-0 items-start p-5">
+          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary p-3">
+            {icon ? (
+              <img src={icon} alt={title} className="h-full w-full object-contain brightness-0 invert" />
+            ) : (
+              <span className="text-xl text-white">●</span>
             )}
           </div>
         </div>
+        {/* Right: faded image, clipped to top-right corner */}
+        {image && (
+          <div className="relative h-full flex-1 overflow-hidden rounded-tr-2xl">
+            <img
+              src={image}
+              alt={title}
+              className="h-full w-full object-cover opacity-40"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#FCFBFD] via-[#FCFBFD]/50 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#FCFBFD] via-transparent to-transparent"></div>
+          </div>
+        )}
       </div>
-    </>
+      {/* Text content — always below the image, never overlapped */}
+      <div className="flex flex-col gap-2 p-5 pt-2">
+        <h4
+          className="font-bold text-secondary"
+          dangerouslySetInnerHTML={{ __html: title }}
+        />
+        {description && (
+          <p className="text-sm leading-relaxed text-gray-500">{description}</p>
+        )}
+      </div>
+    </div>
   );
 };
 

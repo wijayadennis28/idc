@@ -60,6 +60,7 @@ const OurDoctors = () => {
             thumbnail: doctor.thumbnail,
             name: doctor.title.rendered,
             service: doctor.service_name,
+            specialisation: doctor.meta?.specialisation,
           })),
         );
 

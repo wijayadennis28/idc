@@ -39,8 +39,11 @@
   "whyChooseUs": "Why<span> choose us</span>",
   "whyChooseUsItem": {
     "affordableCare": "Affordable Care",
+    "affordableCareDesc": "We offer competitive pricing to ensure that top-notch dental care is within everyone's reach. Quality service shouldn't break the bank.",
     "specializedTreatments": "Specialized Treatments",
-    "patientCentricService": "Patient-Centric Service"
+    "specializedTreatmentsDesc": "Our team of specialists is trained in various dental fields to provide you with comprehensive care. Whatever your dental needs, we have the expertise to handle them.",
+    "patientCentricService": "Patient-Centric Service",
+    "patientCentricServiceDesc": "Your comfort and satisfaction are our top priorities. We tailor our services to meet your unique needs, ensuring a personalized and stress-free experience."
   },
   "exploreServices": "Explore Our <span>Services</span>",
   "seeDetails": "See Details",

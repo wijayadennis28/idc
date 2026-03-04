@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import OurClinicImg from "../../../assets/image/our-services/our-clinic.jpg";
+import logoWithoutTextBig from "../../../assets/image/logo/logo-without-text-big.svg";
 import Departments from "../components/Departments";
 import ClinicEquipmentSlider from "../components/Slider";
+import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 
 import { useTranslation, Trans } from "react-i18next";
 
@@ -11,6 +13,10 @@ const OurServices = () => {
   const [equipments, setEquipments] = useState([]);
   const [departments, setDepartments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const openModal = () => {
+    window.open("https://wa.me/+628128080011", "_blank");
+  };
 
   useEffect(() => {
     async function loadDepartments() {
@@ -88,6 +94,42 @@ const OurServices = () => {
         </p>
         <ClinicEquipmentSlider equipments={equipments} isLoading={isLoading} />
       </section>
+      <div className="flex justify-center py-8">
+        <div className="relative m-4 w-full max-w-[2400px] md:m-8">
+          <div className="hidden h-28 md:flex lg:h-44 xl:h-60">
+            <div className="flex-1"></div>
+            <div className="flex flex-1 justify-center">
+              <div className="absolute top-16">
+                <img
+                  src={logoWithoutTextBig}
+                  alt="logo"
+                  className="size-[380px] lg:size-[439px] xl:size-[520px]"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="flex rounded-2xl bg-[color:#E0EFF3] px-2 py-20 text-center md:px-8 md:py-16 md:text-left lg:px-16 lg:py-24">
+            <div className="flex flex-1 flex-col items-center gap-6 md:items-start md:justify-between">
+              <div className="flex flex-col items-center gap-6 md:items-start">
+                <h1 className="text-primary">
+                  <span className="font-normal">Ready to transform</span> your
+                  smile
+                </h1>
+                <p>
+                  Your journey to a confident, beautiful smile starts here.
+                  <br />
+                  Let's make it happen together!
+                </p>
+              </div>
+              <button className="btn btn-primary w-fit" onClick={openModal}>
+                Make an Appointment today!{" "}
+                <ArrowLongRightIcon className="size-5" />
+              </button>
+            </div>
+            <div className="hidden flex-1 md:flex"></div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
