@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 
@@ -55,9 +55,7 @@ const MakeAppointment = () => {
           </div>
           <div className="flex rounded-2xl bg-[color:#E0EFF3] px-2 py-16 text-center md:px-8 md:py-8 md:text-left lg:p-16">
             <div className="flex flex-1 flex-col items-center gap-6 md:items-start">
-              <h1 className="text-primary">
-                <Trans i18nKey="readyToTransform" components={{ span: <span className="font-normal" /> }} />
-              </h1>
+              <h1 className="text-primary [&>span]:font-normal" dangerouslySetInnerHTML={{ __html: t("readyToTransform") }} />
               <p>{t("makeAppointmentDesc")}</p>
               <button className="btn btn-primary w-fit" onClick={openModal}>
                 {t("makeAppointmentToday")}{" "}
