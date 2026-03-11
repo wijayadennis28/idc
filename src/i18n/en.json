@@ -35,8 +35,11 @@
   },
   "makeAppointment": "Make an Appointment",
   "makeAppointmentToday": "Make an Appointment Today!",
+  "readyToTransform": "<span>Begin your smile transformation towards a better quality of life </span>",
+  "makeAppointmentDesc": "Tell us your concern and preferred schedule. Our Indo Dental Center team will recommend the right Dentist and guide you through the next steps, supported by modern diagnostics when needed.",
   "ourPartners": "<span>Our</span> partners",
   "whyChooseUs": "Why<span> choose us</span>",
+  "whyChooseUsDesc": "We combine world-class clinical expertise with a gentle, personalized approach to ensure every visit is as rewarding as the results.",
   "whyChooseUsItem": {
     "affordableCare": "Affordable Care",
     "affordableCareDesc": "We offer competitive pricing to ensure that top-notch dental care is within everyone's reach. Quality service shouldn't break the bank.",
@@ -49,11 +52,11 @@
   "seeDetails": "See Details",
   "meetOurDentist": {
     "title": "Meet Our <span>Expert Dentist</span>",
-    "description": "We pride ourselves on delivering the best service in dental care. From routine checkups to advanced treatments, our dedicated team is committed to providing you with personalized, top-quality care that ensures your smile shines its brightest."
+    "description": "On-site experienced specialists supported by modern technology."
   },
   "happyPatient": {
-    "title": "A lot of <span>happy patients</span>",
-    "description": "We are proud to have the opportunity to give you the smile of your dreams. Our team of experts is here to help you achieve the smile you have always wanted. Take a look at some of our happy patients!"
+    "title": "Patient Stories",
+    "description": "Real experiences and transformation stories."
   },
   "connectWithUs": {
     "title": "Connect with Us",

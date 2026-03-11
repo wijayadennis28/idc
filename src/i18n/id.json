@@ -35,8 +35,11 @@
   },
   "makeAppointment": "Buat Janji Sekarang",
   "makeAppointmentToday": "Buat Janji Hari Ini!",
+  "readyToTransform": "<span>Mulailah transformasi senyum Anda menuju kualitas hidup yang lebih baik.</span>",
+  "makeAppointmentDesc": "Ceritakan keluhan Anda dan jadwal yang diinginkan. Tim Klinik Gigi Indo Dental Center akan membantu merekomendasikan Dokter Gigi yang sesuai dan menjelaskan langkah selanjutnya dengan dukungan pemeriksaan modern bila diperlukan.",
   "ourPartners": "<span>Mitra</span> kami",
   "whyChooseUs": "Mengapa<span> memilih kami</span>",
+  "whyChooseUsDesc": "Kami menggabungkan keahlian klinis kelas dunia dengan pendekatan yang lembut dan personal untuk memastikan setiap kunjungan sama memuaskannya dengan hasilnya.",
   "whyChooseUsItem": {
     "affordableCare": "Perawatan Terjangkau",
     "affordableCareDesc": "Kami menawarkan harga kompetitif untuk memastikan perawatan gigi berkualitas tinggi dapat dijangkau oleh semua orang. Layanan terbaik tidak harus mahal.",
@@ -48,12 +51,12 @@
   "exploreServices": "Layanan Perawatan Gigi oleh <span>Spesialis Berpengalaman</span>",
   "seeDetails": "Lihat Detail",
   "meetOurDentist": {
-    "title": "Kenali Dokter Gigi <span>Ahli Kami</span>",
-    "description": "Kami bangga memberikan layanan terbaik dalam perawatan gigi. Mulai dari pemeriksaan rutin hingga perawatan canggih, tim kami yang berdedikasi siap memberikan perhatian pribadi dan perawatan berkualitas tinggi untuk memastikan senyuman Anda tetap bersinar paling cerah."
+    "title": "Temui Dokter Gigi <span>Ahli Kami</span>",
+    "description": "Dokter spesialis berpengalaman didukung oleh teknologi modern."
   },
   "happyPatient": {
-    "title": "Banyak <span>Pasien Bahagia</span>",
-    "description": "Di Indo Dental Center, kebanggaan terbesar kami adalah senyuman yang berhasil kami wujudkan. Namun, jangan hanya percaya pada kata-kata kami—dengarkan langsung dari pasien-pasien kami yang puas!"
+    "title": "Cerita Pasien Kami",
+    "description": "Pengalaman dan kisah transformasi nyata."
   },
   "connectWithUs": {
     "title": "Connect with Us",

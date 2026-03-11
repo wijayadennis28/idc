@@ -13,7 +13,7 @@ const DoctorsGrid = ({ doctors, isLoading, showHeading = false }) => {
   if (isLoading) return <Loading />;
 
   return (
-    <div className="px-8">
+    <div className="px-8 pt-8">
       {showHeading && (
         <div className="mb-8 flex flex-col gap-3">
           <h1 className="font-normal text-[#4D4757]">

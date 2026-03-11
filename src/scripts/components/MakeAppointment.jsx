@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation, Trans } from "react-i18next";
 
 import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 
@@ -20,6 +21,7 @@ import ConnectLogoImg from "../../../assets/image/home/connect/connect-logo.png"
 import useScreenSize from "../../utils/useScreenSize";
 
 const MakeAppointment = () => {
+  const { t } = useTranslation();
   const screenSize = useScreenSize();
 
   const social = [
@@ -54,16 +56,11 @@ const MakeAppointment = () => {
           <div className="flex rounded-2xl bg-[color:#E0EFF3] px-2 py-16 text-center md:px-8 md:py-8 md:text-left lg:p-16">
             <div className="flex flex-1 flex-col items-center gap-6 md:items-start">
               <h1 className="text-primary">
-                <span className="font-normal">Ready to transform</span> your
-                smile
+                <Trans i18nKey="readyToTransform" components={{ span: <span className="font-normal" /> }} />
               </h1>
-              <p>
-                Your journey to a confident, beautiful smile starts here.
-                <br />
-                Let's make it happen together!
-              </p>
+              <p>{t("makeAppointmentDesc")}</p>
               <button className="btn btn-primary w-fit" onClick={openModal}>
-                Make an Appointment today!{" "}
+                {t("makeAppointmentToday")}{" "}
                 <ArrowLongRightIcon className="size-5" />
               </button>
             </div>
@@ -75,7 +72,7 @@ const MakeAppointment = () => {
       {screenSize < 1024 && (
         <div className="flex w-full flex-col items-center gap-8 px-4 pb-8 pt-16">
           <h1 className="text-center font-normal text-primary">
-            Connect with Us
+            {t("connectWithUs.title")}
           </h1>
           <div className="relative mb-6 flex justify-center">
             <Swiper
@@ -144,7 +141,7 @@ const MakeAppointment = () => {
                   </clipPath>
                 </defs>
               </svg>
-              Follow Us
+              {t("connectWithUs.button")}
             </button>
           </a>
         </div>

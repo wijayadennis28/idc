@@ -112,17 +112,12 @@ const OurServices = () => {
             <div className="flex flex-1 flex-col items-center gap-6 md:items-start md:justify-between">
               <div className="flex flex-col items-center gap-6 md:items-start">
                 <h1 className="text-primary">
-                  <span className="font-normal">Ready to transform</span> your
-                  smile
+                  <Trans i18nKey="readyToTransform" components={{ span: <span className="font-normal" /> }} />
                 </h1>
-                <p>
-                  Your journey to a confident, beautiful smile starts here.
-                  <br />
-                  Let's make it happen together!
-                </p>
+                <p>{t("makeAppointmentDesc")}</p>
               </div>
               <button className="btn btn-primary w-fit" onClick={openModal}>
-                Make an Appointment today!{" "}
+                {t("makeAppointmentToday")}{" "}
                 <ArrowLongRightIcon className="size-5" />
               </button>
             </div>

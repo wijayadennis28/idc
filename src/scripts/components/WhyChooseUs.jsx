@@ -1,5 +1,5 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation, Trans } from "react-i18next";
 import { ArrowsPointingInIcon, CheckBadgeIcon, UserIcon } from "@heroicons/react/24/outline";
 import AffordableCareImg from "../../../assets/image/home/why-choose-us/affordable-care.png";
 
@@ -31,12 +31,13 @@ const WhyChooseUs = () => {
         {/* Left: title + subtitle */}
         <div className="flex flex-1 flex-col gap-4">
           <h2 className="text-[#2D2B3D]">
-            Why your smile is{" "}
-            <span className="font-normal">in safe hands.</span>
+            <Trans
+              i18nKey="whyChooseUs"
+              components={{ span: <span className="font-normal" /> }}
+            />
           </h2>
           <p className="max-w-sm text-gray-500">
-            We combine world-class clinical expertise with a gentle, personalized
-            approach to ensure every visit is as rewarding as the results.
+            {t("whyChooseUsDesc")}
           </p>
         </div>
 

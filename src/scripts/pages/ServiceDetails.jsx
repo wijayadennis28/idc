@@ -231,20 +231,15 @@ const ServiceDetails = () => {
             <div className="flex flex-1 flex-col justify-between p-8 text-center md:p-12 md:text-left lg:px-16 lg:py-14">
               <div className="flex flex-col items-center gap-6 md:items-start">
                 <h1 className="text-primary">
-                  <span className="font-normal">Ready to transform</span> your
-                  smile
+                  <Trans i18nKey="readyToTransform" components={{ span: <span className="font-normal" /> }} />
                 </h1>
-                <p>
-                  Your journey to a confident, beautiful smile starts here.
-                  <br />
-                  Let's make it happen together!
-                </p>
+                <p>{t("makeAppointmentDesc")}</p>
               </div>
               <button
                 className="btn btn-primary mt-8 w-fit md:mt-0"
                 onClick={openModal}
               >
-                Make an Appointment today!{" "}
+                {t("makeAppointmentToday")}{" "}
                 <ArrowLongRightIcon className="size-5" />
               </button>
             </div>
