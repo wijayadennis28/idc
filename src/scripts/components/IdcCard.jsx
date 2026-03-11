@@ -7,11 +7,11 @@ const IdcCard = ({ image, icon, title, description }) => {
       <div className="flex h-28 items-start">
         {/* Left: teal icon circle */}
         <div className="flex shrink-0 items-start p-5">
-          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary p-3">
+          <div className="flex h-14 w-14 items-center justify-center rounded-full">
             {icon ? (
-              <img src={icon} alt={title} className="h-full w-full object-contain brightness-0 invert" />
+              <img src={icon} alt={title} className="h-full w-full object-contain" />
             ) : (
-              <span className="text-xl text-white">●</span>
+              <span className="text-xl text-secondary">●</span>
             )}
           </div>
         </div>
