@@ -177,7 +177,7 @@ const ServiceDetails = () => {
               {testimonies.length < 3 && screenSize > 768 ? (
                 <div className="flex w-full flex-row-reverse justify-center gap-4 px-4 lg:gap-12">
                   {testimonies.map((testimony, index) => (
-                    <div className="card h-[520px] w-96 bg-primary text-white max-2xl:h-[480px]" key={index}>
+                    <div className="card h-[640px] w-96 bg-primary text-white max-2xl:h-[580px]" key={index}>
                       <figure className="h-1/2 w-full overflow-hidden">
                         <img src={testimony?.meta.photo} alt="patient image" />
                       </figure>
@@ -206,7 +206,7 @@ const ServiceDetails = () => {
                 >
                   {testimonies.map((testimony, index) => (
                     <SplideSlide key={index} className="max-sm:flex max-sm:w-screen max-sm:items-center max-sm:justify-center">
-                      <div className="card h-[520px] bg-primary text-white max-2xl:h-[480px] max-sm:w-[90vw]">
+                      <div className="card h-[640px] bg-primary text-white max-2xl:h-[580px] max-sm:w-[90vw]">
                         <figure className="h-1/2 w-full overflow-hidden">
                           <img src={testimony?.meta.photo} alt="patient image" />
                         </figure>
