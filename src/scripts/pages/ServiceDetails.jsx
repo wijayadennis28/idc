@@ -9,6 +9,13 @@ import PartnersList from "../components/PartnersList";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import useScreenSize from "../../utils/useScreenSize";
 import logoWithoutTextBig from "../../../assets/image/logo/logo-without-text-big.svg";
+
+import landscape1 from "../../../assets/image/cta/landscape-1.jpg";
+import landscape2 from "../../../assets/image/cta/landscape-2.jpg";
+import portrait1 from "../../../assets/image/cta/portrait-1.jpg";
+import portrait2 from "../../../assets/image/cta/portrait-2.jpg";
+import square from "../../../assets/image/cta/square.jpg";
+
 import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 
 import { useTranslation, Trans } from "react-i18next";
@@ -248,29 +255,29 @@ const ServiceDetails = () => {
               <div className="grid w-full grid-cols-3 gap-3">
                 <div />
                 <img
-                  src={logoWithoutTextBig}
+                  src={portrait1}
                   alt="placeholder"
-                  className="h-36 w-full rounded-xl object-cover"
+                  className="portrait h-64 w-full rounded-xl object-cover"
                 />
                 <img
-                  src={logoWithoutTextBig}
+                  src={square}
                   alt="placeholder"
-                  className="-mt-8 h-44 w-full rounded-xl object-cover"
+                  className="aspect-square w-3/4 self-end rounded-xl object-cover"
                 />
                 <img
-                  src={logoWithoutTextBig}
-                  alt="placeholder"
-                  className="h-36 w-full rounded-xl object-cover"
-                />
-                <img
-                  src={logoWithoutTextBig}
+                  src={landscape1}
                   alt="placeholder"
                   className="h-44 w-full rounded-xl object-cover"
                 />
                 <img
-                  src={logoWithoutTextBig}
+                  src={portrait2}
                   alt="placeholder"
-                  className="h-36 w-full rounded-xl object-cover"
+                  className="portrait h-80 w-full rounded-xl object-cover"
+                />
+                <img
+                  src={landscape2}
+                  alt="placeholder"
+                  className="h-44 w-full rounded-xl object-cover"
                 />
               </div>
             </div>
