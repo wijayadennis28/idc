@@ -243,7 +243,7 @@ const ServiceDetails = () => {
                 <p>{t("makeAppointmentDesc")}</p>
               </div>
               <button
-                className="btn btn-primary mt-8 w-fit md:mt-0"
+                className="btn btn-primary mt-8 w-fit self-center md:mt-0 md:self-start"
                 onClick={openModal}
               >
                 {t("makeAppointmentToday")}{" "}
