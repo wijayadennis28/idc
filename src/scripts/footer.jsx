@@ -106,7 +106,9 @@ const Footer = () => {
                     dangerouslySetInnerHTML={{ __html: address.address }}
                     className="pb-4 lg:pb-0"
                   />
-                  <p>{address.phone}</p>
+                  <a href={address.whatsapp} target="_blank" rel="noopener noreferrer">
+                    {address.phone}
+                  </a>
                 </div>
               ))}
             </div>
