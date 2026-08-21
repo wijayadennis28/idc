@@ -19,12 +19,14 @@ const Footer = () => {
       branch: t("branch.senayan"),
       address: "Jl. Hang Tuah Raya No.35,<br/>Kby. Baru, South Jakarta -12120",
       phone: "+62 812-808-0011",
+      whatsapp: "https://wa.me/628128080011",
     },
     {
       branch: t("branch.pluit"),
       address:
         "Ruko CBD Pluit No. B2,<br/>Jl. Pluit Selatan Raya, Penjaringan,<br/>North Jakarta City – 14440",
       phone: "+62 812-1818-6161",
+      whatsapp: "https://wa.me/6281218186161",
     },
   ];
 
