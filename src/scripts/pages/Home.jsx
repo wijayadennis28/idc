@@ -149,7 +149,7 @@ const Home = () => {
           <div className="bg-primary text-white lg:bg-transparent">
             <div className="relative z-20 flex flex-col gap-6 px-4 max-lg:-top-4 lg:absolute lg:inset-x-0 lg:bottom-0 lg:px-16 lg:pb-8">
               <span className="badge bg-[color:#FCFBFD] bg-opacity-70 p-4 uppercase">
-                Experience Dental Specialists
+                Experienced Dental Specialists
               </span>
               <div className="flex flex-col max-lg:gap-6 lg:flex-row">
                 <div className="flex flex-1 flex-col gap-6">
