@@ -66,7 +66,7 @@ const WhyChooseUs = () => {
         <div className="w-full overflow-hidden rounded-2xl shadow-md">
           <img
             src={AffordableCareImg}
-            alt="Affordable Care"
+            alt="Expertise Built on Trust"
             className="h-auto w-full object-contain"
           />
         </div>
