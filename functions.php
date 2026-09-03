@@ -148,8 +148,14 @@ add_filter('rest_doctors_query', function($args) {
   return $args;
 });
 
+add_filter('rest_clinic-equipments_query', function($args) {
+  $args['orderby'] = 'menu_order';
+  $args['order'] = 'ASC';
+  return $args;
+});
+
 function enable_page_attributes_for_custom_post_types() {
-  $post_types = ['services', 'doctors', 'partners']; 
+  $post_types = ['services', 'doctors', 'partners', 'clinic-equipments']; 
 
   foreach ($post_types as $post_type) {
       add_post_type_support($post_type, 'page-attributes'); // Enables menu_order

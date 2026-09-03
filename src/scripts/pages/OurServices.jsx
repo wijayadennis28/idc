@@ -36,23 +36,28 @@ const OurServices = () => {
   useEffect(() => {
     async function fetchEquipments() {
       try {
-        const response = await fetch(`${wpApiSettings.restUrl}wp/v2/clinic-equipments`);
-        const data = await response.json();
+        let page = 1;
+        let totalPages = 1;
+        let all = [];
 
-        const equipmentsWithMedia = await Promise.all(
-          data.map(async (equipment) => {
-            const mediaResponse = await fetch(
-              `${wpApiSettings.restUrl}wp/v2/media/${equipment.featured_media}`,
-            );
-            const mediaData = await mediaResponse.json();
-            return {
-              ...equipment,
-              imageUrl: mediaData.source_url,
-            };
-          }),
+        do {
+          const response = await fetch(
+            `${wpApiSettings.restUrl}wp/v2/clinic-equipments?per_page=100&_embed&page=${page}`,
+          );
+          if (!response.ok) throw new Error("Failed to fetch clinic equipments");
+          totalPages = Number(response.headers.get("X-WP-TotalPages")) || 1;
+          const data = await response.json();
+          all = all.concat(data);
+          page++;
+        } while (page <= totalPages);
+
+        setEquipments(
+          all.map((equipment) => ({
+            ...equipment,
+            imageUrl:
+              equipment._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "",
+          })),
         );
-
-        setEquipments(equipmentsWithMedia);
       } catch (error) {
         console.error("Error fetching clinic equipments:", error);
       } finally {
