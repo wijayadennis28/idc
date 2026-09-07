@@ -6,6 +6,7 @@ import timeline2003Img from "../../../assets/image/aboutus/timeline-2003.jpg";
 import timeline2007Img from "../../../assets/image/aboutus/timeline-2007.png";
 import timeline2012Img from "../../../assets/image/aboutus/timeline-2012.jpg";
 import timeline2023Img from "../../../assets/image/aboutus/timeline-2023.jpg";
+import timeline2026Img from "../../../assets/image/aboutus/timeline-2026.JPEG";
 
 import { useTranslation } from "react-i18next";
 import { use } from "i18next";
@@ -18,27 +19,32 @@ const Timeline = ({ setObserver, callback }) => {
   const [year3, setYear3] = useState("");
   const [year4, setYear4] = useState("");
   const [year5, setYear5] = useState("");
+  const [year6, setYear6] = useState("");
   const [image1, setImage1] = useState("");
   const [image2, setImage2] = useState("");
   const [image3, setImage3] = useState("");
   const [image4, setImage4] = useState("");
   const [image5, setImage5] = useState("");
+  const [image6, setImage6] = useState("");
   const [title1, setTitle1] = useState("");
   const [title2, setTitle2] = useState("");
   const [title3, setTitle3] = useState("");
   const [title4, setTitle4] = useState("");
   const [title5, setTitle5] = useState("");
+  const [title6, setTitle6] = useState("");
   const [desc1, setDesc1] = useState("");
   const [desc2, setDesc2] = useState("");
   const [desc3, setDesc3] = useState("");
   const [desc4, setDesc4] = useState("");
   const [desc5, setDesc5] = useState("");
+  const [desc6, setDesc6] = useState("");
 
   const [fadeIn1, setFadeIn1] = useState(false);
   const [fadeIn2, setFadeIn2] = useState(false);
   const [fadeIn3, setFadeIn3] = useState(false);
   const [fadeIn4, setFadeIn4] = useState(false);
   const [fadeIn5, setFadeIn5] = useState(false);
+  const [fadeIn6, setFadeIn6] = useState(false);
 
   const timeline1 = useRef(null);
   const timeline2 = useRef(null);
@@ -46,11 +52,13 @@ const Timeline = ({ setObserver, callback }) => {
   const timeline4 = useRef(null);
   const timeline5 = useRef(null);
   const timeline6 = useRef(null);
+  const timeline7 = useRef(null);
   const circle1 = useRef(null);
   const circle2 = useRef(null);
   const circle3 = useRef(null);
   const circle4 = useRef(null);
   const circle5 = useRef(null);
+  const circle6 = useRef(null);
 
   const someCallback = () => {
     setYear1("2001");
@@ -92,6 +100,14 @@ const Timeline = ({ setObserver, callback }) => {
     setFadeIn5(true); // Trigger fade-in animation for the second section
   };
 
+  const someCallback6 = () => {
+    setYear6("2026");
+    setImage6(timeline2026Img);
+    setTitle6(t("timeline.item6.title"));
+    setDesc6(t("timeline.item6.description"));
+    setFadeIn6(true); // Trigger fade-in animation for the second section
+  };
+
   useEffect(() => {
     setObserver(timeline1.current);
     setObserver(timeline2.current);
@@ -99,11 +115,13 @@ const Timeline = ({ setObserver, callback }) => {
     setObserver(timeline4.current);
     setObserver(timeline5.current);
     setObserver(timeline6.current);
+    setObserver(timeline7.current);
     setObserver(circle1.current, someCallback);
     setObserver(circle2.current, someCallback2);
     setObserver(circle3.current, someCallback3);
     setObserver(circle4.current, someCallback4);
     setObserver(circle5.current, someCallback5);
+    setObserver(circle6.current, someCallback6);
   }, []);
 
   useEffect(() => {
@@ -117,6 +135,8 @@ const Timeline = ({ setObserver, callback }) => {
     setDesc4(t("timeline.item4.description"));
     setTitle5(t("timeline.item5.title"));
     setDesc5(t("timeline.item5.description"));
+    setTitle6(t("timeline.item6.title"));
+    setDesc6(t("timeline.item6.description"));
   }, [i18n.language]);
 
   return (
@@ -270,6 +290,36 @@ const Timeline = ({ setObserver, callback }) => {
       <div
         id="timeline6"
         ref={timeline6}
+        className="h-[410px] w-[1px] md:h-[320px] lg:h-[270px]"
+      />
+      <div className="circleWrapper gap-4 lg:gap-8">
+        <div id="circle6" ref={circle6} className="circle"></div>
+        <div
+          className={`flex items-center gap-4 duration-700 lg:gap-8 ${fadeIn6 ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+        >
+          <p className={`font-bold text-primary transition-opacity`}>{year6}</p>
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 md:gap-8 lg:flex-nowrap lg:gap-8 p-4">
+            <div className="relative h-[150px] md:h-[200px] w-full max-w-[300px] overflow-hidden">
+              <img
+                src={image6}
+                className="h-full w-full object-cover"
+                alt={t("timelineImage.timelineImageAlt6")}
+              />
+              <div className="absolute inset-x-0 top-0 h-[50px] bg-gradient-to-b from-white to-transparent"></div>
+              <div className="absolute inset-x-0 bottom-0 h-[50px] bg-gradient-to-t from-white to-transparent"></div>
+              <div className="absolute inset-y-0 left-0 w-[50px] bg-gradient-to-r from-white to-transparent"></div>
+              <div className="absolute inset-y-0 right-0 w-[50px] bg-gradient-to-l from-white to-transparent"></div>
+            </div>
+            <div className="description-block flex flex-col gap-2 transition-opacity lg:gap-2">
+              <h5 className="text-primary text-lg font-semibold">{title6}</h5>
+              <p className="description-text text-sm leading-relaxed">{desc6}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="timeline7"
+        ref={timeline7}
         className="h-[293px] w-[1px] md:h-60 lg:h-52"
       />
     </div>

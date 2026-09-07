@@ -1,42 +1,19 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import useBranches from "../../utils/useBranches";
 
 const Branches = ({ showTitle = false, btnColor = "primary" }) => {
   const { t } = useTranslation();
-  const branches = [
-    {
-      id: "wa-senayan",
-      name: t("branch.senayan"),
-      address: "Jl. Hang Tuah Raya No.35, Kby. Baru, South Jakarta - 12120",
-      schedule: [
-        t("schedule.list.weekday"),
-        t("schedule.list.saturday"),
-        t("schedule.list.sunday"),
-      ],
-      phone: "+628128080011",
-      phoneLabel: "Senayan",
-      mapSrc:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2281968094794!2d106.79508307575067!3d-6.2336209937545455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1d91cc5e8e4f%3A0x482830c08a46f6e2!2sINDO%20DENTAL%20CENTER%20-%20Klinik%20Gigi%20Spesialis!5e0!3m2!1sen!2sid!4v1729369270940!5m2!1sen!2sid.",
-    },
-    {
-      id: "wa-pluit",
-      name: t("branch.pluit"),
-      address:
-        "Ruko CBD Pluit No. B2, Jl. Pluit Selatan Raya, Penjaringan, North Jakarta City - 14440",
-      schedule: [t("schedule.list.weekday"), t("schedule.list.saturday")],
-      phone: "+6281218186161",
-      phoneLabel: "Pluit",
-      mapSrc:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0180537971087!2d106.78734657575!3d-6.128272493858513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1d6bd3175651%3A0xea7f602f2981257!2sINDO%20DENTAL%20CENTER%20-%20Klinik%20Gigi%20Spesialis!5e0!3m2!1sen!2sid!4v1729369350556!5m2!1sen!2sid",
-    },
-  ];
+  const { branches, isLoading } = useBranches();
+
+  if (isLoading) return null;
 
   return (
     <div id="branches" className="flex flex-col gap-8">
       {showTitle && <h4>{t("address")}</h4>}
-      {branches.map((branch, index) => (
+      {branches.map((branch) => (
         <div
-          key={index}
+          key={branch.slug || branch.id}
           className="flex flex-col gap-8 overflow-hidden bg-white lg:flex-row lg:gap-4"
         >
           <div className="h-fit w-full rounded-2xl bg-gray-100 p-4 lg:w-1/3">
@@ -58,7 +35,7 @@ const Branches = ({ showTitle = false, btnColor = "primary" }) => {
                   : "btn-primary"
               }`}
               onClick={() => {
-                window.open(`https://wa.me/${branch.phone}`, "_blank");
+                window.open(branch.whatsapp, "_blank");
               }}
             >
               <svg

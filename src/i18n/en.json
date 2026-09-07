@@ -24,7 +24,8 @@
     "timelineImageAlt2": "Our Clinic Image in 2003",
     "timelineImageAlt3": "Our Clinic Image in 2007",
     "timelineImageAlt4": "Our Clinic Image in 2012",
-    "timelineImageAlt5": "Our Clinic Image in 2023"
+    "timelineImageAlt5": "Our Clinic Image in 2023",
+    "timelineImageAlt6": "Our Clinic Image in 2026"
   },
   "pages": {
     "home": "Home",
@@ -110,6 +111,10 @@
     "item5": {
       "title": "In August 2023, Indo Dental Center settled in Hang Tuah, South Jakarta",
       "description": "We are proud to have been serving the community for over 23 years and treating more than 4,000 patients annually. We are ready to become your One-Stop Family Dental Center!"
+    },
+      "item6": {
+      "title": "In 2026, Indo Dental Center added a new branch in Senayan, South Jakarta",
+      "description": "Built on expertise and sustained by trust, Indo Dental Center proudly opened its newest branch at Siloam Specialist Center in 2026."
     }
   },
   "address": "Address",

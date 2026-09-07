@@ -24,7 +24,8 @@
     "timelineImageAlt2": "Gambar Klinik Kami di 2003",
     "timelineImageAlt3": "Gambar Klinik Kami di 2007",
     "timelineImageAlt4": "Gambar Klinik Kami di 2012",
-    "timelineImageAlt5": "Gambar Klinik Kami di 2023"
+    "timelineImageAlt5": "Gambar Klinik Kami di 2023",
+    "timelineImageAlt6": "Gambar Klinik Kami di 2026"
   },
   "pages": {
     "home": "Beranda",
@@ -109,6 +110,10 @@
     "item5": {
       "title": "Agustus 2023, Indo Dental Center Resmi Berada di Hang Tuah, Jakarta Selatan",
       "description": "Kami bangga telah melayani masyarakat selama lebih dari 23 tahun dan merawat lebih dari 4.000 pasien setiap tahunnya. Kami siap menjadi One-Stop Family Dental Center untuk Anda!"
+    },
+    "item6": {
+      "title": "Pada 2026, Indo Dental Center Menambahkan Cabang Baru di Senayan, Jakarta Selatan",
+      "description": "Dibangun atas keahlian dan tumbuh melalui kepercayaan pasien selama bertahun-tahun, Indo Dental Center memperluas pelayanannya dengan membuka cabang baru di Siloam Specialist Center pada tahun 2026."
     }
   },
   "address": "Alamat",

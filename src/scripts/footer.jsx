@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import useBranches from "../utils/useBranches";
 
 import Logo from "../../assets/image/logo/logo.png";
 
@@ -11,24 +12,9 @@ const path = `${wpApiSettings.homeUrl}`;
 
 const Footer = () => {
   const { t } = useTranslation();
+  const { branches: addressList } = useBranches();
 
   const year = new Date().getFullYear();
-
-  const addressList = [
-    {
-      branch: t("branch.senayan"),
-      address: "Jl. Hang Tuah Raya No.35,<br/>Kby. Baru, South Jakarta -12120",
-      phone: "+62 812-808-0011",
-      whatsapp: "https://wa.me/628128080011",
-    },
-    {
-      branch: t("branch.pluit"),
-      address:
-        "Ruko CBD Pluit No. B2,<br/>Jl. Pluit Selatan Raya, Penjaringan,<br/>North Jakarta City – 14440",
-      phone: "+62 812-1818-6161",
-      whatsapp: "https://wa.me/6281218186161",
-    },
-  ];
 
   const link = [
     {
@@ -94,18 +80,15 @@ const Footer = () => {
         <div className="flex flex-col gap-4 lg:flex-row lg:gap-0">
           <div className="flex flex-1 flex-col gap-4 pb-4 lg:gap-0 lg:pb-0">
             <div className="flex flex-1 flex-col gap-8 lg:flex-row lg:gap-16">
-              {addressList.map((address, index) => (
+              {addressList.map((address) => (
                 <div
-                  key={index}
-                  className="flex flex-col gap-0 text-lg lg:gap-4"
+                  key={address.slug || address.id}
+                  className="flex min-w-0 flex-1 basis-0 flex-col gap-0 text-lg lg:gap-4"
                 >
                   <h6 className="text-xl font-bold lg:text-base 2xl:text-lg">
-                    {address.branch}
+                    {address.name}
                   </h6>
-                  <p
-                    dangerouslySetInnerHTML={{ __html: address.address }}
-                    className="pb-4 lg:pb-0"
-                  />
+                  <p className="pb-4 lg:pb-0">{address.address}</p>
                   <a href={address.whatsapp} target="_blank" rel="noopener noreferrer">
                     {address.phone}
                   </a>

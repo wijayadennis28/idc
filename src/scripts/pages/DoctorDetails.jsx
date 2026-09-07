@@ -5,11 +5,13 @@ import DoctorDummyImage from "../../../assets/image/doctors/dr-michael.jpg";
 import { MapPinIcon } from "@heroicons/react/24/outline";
 import Loading from "../components/Loading";
 import { useTranslation } from "react-i18next";
+import useBranches from "../../utils/useBranches";
 
 const DoctorDetails = () => {
   const { t } = useTranslation();
   const [doctor, setDoctor] = useState(null);
   const [modal, setModal] = useState({ show: false, title: "", imageUrl: "" });
+  const { branches } = useBranches();
 
   useEffect(() => {
     getDoctor().catch(console.error);
@@ -27,6 +29,12 @@ const DoctorDetails = () => {
   };
 
   if (!doctor) return <Loading />;
+
+  const assigned = branches.filter((b) =>
+    b.doctorIds.includes(String(doctor.id)),
+  );
+  const visibleBranches =
+    assigned.length > 0 ? assigned : branches.slice(0, 3);
 
   return (
     <div className="flex flex-col gap-8">
@@ -153,49 +161,25 @@ const DoctorDetails = () => {
           </div>
           <div className="flex flex-col gap-2">
             <h4 className="font-normal text-primary">{t("Location")}</h4>
-            <div className="flex flex-col gap-2 p-4">
-              <div className="flex items-center gap-2">
-                <MapPinIcon className="size-6" />
-                <p className="font-bold">
-                  Indo Dental Center - {t("branch.senayan")}
-                </p>
+            {visibleBranches.map((branch) => (
+              <div key={branch.slug || branch.id} className="flex flex-col gap-2 p-4">
+                <div className="flex items-center gap-2">
+                  <MapPinIcon className="size-6" />
+                  <p className="font-bold">
+                    Indo Dental Center - {branch.name}
+                  </p>
+                </div>
+                <div className="divider my-0"></div>
+                <p className="text-[#4D4757]">{branch.address}</p>
+                <button
+                  id={`doctor-whatsapp-${branch.slug || branch.rawId}`}
+                  className="btn btn-primary w-full"
+                  onClick={() => window.open(branch.whatsapp, "_blank")}
+                >
+                  {t("makeAppointment")}
+                </button>
               </div>
-              <div className="divider my-0"></div>
-              <p className="text-[#4D4757]">
-                Jl. Hang Tuah Raya No.35, Kby. Baru, South Jakarta - 12120
-              </p>
-              <button
-                id="doctor-whatsapp-senayan"
-                className="btn btn-primary w-full"
-                onClick={() =>
-                  window.open("https://wa.me/+628128080011", "_blank")
-                }
-              >
-                {t("makeAppointment")}
-              </button>
-            </div>
-            <div className="flex flex-col gap-2 p-4">
-              <div className="flex items-center gap-2">
-                <MapPinIcon className="size-6" />
-                <p className="font-bold">
-                  Indo Dental Center - {t("branch.pluit")}
-                </p>
-              </div>
-              <div className="divider my-0"></div>
-              <p className="text-[#4D4757]">
-                Ruko CBD Pluit No. B2, Jl. Pluit Selatan Raya, Penjaringan,
-                North Jakarta City - 14440
-              </p>
-              <button
-                id="doctor-whatsapp-pluit"
-                className="btn btn-primary w-full"
-                onClick={() =>
-                  window.open("https://wa.me/+6281218186161", "_blank")
-                }
-              >
-                {t("makeAppointment")}
-              </button>
-            </div>
+            ))}
           </div>
         </div>
       </div>
